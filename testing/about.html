@@ -446,7 +446,7 @@ Autodesk Revit
                            <h2>05</h2>
                         </div>
                         <div class="text">
-                           <h3>Certificates</h3>
+                           <h3 id="texthere"></h3>
                            <p>
 NUS: DSBE001x Data Science for Construction, Architecture and Engineering
 <br>
@@ -548,5 +548,19 @@ NUS: DSBE001x Data Science for Construction, Architecture and Engineering
            
          });
          </script>
+		          <script>
+    var txtFile = new XMLHttpRequest();
+    var allText = "file not found";
+    txtFile.onreadystatechange = function () {
+        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+            allText = txtFile.responseText;
+            allText = allText.split("\n").join("<br>");
+        }
+
+        document.getElementById('texthere').innerHTML = allText;
+    }
+    txtFile.open("GET", '/file.txt', true);
+    txtFile.send(null);
+            </script>
    </body>
 </html>
