@@ -366,35 +366,34 @@
     
         </script>
     
-
 <script>
-var txtFile = new XMLHttpRequest();
+var txtFile01 = new XMLHttpRequest();
 var allText = "file not found";
-txtFile.onreadystatechange = function () {
-	if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
-		allText = txtFile.responseText;
+txtFile01.onreadystatechange = function () {
+	if (txtFile01.readyState === XMLHttpRequest.DONE && txtFile01.status == 200) {
+		allText = txtFile01.responseText;
 		allText = allText.split("\n").join("<br>");
 	}
 
 	document.getElementById('text01').innerHTML = allText;
 }
-txtFile.open("GET", './text/01.txt', true);
-txtFile.send(null);
+txtFile01.open("GET", './text/01.txt', true);
+txtFile01.send(null);
 </script>
 
 <script>
-    var txtFile = new XMLHttpRequest();
+    var txtFile02 = new XMLHttpRequest();
     var allText = "file not found";
-    txtFile.onreadystatechange = function () {
-        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+    txtFile02.onreadystatechange = function () {
+        if (txtFile02.readyState === XMLHttpRequest.DONE && txtFile02.status == 200) {
             allText = txtFile.responseText;
             allText = allText.split("\n").join("<br>");
         }
     
         document.getElementById('text02').innerHTML = allText;
     }
-    txtFile.open("GET", './text/02.txt', true);
-    txtFile.send(null);
+    txtFile02.open("GET", './text/02.txt', true);
+    txtFile02.send(null);
     </script>
 
 <script>
