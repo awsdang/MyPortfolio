@@ -386,7 +386,7 @@ txtFile01.send(null);
     var allText = "file not found";
     txtFile02.onreadystatechange = function () {
         if (txtFile02.readyState === XMLHttpRequest.DONE && txtFile02.status == 200) {
-            allText = txtFile.responseText;
+            allText = txtFile02.responseText;
             allText = allText.split("\n").join("<br>");
         }
     
