@@ -31,6 +31,6 @@ txtFile01.onreadystatechange = function () {
 	
 	
 }
-txtFile01.open("GET", 'www.awsdang.com/assets/work/text/text.txt', true);
+txtFile01.open("GET", 'https://awsdang.com/assets/work/text/text.txt', true);
 txtFile01.send(null);
 
