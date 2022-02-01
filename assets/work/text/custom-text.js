@@ -26,6 +26,8 @@ txtFile01.onreadystatechange = function () {
 	document.getElementById('alriyadyear02').innerHTML = allText[19];
 	document.getElementById('alriyadtext03').innerHTML = allText[20];
 	document.getElementById('alriyadyear03').innerHTML = allText[21];
+        document.getElementById('alriyadtext04').innerHTML = allText[22];
+	document.getElementById('alriyadyear04').innerHTML = allText[23];
 	
 	
 }
