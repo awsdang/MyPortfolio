@@ -375,9 +375,9 @@ txtFile01.onreadystatechange = function () {
 		allText = allText.split("\n").join("<br>");
 	}
 
-	document.getElementById('text01').innerHTML = allText;
-	document.getElementById('text02').innerHTML = allText;
-	document.getElementById('text03').innerHTML = allText;
+	document.getElementById('text01').innerHTML = txt[1];
+	document.getElementById('text02').innerHTML = txt[2];
+	document.getElementById('text03').innerHTML = txt[3];
 }
 txtFile01.open("GET", './text/01.txt', true);
 txtFile01.send(null);
