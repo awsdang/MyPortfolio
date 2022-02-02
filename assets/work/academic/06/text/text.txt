@@ -1,0 +1,9 @@
+Academic Projects
+Grasshopper: Some nodes I made
+Grasshopper: Some nodes I made
+After finishing with Module 3 of BIMA+, I knew I had to futher deepen my knowledge in visual scripting, thus I decided to try Grasshopper 
+I knew about it but never had the chance to use it, thus I have made several geometric scripts in Grasshopper and I am happy with the results
+Node -01-
+Node -02-
+Node -03-
+Node -04-

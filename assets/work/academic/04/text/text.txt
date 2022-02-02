@@ -1,0 +1,8 @@
+Academic Projects
+GHD1x: Global Housing Design
+edX: GHD1x: Global Housing Design, Delft University of Technology. Final Assignment
+A short Course that I took that focuses on housing problems, although the challenges seem globally similar, however, they cannot be solved with a one-size-fits-all approach.
+I learnt 3 concepts in this class: Incrementality, Typology Mix, Clustering.
+Housing Site Sheet
+Incrementality Sheet
+Detail Design Sheet

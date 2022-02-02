@@ -1,0 +1,16 @@
+Academic Projects
+BIMA+ Module 3 Final Project
+BIMA+ Module 3 Final Project
+My goal in that assignment was to further deepen my knowledge in geometry creation and optimization by trying to create a ruplicate a complex geometry and edit on top of it.
+I also tried to learn different solutions for geometric creating as a way to diverse my software skills for future professional aspects.
+Final Result
+Mass Parameteres in Action
+Detailed Mass in Action
+Detailed Facade in Action
+Reference Analysis
+Reference Analysis
+Reference Analysis
+Reference Analysis
+Final Generative Design Results
+Mass Generative Design Results
+Full Code
