@@ -1,0 +1,156 @@
+.font-justify {
+text-align: justify;
+}
+
+
+
+
+  
+.me25 > div {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  line-height: 46px;
+  border-radius: 50%;
+  background-color: #212428;
+  color: var(--color-light);
+  text-align: center;
+  z-index: 999 !important;
+  box-shadow: var(--shadow-1); }
+  @media only screen and (max-width: 575px) {
+    .me25 > div {
+      bottom: 50px;
+      right: 30px; } }
+  .me25 > div:hover::after {
+    opacity: 1; }
+  .me25 > div::after {
+    content: '';
+    position: absolute;
+    transition: var(--transition);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right bottom, #212428, #16181c);
+    opacity: 0;
+    z-index: -1; }
+
+
+
+    .white-version .me25 > div {
+      background-color: var(--color-white);
+      box-shadow: var(--shadow-white-3);
+      color: var(--color-primary); }
+      
+    
+
+      .white-version .me25 > div:hover { 
+        color: var(---color-light);}
+
+    .white-version .me25 > div::after {
+      transition: var(--transition);
+      background: var(--gradient-red-hover); 
+      color: var(---color-white);}
+    
+      
+    .white-version .me25 > div {
+     
+      background-color: var(--gradient-box-w);
+      text-align: center;
+      z-index: 999 !important;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+      .white-version .me25 > div::after {
+        background: var(--gradient-red-hover); }
+      .white-version .me25 > div:hover {
+        color: var(--color-white); }
+    .white-version .me25 > div  {
+      color: var(--color-primary); }
+  
+   
+/*===========================
+        11.WORK
+=============================*/
+
+
+.rn-nav-filter {
+  border: 0 none;
+  border-radius: 10px;
+  background: var(--background-color-1);
+  box-shadow: var(--shadow-1);
+  justify-content: space-between; }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .rn-nav-filter {
+      margin-top: 0; } }
+  @media only screen and (max-width: 767px) {
+    .rn-nav-filter {
+      margin-top: 0; } }
+  @media only screen and (max-width: 575px) {
+    .rn-nav-filter {
+      margin-top: 0; } }
+  .rn-nav-filter .nav-item {
+    flex-basis: 16%;
+    text-align: center;
+    margin-top: 0; }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .rn-nav-filter .nav-item {
+        flex-basis: 33%; 
+      } }
+    @media only screen and (max-width: 767px) {
+      .rn-nav-filter .nav-item {
+        flex-basis: 50%; } }
+    @media only screen and (max-width: 575px) {
+      .rn-nav-filter .nav-item {
+        flex-basis: 100%; } }
+    @media only screen and (max-width: 479px) {
+      .rn-nav-filter .nav-item {
+        flex-basis: 100%; } }
+    .rn-nav-filter .nav-item .nav-link {
+      color: #c4cfde;
+      font-family: var(--font-primary);
+      padding: 30px 10px;
+      text-transform: capitalize;
+      font-size: var(--font-size-b1);
+      font-weight: 500;
+      outline: none;
+      border: 0 none;
+      transition: all .5s;
+      background: transparent;
+      border-radius: 10px; }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .rn-nav-filter .nav-item .nav-link {
+          padding: 25px 7px;
+          font-size: 14px; } }
+      @media only screen and (max-width: 767px) {
+        .rn-nav-filter .nav-item .nav-link {
+          padding: 30px 6px;
+          padding: 18px 6px;
+          font-size: 13px; } }
+      @media only screen and (max-width: 767px) {
+        .rn-nav-filter .nav-item .nav-link {
+          font-size: 18px; } }
+      .rn-nav-filter .nav-item .nav-link:hover, .rn-nav-filter .nav-item .nav-link.active {
+        color: #ff014f;
+        background-color: transparent;
+        border-color: transparent;
+        border: 0 none;
+        background: var(--background-color-1);
+        box-shadow: var(--shadow-1); }
+
+        .white-version .rn-resume-area .rn-nav-filter {
+          background: var(--gradient-box-w);
+          box-shadow: var(--shadow-white-3); }
+          .white-version .rn-resume-area .rn-nav-filter .nav-item .nav-link {
+            color: var(--color-heading-wv); }
+            .white-version .rn-resume-area .rn-nav-filter .nav-item .nav-link.active {
+              background: var(--gradient-box-w);
+              box-shadow: var(--shadow-white-3);
+              color: var(--color-primary); }
+            .white-version .rn-resume-area .rn-nav-filter .nav-item .nav-link:hover {
+              background: var(--gradient-box-w);
+              box-shadow: var(--shadow-white-3);
+              color: var(--color-primary); }
