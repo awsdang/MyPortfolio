@@ -4407,7 +4407,7 @@ Background Image
  }
 
 .bg_image--1 {
-  background-image: url(../image/slide_1.jpg); 
+  background-image: url(https://awsdang.com/assets/Image/slide_1.jpg); 
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -4417,7 +4417,7 @@ Background Image
 }
 
 .bg_image--2 {
-  background-image: url(../image/slide_2.gif);
+  background-image: url(https://awsdang.com/assets/Image/slide_2.gif);
 
   background-repeat: no-repeat;
   background-size: cover;
