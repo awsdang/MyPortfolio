@@ -44,7 +44,48 @@ txtFile01.onreadystatechange = function () {
 	document.getElementById('freeyear07').innerHTML = allText[37];
 	document.getElementById('freetext08').innerHTML = allText[38];
 	document.getElementById('freeyear08').innerHTML = allText[39];
-	
+	document.getElementById('mutaatext01').innerHTML = allText[40];
+	document.getElementById('mutaayear01').innerHTML = allText[41];
+	document.getElementById('mutaatext02').innerHTML = allText[42];
+	document.getElementById('mutaayear02').innerHTML = allText[43];
+	document.getElementById('mutaatext03').innerHTML = allText[44];
+	document.getElementById('mutaayear03').innerHTML = allText[45];
+	document.getElementById('mutaatext04').innerHTML = allText[46];
+	document.getElementById('mutaayear04').innerHTML = allText[47];
+	document.getElementById('mutaatext05').innerHTML = allText[48];
+	document.getElementById('mutaayear05').innerHTML = allText[49];
+	document.getElementById('mutaatext06').innerHTML = allText[50];
+	document.getElementById('mutaayear06').innerHTML = allText[51];
+	document.getElementById('mutaatext07').innerHTML = allText[52];
+	document.getElementById('mutaayear07').innerHTML = allText[53];
+	document.getElementById('mutaatext08').innerHTML = allText[54];
+	document.getElementById('mutaayear08').innerHTML = allText[55];
+	document.getElementById('mutaatext09').innerHTML = allText[56];
+	document.getElementById('mutaayear09').innerHTML = allText[57];
+	document.getElementById('mutaatext10').innerHTML = allText[58];
+	document.getElementById('mutaayear10').innerHTML = allText[59];
+	document.getElementById('mutaatext11').innerHTML = allText[60];
+	document.getElementById('mutaayear11').innerHTML = allText[61];
+	document.getElementById('mutaatext12').innerHTML = allText[62];
+	document.getElementById('mutaayear12').innerHTML = allText[63];
+	document.getElementById('mutaatext13').innerHTML = allText[64];
+	document.getElementById('mutaayear13').innerHTML = allText[65];
+	document.getElementById('mutaatext14').innerHTML = allText[66];
+	document.getElementById('mutaayear14').innerHTML = allText[67];
+	document.getElementById('mutaatext15').innerHTML = allText[68];
+	document.getElementById('mutaayear15').innerHTML = allText[69];
+	document.getElementById('mutaatext16').innerHTML = allText[70];
+	document.getElementById('mutaayear16').innerHTML = allText[71];
+	document.getElementById('mutaatext17').innerHTML = allText[72];
+	document.getElementById('mutaayear17').innerHTML = allText[73];
+	document.getElementById('mutaatext18').innerHTML = allText[74];
+	document.getElementById('mutaayear18').innerHTML = allText[75];
+	document.getElementById('mutaatext19').innerHTML = allText[76];
+	document.getElementById('mutaayear19').innerHTML = allText[77];
+	document.getElementById('mutaatext20').innerHTML = allText[78];
+	document.getElementById('mutaayear20').innerHTML = allText[79];
+
+
 }
 txtFile01.open("GET", 'https://awsdang.com/assets/work/text/text.txt', true);
 txtFile01.send(null);
