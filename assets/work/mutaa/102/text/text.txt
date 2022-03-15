@@ -1,0 +1,9 @@
+Mutaa Al-Hashimi
+Staircase Chandelier
+Staircase Chandelier
+I designed a chandelier using Scripting methods for the concept mass. I have also designed the structure for it, I worked on the details to of the 1.2m diameter and 11m height chandelier.
+I designed it to fit the quadruple volume of the staircase. The stepped cylinders follows the viewer while they go up the stairs and give different views enjoying the Chandelier.
+Chandelier 3D Visualization
+Chandelier 3D mass
+Chandelier Top View
+Chandelier Structural Frame
