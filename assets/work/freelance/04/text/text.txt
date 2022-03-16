@@ -1,9 +1,9 @@
 Freelance Projects
-Al-Najaf Mall
-Al-Najaf Mall
-A mall project in Al-Najaf that I worked on the interior design as well as the presentation for the exterior and interior for this project.
-My Main work was the 4 minutes 3D animation for the exterior and the interior of the mall including video editing using Adobe Premiere Pro.
+Visualization for Al-Najaf Mall
+Visualization for Al-Najaf Mall
+A mall project in Al-Najaf I worked on the presentation for the exterior and interior for this project. I worked on 3D animations as well as 3D rendering still images and its post processing
+My Main work was 4 minutes 3D animation for the exterior and the interior of the mall including video editing using Adobe Premiere Pro.
 Rendering: The Exterior Site
 Rendering: The Main Lobby
-Rendering: Interior for the administration Office
+Rendering: Interior for an Office
 Animation
