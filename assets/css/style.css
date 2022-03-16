@@ -5054,7 +5054,7 @@ textarea:-ms-input-placeholder {
   right: 0;
   background: rgba(0, 0, 0, 0.8);
   opacity: 0;
-  transition: all ease 500ms; }
+  transition: all ease 300ms; }
 
 .video-overlay.open {
   position: fixed;
