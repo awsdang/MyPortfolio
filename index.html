@@ -549,7 +549,7 @@
     </main>
 
     <!-- Rn footer area Start -->
-    <div id="footer" class="rn-footer-area footer-style-2 section-separator">
+    <div id="footer" class="rn-footer-area footer-style-2 section-separator mt--40">
 
         <div class="copyright text-center ptb--40 section-separator">
             <p class="description">© 2022. All rights reserved. <a target="_blank" href="./index.html">Aws
@@ -573,21 +573,18 @@
     <script src="./assets/js/isotope.pkgd.min.js"></script>
     <script src="./assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="./assets/js/custom.js"></script>
-    <script src="./assets/work/text/custom-text.js"></script>
-
-
 
     <script>
 
         const btn = document.querySelector(".me23");
         btn.addEventListener("click",
             function () {
-                if (document.getElementById("MyElement").className === "button-style spybody template-color-1") {
-                    document.getElementById('MyElement').className = "button-style spybody white-version";
+                if (document.getElementById("MyElement").className === "template-color-1 home-classic spybody") {
+                    document.getElementById('MyElement').className = "white-version home-classic spybody";
                     document.getElementById('hehe').className = "fas fa-moon";
                 }
-                else if (document.getElementById("MyElement").className === "button-style spybody white-version") {
-                    document.getElementById('MyElement').className = "button-style spybody template-color-1";
+                else if (document.getElementById("MyElement").className === "white-version home-classic spybody") {
+                    document.getElementById('MyElement').className = "template-color-1 home-classic spybody";
                     document.getElementById('hehe').className = "fas fa-lightbulb"
                 }
             })
