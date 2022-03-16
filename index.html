@@ -431,7 +431,7 @@
                 <div class="row">
 
                     <!-- Start Single Service -->
-                    <div id="soft"  data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true"
+                    <div id="soft" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true"
                         class="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--20">
                         <div class="rn-service">
                             <div class="inner">
@@ -454,7 +454,7 @@
                     </div>
                     <!-- End Single Service -->
                     <!-- Start Single Service -->
-                    <div id="arch"  data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true"
+                    <div id="arch" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true"
                         class="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--20">
                         <div class="rn-service">
                             <div class="inner">
@@ -478,7 +478,7 @@
                     </div>
                     <!-- End Single Service -->
                     <!-- Start Single Service -->
-                    <div id="bim"  data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true"
+                    <div id="bim" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true"
                         class="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--20">
                         <div class="rn-service">
                             <div class="inner">
@@ -501,7 +501,7 @@
                     </div>
                     <!-- End Single Service -->
                     <!-- Start Single Service -->
-                    <div id="app"  data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true"
+                    <div id="app" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true"
                         class="col-lg-6 col-xl-6 col-md-6 mt--50 mt_md--30 mt_sm--20">
                         <div class="rn-service">
                             <div class="inner">
@@ -538,13 +538,13 @@
         </div>
         <!-- Back to top end -->
 
-        <!--Start Dark/Light Button-->
-        <div class="me25 me23">
-            <div>
-                <i id="hehe" class="me23 fas fa-lightbulb"></i>
-            </div>
+      <!--Start Dark/Light Button-->
+      <div class="me25 me23">
+        <div>
+            <i id="hehe" class="me23 fas fa-lightbulb"></i>
         </div>
-        <!--End Dark/Light Button-->
+    </div>
+    <!--End Dark/Light Button-->
 
     </main>
 
@@ -552,9 +552,12 @@
     <div id="footer" class="rn-footer-area footer-style-2 section-separator">
 
         <div class="copyright text-center ptb--40 section-separator">
-            <p class="description">© 2022. All rights reserved. <a target="_blank" href="./index.html">Aws Abdulfattah.</a></p>
-            <p class="a-message">I am proud of what I have done, it made realize that developing Websites isn't easy, I'm noob, please contact me for suggestion to improve my website</p></div>
+            <p class="description">© 2022. All rights reserved. <a target="_blank" href="./index.html">Aws
+                    Abdulfattah.</a></p>
+            <p class="a-message">I am proud of what I have done, it made realize that developing Websites isn't easy,
+                I'm noob, please contact me for suggestion to improve my website</p>
         </div>
+    </div>
     <!-- Rn footer area end -->
     <!-- JS ============================================ -->
     <script src="./assets/js/vendor/jquery.js"></script>
@@ -574,22 +577,19 @@
 
 
     <script>
-
         const btn = document.querySelector(".me23");
         btn.addEventListener("click",
             function () {
-                if (document.getElementById("MyElement").className === "template-color-1 home-classic spybody") {
-                    document.getElementById('MyElement').className = "white-version home-classic spybody"
+                if (document.getElementById("MyElement").className === "button-style spybody template-color-1") {
+                    document.getElementById('MyElement').className = "button-style spybody white-version";
+                    document.getElementById('hehe').className = "fas fa-moon";
                 }
-                else if (document.getElementById("MyElement").className === "white-version home-classic spybody") {
-                    document.getElementById('MyElement').className = "template-color-1 home-classic spybody"
+                else if (document.getElementById("MyElement").className === "button-style spybody white-version") {
+                    document.getElementById('MyElement').className = "button-style spybody template-color-1";
+                    document.getElementById('hehe').className = "fas fa-lightbulb"
                 }
-
-            })
-
+            });
     </script>
-
-
 
     <script>
 
