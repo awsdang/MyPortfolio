@@ -7791,8 +7791,8 @@ body.template-color-1 {
   padding: 0; }
 
 .header-wrapper {
-  height: 122px;
-  padding: 0 64px; }
+  height: 130px;
+  padding: 0 30px; }
   @media only screen and (min-width: 1200px) and (max-width: 1599px) {
     .header-wrapper {
       padding: 0 30px; } }
@@ -7804,14 +7804,13 @@ body.template-color-1 {
       padding: 0 30px; } }
   @media only screen and (max-width: 767px) {
     .header-wrapper {
-      padding: 0 20px;
-      height: 80px; } }
+      padding: 0 20px; } }
   @media only screen and (max-width: 575px) {
     .header-wrapper {
-      padding: 0 3px; } }
+      padding: 0 20px; } }
   @media only screen and (max-width: 479px) {
     .header-wrapper {
-      padding: 0; } }
+      padding: 0 20px; } }
   .header-wrapper .header-left {
     flex-basis: 20%;
     justify-content: flex-start;
