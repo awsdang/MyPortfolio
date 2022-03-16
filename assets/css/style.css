@@ -4407,7 +4407,7 @@ Background Image
  }
 
 .bg_image--1 {
-  background-image: url(https://awsdang.com/assets/Image/slide_1.jpg); 
+  background-image: url(../Image/slide_1.jpg); 
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -4417,7 +4417,7 @@ Background Image
 }
 
 .bg_image--2 {
-  background-image: url(https://awsdang.com/assets/Image/slide_2.webp);
+  background-image: url(../Image/slide_2.gif);
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -7791,8 +7791,8 @@ body.template-color-1 {
   padding: 0; }
 
 .header-wrapper {
-  height: 130px;
-  padding: 0 30px; }
+  height: 122px;
+  padding: 0 64px; }
   @media only screen and (min-width: 1200px) and (max-width: 1599px) {
     .header-wrapper {
       padding: 0 30px; } }
@@ -7804,13 +7804,14 @@ body.template-color-1 {
       padding: 0 30px; } }
   @media only screen and (max-width: 767px) {
     .header-wrapper {
-      padding: 0 20px; } }
+      padding: 0 20px;
+      height: 80px; } }
   @media only screen and (max-width: 575px) {
     .header-wrapper {
-      padding: 0 20px; } }
+      padding: 0 3px; } }
   @media only screen and (max-width: 479px) {
     .header-wrapper {
-      padding: 0 20px; } }
+      padding: 0; } }
   .header-wrapper .header-left {
     flex-basis: 20%;
     justify-content: flex-start;
@@ -10083,7 +10084,7 @@ figcaption {
     opacity: 1; }
 
 .rn-service .inner > * {
-  transition: 700ms cubic-bezier(0.17, 0.67, 0, 1.01);
+  transition: 300ms cubic-bezier(0.17, 0.67, 0, 1.01);
   transform: translateY(20px); }
 
 .rn-service:hover .inner > * {
@@ -14801,7 +14802,7 @@ body.white-version {
 
 .loader.hidden {
   animation: fadeOut 150ms;
-  animation-delay:600ms;
+  animation-delay:350ms;
   animation-fill-mode: forwards;
 }
 
