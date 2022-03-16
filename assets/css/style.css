@@ -4417,7 +4417,7 @@ Background Image
 }
 
 .bg_image--2 {
-  background-image: url(../Image/slide_2.gif);
+  background-image: url(../Image/slide_2.webp);
 
   background-repeat: no-repeat;
   background-size: cover;
