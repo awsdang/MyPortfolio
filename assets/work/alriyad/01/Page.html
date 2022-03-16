@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-   <link rel="shortcut icon" type="image/x-icon" href="./assets/Image/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="">
     <!-- CSS 
     ============================================ -->
     <link rel="stylesheet" href="../../../../assets/css/all.min.css">
@@ -480,20 +480,24 @@
 
 
     <script>
-
+        $("#MyElement").addClass(localStorage.getItem('ClassName1'));
+        $("#hehe").addClass(localStorage.getItem('ClassName2'));
         const btn = document.querySelector(".me23");
         btn.addEventListener("click",
             function () {
-                if (document.getElementById("MyElement").className === "button-style spybody template-color-1") {
-                    document.getElementById('MyElement').className = "button-style spybody white-version";
-                    document.getElementById('hehe').className = "fas fa-moon";
+                if ($("#MyElement").hasClass('template-color-1')) {
+                    $("#MyElement").removeClass("template-color-1").addClass("white-version");
+                    localStorage.setItem('ClassName1','white-version');
+                    $("#hehe").removeClass("fas fa-lightbulb").addClass("fas fa-moon");
+                    localStorage.setItem('ClassName2','fas fa-moon');
                 }
-                else if (document.getElementById("MyElement").className === "button-style spybody white-version") {
-                    document.getElementById('MyElement').className = "button-style spybody template-color-1";
-                    document.getElementById('hehe').className = "fas fa-lightbulb"
+                else if ($("#MyElement").hasClass('white-version')) {
+                    $("#MyElement").removeClass("white-version").addClass("template-color-1") 
+                    localStorage.setItem('ClassName1','template-color-1');
+                    $("#hehe").removeClass("fas fa-moon").addClass("fas fa-lightbulb");
+                    localStorage.setItem('ClassName2','fas fa-lightbulb');
                 }
-            })
-
+            });
     </script>
 
 </body>

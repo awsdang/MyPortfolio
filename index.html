@@ -9,7 +9,7 @@
     <meta name="author" content="Aws Abdulfattah" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-   <link rel="shortcut icon" type="image/x-icon" href="./assets/Image/favicon.ico./assets/Image/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="">
     <!-- CSS 
     ============================================ -->
     <link rel="stylesheet" href="assets/css/all.min.css">
@@ -538,13 +538,13 @@
         </div>
         <!-- Back to top end -->
 
-      <!--Start Dark/Light Button-->
-      <div class="me25 me23">
-        <div>
-            <i id="hehe" class="me23 fas fa-lightbulb"></i>
+        <!--Start Dark/Light Button-->
+        <div class="me25 me23">
+            <div>
+                <i id="hehe" class="me23 fas fa-lightbulb"></i>
+            </div>
         </div>
-    </div>
-    <!--End Dark/Light Button-->
+        <!--End Dark/Light Button-->
 
     </main>
 
@@ -573,22 +573,28 @@
     <script src="./assets/js/isotope.pkgd.min.js"></script>
     <script src="./assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="./assets/js/custom.js"></script>
+    <script src="./assets/work/text/custom-text.js"></script>
+
 
     <script>
-
+        $("#MyElement").addClass(localStorage.getItem('ClassName1'));
+        $("#hehe").addClass(localStorage.getItem('ClassName2'));
         const btn = document.querySelector(".me23");
         btn.addEventListener("click",
             function () {
-                if (document.getElementById("MyElement").className === "template-color-1 home-classic spybody") {
-                    document.getElementById('MyElement').className = "white-version home-classic spybody";
-                    document.getElementById('hehe').className = "fas fa-moon";
+                if ($("#MyElement").hasClass('template-color-1')) {
+                    $("#MyElement").removeClass("template-color-1").addClass("white-version");
+                    localStorage.setItem('ClassName1','white-version');
+                    $("#hehe").removeClass("fas fa-lightbulb").addClass("fas fa-moon");
+                    localStorage.setItem('ClassName2','fas fa-moon');
                 }
-                else if (document.getElementById("MyElement").className === "white-version home-classic spybody") {
-                    document.getElementById('MyElement').className = "template-color-1 home-classic spybody";
-                    document.getElementById('hehe').className = "fas fa-lightbulb"
+                else if ($("#MyElement").hasClass('white-version')) {
+                    $("#MyElement").removeClass("white-version").addClass("template-color-1") 
+                    localStorage.setItem('ClassName1','template-color-1');
+                    $("#hehe").removeClass("fas fa-moon").addClass("fas fa-lightbulb");
+                    localStorage.setItem('ClassName2','fas fa-lightbulb');
                 }
-            })
-
+            });
     </script>
 
     <script>
