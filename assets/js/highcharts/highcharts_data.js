@@ -4,7 +4,7 @@
 Highcharts.chart('me', {
 	chart: {
 	  type: 'packedbubble',
-	  height: '180%',
+	  height: '100%',
 	  styledMode: true,
 	},
 	title: {
@@ -18,7 +18,7 @@ Highcharts.chart('me', {
 	plotOptions: {
 	  packedbubble: {
 		minSize: '25%',
-		maxSize: '200%',
+		maxSize: '150%',
 		zMin: 0,
 		zMax: 2000,
 		layoutAlgorithm: {
