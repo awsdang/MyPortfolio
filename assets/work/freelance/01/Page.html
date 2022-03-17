@@ -511,26 +511,7 @@
     <script src="./text/custom-text.js"></script>
 
 
-    <script>
-        $("#MyElement").addClass(localStorage.getItem('ClassName1'));
-        $("#hehe").addClass(localStorage.getItem('ClassName2'));
-        const btn = document.querySelector(".me23");
-        btn.addEventListener("click",
-            function () {
-                if ($("#MyElement").hasClass('template-color-1')) {
-                    $("#MyElement").removeClass("template-color-1").addClass("white-version");
-                    localStorage.setItem('ClassName1','white-version');
-                    $("#hehe").removeClass("fas fa-lightbulb").addClass("fas fa-moon");
-                    localStorage.setItem('ClassName2','fas fa-moon');
-                }
-                else if ($("#MyElement").hasClass('white-version')) {
-                    $("#MyElement").removeClass("white-version").addClass("template-color-1") 
-                    localStorage.setItem('ClassName1','template-color-1');
-                    $("#hehe").removeClass("fas fa-moon").addClass("fas fa-lightbulb");
-                    localStorage.setItem('ClassName2','fas fa-lightbulb');
-                }
-            });
-    </script>
+
 
 </body>
 
