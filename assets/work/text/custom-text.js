@@ -44,8 +44,6 @@ txtFile01.onreadystatechange = function () {
 	document.getElementById('mutaatext18').innerHTML = allText[74];
 	document.getElementById('mutaatext19').innerHTML = allText[76];
 	document.getElementById('mutaatext20').innerHTML = allText[78];
-
-
 }
 txtFile01.open("GET", 'https://awsdang.com/assets/work/text/text.txt', true);
 txtFile01.send(null);

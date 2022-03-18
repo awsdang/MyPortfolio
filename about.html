@@ -63,13 +63,12 @@
                     <nav id="sideNav" class="mainmenu-nav navbar-example2 d-none d-xl-block">
                         <!-- Start Mainmanu Nav -->
                         <ul class="primary-menu nav nav-pills">
-                                <li class="nav-item"><a class="nav-link"
-                                        href="./index.html">Home</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
-                                <li class="nav-item"><a class="nav-link" href="./work.html">My Work</a>
-                                <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a>
-                                </li>
+                            <li class="nav-item"><a class="nav-link" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./work.html">My Work</a>
+                            <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a>
+                            </li>
                         </ul>
                         <!-- End Mainmanu Nav -->
                     </nav>
@@ -97,7 +96,7 @@
         <div class="inner">
             <div class="menu-top">
                 <div class="menu-header">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="./index.html">
                         Aws Abdulfattah
                     </a>
                     <div class="close-button">
@@ -110,7 +109,7 @@
                 <ul class="primary-menu nav nav-pills">
                     <li class="nav-item"><a class="nav-link smoth-animation" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="#skill">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link smoth-animation" href="#portfolio">My Work</a></li>
+                    <li class="nav-item"><a class="nav-link smoth-animation" href="./work.html">My Work</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="#blog">Blog</a></li>
                 </ul>
                 <!-- end -->
@@ -122,20 +121,20 @@
 
     <main class="main-page-wrapper">
 
-  <!-- Start bread vrumb area -->
-  <div class="breadcrumb-area rn-section-gap breadcrumb-style-one">
-    <div class="plr--85">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb-inner">
-                    <h1 class="title">About Me</h1>
+        <!-- Start bread vrumb area -->
+        <div class="breadcrumb-area rn-section-gap breadcrumb-style-one">
+            <div class="plr--85">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb-inner">
+                            <h1 class="title">About Me</h1>
 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Start bread vrumb area -->
+        <!-- Start bread vrumb area -->
 
         <!-- Start about Area -->
         <div id="about" class="rn-about-area mt_lg--40 mt_md-20">
@@ -146,7 +145,7 @@
                         <div class="contant">
                             <div class="sticky-home-wrapper section-title text-left ">
                                 <ul class="rn-section-gap-about"></ul>
-                                <div style="padding-left:1em; padding-right:1em" class="discription font-justify ">     I am
+                                <div style="padding-left:1em; padding-right:1em" class="discription font-justify "> I am
                                     an Architect and a student in an advanced European BIM master. I am interested in
                                     automation, digitization and mixing it with architecture and construction. Within my
                                     past experiences working on 65 high-end residential projects, I acquired expertise
@@ -959,8 +958,10 @@
     <div id="footer" class="rn-footer-area footer-style-2 rn-section-gapTop mt--60">
 
         <div class="copyright text-center ptb--40 section-separator">
-            <p class="description">© 2022. All rights reserved. <a target="_blank" href="./index.html">Aws Abdulfattah.</a></p>
-             <p class="a-message">I am proud of what I have done, it made realize that developing Websites isn't easy, I'm noob, please contact me for suggestion to improve my website</p>
+            <p class="description">© 2022. All rights reserved. <a target="_blank" href="./index.html">Aws
+                    Abdulfattah.</a></p>
+            <p class="a-message">I am proud of what I have done, it made realize that developing Websites isn't easy,
+                I'm noob, please contact me for suggestion to improve my website</p>
         </div>
     </div>
     <!-- Rn footer area end -->
@@ -982,7 +983,43 @@
     <script src="./assets/js/highcharts/accessibility.js"></script>
     <script src="./assets/js/highcharts/pattern-fill.js"></script>
     <script src="./assets/js/highcharts/highcharts_data.js"></script>
+    <script>
 
+        if (localStorage["ClassName1"] == undefined) {
+            localStorage.setItem('ClassName1', 'template-color-1');
+        }
+        else {
+            $("#MyElement").addClass(localStorage.getItem('ClassName1'));
+            $("#hehe").addClass(localStorage.getItem('ClassName2'));
+        }
+        const btn = document.querySelector(".me23");
+        btn.addEventListener("click",
+            function () {
+                if (localStorage.getItem("ClassName1") === 'template-color-1') {
+                    $("#MyElement").removeClass("template-color-1").addClass("white-version");
+                    localStorage.setItem('ClassName1', 'white-version');
+                    $("#hehe").removeClass("fas fa-lightbulb").addClass("fas fa-moon");
+                    localStorage.setItem('ClassName2', 'fas fa-moon');
+                }
+                else {
+                    $("#MyElement").removeClass("white-version").addClass("template-color-1")
+                    localStorage.setItem('ClassName1', 'template-color-1');
+                    $("#hehe").removeClass("fas fa-moon").addClass("fas fa-lightbulb");
+                    localStorage.setItem('ClassName2', 'fas fa-lightbulb');
+                };
+            });
+
+
+        $(".shuffleMe").sort(function (a, b) {
+            a = parseFloat($(".years", a).text()); // get the value of .score element inside a
+            b = parseFloat($(".years", b).text()); // get the value of .score element inside b
+            return b - a;                          // sort descendently
+        }).appendTo(".work-gallery");
+
+
+
+
+    </script>
 
 
 
