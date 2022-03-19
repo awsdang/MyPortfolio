@@ -1,6 +1,3 @@
-
-
-
 if (localStorage["ClassName1"] == undefined) {
 	localStorage.setItem('ClassName1', 'template-color-1');
 }
