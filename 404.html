@@ -136,7 +136,7 @@
                                             <span class="cd-headline clip is-full-width">
                                                 <!-- ROTATING TEXT -->
                                                 <span class="cd-words-wrapper">
-                                                    <b class="is-visible">Yes!! I am Lazy... hi</b>
+                                                    <b class="is-visible">Yes!! I am Lazy...</b>
                                                     <b class="is-hidden">Error: 404</b>
                                                     <b class="is-hidden">I haven't finished this Page.</b>
                                                 </span>
@@ -210,14 +210,15 @@
     <script src="assets/js/main.js"></script>
     <script src="./assets/js/custom_about.js"></script>
 
-    <script>
-        if (window.location === "https://awsdang.com/skills.html/") {
-            window.location = "https://www.awsdang.com/skills.html"
-        }
-    </script>
-
-
-
 </body>
+
+
+<script>
+    if (window.location === "https://awsdang.com/skills.html/") {
+        window.location = "https://www.awsdang.com/skills.html"
+    } else {
+        window.location = "https://www.awsdang.com/error.html"
+    }
+</script>
 
 </html>
