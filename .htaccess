@@ -1,2 +1,2 @@
 ErrorDocument 404 /404.html
-Redirect /skills.html/ /skills.html
+Redirect https://awsdang.com/skills.html/ https://awsdang.com/skills.html
