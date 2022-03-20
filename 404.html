@@ -211,7 +211,12 @@
     <script src="./assets/js/custom_about.js"></script>
 
     <script>
-        window.location.replace("www.awsdang.com/index.html");
+        if (window.location === "https://www.awsdang.com/skills.html/") {
+
+            window.location = "https://www.awsdang.com/skills.html"
+        } else {
+            window.location = "https://www.awsdang.com/index.html";
+        }
     </script>
 
 
