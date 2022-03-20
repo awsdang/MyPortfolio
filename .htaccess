@@ -1,2 +1,2 @@
+Redirect 301 "/skills.html/" "https://awsdang.com/skills.html"
 ErrorDocument 404 /404.html
-Redirect https://awsdang.com/skills.html/ https://awsdang.com/skills.html
