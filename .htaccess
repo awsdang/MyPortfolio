@@ -1,2 +1,2 @@
-Redirect 301 "https://awsdang.com/skills.html/" "/skills.html"
+Redirect 301 "/skills.html/" "/skills.html"
 ErrorDocument 404 /404.html
