@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Viewer</title>
+    <link rel="icon" href="../Image/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <script src="joy.js"></script>
+</head>
+
+
+<body>
+
+    <div id="viewer-container"></div>
+    <script src="bundle.js"></script>
+
+
+    <div id="mobileInterface">
+        <div class="columnLateral">
+            <div id="joy1Div" style="width:125px;height:125px;margin:50px"></div>
+            <input id="joy1X" type="text" />
+            <input id="joy1Y" type="text" />
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        //JoystickScript get value and change camera position
+        var joy1X = document.getElementById("joy1X");
+        var joy1Y = document.getElementById("joy1Y");
+
+
+        var Joy1 = new JoyStick('joy1Div', {}, function(stickData) {
+            joy1X.value = stickData.x;
+            joy1Y.value = stickData.y;
+
+            if (joy1X.value > 0) {
+                viewer.context.ifcCamera.cameraControls.truck(0.0007 * joy1X.value + 0.0001, 0, true)
+                joy1X.value + 10
+            } else if (joy1X.value < 0) {
+                viewer.context.ifcCamera.cameraControls.truck(0.0007 * joy1X.value + 0.0001, 0, true)
+                joy1X.value - 10
+            }
+
+
+            if (joy1Y.value > 0) {
+                viewer.context.ifcCamera.cameraControls.forward(0.0007 * joy1Y.value + 0.0001, 0, true)
+                joy1Y.value + 10;
+            } else if (joy1Y.value < 0) {
+                viewer.context.ifcCamera.cameraControls.forward(0.0007 * joy1Y.value + 0.0001, 0, true)
+                joy1Y.value - 10
+            }
+        });
+
+
+        //make it active for mobile only
+
+        if (window.navigator.userAgent.match(/Android/i) ||
+            window.navigator.userAgent.match(/iPhone/i)) {
+            document.getElementsByClassName('columnLateral')[0].style.display = 'block';
+        } else {
+            document.getElementsByClassName('columnLateral')[0].style.display = 'none';
+        }
+    </script>
+
+</body>
+
+<script>
+</script>
+<script src="https://unpkg.com/three@0.138.2/build/three.min.js"></script>
+<script src="https://unpkg.com/hold-event@0.1.0/dist/hold-event.min.js"></script>
+<script src="https://raw.githubusercontent.com/yomotsu/camera-controls/dev/dist/camera-controls.js"></script>
+<script src="./camera.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.js'></script>
+
+</html>
