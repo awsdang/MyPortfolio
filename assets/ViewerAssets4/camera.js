@@ -59,10 +59,10 @@ const upKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_UP, 100);
 const downKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_DOWN, 100);
 
 leftKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.rotate(0.05 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
+    viewer.context.ifcCamera.cameraControls.rotate(0.08 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
 });
 rightKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.rotate(-0.05 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
+    viewer.context.ifcCamera.cameraControls.rotate(-0.08 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
 });
 upKey.addEventListener('holding', function(event) {
     viewer.context.ifcCamera.cameraControls.rotate(0, 0.03 * THREE.MathUtils.DEG2RAD * event.deltaTime, true)
