@@ -117490,4 +117490,4 @@ function formatProperties(properties) {
 };
 
 
-loadIfc('https://awsdang.com/assets/ViewerAssets4/IFC/01.ifc');
+loadIfc('./IFC/01.ifc');

@@ -1,6 +1,19 @@
 const controls = viewer.context.ifcCamera.cameraControls;
 
+//creates FPS Effect
+const EPS = 1e-5;
+controls.setPosition(0, 0, EPS);
+controls.minDistance = controls.maxDistance = 1;
+controls.truckSpeed = 10;
+controls.mouseButtons.wheel = CameraControls.ACTION.ZOOM;
+controls.touches.two = CameraControls.ACTION.TOUCH_ZOOM_TRUCK;
+controls.saveState();
 
+//camera starting position
+controls.moveTo(-5, 2, 40, false)
+
+
+//ADD Keyboard fucntionality
 const KEYCODE = {
     W: 87,
     A: 65,
@@ -13,10 +26,6 @@ const KEYCODE = {
     ARROW_RIGHT: 39,
     ARROW_DOWN: 40,
 };
-controls.setPosition(0, 0, 2, true);
-controls.setTarget(0, 0, 1, true);
-
-
 
 const wKey = new holdEvent.KeyboardKeyHold(KEYCODE.W, 16.666);
 const aKey = new holdEvent.KeyboardKeyHold(KEYCODE.A, 16.666);
@@ -44,18 +53,16 @@ eKey.addEventListener('holding', function(event) {
     viewer.context.ifcCamera.cameraControls.truck(0, 0.007 * event.deltaTime, true)
 });
 
-
-
 const leftKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_LEFT, 100);
 const rightKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_RIGHT, 100);
 const upKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_UP, 100);
 const downKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_DOWN, 100);
 
 leftKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.rotate(0.1 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
+    viewer.context.ifcCamera.cameraControls.rotate(0.05 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
 });
 rightKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.rotate(-0.1 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
+    viewer.context.ifcCamera.cameraControls.rotate(-0.05 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
 });
 upKey.addEventListener('holding', function(event) {
     viewer.context.ifcCamera.cameraControls.rotate(0, 0.03 * THREE.MathUtils.DEG2RAD * event.deltaTime, true)
@@ -63,27 +70,3 @@ upKey.addEventListener('holding', function(event) {
 downKey.addEventListener('holding', function(event) {
     viewer.context.ifcCamera.cameraControls.rotate(0, -0.03 * THREE.MathUtils.DEG2RAD * event.deltaTime, true)
 });
-
-this.renderer.render(scene, PerspectiveCamera);
-
-function anim() {
-
-    const delta1 = clock.getDelta();
-    const elapsed = clock.getElapsedTime();
-    const updated = viewer.context.ifcCamera.cameraControls.update(delta1);
-
-    // if ( elapsed > 30 ) { return; }
-
-    requestAnimationFrame(anim);
-
-    if (updated) {
-
-
-        controls.setPosition(0, 0, 0, true);
-        controls.setTarget(1, 1, 1, true);
-        this.renderer.render(scene, PerspectiveCamera);
-        console.log('rendered');
-
-    }
-
-};
