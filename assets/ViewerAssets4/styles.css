@@ -28,7 +28,7 @@ body {
     display: inline;
     position: fixed;
     top: auto;
-    left: 5vh;
+    left: 25px;
     touch-action: manipulation;
     bottom: calc(5%);
 }
@@ -37,7 +37,7 @@ body {
     display: inline;
     position: fixed;
     top: auto;
-    left: 17vh;
+    left: 150px;
     touch-action: manipulation;
     bottom: calc(5%);
 }

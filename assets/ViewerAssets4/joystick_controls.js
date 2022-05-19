@@ -35,7 +35,7 @@
          document.getElementsByClassName('columnLateral')[0].style.display = 'none';
      }
 
-
+     //Slider for up and down
      var Slid1Y = document.getElementById("Slid1Y");
      var Slid1 = new Slider('Slid1Div', {}, function(SliderStatus) {
          Slid1Y.value = SliderStatus.y;
@@ -51,6 +51,7 @@
 
      });
 
+     //make it active for mobile only
      if (window.navigator.userAgent.match(/Android/i) ||
          window.navigator.userAgent.match(/iPhone/i)) {
          document.getElementsByClassName('columnLateral2')[0].style.display = 'block';
