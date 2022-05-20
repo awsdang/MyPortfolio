@@ -117493,19 +117493,19 @@ function formatProperties(properties) {
 loadIfc('./IFC/01.ifc');
 
 
-const overlay = document.getElementById('loading-overlay');
+const overlay = document.getElementById('loader-inner');
+const overload = document.getElementById('loader');
 const progressText = document.getElementById('loading-progress');
 
-overlay.classList.remove('hidden');
-progressText.innerText = `Loading`;
+progressText.innerText = ``;
 
 viewer.IFC.loader.ifcManager.setOnProgress((event) => {
     const percentage = Math.floor((event.loaded * 100) / event.total);
     progressText.innerText = `Loaded ${percentage}%`;
 
-    console.log(percentage)
-
     if (percentage === 100) {
+        progressText.classList.add('hidden');
         overlay.classList.add('hidden');
+        overload.classList.add('hidden');
     }
 });
