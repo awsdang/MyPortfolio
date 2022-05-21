@@ -117490,12 +117490,14 @@ function formatProperties(properties) {
 };
 
 
-loadIfc('./IFC/01.ifc');
+loadIfc('./IFC/04.ifc');
 
+// loading bar
 
 const overlay = document.getElementById('loader-inner');
 const overload = document.getElementById('loader');
 const progressText = document.getElementById('loading-progress');
+
 
 progressText.innerText = ``;
 
