@@ -101860,7 +101860,7 @@ class CameraControls extends EventDispatcher {
         };
         this.touches = {
             one: ACTION.TOUCH_ROTATE,
-            two: isPerspectiveCamera(this._camera) ? ACTION.TOUCH_DOLLY_TRUCK : isOrthographicCamera(this._camera) ? ACTION.TOUCH_ZOOM_TRUCK : ACTION.NONE,
+            two: isPerspectiveCamera(this._camera) ? ACTION.TOUCH_ZOOM : isOrthographicCamera(this._camera) ? ACTION.TOUCH_ZOOM : ACTION.NONE,
             three: ACTION.TOUCH_TRUCK,
         };
         if (this._domElement) {
