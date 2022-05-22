@@ -1,12 +1,14 @@
-Highcharts.chart('me', {
+Highcharts.chart('container', {
+
+
     chart: {
         spacingTop: 3,
         spacingRight: 3,
         spacingBottom: 3,
         spacingLeft: 3,
-        height: '100%',
-        type: 'packedbubble',
+        margin: 0,
         styledMode: true,
+
     },
     title: {
         text: ''
@@ -16,185 +18,253 @@ Highcharts.chart('me', {
         useHTML: false,
         pointFormat: '<b>{point.name}:</b> {point.value}</sub>'
     },
-    plotOptions: {
-        packedbubble: {
-            minSize: '25%',
-            maxSize: '150%',
-            zMin: 0,
-            zMax: 2000,
-            layoutAlgorithm: {
-                splitSeries: false,
-                gravitationalConstant: 0.001
-            },
-            dataLabels: {
-                enabled: true,
-                format: '{point.name}',
-                filter: {
-                    property: 'y',
-                    operator: '>',
-                    value: 25,
-
-                },
-            }
-        }
-    },
     series: [{
-            name: 'BIM Applications',
-            data: [{
-                    name: 'Revit',
-                    value: 2000,
+        styledMode: true,
+        name: 'Software Skills',
+        type: "treemap",
+        layoutAlgorithm: 'squarified',
 
-                }, {
-                    name: 'ArchiCAD',
-                    value: 48,
-                },
-                {
-                    name: "Solibri",
-                    value: 92,
-                },
-                {
-                    name: "BCF Manager",
-                    value: 111,
-                },
-                {
-                    name: "SimpleBIM",
-                    value: 158.1,
-                },
-            ],
-            color: "#ff014f",
-        }, {
-            name: 'CAD Applications',
-            data: [{
-                    name: "AutoCAD",
-                    value: 220,
-                },
-                {
-                    name: "SketchUP",
-                    value: 440,
-                },
-                {
-                    name: "3DsMax",
-                    value: 600,
-                },
-                {
-                    name: "Rhino",
-                    value: 130.1,
-                },
-            ],
-            color: "#f7306c",
-        }, {
-            name: 'Visualization Applications',
-            data: [{
-                    name: "V-Ray",
-                    value: 209.4,
-                },
-                {
-                    name: "Corona Renderer",
-                    value: 740.1,
-                },
-                {
-                    name: "Lumion",
-                    value: 980.1,
-                },
-                {
-                    name: "Unreal Engine",
-                    value: 90,
+        levels: [{
+                level: 1,
+                layoutAlgorithm: 'squarified',
+                dataLabels: {
+                    enabled: true,
+                    align: 'left',
+                    verticalAlign: 'top',
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold',
+                    },
                 }
-            ],
-            color: "#c41247",
-        }, {
-            name: 'Visual Scripting Applications',
-            data: [{
-                    name: "Dynamo",
-                    value: 650,
-                },
-                {
-                    name: "Grasshopper",
-                    value: 180,
-                },
-            ],
-            color: "#c7486e",
-        }, {
-            name: 'Construction Management',
-            data: [{
-                    name: "Naviswroks",
-                    value: 300,
-                },
-                {
-                    name: "Bexel Manager",
-                    value: 110,
-                },
-            ],
-            color: "#a52f54",
-        }, {
-            name: 'Graphic Applications',
-            data: [{
-                    name: "Photoshop",
-                    value: 830
-                },
-                {
-                    name: "Illustrator",
-                    value: 540
-                },
-                {
-                    name: "InDesign",
-                    value: 210
-                }
-            ],
-            color: "#ee5d88",
-        }, {
-            name: 'Video Editing Applications',
-            data: [{
-                name: "Premiere",
-                value: 610
-            }],
-            color: "#5a1228",
-        }, {
-            name: 'Microsoft Office',
-            data: [{
-                    name: "MS Word",
-                    value: 450
-                },
-                {
-                    name: "MS Excel",
-                    value: 320
-                },
-                {
-                    name: "MS PowerPoint",
-                    value: 610
-                }
-            ],
-            color: "#a51641",
-        }, {
-            name: 'Others',
-            data: [{
-                    name: "PowerBI",
-                    value: 170
-                },
-                {
-                    name: "Python",
-                    value: 310
-                },
-                {
-                    name: "Project Refinery",
-                    value: 270
-                }
-            ],
-            color: "#c5003b",
-        }
-
-    ],
-
-    responsive: {
-        rules: [{
-            condition: {},
-            chartOptions: {
-                legend: {
+            },
+            {
+                level: 2,
+                layoutAlgorithm: 'squarified',
+                dataLabels: {
+                    enabled: true,
                     align: 'center',
-                    verticalAlign: 'bottom',
-                    layout: 'horizontal'
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold',
+                    },
                 }
             }
-        }]
-    }
+        ],
+
+        data: [{
+                id: 'A',
+                name: 'BIM Applications',
+                className: 'classA'
+            },
+            {
+                id: 'B',
+                name: 'CAD Applications',
+                className: 'classB'
+            },
+            {
+                id: 'C',
+                name: 'Visualization Applications',
+                className: 'classC'
+            },
+            {
+                id: 'D',
+                name: 'Visual Scripting Applications',
+                className: 'classD'
+            },
+            {
+                id: 'E',
+                name: 'Construction Management',
+                className: 'classE'
+            },
+            {
+                id: 'F',
+                name: 'Graphic Applications',
+                className: 'classF'
+            },
+            {
+                id: 'G',
+                name: 'Video Editing Applications',
+                className: 'classG'
+            },
+            {
+                id: 'H',
+                name: 'Microsoft Office',
+                className: 'classH'
+            },
+            {
+                id: 'I',
+                name: 'Others',
+                className: 'classI'
+            },
+            {
+                name: 'Revit',
+                parent: 'A',
+                value: 15,
+                className: 'classA'
+            },
+            {
+                name: 'ArchiCAD',
+                parent: 'A',
+                value: 1.5,
+                className: 'classA'
+            },
+            {
+                name: 'Solibri',
+                parent: 'A',
+                value: 2.5,
+                className: 'classA'
+            },
+            {
+                name: 'BCFManager',
+                parent: 'A',
+                value: 3,
+                className: 'classA'
+            },
+            {
+                name: 'SimpleBIM',
+                parent: 'A',
+                value: 2,
+                className: 'classA'
+            },
+            {
+                name: 'AutoCAD',
+                parent: 'B',
+                value: 2.5,
+                className: 'classB'
+            },
+            {
+                name: 'SketchUP',
+                parent: 'B',
+                value: 4.5,
+                className: 'classB'
+            },
+            {
+                name: '3DsMAX',
+                parent: 'B',
+                value: 7,
+                className: 'classB'
+            },
+            {
+                name: 'Rhino',
+                parent: 'B',
+                value: 2,
+                className: 'classB'
+            },
+            {
+                name: 'V-Ray',
+                parent: 'C',
+                value: 3,
+                className: 'classC'
+            },
+            {
+                name: 'CoronaRenderer',
+                parent: 'C',
+                value: 5,
+                className: 'classC'
+            },
+            {
+                name: 'Lumion',
+                parent: 'C',
+                value: 7,
+                className: 'classC'
+            },
+            {
+                name: 'UnrealEngine',
+                parent: 'C',
+                value: 3,
+                className: 'classC'
+            },
+            {
+                name: 'Dynamo',
+                parent: 'D',
+                value: 6,
+                className: 'classD'
+            },
+            {
+                name: 'Grasshopper',
+                parent: 'D',
+                value: 2,
+                className: 'classD'
+            },
+            {
+                name: 'NavisWorks',
+                parent: 'E',
+                value: 4,
+                className: 'classE'
+            },
+            {
+                name: 'BexelManager',
+                parent: 'E',
+                value: 2,
+                className: 'classE'
+            },
+            {
+                name: 'Photoshop',
+                parent: 'F',
+                value: 7.06924452772336,
+                className: 'classF'
+            },
+            {
+                name: 'Illustrator',
+                parent: 'F',
+                value: 4.60778468614258,
+                className: 'classF'
+            },
+            {
+                name: 'InDesign',
+                parent: 'F',
+                value: 1.8311898475428,
+                className: 'classF'
+            },
+            {
+                name: 'Premiere',
+                parent: 'G',
+                value: 5.40839792181245,
+                className: 'classG'
+            },
+            {
+                name: 'MSWord',
+                parent: 'H',
+                value: 3.98603185418619,
+                className: 'classH'
+            },
+            {
+                name: 'MSExcel',
+                parent: 'H',
+                value: 2.93842091815007,
+                className: 'classH'
+            },
+            {
+                name: 'MSPowerPoint',
+                parent: 'H',
+                value: 5.22953751809897,
+                className: 'classH'
+            },
+            {
+                name: 'MSProjects',
+                parent: 'H',
+                value: 2.41887403117281,
+                className: 'classH'
+            },
+            {
+                name: 'MSPowerBI',
+                parent: 'I',
+                value: 2,
+                className: 'classI'
+            },
+            {
+                name: 'Python',
+                parent: 'I',
+                value: 3,
+                className: 'classI'
+            },
+            {
+                name: 'ProjectRefinery',
+                parent: 'D',
+                value: 3,
+                className: 'classD'
+            },
+        ],
+
+    }, ],
 });
