@@ -42,6 +42,15 @@ body {
     bottom: calc(5%);
 }
 
+.columnLateral3 {
+    display: inline;
+    position: fixed;
+    top: auto;
+    left: 250px;
+    touch-action: manipulation;
+    bottom: calc(5%);
+}
+
 #joy1X {
     display: none;
 }
@@ -51,6 +60,10 @@ body {
 }
 
 #Slid1Y {
+    display: none;
+}
+
+#Slid2Y {
     display: none;
 }
 

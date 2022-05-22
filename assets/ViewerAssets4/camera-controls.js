@@ -26,6 +26,8 @@
         ACTION[ACTION["TOUCH_ZOOM"] = 10] = "TOUCH_ZOOM";
         ACTION[ACTION["TOUCH_DOLLY_TRUCK"] = 11] = "TOUCH_DOLLY_TRUCK";
         ACTION[ACTION["TOUCH_DOLLY_OFFSET"] = 12] = "TOUCH_DOLLY_OFFSET";
+        ACTION[ACTION["TOUCH_ZOOM_TRUCK"] = 13] = "TOUCH_ZOOM_TRUCK";
+        ACTION[ACTION["TOUCH_ZOOM_OFFSET"] = 14] = "TOUCH_ZOOM_OFFSET";
     })(ACTION || (ACTION = {}));
 
     function isPerspectiveCamera(camera) {
@@ -767,8 +769,8 @@
                             case ACTION.DOLLY:
                             case ACTION.ZOOM:
                                 {
-                                    const dollyX = this.dollyToCursor ? (dragStartPosition.x - this._elementRect.x) / this._elementRect.width * 2 - 1 : 0;
-                                    const dollyY = this.dollyToCursor ? (dragStartPosition.y - this._elementRect.y) / this._elementRect.height * -2 + 1 : 0;
+                                    const dollyX = this.dollyToCursor ? (dragStartPosition.x - this._elementRect.x) / this._elementRect.width * 0.1 - 1 : 0;
+                                    const dollyY = this.dollyToCursor ? (dragStartPosition.y - this._elementRect.y) / this._elementRect.height * -0.1 + 1 : 0;
                                     this._state === ACTION.DOLLY ?
                                     this._dollyInternal(deltaY * TOUCH_DOLLY_FACTOR, dollyX, dollyY) : this._zoomInternal(deltaY * TOUCH_DOLLY_FACTOR, dollyX, dollyY);
                                     break;
@@ -776,26 +778,26 @@
                             case ACTION.TOUCH_DOLLY:
                             case ACTION.TOUCH_ZOOM:
                             case ACTION.TOUCH_DOLLY_TRUCK:
-                            case ACTION.TOUCH_ZOOM:
+                            case ACTION.TOUCH_ZOOM_TRUCK:
                             case ACTION.TOUCH_DOLLY_OFFSET:
-                            case ACTION.TOUCH_ZOOM:
+                            case ACTION.TOUCH_ZOOM_OFFSET:
                                 {
                                     const dx = _v2.x - this._activePointers[1].clientX;
                                     const dy = _v2.y - this._activePointers[1].clientY;
                                     const distance = Math.sqrt(dx * dx + dy * dy);
                                     const dollyDelta = dollyStart.y - distance;
                                     dollyStart.set(0, distance);
-                                    const dollyX = this.dollyToCursor ? (lastDragPosition.x - this._elementRect.x) / this._elementRect.width * 2 - 1 : 0;
-                                    const dollyY = this.dollyToCursor ? (lastDragPosition.y - this._elementRect.y) / this._elementRect.height * -2 + 1 : 0;
+                                    const dollyX = this.dollyToCursor ? (lastDragPosition.x - this._elementRect.x) / this._elementRect.width * 0.1 - 1 : 0;
+                                    const dollyY = this.dollyToCursor ? (lastDragPosition.y - this._elementRect.y) / this._elementRect.height * -0.1 + 1 : 0;
                                     this._state === ACTION.TOUCH_DOLLY ||
                                     this._state === ACTION.TOUCH_DOLLY_TRUCK ||
                                     this._state === ACTION.TOUCH_DOLLY_OFFSET ?
                                     this._dollyInternal(dollyDelta * TOUCH_DOLLY_FACTOR, dollyX, dollyY) : this._zoomInternal(dollyDelta * TOUCH_DOLLY_FACTOR, dollyX, dollyY);
                                     if (this._state === ACTION.TOUCH_DOLLY_TRUCK ||
-                                        this._state === ACTION.TOUCH_ZOOM) {
+                                        this._state === ACTION.TOUCH_ZOOM_TRUCK) {
                                         this._truckInternal(deltaX, deltaY, false);
                                     } else if (this._state === ACTION.TOUCH_DOLLY_OFFSET ||
-                                        this._state === ACTION.TOUCH_ZOOM) {
+                                        this._state === ACTION.TOUCH_ZOOM_OFFSET) {
                                         this._truckInternal(deltaX, deltaY, true);
                                     }
                                     break;

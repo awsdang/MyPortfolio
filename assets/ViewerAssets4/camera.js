@@ -4,10 +4,8 @@ const controls = viewer.context.ifcCamera.cameraControls;
 const EPS = 1e-5;
 controls.setPosition(0, 0, EPS);
 controls.minDistance = controls.maxDistance = 1;
-controls.truckSpeed = 10;
-controls.mouseButtons.wheel = CameraControls.ACTION.ZOOM;
-controls.touches.two = CameraControls.ACTION.TOUCH_ZOOM;
 controls.saveState();
+
 
 //camera starting position
 controls.zoomTo(0.3, true)
@@ -69,3 +67,15 @@ upKey.addEventListener('holding', function(event) {
 downKey.addEventListener('holding', function(event) {
     viewer.context.ifcCamera.cameraControls.rotate(0, -0.03 * THREE.MathUtils.DEG2RAD * event.deltaTime, true)
 });
+
+
+//Disable FOV for mobile
+
+if (window.navigator.userAgent.match(/Android/i) ||
+    window.navigator.userAgent.match(/iPhone/i) ||
+    window.navigator.userAgent.match(/iPad/i)) {
+    controls.dollySpeed = 0.000005
+} else {
+    controls.mouseButtons.wheel = CameraControls.ACTION.ZOOM;
+    controls.touches.two = CameraControls.ACTION.TOUCH_ZOOM_TRUCK;
+}

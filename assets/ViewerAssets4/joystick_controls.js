@@ -60,3 +60,28 @@
      } else {
          document.getElementsByClassName('columnLateral2')[0].style.display = 'none';
      }
+
+
+     //Slider for up and down
+     var Slid2Y = document.getElementById("Slid2Y");
+     var Slid2 = new Slider('Slid2Div', {}, function(SliderStatus) {
+         Slid2Y.value = SliderStatus.y;
+
+         if (Slid2Y.value > 0) {
+             viewer.context.ifcCamera.cameraControls.zoomTo(0.3 + (Slid2Y.value * 0.004), true)
+
+         } else if (Slid2Y.value < 0) {
+             viewer.context.ifcCamera.cameraControls.zoomTo(0.3 + (Slid2Y.value * 0.001), true)
+
+         } else {}
+     });
+
+     //make it active for mobile only
+
+     if (window.navigator.userAgent.match(/Android/i) ||
+         window.navigator.userAgent.match(/iPhone/i) ||
+         window.navigator.userAgent.match(/iPad/i)) {
+         document.getElementsByClassName('columnLateral3')[0].style.display = 'block';
+     } else {
+         document.getElementsByClassName('columnLateral3')[0].style.display = 'none';
+     }
