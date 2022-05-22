@@ -101588,7 +101588,6 @@ var ACTION;
     ACTION[ACTION["TOUCH_DOLLY"] = 9] = "TOUCH_DOLLY";
     ACTION[ACTION["TOUCH_ZOOM"] = 10] = "TOUCH_ZOOM";
     ACTION[ACTION["TOUCH_DOLLY_OFFSET"] = 12] = "TOUCH_DOLLY_OFFSET";
-    ACTION[ACTION["TOUCH_ZOOM_OFFSET"] = 14] = "TOUCH_ZOOM_OFFSET";
 })(ACTION || (ACTION = {}));
 
 function isPerspectiveCamera(camera) {
@@ -102141,9 +102140,9 @@ class CameraControls extends EventDispatcher {
                     case ACTION.TOUCH_DOLLY:
                     case ACTION.TOUCH_ZOOM:
                     case ACTION.TOUCH_DOLLY_TRUCK:
-                    case ACTION.TOUCH_ZOOM_TRUCK:
-                    case ACTION.TOUCH_DOLLY_OFFSET:
                     case ACTION.TOUCH_ZOOM_OFFSET:
+                    case ACTION.TOUCH_DOLLY_OFFSET:
+                    case ACTION.TOUCH_ZOOM:
                         {
                             const dx = _v2.x - this._activePointers[1].clientX;
                             const dy = _v2.y - this._activePointers[1].clientY;
@@ -102157,10 +102156,10 @@ class CameraControls extends EventDispatcher {
                             this._state === ACTION.TOUCH_DOLLY_OFFSET ?
                             this._dollyInternal(dollyDelta * TOUCH_DOLLY_FACTOR, dollyX, dollyY) : this._zoomInternal(dollyDelta * TOUCH_DOLLY_FACTOR, dollyX, dollyY);
                             if (this._state === ACTION.TOUCH_DOLLY_TRUCK ||
-                                this._state === ACTION.TOUCH_ZOOM_TRUCK) {
+                                this._state === ACTION.TOUCH_ZOOM) {
                                 this._truckInternal(deltaX, deltaY, false);
                             } else if (this._state === ACTION.TOUCH_DOLLY_OFFSET ||
-                                this._state === ACTION.TOUCH_ZOOM_OFFSET) {
+                                this._state === ACTION.TOUCH_ZOOM) {
                                 this._truckInternal(deltaX, deltaY, true);
                             }
                             break;
