@@ -29,7 +29,8 @@
      //make it active for mobile only
 
      if (window.navigator.userAgent.match(/Android/i) ||
-         window.navigator.userAgent.match(/iPhone/i)) {
+         window.navigator.userAgent.match(/iPhone/i) ||
+         window.navigator.userAgent.match(/iPad/i)) {
          document.getElementsByClassName('columnLateral')[0].style.display = 'block';
      } else {
          document.getElementsByClassName('columnLateral')[0].style.display = 'none';
@@ -47,13 +48,14 @@
              viewer.context.ifcCamera.cameraControls.truck(0, -0.0007 * Slid1Y.value, true)
 
          }
-         console.log(Slid1Y.value)
 
      });
 
      //make it active for mobile only
+
      if (window.navigator.userAgent.match(/Android/i) ||
-         window.navigator.userAgent.match(/iPhone/i)) {
+         window.navigator.userAgent.match(/iPhone/i) ||
+         window.navigator.userAgent.match(/iPad/i)) {
          document.getElementsByClassName('columnLateral2')[0].style.display = 'block';
      } else {
          document.getElementsByClassName('columnLateral2')[0].style.display = 'none';

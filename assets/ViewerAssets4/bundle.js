@@ -117489,8 +117489,7 @@ function formatProperties(properties) {
     }
 };
 
-
-loadIfc('./IFC/04.ifc');
+loadIfc(ifcfiles)
 
 // loading bar
 

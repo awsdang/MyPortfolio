@@ -8,46 +8,49 @@
     <title>3D Viewer</title>
     <link rel="icon" href="../Image/favicon.ico">
     <link rel="stylesheet" href="styles.css">
-    <script src="joy.js"></script>
-    <script src="Slid.js"></script>
 </head>
 
-
-
-
 <body>
-
+    <!-- IFC Stuff -->
     <div id="viewer-container">
         <h1 id="loading-progress" class="loading-progress hidden"></h1>
-        <span id="loader" class="loader "><span id="loader-inner" class="loader-inner "></span></span>
+        <span id="loader" class="loader"><span id="loader-inner" class="loader-inner"></span></span>
     </div>
-    <script src="bundle.js"></script>
 
+    <!-- Joystick -->
     <div id="mobileInterface">
-        <div class="columnLateral">
+        <div id="JoyClass" class="columnLateral">
             <div id="joy1Div" style="width:105px;height:105px;"></div>
             <input id="joy1X" type="text" />
             <input id="joy1Y" type="text" />
         </div>
-    </div>
-
-    <div id="mobileInterface">
-        <div class="columnLateral2">
+        <div id="Sliding" class="columnLateral2">
             <div id="Slid1Div" style="width:105px;height:105px;"></div>
             <input id="Slid1Y" type="text" />
         </div>
     </div>
-
-    <script src="./joystick_controls.js"></script>
 </body>
 
+<!-- Controls file location && Camera Position (later add sliders) -->
 <script>
+    var ifcfiles = "./IFC/04.ifc"
+    var xAxis = -5
+    var yAxis = 2
+    var zAxis = 10
 </script>
+<!-- IFC.JS Bundle -->
+<script src="bundle.js"></script>
 
+<!-- Joystick for Mobile -->
+<script src="joy.js"></script>
+<script src="Slid.js"></script>
+<script src="./joystick_controls.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.js'></script>
+
+<!-- Camera Bundle -->
 <script src="https://unpkg.com/three@0.138.2/build/three.min.js"></script>
 <script src="https://unpkg.com/hold-event@0.1.0/dist/hold-event.min.js"></script>
 <script src="https://raw.githubusercontent.com/yomotsu/camera-controls/dev/dist/camera-controls.js"></script>
 <script src="./camera.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.js'></script>
 
 </html>

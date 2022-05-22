@@ -6,14 +6,13 @@ controls.setPosition(0, 0, EPS);
 controls.minDistance = controls.maxDistance = 1;
 controls.truckSpeed = 10;
 controls.mouseButtons.wheel = CameraControls.ACTION.ZOOM;
-controls.touches.two = CameraControls.ACTION.TOUCH_ZOOM_TRUCK;
+controls.touches.two = CameraControls.ACTION.TOUCH_ZOOM;
 controls.saveState();
 
 //camera starting position
-controls.moveTo(-5, 2, 40, false)
-
-
-//ADD Keyboard fucntionality
+controls.zoomTo(0.3, true)
+controls.moveTo(xAxis, yAxis, zAxis, true)
+    //ADD Keyboard fucntionality
 const KEYCODE = {
     W: 87,
     A: 65,
