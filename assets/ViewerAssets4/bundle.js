@@ -103036,7 +103036,7 @@ class FirstPersonControl extends IfcComponent {
         controls.moveTo(newTargetPosition.x, newTargetPosition.y, newTargetPosition.z);
         this.ifcCamera.cameraControls.truckSpeed = 50;
         controls.mouseButtons.wheel = CameraControls.ACTION.DOLLY;
-        controls.touches.two = CameraControls.ACTION.TOUCH_ZOOM_TRUCK;
+        controls.touches.two = CameraControls.ACTION.TOUCH_ZOOM;
     }
 }
 
