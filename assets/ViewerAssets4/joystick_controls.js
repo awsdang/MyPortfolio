@@ -55,7 +55,8 @@
 
      if (window.navigator.userAgent.match(/Android/i) ||
          window.navigator.userAgent.match(/iPhone/i) ||
-         window.navigator.userAgent.match(/iPad/i)) {
+         window.navigator.userAgent.match(/iPad/i) ||
+         navigator.maxTouchPoints >= 1) {
          document.getElementsByClassName('columnLateral2')[0].style.display = 'block';
      } else {
          document.getElementsByClassName('columnLateral2')[0].style.display = 'none';
@@ -80,7 +81,8 @@
 
      if (window.navigator.userAgent.match(/Android/i) ||
          window.navigator.userAgent.match(/iPhone/i) ||
-         window.navigator.userAgent.match(/iPad/i)) {
+         window.navigator.userAgent.match(/iPad/i) ||
+         navigator.maxTouchPoints >= 1) {
          document.getElementsByClassName('columnLateral3')[0].style.display = 'block';
      } else {
          document.getElementsByClassName('columnLateral3')[0].style.display = 'none';
