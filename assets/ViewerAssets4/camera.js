@@ -32,22 +32,22 @@ const qKey = new holdEvent.KeyboardKeyHold(KEYCODE.Q, 16.666);
 const eKey = new holdEvent.KeyboardKeyHold(KEYCODE.E, 16.666);
 
 aKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.truck(-0.007 * event.deltaTime, 0, true)
+    controls.truck(-0.007 * event.deltaTime, 0, true)
 });
 dKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.truck(0.007 * event.deltaTime, 0, true)
+    controls.truck(0.007 * event.deltaTime, 0, true)
 });
 wKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.forward(0.007 * event.deltaTime, true)
+    controls.forward(0.007 * event.deltaTime, true)
 });
 sKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.forward(-0.007 * event.deltaTime, true)
+    controls.forward(-0.007 * event.deltaTime, true)
 });
 qKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.truck(0, -0.007 * event.deltaTime, true)
+    controls.truck(0, -0.007 * event.deltaTime, true)
 });
 eKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.truck(0, 0.007 * event.deltaTime, true)
+    controls.truck(0, 0.007 * event.deltaTime, true)
 });
 
 const leftKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_LEFT, 100);
@@ -56,26 +56,110 @@ const upKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_UP, 100);
 const downKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_DOWN, 100);
 
 leftKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.rotate(0.08 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
+    controls.rotate(0.08 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
 });
 rightKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.rotate(-0.08 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
+    controls.rotate(-0.08 * THREE.MathUtils.DEG2RAD * event.deltaTime, 0, true)
 });
 upKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.rotate(0, 0.03 * THREE.MathUtils.DEG2RAD * event.deltaTime, true)
+    controls.rotate(0, 0.03 * THREE.MathUtils.DEG2RAD * event.deltaTime, true)
 });
 downKey.addEventListener('holding', function(event) {
-    viewer.context.ifcCamera.cameraControls.rotate(0, -0.03 * THREE.MathUtils.DEG2RAD * event.deltaTime, true)
+    controls.rotate(0, -0.03 * THREE.MathUtils.DEG2RAD * event.deltaTime, true)
+});
+
+Joy1stickData = null;
+
+//JoystickScript get value and change camera position
+var joy1X = document.getElementById("joy1X");
+var joy1Y = document.getElementById("joy1Y");
+
+
+var Joy1 = new JoyStick('joy1Div', {}, function(stickData) {
+    Joy1stickData = stickData
 });
 
 
-//Disable FOV for mobile
+function BeginMovement() {
+    if (Joy1stickData == null)
+        return
+    controls.truck(0.0007 * Joy1stickData.x, 0, true);
+    controls.forward(0.0007 * Joy1stickData.y, 0, true);
+}
+
+// //make it active for mobile only
 
 if (window.navigator.userAgent.match(/Android/i) ||
     window.navigator.userAgent.match(/iPhone/i) ||
+    window.navigator.userAgent.match(/iPad/i) ||
+    window.navigator.maxTouchPoints >= 1) {
+    Joy1.addEventListener('touchmove', setInterval(BeginMovement, 10))
+    document.getElementsByClassName('columnLateral')[0].style.display = 'block';
+} else {
+    document.getElementsByClassName('columnLateral')[0].style.display = 'none';
+}
+
+Slid1YstickData = null;
+
+//Slider for up and down
+var Slid1Y = document.getElementById("Slid1Y");
+var Slid1 = new Slider('Slid1Div', {}, function(SliderStatus) {
+    Slid1YstickData = SliderStatus;
+});
+
+
+function BeginMovement() {
+    if (Slid1YstickData == null)
+        return
+    controls.truck(0, -0.0003 * Slid1YstickData.y, true);
+}
+
+//make it active for mobile only
+if (window.navigator.userAgent.match(/Android/i) ||
+    window.navigator.userAgent.match(/iPhone/i) ||
+    window.navigator.userAgent.match(/iPad/i) ||
+    window.navigator.maxTouchPoints >= 1) {
+    document.getElementsByClassName('columnLateral2')[0].style.display = 'block';
+    Slid1Y.addEventListener('touchmove', setInterval(BeginMovement, 10))
+} else {
+    document.getElementsByClassName('columnLateral2')[0].style.display = 'none';
+}
+
+
+//Slider for up and down
+var Slid2Y = document.getElementById("Slid2Y");
+var Slid2 = new Slider('Slid2Div', {}, function(SliderStatus) {
+    Slid2Y.value = SliderStatus.y;
+
+    if (Slid2Y.value > 0) {
+        controls.zoomTo(0.3 + (Slid2Y.value * 0.004), true)
+
+    } else if (Slid2Y.value < 0) {
+        controls.zoomTo(0.3 + (Slid2Y.value * 0.001), true)
+
+    } else {}
+});
+
+//make it active for mobile only
+
+if (window.navigator.userAgent.match(/Android/i) ||
+    window.navigator.userAgent.match(/iPhone/i) ||
+    window.navigator.userAgent.match(/iPad/i) ||
+    window.navigator.maxTouchPoints >= 1) {
+    document.getElementsByClassName('columnLateral3')[0].style.display = 'block';
+} else {
+    document.getElementsByClassName('columnLateral3')[0].style.display = 'none';
+}
+
+
+
+//Disable FOV for mobile
+if (window.navigator.userAgent.match(/Android/i) ||
+    window.navigator.userAgent.match(/iPhone/i) ||
     window.navigator.userAgent.match(/iPad/i)) {
+    controls.touches.two = CameraControls.ACTION.NONE
     controls.dollySpeed = 0.000005
 } else {
     controls.mouseButtons.wheel = CameraControls.ACTION.ZOOM;
-    controls.touches.two = CameraControls.ACTION.TOUCH_ZOOM_TRUCK;
+    controls.touches.two = CameraControls.ACTION.NONE
 }
