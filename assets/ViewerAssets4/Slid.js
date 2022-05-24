@@ -2,6 +2,9 @@ let SliderStatus = {
     y: 0,
 };
 
+let SliderStatus2 = {
+    y: 0,
+};
 
 var Slider1 = (function(container, parameters, callback) {
     parameters = parameters || {};
@@ -235,7 +238,7 @@ var Slider2 = (function(container, parameters, callback) {
         externalStrokeColor = (typeof parameters.externalStrokeColor === "undefined" ? "#D3D3D3" : parameters.externalStrokeColor),
         autoReturnToCenter = (typeof parameters.autoReturnToCenter === "undefined" ? true : parameters.autoReturnToCenter);
 
-    callback = callback || function(SliderStatus) {};
+    callback = callback || function(SliderStatus2) {};
 
     // Create Canvas element and add it in the Container object
     var objContainer = document.getElementById(container);
@@ -353,8 +356,8 @@ var Slider2 = (function(container, parameters, callback) {
             drawExternal();
             drawInternal();
             // Set attribute of callback
-            SliderStatus.y = ((100 * ((movedY - centerY) / maxMoveStick)) * -1).toFixed();
-            callback(SliderStatus);
+            SliderStatus2.y = ((100 * ((movedY - centerY) / maxMoveStick)) * -1).toFixed();
+            callback(SliderStatus2);
         }
     }
 
@@ -371,8 +374,8 @@ var Slider2 = (function(container, parameters, callback) {
         drawInternal();
 
         // Set attribute of callback
-        SliderStatus.y = ((100 * ((movedY - centerY) / maxMoveStick)) * -1).toFixed();
-        callback(SliderStatus);
+        SliderStatus2.y = ((100 * ((movedY - centerY) / maxMoveStick)) * -1).toFixed();
+        callback(SliderStatus2);
     }
 
     /**
@@ -400,9 +403,9 @@ var Slider2 = (function(container, parameters, callback) {
             drawInternal();
 
             // Set attribute of callback
-            SliderStatus.y = ((100 * ((movedY - centerY) / maxMoveStick)) * -1).toFixed();
+            SliderStatus2.y = ((100 * ((movedY - centerY) / maxMoveStick)) * -1).toFixed();
 
-            callback(SliderStatus);
+            callback(SliderStatus2);
         }
     }
 
@@ -418,9 +421,9 @@ var Slider2 = (function(container, parameters, callback) {
         drawExternal();
         drawInternal();
         // Set attribute of callback
-        SliderStatus.y = ((100 * ((movedY - centerY) / maxMoveStick)) * -1).toFixed();
+        SliderStatus2.y = ((100 * ((movedY - centerY) / maxMoveStick)) * -1).toFixed();
 
-        callback(SliderStatus);
+        callback(SliderStatus2);
     }
 
     this.GetWidth = function() {

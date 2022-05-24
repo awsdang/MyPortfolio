@@ -83,8 +83,10 @@ var Joy1 = new JoyStick('joy1Div', {}, function(stickData) {
 function BeginMovement() {
     if (JoyXYstickData == null)
         return
-    controls.truck(0.0007 * JoyXYstickData.x, 0, true);
-    controls.forward(0.0007 * JoyXYstickData.y, 0, true);
+    if (JoyXYstickData.x == 0 && JoyXYstickData.y == 0)
+        return
+    controls.truck(0.0005 * JoyXYstickData.x, 0, true);
+    controls.forward(0.0005 * JoyXYstickData.y, 0, true);
 }
 
 // //make it active for mobile only
@@ -93,7 +95,7 @@ if (window.navigator.userAgent.match(/Android/i) ||
     window.navigator.userAgent.match(/iPhone/i) ||
     window.navigator.userAgent.match(/iPad/i) ||
     window.navigator.maxTouchPoints >= 1) {
-    setInterval(BeginMovement, 10)
+    setInterval(BeginMovement, 5)
     document.getElementsByClassName('columnLateral')[0].style.display = 'block';
 } else {
     document.getElementsByClassName('columnLateral')[0].style.display = 'none';
@@ -111,7 +113,10 @@ var Slid1 = new Slider1('Slid1Div', {}, function(SliderStatus) {
 function BeginRising() {
     if (Slid1YstickData == null)
         return
-    controls.truck(0, -0.0003 * Slid1YstickData.y, true);
+    if (Slid1YstickData.y == 0)
+        return
+    controls.truck(0, -0.0002 * Slid1YstickData.y, true);
+
 }
 
 //make it active for mobile only
@@ -120,7 +125,7 @@ if (window.navigator.userAgent.match(/Android/i) ||
     window.navigator.userAgent.match(/iPad/i) ||
     window.navigator.maxTouchPoints >= 1) {
     document.getElementsByClassName('columnLateral2')[0].style.display = 'block';
-    setInterval(BeginRising, 10)
+    setInterval(BeginRising, 5)
 } else {
     document.getElementsByClassName('columnLateral2')[0].style.display = 'none';
 }
@@ -128,8 +133,8 @@ if (window.navigator.userAgent.match(/Android/i) ||
 
 //Slider for up and down
 var Slid2Y = document.getElementById("Slid2Y");
-var Slid2 = new Slider2('Slid2Div', {}, function(SliderStatus) {
-    Slid2Y.value = SliderStatus.y;
+var Slid2 = new Slider2('Slid2Div', {}, function(SliderStatus2) {
+    Slid2Y.value = SliderStatus2.y;
 
     if (Slid2Y.value > 0) {
         controls.zoomTo(0.3 + (Slid2Y.value * 0.004), true)
