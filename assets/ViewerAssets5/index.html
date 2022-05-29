@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Viewer</title>
+    <link rel="icon" href="../Image/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- IFC Stuff -->
+    <div id="viewer-container">
+        <h1 id="loading-progress" class="loading-progress hidden"></h1>
+        <span id="loader" class="loader"><span id="loader-inner" class="loader-inner"></span></span>
+    </div>
+
+    <!-- Joystick -->
+    <div id="mobileInterface">
+        <div id="JoyClass" class="columnLateral">
+            <div id="joy1Div" style="width:105px;height:105px;"></div>
+            <input id="joy1X" type="text" />
+            <input id="joy1Y" type="text" />
+        </div>
+        <div id="Sliding" class="columnLateral2">
+            <div id="Slid1Div" style="width:105px;height:105px;"></div>
+            <input id="Slid1Y" type="text" />
+        </div>
+        <div id="Sliding" class="columnLateral3">
+            <div id="Slid2Div" style="width:105px;height:105px;"></div>
+            <input id="Slid2Y" type="text" />
+        </div>
+    </div>
+</body>
+
+<!-- Controls file location && Camera Position (later add sliders) -->
+<script>
+    var ifcfiles = "./IFC/ahmed.ifc"
+    var xAxis = 3
+    var yAxis = 0
+    var zAxis = 4
+</script>
+<!-- IFC.JS Bundle -->
+<script src="bundle.js"></script>
+
+<!-- Joystick for Mobile -->
+<script src="joy.js"></script>
+<script src="Slid.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.js'></script>
+
+<!-- Camera Bundle -->
+<script src="https://unpkg.com/hold-event@0.1.0/dist/hold-event.min.js"></script>
+
+<script src="./camera.js"></script>
+<script>
+</script>
+
+</html>
