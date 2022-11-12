@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="./dist/output.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/a6b681584d.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<!-- <div id="preloader">
+  <div id="progress-loader" class="z-40 bg-gray-100">
+    <div id="progress" class="inset-0 bg-gray-600"></div>
+  </div>
+</div> -->
+
+<body id="body">
+  <div>  
+    <div id="joystickLeft" class="joystickLeft" ></div>
+    <div id="joystickRight" class="joystickRight" ></div>
+    <div  id="container"></div>
+  </div>
+  <div id="ui">
+
+  </div>
+</body>
+
+  <script>
+      const params = {
+      	gravity: 0,
+      	gravityOnJump: - 30 ,
+      	playerSpeed: 3,
+      	joystickSpeed: 1,
+      	physicsSteps: 5,
+        collid: false,
+        camX: 2,
+        camY: 0,
+        camZ: 20,
+        camAZ: 0,
+        camPO: Math.PI/2,
+        qmaterialOverride: true
+      };
+      const wasmPath = "./static/wasm/";
+      const workerPath = "./static/IFCWorker.js";
+      const projectPath = "./assets/Abu Ali.ifc";       
+    </script>
+
+    <!-- <script src="./dist/loader.js" ></script> -->
+    <script type="module" src="./dist/bundle.js"></script>
+    <!-- <script src="./dist/ui.js"></script> -->
+
+</html>
