@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maaahr | Case File 05 · Aws Abdulfattah</title>
+<meta name="description" content="An HRTech hackathon prototype for voice interview practice with realtime audio, subtitles and structured feedback.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=19">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%2307090D'/%3E%3Cpath d='M8 38 L24 8 L40 38' fill='none' stroke='%23B49BFF' stroke-width='3'/%3E%3Cpath d='M16 38 L24 23 L32 38' fill='none' stroke='%23F3F0E8' stroke-width='2.4'/%3E%3Cpath d='M4 38 H44' stroke='%23B49BFF' stroke-width='1.6' opacity='.6'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.remove("no-js");</script>
+</head>
+<body class="sheet d-maaahr" data-root="../">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hud">
+  <div class="wrap hud-in">
+    <a class="brand" href="../index.html#d-maaahr" aria-label="Back to HRTech">
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M8 38 L24 8 L40 38" stroke-width="3" stroke-linecap="square"/>
+        <path d="M16 38 L24 23 L32 38" stroke-width="2.4" opacity=".65"/>
+        <path d="M4 38 H44" stroke-width="1.6" opacity=".5"/>
+      </svg>
+      <span>AWS ABDULFATTAH<span class="b-sub">CASE FILE 05 · HRTECH · HACKATHON</span></span>
+    </a>
+    <nav aria-label="Primary" style="margin-left:auto">
+      <a href="../index.html">The city</a>
+      <a class="hide-m" href="../recruiter.html">Fast track</a>
+      <a class="btn primary sm" href="../cv/Aws_Abdulfattah__Senior_Software_Engineer.pdf" download>↓ CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="case-hero">
+  <div class="wrap">
+    <div class="case-glyph rv" aria-hidden="true">
+      <!-- Maaahr glyph: two voice waveforms forming an M, cursor line beneath · voice, evaluated -->
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 34 L10 22 L14 30 L18 12 L22 34" opacity=".65"/>
+        <path d="M26 34 L30 12 L34 30 L38 22 L42 34"/>
+        <path d="M14 40 H34" stroke-width="1.6" opacity=".5"/>
+      </svg>
+    </div>
+    <p class="kicker rv">CASE FILE 05 · MAAAHR · HRTECH</p>
+    <span class="stamp amb" style="margin-bottom:20px">Hackathon prototype · not live</span>
+    <h1 class="rv d1">Practice the interview by <em>actually talking</em>.</h1>
+    <div class="case-meta rv d2">
+      <span><b>Role</b>Solo builder</span>
+      <span><b>Period</b>2025 · hackathon prototype</span>
+      <span><b>Surface</b>Web app · realtime voice · evaluation reports</span>
+      <span><b>Result</b>text practice → realtime voice prototype</span>
+    </div>
+  </div>
+</section>
+
+<div class="case-body wrap">
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§1</span> CONTEXT</h2>
+    <p class="lede rv">Reading interview advice is not the same as saying the answer out loud.</p>
+    <p class="rv"><b>Maaahr</b> started as a text-based AI Engineering capstone. During a hackathon, I rebuilt it on the <b>OpenAI Realtime API</b>. The prototype speaks, listens, shows subtitles and gives a structured report after the interview.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§2</span> THE CONSTRAINTS</h2>
+    <ul>
+      <li class="rv">Voice latency has to feel natural. Long silence makes the whole thing awkward.</li>
+      <li class="rv">Barge-in must work: when the user interrupts the interviewer, the interviewer stops.</li>
+      <li class="rv">Voice, transcript and scoring have to stay in sync.</li>
+      <li class="rv">Evaluation must be structured and useful, not vibes.</li>
+      <li class="rv">A product interview and an engineering interview need different questions.</li>
+    </ul>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§3</span> MY OWNERSHIP</h2>
+    <ul>
+      <li class="rv"><b>I built</b> the whole product end to end.</li>
+      <li class="rv"><b>I built</b> role-specific question planning so the interview matches the job.</li>
+      <li class="rv"><b>I implemented</b> realtime voice sessions on the OpenAI Realtime API.</li>
+      <li class="rv"><b>I built</b> live transcription and subtitles synced to audio.</li>
+      <li class="rv"><b>I built</b> the evaluation pipeline and reports with GPT and Gemini.</li>
+    </ul>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§4</span> SYSTEM MAP</h2>
+<pre class="sysmap rv">ROLE PROFILE ──▶ QUESTION PLANNER
+                       │
+                       ▼
+        <span class="hi">REALTIME VOICE SESSION (OpenAI Realtime API)</span>
+        <span class="hi">listening ⇄ thinking ⇄ speaking ⇄ interrupted</span>
+                       │
+                       ├──▶ <span class="hi">live subtitles</span>   <span class="dm">(latency-critical path)</span>
+                       └──▶ transcript
+                              │
+                              ▼
+              EVALUATION PIPELINE
+              relevance · clarity · completeness
+              technical depth · communication
+              missed opportunities
+                              │
+                              ▼
+              STRUCTURED FEEDBACK REPORT</pre>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§5</span> KEY DECISIONS</h2>
+    <div class="decisions">
+      <div class="decision rv"><b>Voice state is a state machine.</b>
+        <p>Listening, thinking, speaking and interrupted are explicit states. Interruption is normal because people interrupt.</p></div>
+      <div class="decision rv"><b>Subtitles are trust.</b>
+        <p>The live transcript shows the user that the system heard them. It also makes unavoidable latency feel less empty.</p></div>
+      <div class="decision rv"><b>Evaluate against a rubric, not a feeling.</b>
+        <p>The report covers relevance, clarity, completeness, technical depth, communication and missed opportunities. That is more useful than saying "good job."</p></div>
+      <div class="decision rv"><b>Product evolution over rewrite.</b>
+        <p>The text version's question planner and evaluators moved into the voice version without a rewrite. Only the interaction layer changed.</p></div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§6</span> OUTCOME</h2>
+    <div class="outcomes rv">
+      <div class="oc"><b>Prototype</b><span>built during a hackathon</span></div>
+      <div class="oc"><b>text → voice</b><span>interaction model rebuilt</span></div>
+      <div class="oc"><b>Realtime</b><span>live subtitles + natural turn-taking</span></div>
+      <div class="oc"><b>6</b><span>evaluation dimensions in every report</span></div>
+    </div>
+    <p class="rv" style="margin-top:18px">The hard parts were latency, interruption and keeping the voice, transcript and score together.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§7</span> FAILURE MODES, HANDLED</h2>
+    <div class="fails">
+      <div class="fm rv"><b>Realtime session drops</b><p>Graceful reconnect; the transcript is preserved and the interview resumes where it stopped.</p></div>
+      <div class="fm rv"><b>User silence</b><p>The interviewer gives a short prompt instead of hanging forever.</p></div>
+      <div class="fm rv"><b>Transcript drift</b><p>Periodic re-sync between audio and text keeps subtitles honest about what was actually said.</p></div>
+      <div class="fm rv"><b>Model latency spike</b><p>Filler acknowledgements keep the conversational rhythm while the real response is on its way.</p></div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§8</span> SCREENS</h2>
+    <p class="rv" style="margin-bottom:16px;color:var(--dim);font-size:14px">The screens use fake names and interview data.</p>
+    <div class="shots">
+      <figure class="shot rv" data-shot="maaahr-roles" data-alt="Maaahr role selection screen with interview roles"><div class="shot-ph">maaahr-roles</div><figcaption>Choosing an interview role</figcaption></figure>
+      <figure class="shot rv" data-shot="maaahr-live" data-alt="Maaahr live voice session with subtitles"><div class="shot-ph">maaahr-live</div><figcaption>Live voice session with subtitles</figcaption></figure>
+      <figure class="shot rv" data-shot="maaahr-report" data-alt="Maaahr structured evaluation report"><div class="shot-ph">maaahr-report</div><figcaption>The structured evaluation report</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§9</span> WHAT I LEARNED</h2>
+    <p class="reflect rv">Voice latency cannot be hidden. The product has to make it feel natural.</p>
+  </section>
+
+  <section class="case-sec" style="border-bottom:none">
+    <h2 class="rv"><span class="n">§10</span> WHAT I'D CHANGE TODAY</h2>
+    <p class="rv">I would add record and review so users can hear their answer next to the feedback. I would also add different interviewer styles and calibrate the scoring against real hiring decisions.</p>
+  </section>
+
+  <nav class="case-next" aria-label="Related case files">
+    <a href="sadeek.html"><span class="cn-k">SAME LAB →</span><b>Sadeek · production AI over Telegram</b></a>
+    <a href="asheerty.html"><span class="cn-k">NEXT DISTRICT →</span><b>Asheerty · data that becomes physical art</b></a>
+  </nav>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="serif">Designed as a city because I began as an architect. Built as a system because that is what I became.</span>
+    <span><a href="../index.html#d-maaahr">↖ BACK TO THE CITY</a> &nbsp;·&nbsp; © 2026</span>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=2" defer></script>
+</body>
+</html>

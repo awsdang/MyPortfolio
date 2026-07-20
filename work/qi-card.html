@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qi Card / SuperQi | Case File 01 · Aws Abdulfattah</title>
+<meta name="description" content="Three products inside the SuperQi and Alipay mini-app ecosystem: billing, invoicing and merchant finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=19">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%2307090D'/%3E%3Cpath d='M8 38 L24 8 L40 38' fill='none' stroke='%2353D8FF' stroke-width='3'/%3E%3Cpath d='M16 38 L24 23 L32 38' fill='none' stroke='%23F3F0E8' stroke-width='2.4'/%3E%3Cpath d='M4 38 H44' stroke='%2353D8FF' stroke-width='1.6' opacity='.6'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.remove("no-js");</script>
+</head>
+<body class="sheet d-qicard" data-root="../">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hud">
+  <div class="wrap hud-in">
+    <a class="brand" href="../index.html#d-fintech" aria-label="Back to the Fintech District">
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M8 38 L24 8 L40 38" stroke-width="3" stroke-linecap="square"/>
+        <path d="M16 38 L24 23 L32 38" stroke-width="2.4" opacity=".65"/>
+        <path d="M4 38 H44" stroke-width="1.6" opacity=".5"/>
+      </svg>
+      <span>AWS ABDULFATTAH<span class="b-sub">CASE FILE 01 · FINTECH DISTRICT</span></span>
+    </a>
+    <nav aria-label="Primary" style="margin-left:auto">
+      <a href="../index.html">The city</a>
+      <a class="hide-m" href="../recruiter.html">Fast track</a>
+      <a class="btn primary sm" href="../cv/Aws_Abdulfattah__Senior_Software_Engineer.pdf" download>↓ CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="case-hero">
+  <div class="wrap">
+    <div class="case-glyph rv" aria-hidden="true">
+      <!-- Tasdid glyph: stacked invoice cards, one lit -->
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="10" y="26" width="28" height="12" rx="1.5" opacity=".4"/>
+        <rect x="8" y="18" width="32" height="12" rx="1.5" opacity=".65"/>
+        <rect x="6" y="10" width="36" height="12" rx="1.5"/>
+        <path d="M12 16 H26" opacity=".8"/><path d="M32 16 H36"/>
+      </svg>
+    </div>
+    <p class="kicker rv">CASE FILE 01 · QI CARD / SUPERQI · FINTECH DISTRICT</p>
+    <h1 class="rv d1">Billing that makes sense <em>the first time</em>.</h1>
+    <div class="case-meta rv d2">
+      <span><b>Role</b>Senior Software Engineer, Billing Team</span>
+      <span><b>Period</b>2024 to present · promoted March 2026</span>
+      <span><b>Surface</b>Tasdid+ · Jabi+ · e-Psule</span>
+      <span><b>Result</b>3 production products · 1M+ users · 3 languages</span>
+    </div>
+  </div>
+</section>
+
+<div class="case-body wrap">
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§1</span> CONTEXT</h2>
+    <p class="lede rv">A million people use these products. Many are over 50 and just want the bill in front of them to make sense.</p>
+    <p class="rv">Qi Card is Iraq's largest fintech. I work on three products inside <b>SuperQi, which uses Alipay's mini-app platform and APIs</b>. <b>Tasdid+</b> is a billing and invoicing system. <b>Jabi+</b> gives merchants statements, salaries, supplier payments and Excel export from a phone. <b>e-Psule</b> is a billing app for the Kurdistan Region in Kurdish, Arabic and English.</p>
+    <p class="rv">I cannot share payment-rail internals, so this page focuses on the product and engineering decisions.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§2</span> THE CONSTRAINTS</h2>
+    <ul>
+      <li class="rv">The product had to feel obvious to normal people, often over 50 and using it for the first time.</li>
+      <li class="rv">It still had to work on low-end Android phones and unreliable networks.</li>
+      <li class="rv">Multiple bill providers with wildly different response times and failure behaviours.</li>
+      <li class="rv">The UI can have a visual bug. It can never guess what happened to someone's money.</li>
+      <li class="rv">Hard bundle-size budgets inside the super-app runtime.</li>
+      <li class="rv">Every flow passes internal security review; payments run on wallet and tokenization-supported card rails.</li>
+      <li class="rv">Kurdish, Arabic and English had to work from the start, including right-to-left layouts.</li>
+    </ul>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§3</span> MY OWNERSHIP</h2>
+    <ul>
+      <li class="rv"><b>I designed and built</b> the Svelte/SvelteKit frontend architecture inside the Alipay mini-app runtime.</li>
+      <li class="rv"><b>I built</b> bill inquiry, invoices, payment selection and provider-specific error states.</li>
+      <li class="rv"><b>I added</b> caching and progressive loading so the useful parts show up first.</li>
+      <li class="rv"><b>I integrated</b> wallet and tokenization-supported card payments through security review.</li>
+      <li class="rv"><b>I shipped</b> filtering, sorting, pagination and Excel export for Jabi+.</li>
+      <li class="rv"><b>I delivered</b> e-Psule in Kurdish, Arabic and English.</li>
+    </ul>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§4</span> SYSTEM MAP</h2>
+<pre class="sysmap rv">USER ──▶ <span class="hi">TASDID+ (Svelte mini-app)</span> ──▶ SuperQi / Alipay runtime ──▶ Billing APIs
+              │                                             │
+              │  cache · progressive loading                ├──▶ provider A  <span class="dm">(fast)</span>
+              │  skeleton → partial → complete              ├──▶ provider B  <span class="dm">(slow)</span>
+              ▼                                             └──▶ provider N  <span class="dm">(flaky)</span>
+        invoice normalized
+              │
+              ▼
+   payment method <span class="dm">(wallet · tokenized card)</span>
+              │
+              ▼
+   <span class="hi">TRANSACTION STATE MACHINE</span>
+   initiated → pending → authorized → confirmed
+                 │
+                 ├──▶ failed   <span class="dm">(provider-specific message)</span>
+                 └──▶ retry    <span class="dm">(no double-charge: idempotent)</span></pre>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§5</span> KEY DECISIONS</h2>
+    <div class="decisions">
+      <div class="decision rv"><b>Separate UI state from transaction state.</b>
+        <p>The app can crash, reload or lose the network and still recover. It never invents a payment result. The state machine owns that truth.</p></div>
+      <div class="decision rv"><b>Svelte for the phones people actually own.</b>
+        <p>Svelte gave us a small bundle and fast cold start. That mattered more than framework preference.</p></div>
+      <div class="decision rv"><b>Progressive loading over spinners.</b>
+        <p>Providers answer at different speeds. The screen fills in as responses arrive instead of waiting for the slowest one.</p></div>
+      <div class="decision rv"><b>Provider errors stay distinct.</b>
+        <p>A timeout, invalid account and provider outage are different problems. The user gets a useful message for each one.</p></div>
+      <div class="decision rv"><b>Merchant tools don't assume a laptop.</b>
+        <p>For many merchants, the phone is the whole back office. Jabi+ keeps large datasets usable on a small screen and still exports to Excel when the accountant needs it.</p></div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§6</span> OUTCOME</h2>
+    <div class="outcomes rv">
+      <div class="oc"><b>1M+</b><span>users</span></div>
+      <div class="oc"><b>3</b><span>production products inside SuperQi</span></div>
+      <div class="oc"><b>Alipay</b><span>mini-app platform and APIs</span></div>
+      <div class="oc"><b>3</b><span>languages, RTL included</span></div>
+    </div>
+    <p class="rv" style="margin-top:18px">Promoted to Senior Software Engineer in March 2026. Independently retained by five startups to integrate the same payment rails.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§7</span> FAILURE MODES, HANDLED</h2>
+    <div class="fails">
+      <div class="fm rv"><b>Provider timeout</b><p>Distinct state with its own copy and retry path; the rest of the screen keeps working.</p></div>
+      <div class="fm rv"><b>Payment pending</b><p>The UI says pending. It never guesses success. The final answer comes from the source of truth.</p></div>
+      <div class="fm rv"><b>User cancels mid-flow</b><p>Transaction state machine unwinds cleanly; no orphaned intents.</p></div>
+      <div class="fm rv"><b>Slow network</b><p>Cache serves the last known state instantly; the network upgrades it when it can.</p></div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§8</span> SCREENS</h2>
+    <p class="rv" style="margin-bottom:16px;color:var(--dim);font-size:14px">These screens use fake names, amounts and accounts. No customer data is shown.</p>
+    <div class="shots">
+      <figure class="shot tall rv" data-shot="tasdid-bills" data-alt="Tasdid+ bill list with providers and due amounts"><div class="shot-ph">tasdid-bills</div><figcaption>Tasdid+ bill inquiry across providers</figcaption></figure>
+      <figure class="shot tall rv" data-shot="tasdid-invoice" data-alt="Tasdid+ invoice detail and payment method selection"><div class="shot-ph">tasdid-invoice</div><figcaption>Invoice → payment method → confirmation</figcaption></figure>
+      <figure class="shot tall rv" data-shot="jabi-transactions" data-alt="Jabi+ merchant transaction list with filters"><div class="shot-ph">jabi-transactions</div><figcaption>Jabi+ merchant transactions</figcaption></figure>
+      <figure class="shot tall rv" data-shot="epsule-langs" data-alt="e-Psule multilingual interface"><div class="shot-ph">epsule-langs</div><figcaption>e-Psule in Kurdish, Arabic and English</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§9</span> WHAT I LEARNED</h2>
+    <p class="reflect rv">Payments are better when they are boring. Clear states, small bundles and careful reviews make that possible.</p>
+  </section>
+
+  <section class="case-sec" style="border-bottom:none">
+    <h2 class="rv"><span class="n">§10</span> WHAT I'D CHANGE TODAY</h2>
+    <p class="rv">I would define a shared latency budget for every provider before product design starts. Then each new mini-app would inherit the same progressive-loading behaviour instead of deciding it again.</p>
+  </section>
+
+  <nav class="case-next" aria-label="Related case files">
+    <a href="cardyiq.html"><span class="cn-k">NEXT DISTRICT →</span><b>Cardyiq · rebuilding a failing live product</b></a>
+    <a href="notifyx.html"><span class="cn-k">RELATED INFRASTRUCTURE</span><b>NotifyX · the notification plant</b></a>
+  </nav>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="serif">Designed as a city because I began as an architect. Built as a system because that is what I became.</span>
+    <span><a href="../index.html#d-fintech">↖ BACK TO THE CITY</a> &nbsp;·&nbsp; © 2026</span>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=2" defer></script>
+</body>
+</html>

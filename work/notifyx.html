@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NotifyX | Case File 03 · Aws Abdulfattah</title>
+<meta name="description" content="One notification API for four push providers. Open source, used by five companies and benchmarked at about 150 messages per second per worker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=19">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%2307090D'/%3E%3Cpath d='M8 38 L24 8 L40 38' fill='none' stroke='%2353D8FF' stroke-width='3'/%3E%3Cpath d='M16 38 L24 23 L32 38' fill='none' stroke='%23F3F0E8' stroke-width='2.4'/%3E%3Cpath d='M4 38 H44' stroke='%2353D8FF' stroke-width='1.6' opacity='.6'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.remove("no-js");</script>
+</head>
+<body class="sheet d-notifyx" data-root="../">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hud">
+  <div class="wrap hud-in">
+    <a class="brand" href="../index.html#d-infra" aria-label="Back to Notification Infra">
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M8 38 L24 8 L40 38" stroke-width="3" stroke-linecap="square"/>
+        <path d="M16 38 L24 23 L32 38" stroke-width="2.4" opacity=".65"/>
+        <path d="M4 38 H44" stroke-width="1.6" opacity=".5"/>
+      </svg>
+      <span>AWS ABDULFATTAH<span class="b-sub">CASE FILE 03 · NOTIFICATION INFRA</span></span>
+    </a>
+    <nav aria-label="Primary" style="margin-left:auto">
+      <a href="../index.html">The city</a>
+      <a class="hide-m" href="../recruiter.html">Fast track</a>
+      <a class="btn primary sm" href="../cv/Aws_Abdulfattah__Senior_Software_Engineer.pdf" download>↓ CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="case-hero">
+  <div class="wrap">
+    <div class="case-glyph rv" aria-hidden="true">
+      <!-- NotifyX glyph: many messages converging into one delivery -->
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="4" y="6" width="8" height="8" rx="1" opacity=".55"/>
+        <rect x="4" y="20" width="8" height="8" rx="1" opacity=".75"/>
+        <rect x="4" y="34" width="8" height="8" rx="1"/>
+        <path d="M14 10 L27 24" opacity=".55"/>
+        <path d="M14 24 H27" opacity=".75"/>
+        <path d="M14 38 L27 24"/>
+        <path d="M27 24 H42"/>
+        <path d="M36 18 L42 24 L36 30"/>
+      </svg>
+    </div>
+    <p class="kicker rv">CASE FILE 03 · NOTIFYX · OPEN SOURCE</p>
+    <span class="stamp amb" style="margin-bottom:20px">In production at 5 companies</span>
+    <h1 class="rv d1">I built notifications four times. Then I built <em>NotifyX</em>.</h1>
+    <div class="case-meta rv d2">
+      <span><b>Role</b>Author &amp; maintainer · open source</span>
+      <span><b>Period</b>2025 to present</span>
+      <span><b>Surface</b>API · workers · scheduler · dashboard · 3 SDKs</span>
+      <span><b>Result</b>~150 msg/s per worker · 5 companies</span>
+    </div>
+  </div>
+</section>
+
+<div class="case-body wrap">
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§1</span> CONTEXT</h2>
+    <p class="lede rv">I was tired of solving the same problem inside every product.</p>
+    <p class="rv">Every app needed push notifications, scheduling, retries and delivery state. I kept rebuilding it. NotifyX is the version I can reuse everywhere.</p>
+    <p class="rv">It puts <b>FCM, APNS, HMS and Web Push behind one API</b>. The caller sends a message. NotifyX handles providers, queues, retries and delivery state. The code is public at <a href="https://github.com/awsdang/notifyx">github.com/awsdang/notifyx</a>.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§2</span> THE CONSTRAINTS</h2>
+    <ul>
+      <li class="rv">Four providers have different tokens, limits and failure behaviour. The caller should not care.</li>
+      <li class="rv">Messages must never be silently lost: every message ends in an accountable state.</li>
+      <li class="rv">Scheduled and immediate delivery through the same pipeline.</li>
+      <li class="rv">Several products and companies share one deployment, so multi-tenancy existed from the start.</li>
+      <li class="rv">Operations people need visibility without reading logs.</li>
+      <li class="rv">A worker crash must not lose queued work. Ever.</li>
+    </ul>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§3</span> MY OWNERSHIP</h2>
+    <ul>
+      <li class="rv"><b>I built</b> the API, workers and scheduler with Node.js, BullMQ, Redis, PostgreSQL and Prisma.</li>
+      <li class="rv"><b>I added</b> retries with backoff and a dead-letter queue for permanent failures.</li>
+      <li class="rv"><b>I built</b> the React dashboard so delivery state is visible without searching logs.</li>
+      <li class="rv"><b>I wrote</b> SDKs for web, Flutter and React Native.</li>
+      <li class="rv"><b>I benchmarked and tuned</b> it to about 150 messages per second per worker.</li>
+    </ul>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§4</span> SYSTEM MAP</h2>
+<pre class="sysmap rv"><span class="hi">API</span> ─────────┐   <span class="dm">(immediate)</span>
+<span class="hi">SCHEDULER</span> ───┤   <span class="dm">(timed campaigns)</span>
+             ▼
+      <span class="hi">QUEUE · BullMQ / Redis</span>          <span class="dm">(the source of truth)</span>
+             │
+             ▼
+      WORKERS 1..N                    <span class="dm">(disposable · ~150 msg/s each)</span>
+             │
+             ├──▶ FCM         <span class="dm">(Android)</span>
+             ├──▶ APNS        <span class="dm">(iOS)</span>
+             ├──▶ HMS         <span class="dm">(Huawei)</span>
+             └──▶ WEB PUSH    <span class="dm">(browsers)</span>
+             │
+           failed
+             ├──▶ <span class="hi">RETRY (backoff)</span> ──▶ back to the queue
+             └──▶ DEAD-LETTER         <span class="dm">(permanent · kept for human inspection)</span>
+             │
+      delivery state ──▶ PostgreSQL ──▶ <span class="hi">REACT DASHBOARD</span></pre>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§5</span> KEY DECISIONS</h2>
+    <div class="decisions">
+      <div class="decision rv"><b>One API, four providers.</b>
+        <p>Token formats, payloads and rate limits belong inside the adapters. The caller only needs to say "send this."</p></div>
+      <div class="decision rv"><b>The queue is the source of truth.</b>
+        <p>Workers are disposable. If one dies in the middle of a batch, BullMQ gives the job to another worker. <b>The crash loses nothing.</b></p></div>
+      <div class="decision rv"><b>Failures are data.</b>
+        <p>Invalid tokens are removed, timeouts retry with backoff and permanent failures go to a <b>dead-letter lane a person can inspect</b>.</p></div>
+      <div class="decision rv"><b>Stable device identity.</b>
+        <p>The web SDK anchors devices to a <b>client-managed external ID</b>, so push-subscription rotations update one device record instead of creating ghosts.</p></div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§6</span> OUTCOME</h2>
+    <div class="outcomes rv">
+      <div class="oc"><b>~150</b><span>msg/s per worker, benchmarked</span></div>
+      <div class="oc"><b>5</b><span>companies in production</span></div>
+      <div class="oc"><b>50+</b><span>campaigns to 10K+ users at Cardyiq alone</span></div>
+      <div class="oc"><b>4</b><span>providers behind one API</span></div>
+    </div>
+    <p class="rv" style="margin-top:18px"><b>Cardyiq, Sadeek, Asheerty, Orivo and Baseerah</b> use NotifyX. It is now the default notification layer for the products I ship.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§7</span> FAILURE MODES, HANDLED</h2>
+    <div class="fails">
+      <div class="fm rv"><b>Provider timeout</b><p>Retry with backoff; delivery state preserved through every attempt.</p></div>
+      <div class="fm rv"><b>Invalid token</b><p>The dead token is removed so we do not keep sending to it.</p></div>
+      <div class="fm rv"><b>Provider rate limit</b><p>The queue absorbs the burst; workers pace the drain.</p></div>
+      <div class="fm rv"><b>Worker crash</b><p>BullMQ re-delivers the job to a healthy worker. No message lost.</p></div>
+      <div class="fm rv"><b>Permanent failure</b><p>Dead-letter lane with full context, waiting for a human.</p></div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§8</span> THE PLANT, LIVE</h2>
+    <div class="queue-shell rv">
+      <div class="qbar">
+        <span class="qtag">LIVE SIMULATION · THE ACTUAL ARCHITECTURE</span>
+        <span class="qstats"><span id="q-delivered" class="g">0</span> delivered · <span id="q-retried" class="a">0</span> retried</span>
+        <button class="qbtn" id="q-send" type="button">▸ SEND ME A REAL NOTIFICATION</button>
+      </div>
+      <canvas id="queue" aria-label="Animated simulation of the NotifyX queue: messages flow from the API through a BullMQ queue to workers and out to push providers; failed messages visibly retry and deliver."></canvas>
+      <p class="queue-cap">Every dot is a message. Red means the provider failed. The message goes back to the retry queue and tries again. This is a simulation based on the real architecture, not a production feed.</p>
+    </div>
+    <p class="rv" style="margin:28px 0 16px;color:var(--dim);font-size:14px">The screens use fake app names, tokens and counts. No production data is shown.</p>
+    <div class="shots">
+      <figure class="shot rv" data-shot="notifyx-dashboard" data-alt="NotifyX React operations dashboard with delivery states per campaign"><div class="shot-ph">notifyx-dashboard</div><figcaption>React operations dashboard</figcaption></figure>
+      <figure class="shot rv" data-shot="notifyx-benchmark" data-alt="Throughput benchmark output showing ~150 messages per second per worker"><div class="shot-ph">notifyx-benchmark</div><figcaption>Throughput benchmark</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§9</span> WHAT I LEARNED</h2>
+    <p class="reflect rv">The success path is easy. I trust infrastructure when I know exactly what it does after something fails.</p>
+  </section>
+
+  <section class="case-sec" style="border-bottom:none">
+    <h2 class="rv"><span class="n">§10</span> WHAT I'D CHANGE TODAY</h2>
+    <p class="rv">I would add <b>per-tenant rate-limit budgets</b> earlier so one company cannot slow down another. I would also define delivery receipts properly from the start. And I would <b>open-source it on day one</b> instead of extracting the public version later.</p>
+  </section>
+
+  <nav class="case-next" aria-label="Related case files">
+    <a href="cardyiq.html"><span class="cn-k">BIGGEST DEPLOYMENT →</span><b>Cardyiq · 50+ campaigns, 10K+ users</b></a>
+    <a href="sadeek.html"><span class="cn-k">ALSO POWERED</span><b>Sadeek · AI commerce over Telegram</b></a>
+  </nav>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="serif">Designed as a city because I began as an architect. Built as a system because that is what I became.</span>
+    <span><a href="../index.html#d-infra">↖ BACK TO THE CITY</a> &nbsp;·&nbsp; © 2026</span>
+  </div>
+</footer>
+
+<script>window.NOTIFYX_CONFIG = { baseUrl: "https://notification.sadeek.app", appId: "", apiKey: "", vapidPublicKey: "", serviceWorkerPath: "/notifyx-sw.js" };</script>
+<script src="../notifyx-web-sdk.js?v=1"></script>
+<script src="../js/main.js?v=2" defer></script>
+</body>
+</html>

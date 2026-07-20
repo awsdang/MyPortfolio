@@ -1,574 +1,922 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Aws Al-Saigh - Personal Page" />
-    <meta name="keywords" content="CV" />
-    <meta name="author" content="Aws Al-Saigh" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/Image/favicon.ico">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CRNWLQS7R"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-9CRNWLQS7R');
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aws Abdulfattah | Senior Software Engineer</title>
+    <meta
+      name="description"
+      content="Aws Abdulfattah is a Senior Software Engineer working across fintech, consumer products, infrastructure and applied AI. Open to relocation at his own expense and remote roles."
+    />
+    <meta
+      property="og:title"
+      content="Aws Abdulfattah | Senior Software Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Products, systems and teams I have helped build, fix and grow."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/site.css?v=22" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%2307090D'/%3E%3Cpath d='M8 38 L24 8 L40 38' fill='none' stroke='%2353D8FF' stroke-width='3'/%3E%3Cpath d='M16 38 L24 23 L32 38' fill='none' stroke='%23F3F0E8' stroke-width='2.4'/%3E%3Cpath d='M4 38 H44' stroke='%2353D8FF' stroke-width='1.6' opacity='.6'/%3E%3C/svg%3E"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aws Abdulfattah",
+        "jobTitle": "Senior Software Engineer",
+        "email": "mailto:awsdang@gmail.com",
+        "url": "https://awsdang.com",
+        "sameAs": [
+          "https://github.com/awsdang",
+          "https://www.linkedin.com/in/awsdang",
+          "https://x.com/awsdang"
+        ],
+        "worksFor": [
+          { "@type": "Organization", "name": "Qi Card" },
+          { "@type": "Organization", "name": "Cardyiq" }
+        ],
+        "knowsAbout": [
+          "Payments",
+          "Fintech",
+          "Node.js",
+          "TypeScript",
+          "React",
+          "Svelte",
+          "Applied AI",
+          "Infrastructure"
+        ]
+      }
     </script>
-    <!-- CSS 
-    ============================================ -->
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
-    <link rel="stylesheet" href="assets/css/vendor/aos.css">
-    <link rel="stylesheet" href="assets/css/plugins/feature.css">
-    <!-- Style css -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/newstyle.css">
-    <!-- Preloader -->
-    <div id="preloader" class="loader">
-        <div class="pre-container">
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
-            </div>
-        </div>
+    <script>
+      document.documentElement.classList.remove("no-js");
+    </script>
+  </head>
+  <body class="home">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- blueprint boot: coordinates → line → the city rises (main.js + city.js) -->
+    <div id="intro" aria-hidden="true">
+      <div class="intro-in">
+        <p class="intro-coord">ARCHITECT FIRST · SOFTWARE ENGINEER NOW</p>
+        <p class="intro-place">
+          I USED TO DESIGN BUILDINGS.<br />NOW I BUILD SOFTWARE.
+        </p>
+        <div class="intro-line"></div>
+      </div>
+      <button class="intro-skip" id="intro-skip" type="button">
+        ENTER NOW →
+      </button>
     </div>
-    <!-- Εnd Preloader -->
 
+    <!-- the city -->
+    <canvas id="city" aria-hidden="true"></canvas>
+    <div class="city-veil" aria-hidden="true"></div>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CRNWLQS7R"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    <header class="hud">
+      <div class="wrap hud-in">
+        <a class="brand" href="#main" aria-label="Aws Abdulfattah · home">
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M8 38 L24 8 L40 38"
+              stroke-width="3"
+              stroke-linecap="square"
+            />
+            <path d="M16 38 L24 23 L32 38" stroke-width="2.4" opacity=".65" />
+            <path d="M4 38 H44" stroke-width="1.6" opacity=".5" />
+          </svg>
+          <span>AWS ABDULFATTAH</span>
+        </a>
+        <p class="hud-district" aria-live="polite">
+          YOU ARE HERE · <b id="hud-district">CENTRAL GATEWAY</b>
+        </p>
+        <nav aria-label="Primary">
+          <a class="hide-m" href="mailto:awsdang@gmail.com">Contact</a>
+          <a
+            class="btn primary sm"
+            href="cv.html"
+            target="_blank"
+            rel="noopener"
+            data-cv-viewer
+            >CV</a
+          >
+        </nav>
+      </div>
+    </header>
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+    <!-- engineering signals · light up as districts are visited by scroll -->
+    <aside
+      class="signals"
+      aria-label="Engineering signals collected while scrolling"
+    >
+      <span class="sg-head">SIGNALS <span id="sig-count">0/5</span></span>
+      <span class="sg" data-sig="payments" style="--c: var(--cyan)"
+        ><i></i>Payments</span
+      >
+      <span class="sg" data-sig="reliability" style="--c: var(--green)"
+        ><i></i>Reliability</span
+      >
+      <span class="sg" data-sig="intelligence" style="--c: var(--lilac)"
+        ><i></i>Intelligence</span
+      >
+      <span class="sg" data-sig="product" style="--c: var(--gold)"
+        ><i></i>Product</span
+      >
+      <span class="sg" data-sig="leadership" style="--c: var(--blueprint)"
+        ><i></i>Leadership</span
+      >
+    </aside>
 
-        gtag('config', 'G-9CRNWLQS7R');
-    </script>
-
-</head>
-
-
-<!-- home-classic -->
-
-<body id="MyElement" class="template-color-1 home-classic spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="150">
-    <!-- Start Main Page Wrapper -->
-    <main class="main-page-wrapper spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="150">
-
-        <!-- Start Header -->
-        <header class="rn-header haeder-default black-logo-version header--fixed header--sticky">
-            <div class="header-wrapper m--0 rn-popup-mobile-menu row align-items-center">
-                <!-- Start Header Left -->
-                <div class="col-lg-2 col-6">
-                    <div class="header-left">
-                        <div class="logo">
-                            <a href="index.html">
-                                Aws Al-Saigh
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Header Left -->
-                <!-- Start Header Center -->
-                <div class="col-lg-10 col-6">
-                    <div class="header-center">
-                        <nav id="sideNav" class="mainmenu-nav navbar-example2">
-                            <!-- Start Mainmanu Nav -->
-                            <ul class="primary-menu nav nav-pills">
-                                <li class="nav-item"><a class="nav-link smoth-animation active" href="#home">Home</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link smoth-animation" href="#about">About</a></li>
-                                <li class="nav-item"><a class="nav-link smoth-animation" href="#skill">Skills</a></li>
-                                <li class="nav-item"><a href="./work.html" class="nav-link smoth-animation">My
-                                        Work</a>
-                                    <li class="nav-item"><a class="nav-link smoth-animation" href="#blog">Blog</a>
-                                    </li>
-                            </ul>
-                            <!-- End Mainmanu Nav -->
-                        </nav>
-                        <!-- Start Header Right  -->
-                        <div class="header-right">
-
-                            <i id="menuBtn" class="feather-menu humberger-menu d-block d-xl-none"></i>
-                            <div class="close-menu d-block">
-                                <span class="closeTrigger">
-                                    <i data-feather="x"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- End Header Right  -->
-                    </div>
-                </div>
-                <!-- End Header Center -->
-            </div>
-        </header>
-        <!-- End Header Area -->
-
-        <!-- Start Popup Mobile Menu  -->
-        <div class="popup-mobile-menu">
-            <div class="inner">
-                <div class="menu-top">
-                    <div class="menu-header">
-                        <a class="logo" href="index.html">
-                            Aws Al-Saigh
-                        </a>
-                        <div class="close-button">
-                            <button class="close-menu-activation close"><i data-feather="x"></i></button>
-                        </div>
-                    </div>
-                    <p class="discription"></p>
-                </div>
-                <div class="content">
-                    <ul class="primary-menu nav nav-pills">
-                        <li class="nav-item"><a class="nav-link smoth-animation" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link smoth-animation" href="#skill">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link smoth-animation" href="./work.html">My Work</a></li>
-                        <li class="nav-item"><a class="nav-link smoth-animation" href="#blog">Blog</a></li>
-                    </ul>
-                    <!-- end -->
-                </div>
-            </div>
+    <main id="main">
+      <!-- ============ CENTRAL GATEWAY ============ -->
+      <section
+        class="sec hero"
+        data-district="gateway"
+        data-name="CENTRAL GATEWAY"
+      >
+        <div class="wrap">
+          <h1 class="rv d1">
+            <span>I ask why.</span> Then I build <em>what makes sense.</em>
+          </h1>
+          <p class="hero-sub rv d2">
+            Payments, products, infrastructure and AI. More than a million
+            people use my work. Some are on slow networks and old phones. It
+            still has to work.
+          </p>
+          <!-- <aside class="hero-note rv d3">
+            <span class="hero-note-label">OPEN TO THE RIGHT ROLE</span>
+            <p>
+              A senior role with real ownership. I can cover my own relocation.
+              Remote works too.
+            </p>
+          </aside> -->
+          <div class="hero-roles rv d3">
+            <span
+              ><small>NOW</small><b>Senior Software Engineer</b>Qi Card ·
+              promoted March 2026</span
+            >
+            <span
+              ><small>ALSO</small
+              ><b>Founding Engineer &amp; Technical Lead</b>Cardyiq · managing a
+              team of 10</span
+            >
+            <span
+              ><small>BEFORE</small><b>Architect</b>Nine years in architecture
+              and construction</span
+            >
+          </div>
         </div>
-        <!-- End Popup Mobile Menu  -->
+        <p class="scroll-hint" aria-hidden="true">SCROLL TO TRAVEL</p>
+      </section>
 
-        <!-- Start Slider Area -->
-        <div id="home" class="rn-slider-area">
-            <!-- Start Single Slide -->
-            <section class="slide slider-style-4 bg_image bg_image--2">
-                <div class="overlay-aws-layer"></div>
-                <div class="container ">
-                    <div class="row">
-                        <div class="order-2 order-lg-1 col-lg-9 col-xl-7">
-                            <div class="content">
-                                <div class="inner">
-                                    <h1 class="title">Hi, I’m <span>Aws Al-Saigh!</span><br>
-                                        <span class="header-caption " id="page-top">
-                                            <!-- type headline start-->
-                                            <span class="cd-headline clip is-full-width">
-                                                <!-- ROTATING TEXT -->
-                                                <span class="cd-words-wrapper">
-                                                    <b class="is-visible">I am an Engineer.</b>
-                                                    <b class="is-hidden">I am an Architect.</b>
-                                                    <b class="is-hidden">I am a BIM Masters.</b>
-                                                </span>
-                                        </span>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-xl-6 col-md-12 col-sm-12 col-12">
-                                                <div class="social-share-inner-left">
-                                                    <ul class="social-share d-flex liststyle">
-                                                        <li class="linkedin"><a href="https://www.linkedin.com/in/awsdang"><i
-                                                                        data-feather="linkedin"></i></a>
-                                                        </li>
-                                                        <li class="github"><a href="https://github.com/awsdang"><i
-                                                                        data-feather="github"></i></a>
-                                                        </li>
-                                                        <li class="linkedin"><a href="https://awsdang.com/AwsAbdulfattah.CV.pdf"><i
-                                                                        data-feather="file-text"></i></a>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </section>
-            <!-- End Single Slide -->
+      <div
+        class="story-ribbon"
+        aria-label="What this portfolio is built around"
+      >
+        <div>
+          ASKED WHY <span>✦</span> BUILT IT <span>✦</span> FIXED IT
+          <span>✦</span> SHIPPED IT <span>✦</span> LEARNED FROM IT
+        </div>
+      </div>
+
+      <!-- project index -->
+      <section
+        class="sec work-index"
+        id="work-index"
+        data-district="gateway2"
+        data-name="PROJECT INDEX"
+      >
+        <div class="wrap">
+          <header class="work-index-head rv">
+            <p class="kicker">SELECTED WORK</p>
+            <h2>Pick a project.</h2>
+          </header>
+          <nav class="work-index-list rv d1" aria-label="Selected projects">
+            <a href="#d-fintech"
+              ><span>01</span><b>Qi Card / SuperQi</b><em>Fintech</em
+              ><small
+                >Billing and merchant finance across three SuperQi
+                products</small
+              ></a
+            >
+            <a href="#d-rescue"
+              ><span>02</span><b>Cardyiq</b><em>SportsTech</em
+              ><small
+                >Product rebuild, business change and a team of 10</small
+              ></a
+            >
+            <a href="#d-atelier"
+              ><span>03</span><b>Asheerty</b><em>GenealogyTech</em
+              ><small>Family material turned into a physical tree</small></a
+            >
+            <a href="#d-infra"
+              ><span>04</span><b>NotifyX</b><em>Notification Infra</em
+              ><small>One delivery system reused by five companies</small></a
+            >
+            <a href="#d-ailab"
+              ><span>05</span><b>Sadeek</b><em>E-commerce</em
+              ><small>One product photo turned into a live storefront</small></a
+            >
+            <a href="#d-maaahr"
+              ><span>06</span><b>Maaahr</b><em>HRTech</em
+              ><small>A realtime voice interview prototype</small></a
+            >
+            <a href="#d-hawsr"
+              ><span>07</span><b>HAWSR</b><em>ConstructionTech</em
+              ><small>A master's thesis that became my first company</small></a
+            >
+            <a href="#d-origins"
+              ><span>08</span><b>Origins</b><em>Architecture</em
+              ><small>Nine years before I moved into software</small></a
+            >
+          </nav>
+        </div>
+      </section>
+
+      <!-- ============ 01 FINTECH DISTRICT ============ -->
+      <section
+        class="sec sec-district d-qicard"
+        id="d-fintech"
+        data-district="fintech"
+        data-name="FINTECH DISTRICT"
+        data-signal="payments"
+      >
+        <div class="wrap">
+          <div class="d-band rv">
+            <span class="d-name">Fintech</span>
+          </div>
+          <article class="panel rv d1">
+            <span class="tick"></span>
+            <p class="kicker">QI CARD · SUPERQI · ALIPAY MINI APP PLATFORM</p>
+            <h2>Three products inside SuperQi.</h2>
+            <p class="st">
+              Three different products, all trying to make financial information
+              feel simple the first time.
+            </p>
+            <div class="plate">
+              <div class="pl"><b>3</b><span>products</span></div>
+              <div class="pl"><b>1M+</b><span>users</span></div>
+              <div class="pl"><b>Alipay</b><span>mini-app platform</span></div>
+              <div class="pl"><b>3</b><span>languages</span></div>
             </div>
-            <!-- End Slider Area -->
-
-            <!-- Start about Area -->
-            <div id="about" class="rn-about-area rn-section-gap">
-                <div class="container">
-                    <div class="row">
-                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" data-aos-once="true" class=" mt_sm--30">
-                            <div class="contant">
-                                <div class="sticky-home-wrapper section-title text-left ">
-                                    <h2 class="title ">About Me</h2>
-                                    <ul class="rn-section-gap-about section-separator"></ul>
-                                    <div style="padding-left:1em; padding-right:1em" class="discription font-justify ">I am an Architect and a student in an advanced European BIM master. I am interested in automation, digitization and mixing it with architecture and construction. Within my past experiences working on 65 high-end residential
-                                        projects, I acquired expertise in concept developing, design authoring, coordinating, reviewing and, construction planning.
-                                    </div>
-                                    <div style="padding-left:1em; padding-right:1em" class="discription font-justify">
-                                        I have led a team and aspired them to digitization and automation by generating new design processes that reduce wastes and save time and resources.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="product-list">
+              <div class="product-row">
+                <span>01</span>
+                <h3>Tasdid+</h3>
+                <p>
+                  A billing and invoicing system inside the SuperQi ecosystem,
+                  from bill inquiry and invoices to payment states and clear
+                  errors.
+                </p>
+              </div>
+              <div class="product-row">
+                <span>02</span>
+                <h3>Jabi+</h3>
+                <p>
+                  Merchant finance inside SuperQi. Statements, salaries,
+                  supplier payments and Excel exports designed for a phone.
+                </p>
+              </div>
+              <div class="product-row">
+                <span>03</span>
+                <h3>e-Psule</h3>
+                <p>
+                  A billing app for the Kurdistan Region, available in Kurdish,
+                  Arabic and English.
+                </p>
+              </div>
             </div>
-            <!-- End about Area -->
-
-
-
-            <!-- tab Style Two -->
-            <div class="rn-pricing-area" id="about">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- Pricing Area -->
-                            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" data-aos-once="true" class="navigation-wrapper">
-                                <ul class="nav " id="myTab" role="tablist">
-
-                                    <li class="nav-item ">
-                                        <a class="nav-style active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">My Experiences</a>
-                                    </li>
-
-                                    <li class="nav-item ">
-                                        <a class="nav-style" id="test-tab" data-toggle="tab" href="#test" role="tab" aria-controls="test" aria-selected="false">My Education</a>
-                                    </li>
-
-
-                                    <li class="nav-item">
-                                        <a class="nav-style" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My Activities</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
-
-                                    <div class="tab-pane fade " id="test" role="tabpanel" aria-labelledby="test-tab">
-                                        <!-- Pricing Start -->
-                                        <div class="rn-pricing">
-                                            <div class="pricing-header">
-                                                <div class="header-left">
-                                                    <h2 class="title"><a href="https://bimaplus.org/">BIMA+</a></h2>
-                                                    <span>European Master’s in Building Information Modelling</span>
-                                                </div>
-                                            </div>
-                                            <div class="pricing-body">
-                                                <div class="check-wrapper">
-                                                    <p class="left-area">
-                                                        Master Of Science Student, M.Sc. BIM A+
-                                                    </p>
-                                                    <div class="right-area">
-                                                        <p class="subtitle">10.2021 - Present
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="check-wrapper">
-                                                    <div class="left-area font-justify">
-                                                        <div class="check d-flex">
-                                                            <p>BIMAPLUS is a joint European master’s (Erasmus Mundus Program) between:</p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>• University of Minho (Portugal)</p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>• University of Ljubljana (Slovenia) </p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>• Politecnico di Milano (Italy)</p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>The collaboration of 3 universities allowed to offer me an advanced education on BIM integration in Building projects and focus on the collaborative practices that are vital in AEC industry.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="pricing-footer">
-                                                <a href="./about.html" class="rn-btn d-block">
-                                                    <span>See More</span>
-                                                    <i data-feather="arrow-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- End -->
-                                    </div>
-
-                                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <!-- Pricing Start -->
-                                        <div class="rn-pricing">
-                                            <div class="pricing-header">
-                                                <div class="header-left">
-                                                    <h2 class="title">
-                                                        <a href="https://mutaa-alhashimi.com/">Mutaa Al-Hashimi
-                                                        Architects</a>
-                                                    </h2>
-                                                    <span>Registered Iraqi Architectural and Engineering
-                                                    Consultancy</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="pricing-body">
-                                                <div class="check-wrapper">
-                                                    <p class="left-area">
-                                                        Senior Architect
-                                                    </p>
-                                                    <div class="right-area">
-                                                        <p class="subtitle">01.2021 - 10.2021</p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="check-wrapper">
-                                                    <div class="left-area font-justify">
-                                                        <div class="check d-flex">
-                                                            <p>• Set BIM Standards for the company in design and construction and introduced ISO-19650 to the company’s first BIM template and guide.</p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>• Improved the firm’s project design processes by developing a script that automates scheduling. This script cut 1 working day per project.</p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>• Prepared a new collaboration channel (BIM 360) with site engineers that cut down about 75% of phone calls (the company’s old method of communication).</p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>• Led a team of 3 architects to deliver 20 high-quality architectural projects.</p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>• Built the capacity of 3 new talents to use and improve the scripts also generate new ones.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="pricing-footer">
-                                                <a href="./about.html" class="rn-btn d-block">
-                                                    <span>See More</span>
-                                                    <i data-feather="arrow-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- End -->
-                                    </div>
-
-                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                        <!-- Pricing Start -->
-                                        <div class="rn-pricing">
-                                            <div class="pricing-header">
-                                                <div class="header-left">
-                                                    <h2 class="title"><a href="">Ministry of Infrastructure Development,
-                                                        UAE</a>
-
-                                                    </h2>
-                                                    <span>An online voluntary program aimed to build the most suitable
-                                                    house for Emiratis.</span>
-                                                </div>
-                                            </div>
-                                            <div class="pricing-body">
-                                                <div class="check-wrapper">
-                                                    <p class="left-area">
-                                                        Volunteer
-                                                    </p>
-                                                    <div class="right-area">
-                                                        <p class="subtitle">04.2020 - 06.2020</p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="check-wrapper">
-                                                    <div class="left-area font-justify">
-                                                        <div class="check d-flex">
-                                                            <p>• Identify the real needs of the 4 families and their financial ability and plan their houses accordingly.</p>
-                                                        </div>
-                                                        <div class="check d-flex">
-                                                            <p>• Win 4 clients in UAE and establish direct connection with them.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="pricing-footer">
-                                                <a href="./about.html" class="rn-btn d-block">
-                                                    <span>See More</span>
-                                                    <i data-feather="arrow-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- End -->
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- End -->
-                        </div>
-                    </div>
-                </div>
+            <h4>The platform</h4>
+            <p>
+              SuperQi uses <b>Alipay's mini-app platform and APIs</b>. I built
+              against the Alipay APIs and Qi Card's payment rails, then handled
+              the product layer around them: caching, provider differences,
+              payment states, loading and the small details users actually feel.
+            </p>
+            <h4>What mattered</h4>
+            <p>
+              The real job was making billing feel obvious to normal people,
+              often over 50 and using it for the first time. The flow had to
+              explain itself without expecting anyone to understand how the
+              payment system worked underneath.
+            </p>
+            <p class="stack">
+              <b>STACK</b> · TypeScript · Svelte / SvelteKit · Node.js · C# ·
+              ASP.NET · Alipay APIs · SuperQi APIs · tokenized payments
+            </p>
+            <div class="case-actions">
+              <a class="case-link" href="https://qi.iq">Visit qi.iq</a>
             </div>
-            <!-- tab Style Two End -->
+          </article>
+        </div>
+      </section>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="rn-pricing">
-                            <div class="pricing-footer">
-                                <a href="https://awsdang.com/AwsAbdulfattah.CV.pdf" class="rn-btn d-block">
-                                    <span>Download CV</span>
-                                    <i data-feather="save"></i>
-                                </a>
-                            </div>
-                            <div class="pricing-footer">
-                                <a href="https://awsdang.com/AwsAbdulfattah.portfolio.pdf" class="rn-btn d-block">
-                                    <span>Download Portfolio</span>
-                                    <i data-feather="save"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <!-- ============ 02 SPORTSTECH ============ -->
+      <section
+        class="sec sec-district d-cardyiq"
+        id="d-rescue"
+        data-district="rescue"
+        data-name="SPORTSTECH"
+        data-signal="reliability"
+      >
+        <div class="wrap">
+          <div class="d-band rv">
+            <span class="d-name">Sports<br />Tech</span>
+          </div>
+          <article class="panel right rv d1">
+            <span class="tick"></span>
+            <p class="kicker">
+              CARDYIQ · FOUNDING ENGINEER &amp; TECHNICAL LEAD
+            </p>
+            <h2>Cardyiq needed more than a technical fix.</h2>
+            <p class="st">
+              The product was already live. I worked across the code, business
+              model, team and daily operation to make it healthier.
+            </p>
+            <div class="plate">
+              <div class="pl"><b>150+</b><span>venues · 6 cities</span></div>
+              <div class="pl"><b>1,500</b><span>subscribers</span></div>
+              <div class="pl"><b>70M IQD</b><span>GMV in 7 months</span></div>
+              <div class="pl"><b>99.9%</b><span>uptime</span></div>
             </div>
-            <!-- Start Skills Area -->
-            <div id="skill" class="rn-service-area rn-section-gap section-separator">
-                <div class="container mt--40">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true" class="section-title text-left">
-                                <h2 class="title">My Skills</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <!-- Start Single Service -->
-                        <div id="soft" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true" class="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--20">
-                            <div class="rn-service">
-                                <div class="inner">
-                                    <div class="icon">
-                                        <i data-feather="trending-up"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="#soft">Soft Skills</a></h4>
-                                        <p class="description">• Processes Writing and Implementing
-                                            <br>• Assess the Right Level of Details
-                                            <br>• Research and Analytical Thinking
-                                            <br>• Solving Complex Problems
-                                            <br>• Focus on Practical Goals
-                                            <br>• Networking and Collaboration
-                                        </p>
-                                    </div>
-                                </div>
-                                <a class="over-link" href="#soft"></a>
-                            </div>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Start Single Service -->
-                        <div id="arch" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true" class="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--20">
-                            <div class="rn-service">
-                                <div class="inner">
-                                    <div class="icon">
-                                        <i data-feather="edit-2"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="#arch">Architecture-Specific Skills</a></h4>
-                                        <p class="description">• Generative Design and Conceptualization
-                                            <br>• Analyze Program Requirements
-                                            <br>• 3D Design and Modelling
-                                            <br>• 3D Visualization and Postproduction
-                                            <br>• Animations and VR Visualization
-                                            <br>• Design Reviewing
-                                            <br>• Construction Planning
-                                        </p>
-                                    </div>
-                                </div>
-                                <a class="over-link" href="#arch"></a>
-                            </div>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Start Single Service -->
-                        <div id="bim" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true" class="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--20">
-                            <div class="rn-service">
-                                <div class="inner">
-                                    <div class="icon">
-                                        <i data-feather="codepen"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="#bim">BIM Specific Skills</a></h4>
-                                        <p class="description">• BIM information Management
-                                            <br>• BIM Execution Plan Writing (BEP)
-                                            <br>• BIM Models Authoring & Coordination
-                                            <br>• Quantity Take Off (QTO)
-                                            <br>• Author Scheduling (4D BIM) Author Cost Estimate (5D BIM)
-                                            <br>• Systems Interoperability (CDE)
-                                        </p>
-                                    </div>
-                                </div>
-                                <a class="over-link" href="#bim"></a>
-                            </div>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Start Single Service -->
-                        <div id="app" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true" class="col-lg-6 col-xl-6 col-md-6 mt--50 mt_md--30 mt_sm--20">
-                            <div class="rn-service">
-                                <div class="inner">
-                                    <div class="icon">
-                                        <i data-feather="monitor"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="#app">Software Skills</a></h4>
-                                        <p class="description">• BIM Applications
-                                            <br>• Visual Scripting Applications
-                                            <br>• CAD Applications
-                                            <br>• Visualization Applications
-                                            <br>• Construction Management Applications
-                                            <br>• Microsoft Office
-                                            <br>• Graphic Applications
-                                            <br>• Video Editing Applications
-                                        </p>
-                                    </div>
-                                </div>
-                                <a class="over-link" href="#app"></a>
-                            </div>
-                        </div>
-                        <!-- End Single Service -->
-                    </div>
-                </div>
+            <div class="ownership-ledger">
+              <div>
+                <b>PRODUCT</b>
+                <p>
+                  Entry passes were making the product too narrow. I helped
+                  replace them with points and subscriptions, then reworked the
+                  member and venue experience around the new model.
+                </p>
+              </div>
+              <div>
+                <b>ENGINEERING</b>
+                <p>
+                  I rebuilt and stabilised the backend, dashboard and mobile app
+                  while people were still using them. I also fixed reachability
+                  on Iraqi networks, added payments and made deployment and
+                  recovery much safer.
+                </p>
+              </div>
+              <div>
+                <b>BUSINESS + TEAM</b>
+                <p>
+                  I work on pricing, venue onboarding, support, release planning
+                  and the daily decisions behind scaling the product. I now
+                  manage 10 people and still stay close to both the product and
+                  the code.
+                </p>
+              </div>
             </div>
-            <!-- End Skills Area  -->
-
-            <!-- Back to  top Start -->
-            <div class="backto-top">
-                <div>
-                    <i data-feather="arrow-up"></i>
-                </div>
+            <h4>Where it is now</h4>
+            <p>
+              <b>150+ venues in 6 cities.</b> 1,500 active subscribers, 10K+
+              installs, 70M IQD GMV and 99.9% uptime. We also went through a
+              serious data incident and recovered with zero records lost.
+            </p>
+            <p class="stack">
+              <b>STACK</b> · Flutter · React · TypeScript · Laravel · MySQL ·
+              Redis · Docker · CI/CD · payment integrations
+            </p>
+            <div class="case-actions">
+              <a class="case-link" href="https://cardyiq.com"
+                >Visit cardyiq.com</a
+              >
             </div>
-            <!-- Back to top end -->
+          </article>
+        </div>
+      </section>
 
-            <!--Start Dark/Light Button-->
-            <div class="me25 me23">
-                <div>
-                    <i id="hehe" class="me23 fas fa-lightbulb"></i>
-                </div>
+      <!-- ============ 03 CONSUMERTECH / GENEALOGYTECH ============ -->
+      <section
+        class="sec sec-district d-asheerty"
+        id="d-atelier"
+        data-district="atelier"
+        data-name="GENEALOGYTECH"
+        data-signal="product"
+      >
+        <div class="wrap">
+          <div class="d-band rv">
+            <span class="d-name">Genealogy<br />Tech</span>
+          </div>
+          <article class="panel rv d1">
+            <span class="tick"></span>
+            <p class="kicker">
+              FAMILY HISTORY · AI RECOGNITION · AI-GENERATED ART
+            </p>
+            <h2>
+              A family tree that starts with old photos and ends on the wall.
+            </h2>
+            <p class="st">
+              The app helps build the tree. The final result becomes a printed
+              piece made for that family.
+            </p>
+            <p>
+              I built Asheerty as a complete consumer product: the mobile app,
+              backend, dashboard, order flow and fulfilment tools. I am now
+              building the full technical cycle around the tree.
+            </p>
+            <ol
+              class="tech-cycle"
+              id="genealogy-flow"
+              aria-label="How family material becomes the final tree artwork"
+            >
+              <li>
+                <b>01</b
+                ><span
+                  ><strong>Data entry</strong>The user adds names,
+                  relationships, photos, documents and old family trees.</span
+                >
+              </li>
+              <li>
+                <b>02</b
+                ><span
+                  ><strong>AI tree reading</strong>AI reads old family trees and
+                  other family material, finds connections and builds a first
+                  version of the tree inside the app.</span
+                >
+              </li>
+              <li>
+                <b>03</b
+                ><span
+                  ><strong>User review</strong>The user checks and corrects the
+                  people and relationships before they are saved to the
+                  database.</span
+                >
+              </li>
+              <li>
+                <b>04</b
+                ><span
+                  ><strong>The living tree</strong>The tree stays interactive
+                  and keeps changing as the family updates it.</span
+                >
+              </li>
+              <li>
+                <b>05</b
+                ><span
+                  ><strong>AI custom artwork</strong>AI helps turn the reviewed
+                  tree into an organic composition, then we refine it and
+                  prepare it for print.</span
+                >
+              </li>
+            </ol>
+            <h4>The full cycle</h4>
+            <p>
+              AI is used at both ends of the process. First, it reads old family
+              trees and other family material, finds names and connections, and
+              builds an initial tree inside the app. The user reviews and
+              corrects the result before the people and relationships are stored
+              in the database.
+            </p>
+            <p>
+              The reviewed tree becomes the input for a second AI process. AI
+              creates the layout and shapes it into an organic tree. I then
+              refine the family-specific artwork and prepare the final version
+              for printing.
+            </p>
+            <p class="stack">
+              <b>STACK</b> · React Native · React · Bun · Express · AI image
+              analysis · AI recognition · database · interactive tree · AI image
+              generation · print fulfilment
+            </p>
+            <div class="case-actions">
+              <a class="case-link" href="https://asheerty.sadeek.app"
+                >Visit asheerty.sadeek.app</a
+              >
             </div>
-            <!--End Dark/Light Button-->
+          </article>
+        </div>
+      </section>
 
+      <!-- ============ 04 NOTIFICATION INFRASTRUCTURE ============ -->
+      <section
+        class="sec sec-district d-notifyx"
+        id="d-infra"
+        data-district="infra"
+        data-name="NOTIFICATION INFRA"
+        data-signal="reliability"
+      >
+        <div class="wrap">
+          <div class="d-band rv">
+            <span class="d-name">Notification<br />Infra</span>
+          </div>
+          <article class="panel right rv d1" style="max-width: 860px">
+            <span class="tick"></span>
+            <p class="kicker">NOTIFYX · NOTIFICATION INFRASTRUCTURE</p>
+            <h2>
+              I got tired of rebuilding notifications, so I built NotifyX.
+            </h2>
+            <p class="st">
+              One API, one dashboard and one place to see what failed.
+            </p>
+            <h4>What it handles</h4>
+            <p>
+              Every product needed the same mix of providers, queues, retries,
+              scheduling and delivery status. I stopped copying the setup and
+              built it as its own system. NotifyX now handles FCM, APNS, HMS and
+              Web Push for five companies, with each worker benchmarked at
+              <b>about 150 messages per second</b>. The code is public at
+              <a href="https://github.com/awsdang/notifyx"
+                >github.com/awsdang/notifyx</a
+              >.
+            </p>
+            <div class="queue-shell">
+              <div class="qbar">
+                <span class="qtag">LIVE VIEW · HOW A MESSAGE MOVES</span>
+                <span class="qstats"
+                  ><span id="q-delivered" class="g">0</span> delivered ·
+                  <span id="q-retried" class="a">0</span> retried</span
+                >
+                <button class="qbtn" id="q-send" type="button">
+                  ▸ SEND A TEST
+                </button>
+              </div>
+              <canvas
+                id="queue"
+                aria-label="Animated simulation of the NotifyX queue: messages flow from the API through a BullMQ queue to workers and out to push providers; failed messages visibly retry and deliver."
+              ></canvas>
+              <p class="queue-cap">
+                Every dot is a message. If a provider fails, the message moves
+                into the retry path and tries again.
+              </p>
+            </div>
+            <p class="stack">
+              <b>STACK</b> · Node.js · BullMQ · Redis · PostgreSQL · Prisma ·
+              React · web / Flutter / RN SDKs
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ 05 SECOND-HAND E-COMMERCE ============ -->
+      <section
+        class="sec sec-district d-sadeek"
+        id="d-ailab"
+        data-district="ailab"
+        data-name="SECOND-HAND E-COMMERCE"
+        data-signal="intelligence"
+      >
+        <div class="wrap">
+          <div class="d-band rv">
+            <span class="d-name">E-commerce</span>
+          </div>
+
+          <article class="panel rv d1">
+            <span class="tick"></span>
+            <p class="kicker">SADEEK · AI-ASSISTED SECOND-HAND SELLING</p>
+            <h2>One photo becomes a live listing.</h2>
+            <p class="st">
+              The seller stays in Telegram. The product page lands on
+              <a href="https://sadeek.app">sadeek.app</a>.
+            </p>
+            <div class="plate">
+              <div class="pl"><b>10K+</b><span>users</span></div>
+              <div class="pl"><b>150K+</b><span>AI requests</span></div>
+              <div class="pl"><b>40K</b><span>monthly visitors</span></div>
+            </div>
+            <h4>The flow</h4>
+            <p>
+              A seller sends one rough phone photo through Telegram. Sadeek
+              improves the image, writes the title and description, suggests a
+              price, checks the result and publishes it to a storefront at
+              <a href="https://sadeek.app">sadeek.app</a>.
+            </p>
+            <h4>What happens to the photo</h4>
+            <p>
+              The product does more than generate copy. It edits the photo,
+              removes the background, improves the lighting and presentation,
+              then writes and publishes the listing. I built the flow so the
+              seller can review or change any step without starting over.
+            </p>
+            <p class="stack">
+              <b>STACK</b> · Node.js · PostgreSQL · Next.js · Tailwind · OpenAI
+              · Gemini · n8n · Telegram Bot API
+            </p>
+            <div class="case-actions">
+              <a class="case-link" href="https://sadeek.app"
+                >Visit sadeek.app</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="sec sec-district d-maaahr"
+        id="d-maaahr"
+        data-district="maaahr"
+        data-name="HRTECH"
+        data-signal="intelligence"
+      >
+        <div class="wrap">
+          <div class="d-band rv">
+            <span class="d-name">HRTech</span>
+          </div>
+          <article class="panel right rv">
+            <span class="tick"></span>
+            <p class="kicker">
+              MAAAHR · HRTECH · HACKATHON BUILD · OPENAI REALTIME API
+            </p>
+            <h2>A mock interview that talks back.</h2>
+            <p class="st">
+              You speak naturally, interrupt when you need to and get a useful
+              report at the end.
+            </p>
+            <p>
+              Maaahr is an HRTech prototype for interview practice. It started
+              as a text-based project, then I rebuilt the experience during a
+              hackathon around the <b>OpenAI Realtime API</b>. The prototype
+              asks questions for the role you choose, listens, shows live
+              subtitles and gives structured feedback after the interview.
+            </p>
+            <p>
+              The difficult parts were latency, interruption and keeping voice,
+              transcript and evaluation in sync without making the conversation
+              feel robotic.
+            </p>
+            <p class="stack">
+              <b>STACK</b> · Next.js · Supabase · OpenAI Realtime API · GPT ·
+              Gemini · live transcription · structured evals
+            </p>
+            <div class="case-actions">
+              <a class="case-link" href="https://maaahr.com"
+                >Visit maaahr.com</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ 07 HAWSR ============ -->
+      <section
+        class="sec sec-district d-hawsr"
+        id="d-hawsr"
+        data-district="hawsr"
+        data-name="HAWSR"
+        data-signal="product"
+      >
+        <div class="wrap">
+          <div class="d-band rv">
+            <span class="d-name">HAWSR</span>
+          </div>
+          <article class="panel rv d1">
+            <span class="tick"></span>
+            <p class="kicker">HAWSR · CONSTRUCTIONTECH · MY FIRST COMPANY</p>
+            <h2>My architecture thesis became my first company.</h2>
+            <p class="st">
+              That is where software stopped being a side interest.
+            </p>
+            <p>
+              HAWSR moved Revit models into the browser so construction teams
+              could work with them more easily. It started as my master's
+              thesis, won first prize at The Station Foundation incubator and
+              became a real company.
+            </p>
+            <p>
+              We had real customers, around $60K in revenue and a team of six.
+              It was the first time I had to lead people while learning product,
+              sales and software at the same time.
+            </p>
+            <p>
+              The company eventually closed when funding disappeared and the
+              market proved too small. It still gave me my first serious
+              product, customers, revenue, a reason to move fully into software
+              and my first real experience leading a team.
+            </p>
+            <p class="stack">
+              <b>STACK</b> · Three.js · React · Next.js · Django
+            </p>
+            <div class="case-actions">
+              <a class="case-link" href="https://hawsr.com">Visit hawsr.com</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ 08 ORIGINS ============ -->
+      <section
+        class="sec sec-district d-origins"
+        id="d-origins"
+        data-district="origins"
+        data-name="ORIGINS"
+      >
+        <div class="wrap">
+          <div class="d-band rv">
+            <span class="d-name">Origins</span>
+          </div>
+          <article class="panel right rv d1">
+            <span class="tick"></span>
+            <p class="kicker">ARCHITECTURE · BIM · RECONSTRUCTION</p>
+            <h2>
+              I spent nine years in architecture before I wrote software full
+              time.
+            </h2>
+            <p class="st">
+              That background still shapes how I understand systems, people and
+              constraints.
+            </p>
+            <h4>The work before software</h4>
+            <p>
+              Before UNOPS, I worked with several high-end architecture and
+              design studios, taking responsibility for construction projects
+              worth more than $3M each. Later, with <b>UNOPS in Anbar</b>, I
+              managed a reconstruction and rehabilitation program covering
+              around 1,500 homes, helping families return to safe, usable
+              houses.
+            </p>
+            <h4>How software started</h4>
+            <p>
+              I began by automating repetitive Revit work with Dynamo and
+              Python. I was curious about how far that could go, and eventually
+              the scripts became more interesting to me than the drawings.
+            </p>
+            <h4>What stayed with me</h4>
+            <p>
+              Architecture taught me to plan, explain decisions, work with many
+              different people and take real-world constraints seriously. I use
+              the same habits in software now.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ RULEBOOK ============ -->
+      <section
+        class="sec"
+        data-district="rules"
+        data-name="THE RULEBOOK"
+        data-signal="leadership"
+      >
+        <div class="wrap">
+          <p class="kicker rv">HOW I WORK</p>
+          <h2
+            class="rv d1"
+            style="font-size: clamp(30px, 3.6vw, 52px); margin: 16px 0 40px"
+          >
+            Five things I keep coming back to.
+          </h2>
+          <ol class="rules">
+            <li class="rv">
+              <b>Find the real problem, not the first one.</b>
+              <p>
+                Sometimes it is code. Sometimes it is pricing, UI, process or a
+                decision nobody has made yet. I try to understand that before I
+                start building.
+              </p>
+            </li>
+            <li class="rv">
+              <b>Change live systems in small steps.</b>
+              <p>
+                Most of my major rebuilds happened while people were still using
+                the product. I plan carefully, ship smaller changes and keep a
+                way back.
+              </p>
+            </li>
+            <li class="rv">
+              <b>Design for slow networks and distracted people.</b>
+              <p>
+                Small bundles, fewer round trips, useful loading states and
+                clear language. These details matter more than they look.
+              </p>
+            </li>
+            <li class="rv">
+              <b>Make payment systems boring.</b>
+              <p>
+                States, retries, idempotency, callbacks and reconciliation.
+                Boring is good when money is moving.
+              </p>
+            </li>
+            <li class="rv">
+              <b>Build it so the team can run it without me.</b>
+              <p>
+                I like ownership, but I do not want to become a bottleneck.
+                Clear systems and people who understand them are the real
+                handoff.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============ PERSONAL ============ -->
+      <section
+        class="sec personal"
+        data-district="personal"
+        data-name="A BIT ABOUT ME"
+        data-signal="leadership"
+      >
+        <div class="wrap personal-grid">
+          <div>
+            <p class="kicker rv">A LITTLE MORE PERSONAL</p>
+            <h2 class="rv d1">I am curious by default.</h2>
+          </div>
+          <div class="personal-copy rv d2">
+            <p>
+              I ask a lot of questions. Not to make things complicated, but
+              because I want to understand what is actually happening before I
+              decide what to do.
+            </p>
+            <p>
+              I like getting close to the problem and the people living with it.
+              I sketch ideas, build small versions and change my mind when the
+              evidence says I should.
+            </p>
+            <p>
+              I care about useful work, honest teams and people who can disagree
+              without making it personal. I learn fastest when there is trust,
+              responsibility and something real to improve.
+            </p>
+          </div>
+          <aside class="personal-note rv d3">
+            <span>THE SIMPLE VERSION</span>
+            <p>
+              Give me a hard problem, honest people and enough room to learn.
+              That is usually where I do my best work.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============ FINALE ============ -->
+      <section
+        class="sec finale"
+        data-district="finale"
+        data-name="CENTRAL GATEWAY · NIGHT"
+      >
+        <div class="wrap finale-in">
+          <p class="kicker rv" style="justify-content: center">LET'S TALK</p>
+          <h2 class="rv d1" style="margin-top: 18px">
+            I want to work on problems worth <em>understanding.</em>
+          </h2>
+          <div class="finale-contacts rv d2">
+            <a class="mail-big" href="mailto:awsdang@gmail.com"
+              >awsdang@gmail.com</a
+            >
+            <a class="phone-big" href="https://wa.me/9647702531435"
+              >+964 770 253 1435 <span>WhatsApp</span></a
+            >
+          </div>
+          <div class="actions center rv d3">
+            <a
+              class="btn primary"
+              href="cv.html"
+              target="_blank"
+              rel="noopener"
+              data-cv-viewer
+              >Open my CV</a
+            >
+            <a class="btn" href="https://github.com/awsdang">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/awsdang"
+              >LinkedIn</a
+            >
+          </div>
+          <p class="contact-note rv d4">
+            OPEN TO RELOCATION AT MY OWN EXPENSE · OPEN TO REMOTE WORK ·
+            @AWSDANG
+          </p>
+        </div>
+      </section>
     </main>
 
-    <!-- Rn footer area Start -->
-    <div id="footer" class="rn-footer-area footer-style-2 section-separator mt--40">
+    <footer>
+      <div class="wrap foot-in">
+        <span class="serif"
+          >I started in architecture. I still think in plans, systems and how
+          people move through things.</span
+        >
+        <span>
+          <button id="replay" type="button">↻ REPLAY THE BLUEPRINT</button>
+          &nbsp;·&nbsp; © 2026 · built by me, changed often
+        </span>
+      </div>
+    </footer>
 
-        <div class="copyright text-center ptb--40 section-separator">
-            <p class="description">© 2022. All rights reserved. <a target="_blank" href="./index.html">Aws
-                    Abdulfattah.</a></p>
-            <p class="a-message">I am proud of what I have done, it made realize that developing Websites isn't easy, I'm noob, please contact me for suggestion to improve my website</p>
-        </div>
-    </div>
-    <!-- Rn footer area end -->
-    <!-- JS ============================================ -->
-    <script src="./assets/js/vendor/jquery.js"></script>
-    <script src="./assets/js/vendor/modernizer.min.js"></script>
-    <script src="./assets/js/vendor/feather.min.js"></script>
-    <script src="./assets/js/vendor/slick.min.js"></script>
-    <script src="./assets/js/vendor/bootstrap.js"></script>
-    <script src="./assets/js/vendor/text-type.js"></script>
-    <script src="./assets/js/vendor/wow.js"></script>
-    <script src="./assets/js/vendor/aos.js"></script>
-    <!-- main JS -->
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/isotope.pkgd.min.js"></script>
-    <script src="./assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="./assets/js/custom.js"></script>
-    <script src="./assets/work/text/custom-text.js"></script>
-    <script src="./assets/js/custom_about.js"></script>
-
-</body>
-
+    <script>
+      /* NotifyX web push · fill in appId / apiKey / vapidPublicKey from the NotifyX
+     portal to go live. Until then the button falls back to the simulation toast. */
+      window.NOTIFYX_CONFIG = {
+        baseUrl: "https://notification.sadeek.app",
+        appId: "",
+        apiKey: "",
+        vapidPublicKey: "",
+        serviceWorkerPath: "/notifyx-sw.js",
+      };
+    </script>
+    <script src="notifyx-web-sdk.js?v=1"></script>
+    <script src="js/main.js?v=5" defer></script>
+    <script type="module" src="js/city.js?v=30"></script>
+  </body>
 </html>

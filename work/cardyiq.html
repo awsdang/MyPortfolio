@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cardyiq | Case File 02 · Aws Abdulfattah</title>
+<meta name="description" content="I rebuilt Cardyiq while it was live. It grew from a broken launch to 150+ venues in 6 cities with 99.9% uptime.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=19">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%2307090D'/%3E%3Cpath d='M8 38 L24 8 L40 38' fill='none' stroke='%2365F6A6' stroke-width='3'/%3E%3Cpath d='M16 38 L24 23 L32 38' fill='none' stroke='%23F3F0E8' stroke-width='2.4'/%3E%3Cpath d='M4 38 H44' stroke='%2365F6A6' stroke-width='1.6' opacity='.6'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.remove("no-js");</script>
+</head>
+<body class="sheet d-cardyiq" data-root="../">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hud">
+  <div class="wrap hud-in">
+    <a class="brand" href="../index.html#d-rescue" aria-label="Back to SportsTech">
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M8 38 L24 8 L40 38" stroke-width="3" stroke-linecap="square"/>
+        <path d="M16 38 L24 23 L32 38" stroke-width="2.4" opacity=".65"/>
+        <path d="M4 38 H44" stroke-width="1.6" opacity=".5"/>
+      </svg>
+      <span>AWS ABDULFATTAH<span class="b-sub">CASE FILE 02 · SPORTSTECH</span></span>
+    </a>
+    <nav aria-label="Primary" style="margin-left:auto">
+      <a href="../index.html">The city</a>
+      <a class="hide-m" href="../recruiter.html">Fast track</a>
+      <a class="btn primary sm" href="../cv/Aws_Abdulfattah__Senior_Software_Engineer.pdf" download>↓ CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="case-hero">
+  <div class="wrap">
+    <div class="case-glyph rv" aria-hidden="true">
+      <!-- Cardyiq glyph: a cracked block, two halves pulled apart, one arrow closing the gap -->
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 34 V6 H34 Z"/>
+        <path d="M42 14 V42 H14 Z" opacity=".65"/>
+        <path d="M27 27 L21 21"/>
+        <path d="M21 21 h6 M21 21 v6"/>
+      </svg>
+    </div>
+    <p class="kicker rv">CASE FILE 02 · CARDYIQ · SPORTSTECH</p>
+    <span class="stamp ok" style="margin-bottom:20px">Recovered · live · rebuilt in production</span>
+    <h1 class="rv d1">Rebuilding a <em>failing live product</em> without stopping the business.</h1>
+    <div class="case-meta rv d2">
+      <span><b>Role</b>Founding Engineer &amp; Technical Lead · manages a team of 10</span>
+      <span><b>Period</b>September 2025 to present</span>
+      <span><b>Surface</b>Flutter app · React dashboard · Laravel/MySQL backend</span>
+      <span><b>Result</b>150+ venues · 6 cities · 99.9% uptime</span>
+    </div>
+  </div>
+</section>
+
+<div class="case-body wrap">
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§1</span> CONTEXT</h2>
+    <p class="lede rv">The product was live. It was not ready.</p>
+    <p class="rv">Cardyiq is a <b>sports and fitness network in Iraq</b>. I was asked to give some "technical advice" a few days after launch. The app was live, people were already using it and almost every part underneath needed work.</p>
+    <p class="rv">I cannot publish the operational details, but I can show what was wrong, what I changed and what happened after.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§2</span> WHAT I INHERITED</h2>
+    <ul>
+      <li class="rv"><b>It failed on Iraqi networks.</b> A DNS/CDN problem made the app unreachable for many users. The old advice was to install a VPN.</li>
+      <li class="rv"><b>The Laravel/MySQL backend was fragile.</b> Small changes were risky and slow.</li>
+      <li class="rv"><b>There was no CI/CD and no caching.</b> Deploying was painful, so it rarely happened.</li>
+      <li class="rv"><b>Payments were cash only.</b> Someone had to collect the money from every venue.</li>
+      <li class="rv"><b>The dashboard was in English.</b> The people using it every day spoke Arabic.</li>
+      <li class="rv"><b>The business model was the biggest problem.</b> Entry passes limited the sports, venues and pricing the product could support.</li>
+    </ul>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§3</span> MY OWNERSHIP</h2>
+    <ul>
+      <li class="rv"><b>I stabilised</b> the Laravel/MySQL backend while users were still inside the app.</li>
+      <li class="rv"><b>I rebuilt</b> the dashboard in React and made it Arabic-first.</li>
+      <li class="rv"><b>I kept</b> the Flutter app shipping during the rebuild.</li>
+      <li class="rv"><b>I built</b> delivery with Docker, GitHub Actions and Dokploy. We shipped <b>30 releases in 6 months</b>.</li>
+      <li class="rv"><b>I moved</b> the product to hosting that Iraqi networks could reach reliably.</li>
+      <li class="rv"><b>I integrated</b> two payment providers behind one idempotent, webhook-reconciled layer.</li>
+      <li class="rv"><b>I added</b> backups, a read replica and a recovery path before the incident happened.</li>
+      <li class="rv"><b>I replaced</b> entry passes with points and subscriptions.</li>
+      <li class="rv"><b>I built and now manage</b> the 10-person team that runs it with me.</li>
+    </ul>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§4</span> SYSTEM MAP</h2>
+<pre class="sysmap rv">USER  ──▶ <span class="hi">MOBILE APP (Flutter)</span> ──────────────┐
+OWNER ──▶ <span class="hi">DASHBOARD (React · Arabic-first)</span> ──┤
+                                             ▼
+                                       API <span class="dm">(Laravel)</span>
+                                             │
+                                             ▼
+                                       MySQL primary ──▶ read replica + backups <span class="dm">(the recovery path)</span>
+
+<span class="dm">PAYMENTS</span>  provider A ─┐
+          provider B ─┴─▶ <span class="hi">webhook reconciliation</span>
+                                    │
+                                    ▼
+                     initiated → pending → confirmed
+                                    │
+                                    ├──▶ failed  <span class="dm">(explicit state, never guessed)</span>
+                                    └──▶ retry   <span class="dm">(idempotent, no double charge)</span>
+
+<span class="dm">DELIVERY</span>  git push ─▶ GitHub Actions ─▶ Docker build ─▶ Dokploy ─▶ <span class="hi">zero-downtime deploy</span></pre>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§5</span> KEY DECISIONS</h2>
+    <div class="decisions">
+      <div class="decision rv"><b>Fix the business model before polishing the code.</b>
+        <p>Entry passes put a ceiling on the product. Points and subscriptions opened it to more sports and more kinds of venues. Without that change, the technical rebuild would not matter.</p></div>
+      <div class="decision rv"><b>Keep the product live.</b>
+        <p>There was no downtime window. I moved the hosting, changed the database and rebuilt features in small steps under live traffic.</p></div>
+      <div class="decision rv"><b>Kill cash with one abstraction.</b>
+        <p>Both providers sit behind one idempotent, webhook-reconciled layer. The app does not need to know which provider is handling the payment.</p></div>
+      <div class="decision rv"><b>Recovery paths before features.</b>
+        <p>The backups and read replica existed before the incident. That was the reason we recovered without losing a record.</p></div>
+      <div class="decision rv"><b>Hire the team that makes you unnecessary.</b>
+        <p>I built a team of 10 and gave people enough context and ownership to move without waiting for me.</p></div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§6</span> OUTCOME</h2>
+    <div class="outcomes rv">
+      <div class="oc"><b>150+</b><span>venues on the platform</span></div>
+      <div class="oc"><b>6</b><span>cities across Iraq</span></div>
+      <div class="oc"><b>1,500</b><span>active subscribers</span></div>
+      <div class="oc"><b>10K+</b><span>installs</span></div>
+      <div class="oc"><b>70M IQD</b><span>GMV in 7 months</span></div>
+      <div class="oc"><b>30</b><span>releases in 6 months</span></div>
+      <div class="oc"><b>99.9%</b><span>uptime over 8 months</span></div>
+    </div>
+    <p class="rv" style="margin-top:18px">The 99.9% uptime does not mean nothing went wrong. We had a production data incident and recovered with <b>zero records lost</b>. The next section explains it.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§7</span> THE INCIDENT ROOM</h2>
+    <p class="rv" style="font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--dim);margin-bottom:16px">A data-loss incident was detected in production. Here is the public version of what happened.</p>
+    <div class="fails">
+      <div class="fm rv"><b>We found the issue</b><p>Monitoring showed something was wrong in the primary database. The app stayed online while we checked the damage.</p></div>
+      <div class="fm rv"><b>We checked the replica</b><p>The read replica was intact and consistent.</p></div>
+      <div class="fm rv"><b>We checked the backups</b><p>We compared the backup timeline with the replica and confirmed exactly what was affected.</p></div>
+      <div class="fm rv"><b>We chose the recovery path</b><p>The replica became the source of truth. The backups were used to verify it.</p></div>
+      <div class="fm rv"><b>We verified everything</b><p>We checked the data against both sources before returning to normal operation.</p></div>
+      <div class="fm rv"><b>Zero records lost</b><p>The recovery setup worked exactly when we needed it.</p></div>
+    </div>
+    <p class="reflect rv" style="margin-top:28px">The incident was bad. The good part was that the recovery path already existed and we did not lose anyone's data.</p>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§8</span> SCREENS</h2>
+    <p class="rv" style="margin-bottom:16px;color:var(--dim);font-size:14px">These screens use fake venues, names and amounts. No customer data is shown.</p>
+    <div class="shots">
+      <figure class="shot tall rv" data-shot="cardyiq-home" data-alt="Cardyiq mobile home with venues and points balance"><div class="shot-ph">cardyiq-home</div><figcaption>Cardyiq mobile home</figcaption></figure>
+      <figure class="shot tall rv" data-shot="cardyiq-venue" data-alt="Venue detail with subscription options"><div class="shot-ph">cardyiq-venue</div><figcaption>Venue detail &amp; subscription</figcaption></figure>
+      <figure class="shot rv" data-shot="cardyiq-dashboard" data-alt="Arabic-first operations dashboard in React"><div class="shot-ph">cardyiq-dashboard</div><figcaption>Arabic operations dashboard</figcaption></figure>
+      <figure class="shot rv" data-shot="cardyiq-analytics" data-alt="Growth analytics across six cities"><div class="shot-ph">cardyiq-analytics</div><figcaption>Growth analytics</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <h2 class="rv"><span class="n">§9</span> WHAT I LEARNED</h2>
+    <p class="reflect rv">The code was only part of the problem. Operations and the business model needed work too.</p>
+  </section>
+
+  <section class="case-sec" style="border-bottom:none">
+    <h2 class="rv"><span class="n">§10</span> WHAT I'D CHANGE TODAY</h2>
+    <p class="rv">I would build <b>the payment layer and observability in week one</b>, not month two. I would also push the business-model conversation earlier. The code was not the hardest part. Getting everyone to agree that entry passes were the ceiling took longer.</p>
+  </section>
+
+  <nav class="case-next" aria-label="Related case files">
+    <a href="notifyx.html"><span class="cn-k">RELATED INFRASTRUCTURE →</span><b>NotifyX · 50+ campaigns to Cardyiq users</b></a>
+    <a href="qi-card.html"><span class="cn-k">PREVIOUS DISTRICT →</span><b>Qi Card · regulated billing at 1M+ users</b></a>
+  </nav>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="serif">Designed as a city because I began as an architect. Built as a system because that is what I became.</span>
+    <span><a href="../index.html#d-rescue">↖ BACK TO THE CITY</a> &nbsp;·&nbsp; © 2026</span>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=2" defer></script>
+</body>
+</html>
