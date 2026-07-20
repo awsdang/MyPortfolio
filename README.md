@@ -33,9 +33,9 @@ stack, Sadeek's storefront, a live interview, and a HAWSR apartment interior.
 
 ## Fallbacks (all tested paths)
 
-- `prefers-reduced-motion` → no intro, no animation, one static city frame, all content visible
-- No WebGL / JS off → content fully readable on the void background
-- Mobile → lower scene density, DPR clamp, panels full-width, signals HUD hidden
+- `prefers-reduced-motion` → no intro, no animation, one static city frame, all content visible.
+- No WebGL / JS off → content fully readable on the void background.
+- Mobile → lower scene density, DPR clamp, panels full-width, signals HUD hidden.
 - Tab hidden → render loop pauses
 
 ## Editing rules
