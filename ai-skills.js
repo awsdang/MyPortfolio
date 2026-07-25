@@ -24,7 +24,6 @@
     : null;
   var selectedDownload = "";
   var toastTimer = null;
-  var phoneSessionKey = "awsdang.aiSkills.phoneSubmitted";
 
   if (
     !dialog ||
@@ -43,22 +42,6 @@
     !suggestSubmit
   )
     return;
-
-  function phoneWasSubmitted() {
-    try {
-      return window.sessionStorage.getItem(phoneSessionKey) === "1";
-    } catch (error) {
-      return false;
-    }
-  }
-
-  function rememberPhoneSubmission() {
-    try {
-      window.sessionStorage.setItem(phoneSessionKey, "1");
-    } catch (error) {
-      /* Private browsing can disable storage; prompting again is acceptable. */
-    }
-  }
 
   function prepareDownload(button) {
     selectedDownload = button.getAttribute("data-download") || "";
@@ -168,13 +151,6 @@
   document.querySelectorAll("[data-download]").forEach(function (link) {
     link.addEventListener("click", function (event) {
       prepareDownload(link);
-
-      if (phoneWasSubmitted()) {
-        /* Keep the browser's native link/download behavior after the first
-           submission. This also leaves a working fallback if JS changes. */
-        return;
-      }
-
       event.preventDefault();
       openDialog();
     });
@@ -280,7 +256,6 @@
     );
 
     /* Run inside the original submit gesture so browsers do not block it. */
-    rememberPhoneSubmission();
     startDownload(true);
   });
 })();
