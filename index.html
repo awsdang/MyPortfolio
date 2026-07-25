@@ -23,7 +23,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/site.css?v=22" />
+    <link rel="stylesheet" href="css/site.css?v=34" />
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%2307090D'/%3E%3Cpath d='M8 38 L24 8 L40 38' fill='none' stroke='%2353D8FF' stroke-width='3'/%3E%3Cpath d='M16 38 L24 23 L32 38' fill='none' stroke='%23F3F0E8' stroke-width='2.4'/%3E%3Cpath d='M4 38 H44' stroke='%2353D8FF' stroke-width='1.6' opacity='.6'/%3E%3C/svg%3E"
@@ -64,28 +64,12 @@
   <body class="home">
     <a class="skip" href="#main">Skip to content</a>
 
-    <!-- blueprint boot: coordinates → line → the city rises (main.js + city.js) -->
-    <div id="intro" aria-hidden="true">
-      <div class="intro-in">
-        <p class="intro-coord">ARCHITECT FIRST · SOFTWARE ENGINEER NOW</p>
-        <p class="intro-place">
-          I USED TO DESIGN BUILDINGS.<br />NOW I BUILD SOFTWARE.
-        </p>
-        <div class="intro-line"></div>
-      </div>
-      <button class="intro-skip" id="intro-skip" type="button">
-        ENTER NOW →
-      </button>
-    </div>
-
-    <!-- the city -->
-    <canvas id="city" aria-hidden="true"></canvas>
-    <div class="city-veil" aria-hidden="true"></div>
+    <div class="site-visual" aria-hidden="true"></div>
 
     <header class="hud">
       <div class="wrap hud-in">
         <a class="brand" href="#main" aria-label="Aws Abdulfattah · home">
-          <svg
+          <!-- <svg
             viewBox="0 0 48 48"
             fill="none"
             stroke="currentColor"
@@ -98,55 +82,29 @@
             />
             <path d="M16 38 L24 23 L32 38" stroke-width="2.4" opacity=".65" />
             <path d="M4 38 H44" stroke-width="1.6" opacity=".5" />
-          </svg>
+          </svg> -->
           <span>AWS ABDULFATTAH</span>
         </a>
         <p class="hud-district" aria-live="polite">
-          YOU ARE HERE · <b id="hud-district">CENTRAL GATEWAY</b>
+          VIEWING · <b id="hud-district">INTRO</b>
         </p>
         <nav aria-label="Primary">
           <a class="hide-m" href="mailto:awsdang@gmail.com">Contact</a>
           <a
             class="btn primary sm"
             href="cv.html"
-            target="_blank"
-            rel="noopener"
-            data-cv-viewer
             >CV</a
           >
         </nav>
       </div>
     </header>
 
-    <!-- engineering signals · light up as districts are visited by scroll -->
-    <aside
-      class="signals"
-      aria-label="Engineering signals collected while scrolling"
-    >
-      <span class="sg-head">SIGNALS <span id="sig-count">0/5</span></span>
-      <span class="sg" data-sig="payments" style="--c: var(--cyan)"
-        ><i></i>Payments</span
-      >
-      <span class="sg" data-sig="reliability" style="--c: var(--green)"
-        ><i></i>Reliability</span
-      >
-      <span class="sg" data-sig="intelligence" style="--c: var(--lilac)"
-        ><i></i>Intelligence</span
-      >
-      <span class="sg" data-sig="product" style="--c: var(--gold)"
-        ><i></i>Product</span
-      >
-      <span class="sg" data-sig="leadership" style="--c: var(--blueprint)"
-        ><i></i>Leadership</span
-      >
-    </aside>
-
     <main id="main">
-      <!-- ============ CENTRAL GATEWAY ============ -->
+      <!-- ============ INTRO ============ -->
       <section
         class="sec hero"
         data-district="gateway"
-        data-name="CENTRAL GATEWAY"
+        data-name="INTRO"
       >
         <div class="wrap">
           <h1 class="rv d1">
@@ -180,25 +138,15 @@
             >
           </div>
         </div>
-        <p class="scroll-hint" aria-hidden="true">SCROLL TO TRAVEL</p>
+        <p class="scroll-hint" aria-hidden="true">SCROLL</p>
       </section>
-
-      <div
-        class="story-ribbon"
-        aria-label="What this portfolio is built around"
-      >
-        <div>
-          ASKED WHY <span>✦</span> BUILT IT <span>✦</span> FIXED IT
-          <span>✦</span> SHIPPED IT <span>✦</span> LEARNED FROM IT
-        </div>
-      </div>
 
       <!-- project index -->
       <section
         class="sec work-index"
         id="work-index"
         data-district="gateway2"
-        data-name="PROJECT INDEX"
+        data-name="SELECTED WORK"
       >
         <div class="wrap">
           <header class="work-index-head rv">
@@ -247,18 +195,25 @@
         </div>
       </section>
 
-      <!-- ============ 01 FINTECH DISTRICT ============ -->
+      <!-- ============ 01 QI CARD / SUPERQI ============ -->
       <section
         class="sec sec-district d-qicard"
         id="d-fintech"
         data-district="fintech"
-        data-name="FINTECH DISTRICT"
-        data-signal="payments"
+        data-name="01 / QI CARD + SUPERQI"
       >
-        <div class="wrap">
-          <div class="d-band rv">
-            <span class="d-name">Fintech</span>
+        <div class="project-visual pv-fintech" aria-hidden="true">
+          <div class="pv-art">
+            <div class="qi-card">
+              <span class="qi-chip"></span>
+              <span class="qi-stripe"></span>
+              <span class="qi-contactless"></span>
+              <img src="assets/districts/qi-mark.svg" alt="" />
+            </div>
+            <span class="qi-card-shadow"></span>
           </div>
+        </div>
+        <div class="wrap">
           <article class="panel rv d1">
             <span class="tick"></span>
             <p class="kicker">QI CARD · SUPERQI · ALIPAY MINI APP PLATFORM</p>
@@ -330,13 +285,22 @@
         class="sec sec-district d-cardyiq"
         id="d-rescue"
         data-district="rescue"
-        data-name="SPORTSTECH"
-        data-signal="reliability"
+        data-name="02 / CARDYIQ"
       >
-        <div class="wrap">
-          <div class="d-band rv">
-            <span class="d-name">Sports<br />Tech</span>
+        <div class="project-visual pv-cardyiq" aria-hidden="true">
+          <div class="pv-art">
+            <div class="gym-rack">
+              <span class="rack-upright rack-left"></span>
+              <span class="rack-upright rack-right"></span>
+              <span class="gym-bar"></span>
+              <span class="gym-plates"></span>
+            </div>
+            <div class="gym-bench"></div>
+            <div class="gym-dumbbell"></div>
+            <img class="cardy-athlete" src="assets/districts/cardy-mascot.webp" alt="" />
           </div>
+        </div>
+        <div class="wrap">
           <article class="panel right rv d1">
             <span class="tick"></span>
             <p class="kicker">
@@ -405,13 +369,27 @@
         class="sec sec-district d-asheerty"
         id="d-atelier"
         data-district="atelier"
-        data-name="GENEALOGYTECH"
-        data-signal="product"
+        data-name="03 / ASHEERTY"
       >
-        <div class="wrap">
-          <div class="d-band rv">
-            <span class="d-name">Genealogy<br />Tech</span>
+        <div class="project-visual pv-asheerty" aria-hidden="true">
+          <div class="pv-art">
+            <div class="asheerty-phone">
+              <span class="phone-speaker"></span>
+              <img src="assets/districts/asheerty-icon.webp" alt="" />
+              <div class="family-tree">
+                <span class="tree-node root"></span>
+                <span class="tree-node branch branch-one"></span>
+                <span class="tree-node branch branch-two"></span>
+                <span class="tree-node branch branch-three"></span>
+                <span class="tree-line trunk"></span>
+                <span class="tree-line crossbar"></span>
+              </div>
+            </div>
+            <span class="family-orbit orbit-one"></span>
+            <span class="family-orbit orbit-two"></span>
           </div>
+        </div>
+        <div class="wrap">
           <article class="panel rv d1">
             <span class="tick"></span>
             <p class="kicker">
@@ -506,13 +484,34 @@
         class="sec sec-district d-notifyx"
         id="d-infra"
         data-district="infra"
-        data-name="NOTIFICATION INFRA"
-        data-signal="reliability"
+        data-name="04 / NOTIFYX"
       >
-        <div class="wrap">
-          <div class="d-band rv">
-            <span class="d-name">Notification<br />Infra</span>
+        <div
+          class="project-visual pv-notifyx notifyx-live"
+          aria-label="Interactive NotifyX message queue"
+        >
+          <div class="queue-shell">
+            <div class="qbar">
+              <span class="qtag">LIVE VIEW · HOW A MESSAGE MOVES</span>
+              <span class="qstats"
+                ><span id="q-delivered" class="g">0</span> delivered ·
+                <span id="q-retried" class="a">0</span> retried</span
+              >
+              <button class="qbtn" id="q-send" type="button">
+                SEND
+              </button>
+            </div>
+            <canvas
+              id="queue"
+              aria-label="Animated simulation of the NotifyX queue: messages flow from the API through a BullMQ queue to workers and out to push providers; failed messages visibly retry and deliver."
+            ></canvas>
+            <p class="queue-cap">
+              Every dot is a message. Failed deliveries enter the retry path and
+              move through the system again.
+            </p>
           </div>
+        </div>
+        <div class="wrap">
           <article class="panel right rv d1" style="max-width: 860px">
             <span class="tick"></span>
             <p class="kicker">NOTIFYX · NOTIFICATION INFRASTRUCTURE</p>
@@ -533,26 +532,6 @@
                 >github.com/awsdang/notifyx</a
               >.
             </p>
-            <div class="queue-shell">
-              <div class="qbar">
-                <span class="qtag">LIVE VIEW · HOW A MESSAGE MOVES</span>
-                <span class="qstats"
-                  ><span id="q-delivered" class="g">0</span> delivered ·
-                  <span id="q-retried" class="a">0</span> retried</span
-                >
-                <button class="qbtn" id="q-send" type="button">
-                  ▸ SEND A TEST
-                </button>
-              </div>
-              <canvas
-                id="queue"
-                aria-label="Animated simulation of the NotifyX queue: messages flow from the API through a BullMQ queue to workers and out to push providers; failed messages visibly retry and deliver."
-              ></canvas>
-              <p class="queue-cap">
-                Every dot is a message. If a provider fails, the message moves
-                into the retry path and tries again.
-              </p>
-            </div>
             <p class="stack">
               <b>STACK</b> · Node.js · BullMQ · Redis · PostgreSQL · Prisma ·
               React · web / Flutter / RN SDKs
@@ -566,14 +545,28 @@
         class="sec sec-district d-sadeek"
         id="d-ailab"
         data-district="ailab"
-        data-name="SECOND-HAND E-COMMERCE"
-        data-signal="intelligence"
+        data-name="05 / SADEEK"
       >
-        <div class="wrap">
-          <div class="d-band rv">
-            <span class="d-name">E-commerce</span>
+        <div class="project-visual pv-sadeek" aria-hidden="true">
+          <div class="pv-art">
+            <div class="sadeek-phone">
+              <div class="shop-bar">
+                <img class="sadeek-mark" src="assets/districts/sadeek-mascot.webp" alt="" />
+                <span class="shop-bag"></span>
+              </div>
+              <div class="shop-grid">
+                <span class="shop-item item-phone"><span class="product-shape"></span><span class="product-meta"></span></span>
+                <span class="shop-item item-shoe"><span class="product-shape"></span><span class="product-meta"></span></span>
+                <span class="shop-item item-lamp"><span class="product-shape"></span><span class="product-meta"></span></span>
+                <span class="shop-item item-bag"><span class="product-shape"></span><span class="product-meta"></span></span>
+              </div>
+              <span class="shop-nav"></span>
+            </div>
+            <span class="telegram-route"></span>
+            <img class="telegram-logo" src="assets/districts/telegram-logo.svg" alt="" />
           </div>
-
+        </div>
+        <div class="wrap">
           <article class="panel rv d1">
             <span class="tick"></span>
             <p class="kicker">SADEEK · AI-ASSISTED SECOND-HAND SELLING</p>
@@ -618,13 +611,22 @@
         class="sec sec-district d-maaahr"
         id="d-maaahr"
         data-district="maaahr"
-        data-name="HRTECH"
-        data-signal="intelligence"
+        data-name="06 / MAAAHR"
       >
-        <div class="wrap">
-          <div class="d-band rv">
-            <span class="d-name">HRTech</span>
+        <div class="project-visual pv-maaahr" aria-hidden="true">
+          <div class="pv-art">
+            <div class="interview-window">
+              <span class="meeting-dot"></span>
+              <div class="interview-person person-one"><i></i><b></b></div>
+              <div class="interview-person person-two"><i></i><b></b></div>
+              <div class="meeting-wave">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="meeting-controls"><span></span><span></span><span></span></div>
+            </div>
           </div>
+        </div>
+        <div class="wrap">
           <article class="panel right rv">
             <span class="tick"></span>
             <p class="kicker">
@@ -665,13 +667,19 @@
         class="sec sec-district d-hawsr"
         id="d-hawsr"
         data-district="hawsr"
-        data-name="HAWSR"
-        data-signal="product"
+        data-name="07 / HAWSR"
       >
-        <div class="wrap">
-          <div class="d-band rv">
-            <span class="d-name">HAWSR</span>
+        <div class="project-visual pv-hawsr" aria-hidden="true">
+          <div class="pv-art">
+            <div class="hawsr-model">
+              <span class="model-ground"></span>
+              <span class="model-front"></span>
+              <span class="model-side"></span>
+              <span class="model-roof"></span>
+            </div>
           </div>
+        </div>
+        <div class="wrap">
           <article class="panel rv d1">
             <span class="tick"></span>
             <p class="kicker">HAWSR · CONSTRUCTIONTECH · MY FIRST COMPANY</p>
@@ -711,12 +719,43 @@
         class="sec sec-district d-origins"
         id="d-origins"
         data-district="origins"
-        data-name="ORIGINS"
+        data-name="08 / ORIGINS"
       >
-        <div class="wrap">
-          <div class="d-band rv">
-            <span class="d-name">Origins</span>
+        <div class="project-visual pv-origins" aria-hidden="true">
+          <div class="pv-art">
+            <div class="studio-wall">
+              <div class="studio-window">
+                <span class="window-mullion window-v"></span>
+                <span class="window-mullion window-h"></span>
+                <span class="window-sun"></span>
+              </div>
+              <span class="material-wall">
+                <span></span><span></span><span></span>
+              </span>
+            </div>
+            <div class="studio-desk">
+              <span class="desk-top"></span>
+              <span class="desk-leg leg-left"></span>
+              <span class="desk-leg leg-right"></span>
+              <div class="studio-laptop">
+                <span class="laptop-screen">
+                  <span class="screen-plan plan-a"></span>
+                  <span class="screen-plan plan-b"></span>
+                  <span class="screen-plan plan-c"></span>
+                </span>
+                <span class="laptop-base"></span>
+              </div>
+              <span class="paper-stack">
+                <span class="paper-line paper-one"></span>
+                <span class="paper-line paper-two"></span>
+                <span class="paper-line paper-three"></span>
+              </span>
+              <span class="desk-mouse"></span>
+              <span class="desk-cup"></span>
+            </div>
           </div>
+        </div>
+        <div class="wrap">
           <article class="panel right rv d1">
             <span class="tick"></span>
             <p class="kicker">ARCHITECTURE · BIM · RECONSTRUCTION</p>
@@ -757,8 +796,7 @@
       <section
         class="sec"
         data-district="rules"
-        data-name="THE RULEBOOK"
-        data-signal="leadership"
+        data-name="WORKING PRINCIPLES"
       >
         <div class="wrap">
           <p class="kicker rv">HOW I WORK</p>
@@ -815,8 +853,7 @@
       <section
         class="sec personal"
         data-district="personal"
-        data-name="A BIT ABOUT ME"
-        data-signal="leadership"
+        data-name="ABOUT"
       >
         <div class="wrap personal-grid">
           <div>
@@ -854,7 +891,7 @@
       <section
         class="sec finale"
         data-district="finale"
-        data-name="CENTRAL GATEWAY · NIGHT"
+        data-name="CONTACT"
       >
         <div class="wrap finale-in">
           <p class="kicker rv" style="justify-content: center">LET'S TALK</p>
@@ -873,9 +910,6 @@
             <a
               class="btn primary"
               href="cv.html"
-              target="_blank"
-              rel="noopener"
-              data-cv-viewer
               >Open my CV</a
             >
             <a class="btn" href="https://github.com/awsdang">GitHub</a>
@@ -898,15 +932,14 @@
           people move through things.</span
         >
         <span>
-          <button id="replay" type="button">↻ REPLAY THE BLUEPRINT</button>
-          &nbsp;·&nbsp; © 2026 · built by me, changed often
+          © 2026 · built by me, changed often
         </span>
       </div>
     </footer>
 
     <script>
-      /* NotifyX web push · fill in appId / apiKey / vapidPublicKey from the NotifyX
-     portal to go live. Until then the button falls back to the simulation toast. */
+      /* Optional remote-push credentials. Without them, the button still requests
+         permission and delivers a real system notification from the service worker. */
       window.NOTIFYX_CONFIG = {
         baseUrl: "https://notification.sadeek.app",
         appId: "",
@@ -916,7 +949,6 @@
       };
     </script>
     <script src="notifyx-web-sdk.js?v=1"></script>
-    <script src="js/main.js?v=5" defer></script>
-    <script type="module" src="js/city.js?v=30"></script>
+    <script src="js/main.js?v=9" defer></script>
   </body>
 </html>

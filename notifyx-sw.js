@@ -17,6 +17,8 @@ self.addEventListener("push", (event) => {
     data: payload.data || {},
   };
 
+  if (payload.tag) options.tag = payload.tag;
+  if (payload.renotify) options.renotify = true;
   if (payload.image) options.image = payload.image;
   if (payload.badge) options.badge = payload.badge;
   if (payload.actions && payload.actions.length > 0) {

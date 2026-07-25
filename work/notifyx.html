@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=19">
+<link rel="stylesheet" href="../css/site.css?v=34">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%2307090D'/%3E%3Cpath d='M8 38 L24 8 L40 38' fill='none' stroke='%2353D8FF' stroke-width='3'/%3E%3Cpath d='M16 38 L24 23 L32 38' fill='none' stroke='%23F3F0E8' stroke-width='2.4'/%3E%3Cpath d='M4 38 H44' stroke='%2353D8FF' stroke-width='1.6' opacity='.6'/%3E%3C/svg%3E">
 <script>document.documentElement.classList.remove("no-js");</script>
 </head>
@@ -159,7 +159,7 @@
       <div class="qbar">
         <span class="qtag">LIVE SIMULATION · THE ACTUAL ARCHITECTURE</span>
         <span class="qstats"><span id="q-delivered" class="g">0</span> delivered · <span id="q-retried" class="a">0</span> retried</span>
-        <button class="qbtn" id="q-send" type="button">▸ SEND ME A REAL NOTIFICATION</button>
+        <button class="qbtn" id="q-send" type="button">SEND</button>
       </div>
       <canvas id="queue" aria-label="Animated simulation of the NotifyX queue: messages flow from the API through a BullMQ queue to workers and out to push providers; failed messages visibly retry and deliver."></canvas>
       <p class="queue-cap">Every dot is a message. Red means the provider failed. The message goes back to the retry queue and tries again. This is a simulation based on the real architecture, not a production feed.</p>
@@ -198,6 +198,6 @@
 
 <script>window.NOTIFYX_CONFIG = { baseUrl: "https://notification.sadeek.app", appId: "", apiKey: "", vapidPublicKey: "", serviceWorkerPath: "/notifyx-sw.js" };</script>
 <script src="../notifyx-web-sdk.js?v=1"></script>
-<script src="../js/main.js?v=2" defer></script>
+<script src="../js/main.js?v=9" defer></script>
 </body>
 </html>

@@ -1,18 +1,18 @@
 # ASSETS.md · logo & screenshot production guide
 
 The case-study screenshot slots work with zero images and fall back to labeled
-blueprint placeholders. The homepage 3D districts do use a small set of
-optimized brand textures in `assets/districts/`.
+placeholders. A small set of optimized brand files is retained for future
+case-study use but is not required by the homepage.
 
-## Homepage district assets
+## Retained brand assets
 
 | File | Used for |
 |---|---|
-| `assets/districts/qi-mark.svg` | Qi Card mark on the Fintech card sculpture |
-| `assets/districts/cardy-mascot.webp` | Original Cardy mascot reference panel |
-| `assets/districts/cardy-logo.webp` | Cardyiq wordmark in the SportsTech scene |
-| `assets/districts/asheerty-icon.webp` | Asheerty app mark beside the family graph |
-| `assets/districts/sadeek-mascot.webp` | Sadeek storefront sign |
+| `assets/districts/qi-mark.svg` | Qi Card mark |
+| `assets/districts/cardy-mascot.webp` | Original Cardy mascot |
+| `assets/districts/cardy-logo.webp` | Cardyiq wordmark |
+| `assets/districts/asheerty-icon.webp` | Asheerty app mark |
+| `assets/districts/sadeek-mascot.webp` | Sadeek mascot |
 
 These files are intentionally small. Keep the original source artwork outside
 the site, and regenerate these web versions if a brand asset changes.
@@ -152,16 +152,17 @@ Monochrome/white variants look best on this palette.
 
 - Favicon already ships as inline SVG (cyan gateway on void). No file needed.
 - **OG image** (link previews): screenshot the homepage hero at 1200×630
-  once the city looks the way you want, save as `assets/og.png`, then add to
+  once the composition looks the way you want, save as `assets/og.png`, then add to
   `index.html` and `recruiter.html` `<head>`:
   `<meta property="og:image" content="https://awsdang.com/assets/og.png">`
 
 ---
 
-## 3 · NotifyX real-push activation (5 minutes)
+## 3 · NotifyX remote-push activation
 
-The "SEND ME A REAL NOTIFICATION" button currently falls back to a simulated
-toast. To send real web pushes: open the NotifyX portal, create/select the
-`awsdang.com` app, then fill `appId`, `apiKey`, `vapidPublicKey` in
-`window.NOTIFYX_CONFIG` · in **both** `index.html` and `work/notifyx.html`.
-`notifyx-sw.js` is already at the site root.
+The notification button works immediately: it requests permission, registers
+`notifyx-sw.js` and displays a real system notification. To route that test
+through the hosted NotifyX queue as a remote Web Push, create/select the
+`awsdang.com` app in the NotifyX portal, then fill `appId`, `apiKey` and
+`vapidPublicKey` in `window.NOTIFYX_CONFIG` in both `index.html` and
+`work/notifyx.html`.

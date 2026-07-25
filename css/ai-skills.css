@@ -1,0 +1,1017 @@
+/* ============================================================
+   SELECTED AI SKILLS
+   A small extension of the main awsdang.com visual system.
+   ============================================================ */
+
+.ai-skills-page {
+  --skill-blue: #2357ff;
+  background: var(--paper);
+}
+
+.ai-skills-page .hud-district b {
+  color: var(--skill-blue);
+}
+
+.skills-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 164px 0 clamp(72px, 8vw, 112px);
+  border-radius: 0 0 var(--r-xl) var(--r-xl);
+  background:
+    linear-gradient(rgba(244, 241, 232, 0.045) 1px, transparent 1px) 0 0 /
+      64px 64px,
+    linear-gradient(90deg, rgba(244, 241, 232, 0.045) 1px, transparent 1px) 0
+      0 / 64px 64px,
+    var(--night);
+  color: var(--paper);
+}
+
+.skills-hero::after {
+  content: "";
+  position: absolute;
+  top: -240px;
+  right: -180px;
+  width: 620px;
+  height: 620px;
+  border: 1px solid rgba(202, 255, 61, 0.16);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 72px rgba(202, 255, 61, 0.025),
+    0 0 0 144px rgba(202, 255, 61, 0.018);
+  pointer-events: none;
+}
+
+.skills-hero .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.skills-hero-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.55fr);
+  gap: 32px 72px;
+  align-items: end;
+}
+
+.skills-hero-copy .kicker {
+  grid-column: 1 / -1;
+  color: var(--signal);
+}
+
+.skills-hero h1 {
+  max-width: 13ch;
+  color: var(--paper);
+  font-size: clamp(52px, 6.4vw, 94px);
+  letter-spacing: -0.045em;
+}
+
+.skills-hero h1 em {
+  color: var(--signal);
+  font-style: italic;
+}
+
+.skills-intro {
+  max-width: 42ch;
+  padding-bottom: 8px;
+  color: #bfc1b8;
+  font-size: clamp(16px, 1.2vw, 20px);
+}
+
+.skill-featured {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.7fr);
+  gap: 48px;
+  margin-top: clamp(56px, 7vw, 96px);
+  padding: clamp(28px, 4vw, 56px);
+  overflow: hidden;
+  border: 1px solid rgba(17, 19, 15, 0.16);
+  border-radius: var(--r-xl);
+  background: var(--signal);
+  color: var(--ink);
+  box-shadow: 0 32px 96px rgba(0, 0, 0, 0.24);
+}
+
+.skill-featured::before {
+  content: "RTL";
+  position: absolute;
+  right: -20px;
+  bottom: -76px;
+  color: rgba(17, 19, 15, 0.055);
+  font-size: clamp(180px, 22vw, 330px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.1em;
+  pointer-events: none;
+}
+
+.featured-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.skill-eyebrow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(17, 19, 15, 0.22);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.skill-eyebrow b {
+  padding: 7px 10px;
+  border: 1px solid currentColor;
+  border-radius: var(--r-pill);
+  font-size: 9px;
+}
+
+.skill-type {
+  margin-bottom: 14px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.skill-featured h2 {
+  margin-bottom: 18px;
+  font-size: clamp(42px, 5vw, 72px);
+  letter-spacing: -0.045em;
+}
+
+.skill-featured .featured-copy > p:not(.skill-type) {
+  max-width: 62ch;
+  font-size: clamp(15px, 1vw, 18px);
+}
+
+.skill-points {
+  display: grid;
+  gap: 8px;
+  margin: 28px 0 36px;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.skill-points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-points li::before {
+  content: "✓";
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(17, 19, 15, 0.34);
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.featured-download {
+  margin-top: auto;
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.featured-download:hover {
+  border-color: var(--civic);
+  background: var(--civic);
+  color: white;
+}
+
+.rtl-paid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(17, 19, 15, 0.22);
+}
+
+.rtl-paid > div {
+  max-width: 48ch;
+}
+
+.rtl-paid > div > span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.rtl-paid p {
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.rtl-paid .btn {
+  min-height: 42px;
+  padding: 9px 15px;
+  border-color: var(--ink);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.rtl-paid .btn:hover {
+  border-color: var(--civic);
+  background: var(--civic);
+  color: white;
+}
+
+.rtl-preview {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  padding: 10px;
+  border: 1px solid rgba(17, 19, 15, 0.26);
+  border-radius: 36px;
+  background: var(--ink);
+  box-shadow: 0 28px 64px rgba(17, 19, 15, 0.28);
+  transform: rotate(1.5deg);
+}
+
+.rtl-preview-top {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  color: var(--paper);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.rtl-preview-top span {
+  margin-right: auto;
+}
+
+.rtl-preview-top i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(244, 241, 232, 0.34);
+}
+
+.rtl-preview-screen {
+  min-height: 344px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 48px 28px 28px;
+  border-radius: 27px;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: right;
+}
+
+.rtl-preview-screen > b {
+  width: 100%;
+  margin: 34px 0 10px;
+  font-size: 30px;
+}
+
+.rtl-preview-screen > p {
+  width: 100%;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.rtl-preview-screen .rtl-label {
+  color: var(--civic);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.rtl-back {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.rtl-field {
+  width: 100%;
+  display: grid;
+  gap: 7px;
+  margin: 32px 0 14px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+}
+
+.rtl-field small {
+  color: var(--ink-soft);
+  font-size: 9px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.rtl-field span {
+  font-size: 13px;
+  text-align: left;
+}
+
+.rtl-action {
+  margin-right: auto;
+  padding: 11px 20px;
+  border-radius: var(--r-pill);
+  background: var(--civic);
+  color: white;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.rtl-checks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 10px 4px 4px;
+}
+
+.rtl-checks span {
+  padding: 8px 4px;
+  border: 1px solid rgba(244, 241, 232, 0.16);
+  border-radius: var(--r-pill);
+  color: #bfc1b8;
+  font-size: 7px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.skills-library {
+  padding: clamp(88px, 10vw, 144px) 0;
+}
+
+.skills-library-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.48fr);
+  gap: 32px 72px;
+  align-items: end;
+  margin-bottom: 52px;
+}
+
+.skills-library-head .kicker {
+  color: var(--civic);
+}
+
+.skills-library-head h2 {
+  margin-top: 16px;
+  color: var(--ink);
+  font-size: clamp(40px, 5vw, 72px);
+  letter-spacing: -0.04em;
+}
+
+.skills-library-head > p {
+  max-width: 42ch;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  min-height: 440px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  color: var(--ink-soft);
+  transition:
+    transform 180ms ease-out,
+    border-color 180ms ease-out,
+    box-shadow 180ms ease-out;
+}
+
+.skill-card::after {
+  content: "";
+  position: absolute;
+  right: -38px;
+  bottom: -56px;
+  width: 150px;
+  height: 150px;
+  border: 24px solid color-mix(in srgb, var(--skill-accent) 18%, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.skill-card:hover {
+  z-index: 1;
+  border-color: color-mix(in srgb, var(--skill-accent) 52%, var(--line));
+  box-shadow: 0 24px 56px rgba(11, 12, 9, 0.1);
+  transform: translateY(-4px);
+}
+
+.skill-card-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 52px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.skill-card-top > span {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--skill-accent);
+  color: white;
+}
+
+.skill-card-top > b {
+  color: var(--skill-accent);
+  font-size: 9px;
+}
+
+.skill-card h3 {
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-size: clamp(26px, 2.3vw, 34px);
+  letter-spacing: -0.035em;
+}
+
+.skill-card > p {
+  max-width: 43ch;
+  font-size: 14px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 24px 0;
+}
+
+.skill-tags span {
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  color: var(--ink-soft);
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.skill-download {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.skill-download:hover {
+  border-color: var(--skill-accent);
+  background: var(--skill-accent);
+  color: white;
+}
+
+.skills-note {
+  padding: 0 0 clamp(88px, 10vw, 144px);
+}
+
+.skills-note-in {
+  display: grid;
+  grid-template-columns: 0.4fr minmax(0, 1.5fr) auto;
+  gap: 32px 56px;
+  align-items: center;
+  padding: clamp(32px, 5vw, 64px);
+  border-radius: var(--r-xl);
+  background: var(--civic);
+  color: white;
+}
+
+.skills-note .kicker {
+  color: var(--signal);
+}
+
+.skills-note blockquote {
+  max-width: 36ch;
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.skills-note .btn {
+  border-color: white;
+  color: white;
+  white-space: nowrap;
+}
+
+.skills-note .btn:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--ink);
+}
+
+/* ---------------- download dialog ---------------- */
+.download-dialog {
+  width: min(92vw, 460px);
+  max-height: min(88vh, 640px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 0;
+  border-radius: 28px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.42);
+}
+
+.download-dialog[open] {
+  animation: dialog-in 180ms ease-out both;
+}
+
+.download-dialog::backdrop {
+  background: rgba(11, 12, 9, 0.76);
+  backdrop-filter: blur(8px);
+}
+
+.download-dialog-top {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.download-dialog-top button {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 160ms ease-out,
+    color 160ms ease-out;
+}
+
+.download-dialog-top button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.download-dialog-body {
+  padding: 36px;
+}
+
+.download-dialog .kicker {
+  color: var(--civic);
+}
+
+.download-dialog h2 {
+  max-width: none;
+  margin: 16px 0 10px;
+  font-size: clamp(34px, 5vw, 44px);
+  letter-spacing: -0.045em;
+}
+
+.download-dialog-copy {
+  max-width: 38ch;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.selected-skill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 22px 0;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.selected-skill span {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.selected-skill b {
+  font-size: 12px;
+  text-align: right;
+}
+
+#download-form {
+  display: grid;
+}
+
+#download-form label {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+#download-form input {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+  color: var(--ink);
+  direction: ltr;
+  font-size: 16px;
+  text-align: left;
+  outline: none;
+  transition:
+    border-color 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+
+#download-form input:focus {
+  border-color: var(--civic);
+  box-shadow: 0 0 0 4px rgba(35, 87, 255, 0.12);
+}
+
+#download-form input:user-invalid {
+  border-color: var(--red);
+}
+
+.field-note {
+  margin: 6px 0 18px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+#download-form .btn {
+  width: 100%;
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+#download-form .btn:hover {
+  border-color: var(--civic);
+  background: var(--civic);
+  color: white;
+}
+
+#download-form .btn[disabled] {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+.download-status {
+  min-height: 20px;
+  margin-top: 10px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 650;
+  text-align: center;
+}
+
+.manual-download {
+  justify-self: center;
+  margin-top: 2px;
+  color: var(--civic);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.manual-download[hidden] {
+  display: none;
+}
+
+.suggest-dialog h2 {
+  max-width: 8ch;
+}
+
+#suggest-form {
+  display: grid;
+  margin-top: 24px;
+}
+
+.suggestion-fields {
+  display: grid;
+  gap: 12px;
+}
+
+.suggestion-fields label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.suggestion-fields label span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.suggestion-fields label small {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.suggestion-fields input {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+
+.suggestion-fields input:focus {
+  border-color: var(--civic);
+  box-shadow: 0 0 0 4px rgba(35, 87, 255, 0.12);
+}
+
+.suggestion-add {
+  justify-self: start;
+  margin: 12px 0 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--civic);
+  font-size: 11px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.suggestion-add:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#suggest-form > .btn {
+  width: 100%;
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+#suggest-form > .btn:hover {
+  border-color: var(--civic);
+  background: var(--civic);
+  color: white;
+}
+
+.suggest-status {
+  min-height: 20px;
+  margin-top: 10px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 650;
+  text-align: center;
+}
+
+.form-sink {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.download-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 500;
+  padding: 12px 18px;
+  border-radius: var(--r-pill);
+  background: var(--signal);
+  color: var(--ink);
+  box-shadow: 0 12px 36px rgba(11, 12, 9, 0.24);
+  font-size: 12px;
+  font-weight: 750;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition:
+    opacity 160ms ease-out,
+    transform 160ms ease-out;
+}
+
+.download-toast.on {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1040px) {
+  .skills-hero-copy,
+  .skills-library-head {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.52fr);
+    gap: 28px 40px;
+  }
+
+  .skill-featured {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+    gap: 32px;
+  }
+
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-note-in {
+    grid-template-columns: 1fr auto;
+  }
+
+  .skills-note .kicker {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .skills-hero {
+    padding-top: 136px;
+    border-radius: 0 0 var(--r-lg) var(--r-lg);
+  }
+
+  .skills-hero-copy,
+  .skills-library-head {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .skills-hero-copy .kicker {
+    grid-column: auto;
+  }
+
+  .skills-hero h1 {
+    font-size: clamp(46px, 13vw, 70px);
+  }
+
+  .skills-intro {
+    padding-bottom: 0;
+  }
+
+  .skill-featured {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    border-radius: var(--r-lg);
+  }
+
+  .rtl-paid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtl-paid .btn {
+    justify-self: start;
+  }
+
+  .skill-eyebrow {
+    margin-bottom: 36px;
+  }
+
+  .rtl-preview {
+    width: min(100%, 390px);
+    justify-self: center;
+    margin-top: 12px;
+    transform: none;
+  }
+
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    min-height: 400px;
+  }
+
+  .skills-note-in {
+    grid-template-columns: 1fr;
+    border-radius: var(--r-lg);
+  }
+
+  .skills-note .kicker {
+    grid-column: auto;
+  }
+
+  .skills-note .btn {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .ai-skills-page .hud-district {
+    display: none;
+  }
+
+  .skill-featured {
+    margin-inline: -4px;
+  }
+
+  .skill-eyebrow b {
+    display: none;
+  }
+
+  .skills-library-head {
+    margin-bottom: 36px;
+  }
+
+  .skill-card {
+    min-height: 380px;
+    padding: 24px;
+  }
+
+  .skill-card-top {
+    margin-bottom: 40px;
+  }
+
+  .download-dialog {
+    width: calc(100vw - 20px);
+    max-height: calc(100dvh - 20px);
+    border-radius: 24px;
+  }
+
+  .download-dialog-body {
+    padding: 32px 22px 22px;
+  }
+
+  .download-dialog h2 {
+    padding-right: 38px;
+    font-size: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-dialog[open] {
+    animation: none;
+  }
+}
