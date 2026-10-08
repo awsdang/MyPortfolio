@@ -1,32 +1,33 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Aws Abdulfattah | Senior Software Engineer</title>
+    <title>Aws Abdulfattah — Engineer. Architect. Builder.</title>
     <meta
       name="description"
-      content="Aws Abdulfattah is a Senior Software Engineer working across fintech, consumer products, infrastructure and applied AI. Open to relocation at his own expense and remote roles."
+      content="The workbench of Aws Abdulfattah. Software engineer, former architect, and builder of payment products, consumer apps, and the systems behind them."
     />
     <meta
       property="og:title"
-      content="Aws Abdulfattah | Senior Software Engineer"
+      content="Aws Abdulfattah — I build things that work."
     />
     <meta
       property="og:description"
-      content="Products, systems and teams I have helped build, fix and grow."
+      content="From buildings to backends. A collection of products, experiments, and lessons from making things real."
     />
     <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#f2f0e9" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/site.css?v=34" />
+    <link rel="stylesheet" href="css/workbench.css?v=1" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%2307090D'/%3E%3Cpath d='M8 38 L24 8 L40 38' fill='none' stroke='%2353D8FF' stroke-width='3'/%3E%3Cpath d='M16 38 L24 23 L32 38' fill='none' stroke='%23F3F0E8' stroke-width='2.4'/%3E%3Cpath d='M4 38 H44' stroke='%2353D8FF' stroke-width='1.6' opacity='.6'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f45c35'/%3E%3Ctext x='8' y='47' font-family='sans-serif' font-size='45' font-weight='900' fill='%231c1d19'%3Ea.%3C/text%3E%3C/svg%3E"
     />
     <script type="application/ld+json">
       {
@@ -40,915 +41,832 @@
           "https://github.com/awsdang",
           "https://www.linkedin.com/in/awsdang",
           "https://x.com/awsdang"
-        ],
-        "worksFor": [
-          { "@type": "Organization", "name": "Qi Card" },
-          { "@type": "Organization", "name": "Cardyiq" }
-        ],
-        "knowsAbout": [
-          "Payments",
-          "Fintech",
-          "Node.js",
-          "TypeScript",
-          "React",
-          "Svelte",
-          "Applied AI",
-          "Infrastructure"
         ]
       }
     </script>
-    <script>
-      document.documentElement.classList.remove("no-js");
-    </script>
+    <script src="js/workbench.js?v=1" defer></script>
+    <link rel="stylesheet" href="css/project-media.css?v=2" />
+    <script src="js/project-gallery.js?v=1" defer></script>
+    <script src="js/intro-video.js?v=2" defer></script>
   </head>
-  <body class="home">
-    <a class="skip" href="#main">Skip to content</a>
-
-    <div class="site-visual" aria-hidden="true"></div>
-
-    <header class="hud">
-      <div class="wrap hud-in">
-        <a class="brand" href="#main" aria-label="Aws Abdulfattah · home">
-          <!-- <svg
-            viewBox="0 0 48 48"
-            fill="none"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              d="M8 38 L24 8 L40 38"
-              stroke-width="3"
-              stroke-linecap="square"
-            />
-            <path d="M16 38 L24 23 L32 38" stroke-width="2.4" opacity=".65" />
-            <path d="M4 38 H44" stroke-width="1.6" opacity=".5" />
-          </svg> -->
-          <span>AWS ABDULFATTAH</span>
-        </a>
-        <p class="hud-district" aria-live="polite">
-          VIEWING · <b id="hud-district">INTRO</b>
-        </p>
-        <nav aria-label="Primary">
-          <a class="hide-m" href="mailto:awsdang@gmail.com">Contact</a>
-          <a
-            class="btn primary sm"
-            href="cv.html"
-            >CV</a
-          >
-        </nav>
-      </div>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#main" aria-label="Aws Abdulfattah, home"
+        >aws<span>✳</span><small>ABDULFATTAH</small></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#work">The work <sup>07</sup></a
+        ><a href="#intro">The human</a><a href="#lab">The lab</a>
+      </nav>
+      <a class="header-contact" href="#contact"
+        >Let’s build something <span>↗</span></a
+      >
     </header>
-
     <main id="main">
-      <!-- ============ INTRO ============ -->
-      <section
-        class="sec hero"
-        data-district="gateway"
-        data-name="INTRO"
-      >
-        <div class="wrap">
-          <h1 class="rv d1">
-            <span>I ask why.</span> Then I build <em>what makes sense.</em>
-          </h1>
-          <p class="hero-sub rv d2">
-            Payments, products, infrastructure and AI. More than a million
-            people use my work. Some are on slow networks and old phones. It
-            still has to work.
-          </p>
-          <!-- <aside class="hero-note rv d3">
-            <span class="hero-note-label">OPEN TO THE RIGHT ROLE</span>
-            <p>
-              A senior role with real ownership. I can cover my own relocation.
-              Remote works too.
-            </p>
-          </aside> -->
-          <div class="hero-roles rv d3">
-            <span
-              ><small>NOW</small><b>Senior Software Engineer</b>Qi Card ·
-              promoted March 2026</span
-            >
-            <span
-              ><small>ALSO</small
-              ><b>Founding Engineer &amp; Technical Lead</b>Cardyiq · managing a
-              team of 10</span
-            >
-            <span
-              ><small>BEFORE</small><b>Architect</b>Nine years in architecture
-              and construction</span
-            >
-          </div>
-        </div>
-        <p class="scroll-hint" aria-hidden="true">SCROLL</p>
-      </section>
-
-      <!-- project index -->
-      <section
-        class="sec work-index"
-        id="work-index"
-        data-district="gateway2"
-        data-name="SELECTED WORK"
-      >
-        <div class="wrap">
-          <header class="work-index-head rv">
-            <p class="kicker">SELECTED WORK</p>
-            <h2>Pick a project.</h2>
-          </header>
-          <nav class="work-index-list rv d1" aria-label="Selected projects">
-            <a href="#d-fintech"
-              ><span>01</span><b>Qi Card / SuperQi</b><em>Fintech</em
-              ><small
-                >Billing and merchant finance across three SuperQi
-                products</small
-              ></a
-            >
-            <a href="#d-rescue"
-              ><span>02</span><b>Cardyiq</b><em>SportsTech</em
-              ><small
-                >Product rebuild, business change and a team of 10</small
-              ></a
-            >
-            <a href="#d-atelier"
-              ><span>03</span><b>Asheerty</b><em>GenealogyTech</em
-              ><small>Family material turned into a physical tree</small></a
-            >
-            <a href="#d-infra"
-              ><span>04</span><b>NotifyX</b><em>Notification Infra</em
-              ><small>One delivery system reused by five companies</small></a
-            >
-            <a href="#d-ailab"
-              ><span>05</span><b>Sadeek</b><em>E-commerce</em
-              ><small>One product photo turned into a live storefront</small></a
-            >
-            <a href="#d-maaahr"
-              ><span>06</span><b>Maaahr</b><em>HRTech</em
-              ><small>A realtime voice interview prototype</small></a
-            >
-            <a href="#d-hawsr"
-              ><span>07</span><b>HAWSR</b><em>ConstructionTech</em
-              ><small>A master's thesis that became my first company</small></a
-            >
-            <a href="#d-origins"
-              ><span>08</span><b>Origins</b><em>Architecture</em
-              ><small>Nine years before I moved into software</small></a
-            >
-          </nav>
-        </div>
-      </section>
-
-      <!-- ============ 01 QI CARD / SUPERQI ============ -->
-      <section
-        class="sec sec-district d-qicard"
-        id="d-fintech"
-        data-district="fintech"
-        data-name="01 / QI CARD + SUPERQI"
-      >
-        <div class="project-visual pv-fintech" aria-hidden="true">
-          <div class="pv-art">
-            <div class="qi-card">
-              <span class="qi-chip"></span>
-              <span class="qi-stripe"></span>
-              <span class="qi-contactless"></span>
-              <img src="assets/districts/qi-mark.svg" alt="" />
-            </div>
-            <span class="qi-card-shadow"></span>
-          </div>
-        </div>
-        <div class="wrap">
-          <article class="panel rv d1">
-            <span class="tick"></span>
-            <p class="kicker">QI CARD · SUPERQI · ALIPAY MINI APP PLATFORM</p>
-            <h2>Three products inside SuperQi.</h2>
-            <p class="st">
-              Three different products, all trying to make financial information
-              feel simple the first time.
-            </p>
-            <div class="plate">
-              <div class="pl"><b>3</b><span>products</span></div>
-              <div class="pl"><b>1M+</b><span>users</span></div>
-              <div class="pl"><b>Alipay</b><span>mini-app platform</span></div>
-              <div class="pl"><b>3</b><span>languages</span></div>
-            </div>
-            <div class="product-list">
-              <div class="product-row">
-                <span>01</span>
-                <h3>Tasdid+</h3>
-                <p>
-                  A billing and invoicing system inside the SuperQi ecosystem,
-                  from bill inquiry and invoices to payment states and clear
-                  errors.
-                </p>
-              </div>
-              <div class="product-row">
-                <span>02</span>
-                <h3>Jabi+</h3>
-                <p>
-                  Merchant finance inside SuperQi. Statements, salaries,
-                  supplier payments and Excel exports designed for a phone.
-                </p>
-              </div>
-              <div class="product-row">
-                <span>03</span>
-                <h3>e-Psule</h3>
-                <p>
-                  A billing app for the Kurdistan Region, available in Kurdish,
-                  Arabic and English.
-                </p>
-              </div>
-            </div>
-            <h4>The platform</h4>
-            <p>
-              SuperQi uses <b>Alipay's mini-app platform and APIs</b>. I built
-              against the Alipay APIs and Qi Card's payment rails, then handled
-              the product layer around them: caching, provider differences,
-              payment states, loading and the small details users actually feel.
-            </p>
-            <h4>What mattered</h4>
-            <p>
-              The real job was making billing feel obvious to normal people,
-              often over 50 and using it for the first time. The flow had to
-              explain itself without expecting anyone to understand how the
-              payment system worked underneath.
-            </p>
-            <p class="stack">
-              <b>STACK</b> · TypeScript · Svelte / SvelteKit · Node.js · C# ·
-              ASP.NET · Alipay APIs · SuperQi APIs · tokenized payments
-            </p>
-            <div class="case-actions">
-              <a class="case-link" href="https://qi.iq">Visit qi.iq</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ 02 SPORTSTECH ============ -->
-      <section
-        class="sec sec-district d-cardyiq"
-        id="d-rescue"
-        data-district="rescue"
-        data-name="02 / CARDYIQ"
-      >
-        <div class="project-visual pv-cardyiq" aria-hidden="true">
-          <div class="pv-art">
-            <div class="gym-rack">
-              <span class="rack-upright rack-left"></span>
-              <span class="rack-upright rack-right"></span>
-              <span class="gym-bar"></span>
-              <span class="gym-plates"></span>
-            </div>
-            <div class="gym-bench"></div>
-            <div class="gym-dumbbell"></div>
-            <img class="cardy-athlete" src="assets/districts/cardy-mascot.webp" alt="" />
-          </div>
-        </div>
-        <div class="wrap">
-          <article class="panel right rv d1">
-            <span class="tick"></span>
-            <p class="kicker">
-              CARDYIQ · FOUNDING ENGINEER &amp; TECHNICAL LEAD
-            </p>
-            <h2>Cardyiq needed more than a technical fix.</h2>
-            <p class="st">
-              The product was already live. I worked across the code, business
-              model, team and daily operation to make it healthier.
-            </p>
-            <div class="plate">
-              <div class="pl"><b>150+</b><span>venues · 6 cities</span></div>
-              <div class="pl"><b>1,500</b><span>subscribers</span></div>
-              <div class="pl"><b>70M IQD</b><span>GMV in 7 months</span></div>
-              <div class="pl"><b>99.9%</b><span>uptime</span></div>
-            </div>
-            <div class="ownership-ledger">
-              <div>
-                <b>PRODUCT</b>
-                <p>
-                  Entry passes were making the product too narrow. I helped
-                  replace them with points and subscriptions, then reworked the
-                  member and venue experience around the new model.
-                </p>
-              </div>
-              <div>
-                <b>ENGINEERING</b>
-                <p>
-                  I rebuilt and stabilised the backend, dashboard and mobile app
-                  while people were still using them. I also fixed reachability
-                  on Iraqi networks, added payments and made deployment and
-                  recovery much safer.
-                </p>
-              </div>
-              <div>
-                <b>BUSINESS + TEAM</b>
-                <p>
-                  I work on pricing, venue onboarding, support, release planning
-                  and the daily decisions behind scaling the product. I now
-                  manage 10 people and still stay close to both the product and
-                  the code.
-                </p>
-              </div>
-            </div>
-            <h4>Where it is now</h4>
-            <p>
-              <b>150+ venues in 6 cities.</b> 1,500 active subscribers, 10K+
-              installs, 70M IQD GMV and 99.9% uptime. We also went through a
-              serious data incident and recovered with zero records lost.
-            </p>
-            <p class="stack">
-              <b>STACK</b> · Flutter · React · TypeScript · Laravel · MySQL ·
-              Redis · Docker · CI/CD · payment integrations
-            </p>
-            <div class="case-actions">
-              <a class="case-link" href="https://cardyiq.com"
-                >Visit cardyiq.com</a
-              >
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ 03 CONSUMERTECH / GENEALOGYTECH ============ -->
-      <section
-        class="sec sec-district d-asheerty"
-        id="d-atelier"
-        data-district="atelier"
-        data-name="03 / ASHEERTY"
-      >
-        <div class="project-visual pv-asheerty" aria-hidden="true">
-          <div class="pv-art">
-            <div class="asheerty-phone">
-              <span class="phone-speaker"></span>
-              <img src="assets/districts/asheerty-icon.webp" alt="" />
-              <div class="family-tree">
-                <span class="tree-node root"></span>
-                <span class="tree-node branch branch-one"></span>
-                <span class="tree-node branch branch-two"></span>
-                <span class="tree-node branch branch-three"></span>
-                <span class="tree-line trunk"></span>
-                <span class="tree-line crossbar"></span>
-              </div>
-            </div>
-            <span class="family-orbit orbit-one"></span>
-            <span class="family-orbit orbit-two"></span>
-          </div>
-        </div>
-        <div class="wrap">
-          <article class="panel rv d1">
-            <span class="tick"></span>
-            <p class="kicker">
-              FAMILY HISTORY · AI RECOGNITION · AI-GENERATED ART
-            </p>
-            <h2>
-              A family tree that starts with old photos and ends on the wall.
-            </h2>
-            <p class="st">
-              The app helps build the tree. The final result becomes a printed
-              piece made for that family.
-            </p>
-            <p>
-              I built Asheerty as a complete consumer product: the mobile app,
-              backend, dashboard, order flow and fulfilment tools. I am now
-              building the full technical cycle around the tree.
-            </p>
-            <ol
-              class="tech-cycle"
-              id="genealogy-flow"
-              aria-label="How family material becomes the final tree artwork"
-            >
-              <li>
-                <b>01</b
-                ><span
-                  ><strong>Data entry</strong>The user adds names,
-                  relationships, photos, documents and old family trees.</span
-                >
-              </li>
-              <li>
-                <b>02</b
-                ><span
-                  ><strong>AI tree reading</strong>AI reads old family trees and
-                  other family material, finds connections and builds a first
-                  version of the tree inside the app.</span
-                >
-              </li>
-              <li>
-                <b>03</b
-                ><span
-                  ><strong>User review</strong>The user checks and corrects the
-                  people and relationships before they are saved to the
-                  database.</span
-                >
-              </li>
-              <li>
-                <b>04</b
-                ><span
-                  ><strong>The living tree</strong>The tree stays interactive
-                  and keeps changing as the family updates it.</span
-                >
-              </li>
-              <li>
-                <b>05</b
-                ><span
-                  ><strong>AI custom artwork</strong>AI helps turn the reviewed
-                  tree into an organic composition, then we refine it and
-                  prepare it for print.</span
-                >
-              </li>
-            </ol>
-            <h4>The full cycle</h4>
-            <p>
-              AI is used at both ends of the process. First, it reads old family
-              trees and other family material, finds names and connections, and
-              builds an initial tree inside the app. The user reviews and
-              corrects the result before the people and relationships are stored
-              in the database.
-            </p>
-            <p>
-              The reviewed tree becomes the input for a second AI process. AI
-              creates the layout and shapes it into an organic tree. I then
-              refine the family-specific artwork and prepare the final version
-              for printing.
-            </p>
-            <p class="stack">
-              <b>STACK</b> · React Native · React · Bun · Express · AI image
-              analysis · AI recognition · database · interactive tree · AI image
-              generation · print fulfilment
-            </p>
-            <div class="case-actions">
-              <a class="case-link" href="https://asheerty.sadeek.app"
-                >Visit asheerty.sadeek.app</a
-              >
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ 04 NOTIFICATION INFRASTRUCTURE ============ -->
-      <section
-        class="sec sec-district d-notifyx"
-        id="d-infra"
-        data-district="infra"
-        data-name="04 / NOTIFYX"
-      >
-        <div
-          class="project-visual pv-notifyx notifyx-live"
-          aria-label="Interactive NotifyX message queue"
-        >
-          <div class="queue-shell">
-            <div class="qbar">
-              <span class="qtag">LIVE VIEW · HOW A MESSAGE MOVES</span>
-              <span class="qstats"
-                ><span id="q-delivered" class="g">0</span> delivered ·
-                <span id="q-retried" class="a">0</span> retried</span
-              >
-              <button class="qbtn" id="q-send" type="button">
-                SEND
-              </button>
-            </div>
-            <canvas
-              id="queue"
-              aria-label="Animated simulation of the NotifyX queue: messages flow from the API through a BullMQ queue to workers and out to push providers; failed messages visibly retry and deliver."
-            ></canvas>
-            <p class="queue-cap">
-              Every dot is a message. Failed deliveries enter the retry path and
-              move through the system again.
-            </p>
-          </div>
-        </div>
-        <div class="wrap">
-          <article class="panel right rv d1" style="max-width: 860px">
-            <span class="tick"></span>
-            <p class="kicker">NOTIFYX · NOTIFICATION INFRASTRUCTURE</p>
-            <h2>
-              I got tired of rebuilding notifications, so I built NotifyX.
-            </h2>
-            <p class="st">
-              One API, one dashboard and one place to see what failed.
-            </p>
-            <h4>What it handles</h4>
-            <p>
-              Every product needed the same mix of providers, queues, retries,
-              scheduling and delivery status. I stopped copying the setup and
-              built it as its own system. NotifyX now handles FCM, APNS, HMS and
-              Web Push for five companies, with each worker benchmarked at
-              <b>about 150 messages per second</b>. The code is public at
-              <a href="https://github.com/awsdang/notifyx"
-                >github.com/awsdang/notifyx</a
-              >.
-            </p>
-            <p class="stack">
-              <b>STACK</b> · Node.js · BullMQ · Redis · PostgreSQL · Prisma ·
-              React · web / Flutter / RN SDKs
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ 05 SECOND-HAND E-COMMERCE ============ -->
-      <section
-        class="sec sec-district d-sadeek"
-        id="d-ailab"
-        data-district="ailab"
-        data-name="05 / SADEEK"
-      >
-        <div class="project-visual pv-sadeek" aria-hidden="true">
-          <div class="pv-art">
-            <div class="sadeek-phone">
-              <div class="shop-bar">
-                <img class="sadeek-mark" src="assets/districts/sadeek-mascot.webp" alt="" />
-                <span class="shop-bag"></span>
-              </div>
-              <div class="shop-grid">
-                <span class="shop-item item-phone"><span class="product-shape"></span><span class="product-meta"></span></span>
-                <span class="shop-item item-shoe"><span class="product-shape"></span><span class="product-meta"></span></span>
-                <span class="shop-item item-lamp"><span class="product-shape"></span><span class="product-meta"></span></span>
-                <span class="shop-item item-bag"><span class="product-shape"></span><span class="product-meta"></span></span>
-              </div>
-              <span class="shop-nav"></span>
-            </div>
-            <span class="telegram-route"></span>
-            <img class="telegram-logo" src="assets/districts/telegram-logo.svg" alt="" />
-          </div>
-        </div>
-        <div class="wrap">
-          <article class="panel rv d1">
-            <span class="tick"></span>
-            <p class="kicker">SADEEK · AI-ASSISTED SECOND-HAND SELLING</p>
-            <h2>One photo becomes a live listing.</h2>
-            <p class="st">
-              The seller stays in Telegram. The product page lands on
-              <a href="https://sadeek.app">sadeek.app</a>.
-            </p>
-            <div class="plate">
-              <div class="pl"><b>10K+</b><span>users</span></div>
-              <div class="pl"><b>150K+</b><span>AI requests</span></div>
-              <div class="pl"><b>40K</b><span>monthly visitors</span></div>
-            </div>
-            <h4>The flow</h4>
-            <p>
-              A seller sends one rough phone photo through Telegram. Sadeek
-              improves the image, writes the title and description, suggests a
-              price, checks the result and publishes it to a storefront at
-              <a href="https://sadeek.app">sadeek.app</a>.
-            </p>
-            <h4>What happens to the photo</h4>
-            <p>
-              The product does more than generate copy. It edits the photo,
-              removes the background, improves the lighting and presentation,
-              then writes and publishes the listing. I built the flow so the
-              seller can review or change any step without starting over.
-            </p>
-            <p class="stack">
-              <b>STACK</b> · Node.js · PostgreSQL · Next.js · Tailwind · OpenAI
-              · Gemini · n8n · Telegram Bot API
-            </p>
-            <div class="case-actions">
-              <a class="case-link" href="https://sadeek.app"
-                >Visit sadeek.app</a
-              >
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section
-        class="sec sec-district d-maaahr"
-        id="d-maaahr"
-        data-district="maaahr"
-        data-name="06 / MAAAHR"
-      >
-        <div class="project-visual pv-maaahr" aria-hidden="true">
-          <div class="pv-art">
-            <div class="interview-window">
-              <span class="meeting-dot"></span>
-              <div class="interview-person person-one"><i></i><b></b></div>
-              <div class="interview-person person-two"><i></i><b></b></div>
-              <div class="meeting-wave">
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <div class="meeting-controls"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-        </div>
-        <div class="wrap">
-          <article class="panel right rv">
-            <span class="tick"></span>
-            <p class="kicker">
-              MAAAHR · HRTECH · HACKATHON BUILD · OPENAI REALTIME API
-            </p>
-            <h2>A mock interview that talks back.</h2>
-            <p class="st">
-              You speak naturally, interrupt when you need to and get a useful
-              report at the end.
-            </p>
-            <p>
-              Maaahr is an HRTech prototype for interview practice. It started
-              as a text-based project, then I rebuilt the experience during a
-              hackathon around the <b>OpenAI Realtime API</b>. The prototype
-              asks questions for the role you choose, listens, shows live
-              subtitles and gives structured feedback after the interview.
-            </p>
-            <p>
-              The difficult parts were latency, interruption and keeping voice,
-              transcript and evaluation in sync without making the conversation
-              feel robotic.
-            </p>
-            <p class="stack">
-              <b>STACK</b> · Next.js · Supabase · OpenAI Realtime API · GPT ·
-              Gemini · live transcription · structured evals
-            </p>
-            <div class="case-actions">
-              <a class="case-link" href="https://maaahr.com"
-                >Visit maaahr.com</a
-              >
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ 07 HAWSR ============ -->
-      <section
-        class="sec sec-district d-hawsr"
-        id="d-hawsr"
-        data-district="hawsr"
-        data-name="07 / HAWSR"
-      >
-        <div class="project-visual pv-hawsr" aria-hidden="true">
-          <div class="pv-art">
-            <div class="hawsr-model">
-              <span class="model-ground"></span>
-              <span class="model-front"></span>
-              <span class="model-side"></span>
-              <span class="model-roof"></span>
-            </div>
-          </div>
-        </div>
-        <div class="wrap">
-          <article class="panel rv d1">
-            <span class="tick"></span>
-            <p class="kicker">HAWSR · CONSTRUCTIONTECH · MY FIRST COMPANY</p>
-            <h2>My architecture thesis became my first company.</h2>
-            <p class="st">
-              That is where software stopped being a side interest.
-            </p>
-            <p>
-              HAWSR moved Revit models into the browser so construction teams
-              could work with them more easily. It started as my master's
-              thesis, won first prize at The Station Foundation incubator and
-              became a real company.
-            </p>
-            <p>
-              We had real customers, around $60K in revenue and a team of six.
-              It was the first time I had to lead people while learning product,
-              sales and software at the same time.
-            </p>
-            <p>
-              The company eventually closed when funding disappeared and the
-              market proved too small. It still gave me my first serious
-              product, customers, revenue, a reason to move fully into software
-              and my first real experience leading a team.
-            </p>
-            <p class="stack">
-              <b>STACK</b> · Three.js · React · Next.js · Django
-            </p>
-            <div class="case-actions">
-              <a class="case-link" href="https://hawsr.com">Visit hawsr.com</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ 08 ORIGINS ============ -->
-      <section
-        class="sec sec-district d-origins"
-        id="d-origins"
-        data-district="origins"
-        data-name="08 / ORIGINS"
-      >
-        <div class="project-visual pv-origins" aria-hidden="true">
-          <div class="pv-art">
-            <div class="studio-wall">
-              <div class="studio-window">
-                <span class="window-mullion window-v"></span>
-                <span class="window-mullion window-h"></span>
-                <span class="window-sun"></span>
-              </div>
-              <span class="material-wall">
-                <span></span><span></span><span></span>
-              </span>
-            </div>
-            <div class="studio-desk">
-              <span class="desk-top"></span>
-              <span class="desk-leg leg-left"></span>
-              <span class="desk-leg leg-right"></span>
-              <div class="studio-laptop">
-                <span class="laptop-screen">
-                  <span class="screen-plan plan-a"></span>
-                  <span class="screen-plan plan-b"></span>
-                  <span class="screen-plan plan-c"></span>
-                </span>
-                <span class="laptop-base"></span>
-              </div>
-              <span class="paper-stack">
-                <span class="paper-line paper-one"></span>
-                <span class="paper-line paper-two"></span>
-                <span class="paper-line paper-three"></span>
-              </span>
-              <span class="desk-mouse"></span>
-              <span class="desk-cup"></span>
-            </div>
-          </div>
-        </div>
-        <div class="wrap">
-          <article class="panel right rv d1">
-            <span class="tick"></span>
-            <p class="kicker">ARCHITECTURE · BIM · RECONSTRUCTION</p>
-            <h2>
-              I spent nine years in architecture before I wrote software full
-              time.
-            </h2>
-            <p class="st">
-              That background still shapes how I understand systems, people and
-              constraints.
-            </p>
-            <h4>The work before software</h4>
-            <p>
-              Before UNOPS, I worked with several high-end architecture and
-              design studios, taking responsibility for construction projects
-              worth more than $3M each. Later, with <b>UNOPS in Anbar</b>, I
-              managed a reconstruction and rehabilitation program covering
-              around 1,500 homes, helping families return to safe, usable
-              houses.
-            </p>
-            <h4>How software started</h4>
-            <p>
-              I began by automating repetitive Revit work with Dynamo and
-              Python. I was curious about how far that could go, and eventually
-              the scripts became more interesting to me than the drawings.
-            </p>
-            <h4>What stayed with me</h4>
-            <p>
-              Architecture taught me to plan, explain decisions, work with many
-              different people and take real-world constraints seriously. I use
-              the same habits in software now.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ RULEBOOK ============ -->
-      <section
-        class="sec"
-        data-district="rules"
-        data-name="WORKING PRINCIPLES"
-      >
-        <div class="wrap">
-          <p class="kicker rv">HOW I WORK</p>
-          <h2
-            class="rv d1"
-            style="font-size: clamp(30px, 3.6vw, 52px); margin: 16px 0 40px"
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-eyebrow">
+          <span
+            ><i class="status-dot"></i> ENGINEER BY TRADE. BUILDER BY
+            DEFAULT.</span
+          ><span class="hero-location"
+            >BASED IN IRAQ · THINKING EVERYWHERE</span
           >
-            Five things I keep coming back to.
-          </h2>
-          <ol class="rules">
-            <li class="rv">
-              <b>Find the real problem, not the first one.</b>
+        </div>
+        <div class="hero-main">
+          <div class="hero-type">
+            <h1 id="hero-title">
+              I build<br />things that<br /><span class="work-word"
+                >work<svg viewBox="0 0 490 34" aria-hidden="true">
+                  <path
+                    d="M5 17 Q200 -4 477 12 M20 28 Q260 9 463 22"
+                  /></svg></span
+              ><span class="hero-period">.</span>
+            </h1>
+            <p class="handwritten hero-scribble">
+              and sometimes, things that don’t.<br />That’s how you learn.
+            </p>
+          </div>
+          <div
+            class="desk"
+            aria-label="A collage of my products and architectural inspiration"
+          >
+            <figure class="scrap architecture-scrap">
+              <button
+                class="image-open"
+                data-image="assets/images/architecture.jpg"
+                data-caption="Concrete, structure, repetition. An architectural reference, photographed by Chris Johnson."
+                data-source="https://unsplash.com/photos/a-concrete-brutalist-building-with-repeating-patterns-37zoajcSupg"
+                aria-label="Enlarge architectural inspiration"
+              >
+                <img
+                  src="assets/images/architecture.jpg"
+                  alt="Sculptural concrete architecture with repeating geometric balconies"
+                  width="1000"
+                  height="700"
+                  fetchpriority="high"
+                />
+              </button>
+              <figcaption>01 / STILL THINKING LIKE AN ARCHITECT</figcaption>
+              <span class="tape" aria-hidden="true"></span>
+            </figure>
+            <figure class="scrap tree-scrap">
+              <button
+                class="image-open"
+                data-image="assets/images/asheerty-wall.webp"
+                data-caption="Asheerty — the family tree, from an app to a framed piece. Product imagery from Asheerty."
+                data-source="https://asheerty.sadeek.app"
+                aria-label="Enlarge Asheerty artwork"
+              >
+                <img
+                  src="assets/images/asheerty-wall.webp"
+                  alt="Asheerty family tree artwork in a wooden frame"
+                  width="1254"
+                  height="1254"
+                />
+              </button>
+              <figcaption>02 / CODE → SOMETHING YOU CAN HOLD</figcaption>
+            </figure>
+            <div class="desk-note">
+              <span class="note-pin" aria-hidden="true"></span
+              ><span class="mono">THINGS I BELIEVE IN</span>
               <p>
-                Sometimes it is code. Sometimes it is pricing, UI, process or a
-                decision nobody has made yet. I try to understand that before I
-                start building.
+                Make it useful.<br />Make it real.<br /><span
+                  >Then make it better.</span
+                >
               </p>
-            </li>
-            <li class="rv">
-              <b>Change live systems in small steps.</b>
-              <p>
-                Most of my major rebuilds happened while people were still using
-                the product. I plan carefully, ship smaller changes and keep a
-                way back.
-              </p>
-            </li>
-            <li class="rv">
-              <b>Design for slow networks and distracted people.</b>
-              <p>
-                Small bundles, fewer round trips, useful loading states and
-                clear language. These details matter more than they look.
-              </p>
-            </li>
-            <li class="rv">
-              <b>Make payment systems boring.</b>
-              <p>
-                States, retries, idempotency, callbacks and reconciliation.
-                Boring is good when money is moving.
-              </p>
-            </li>
-            <li class="rv">
-              <b>Build it so the team can run it without me.</b>
-              <p>
-                I like ownership, but I do not want to become a bottleneck.
-                Clear systems and people who understand them are the real
-                handoff.
-              </p>
-            </li>
-          </ol>
+            </div>
+            <a
+              class="cardy-sticker"
+              href="#d-rescue"
+              aria-label="Explore Cardyiq"
+              ><img
+                src="assets/images/cardy-celebrate.webp"
+                alt="Cardyiq’s green mascot celebrating"
+                width="420"
+                height="420"
+              /><span>SHIPPED IT!</span></a
+            >
+            <span class="desk-star" aria-hidden="true">✳</span
+            ><span class="desk-label handwritten"
+              >a few things from my desk ↗</span
+            >
+            <button class="shuffle mono" id="shuffle-desk" type="button">
+              ↻ Rearrange the desk
+            </button>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <p>
+            I’m <strong>Aws.</strong> Software engineer, former architect,
+            incurable tinkerer.<br />I take messy problems and turn them into
+            products people actually use.
+          </p>
+          <a class="text-link" href="#work"
+            >Have a look around <span>↘</span></a
+          >
+        </div>
+        <div class="hero-proof">
+          <span><b>1M+</b> people using my work</span
+          ><span><b>7</b> case studies · many builds</span
+          ><span><b>9 years</b> in architecture before code</span
+          ><a href="cv.html">The on-paper version <span>↗</span></a>
         </div>
       </section>
 
-      <!-- ============ PERSONAL ============ -->
       <section
-        class="sec personal"
-        data-district="personal"
-        data-name="ABOUT"
+        class="human-intro wrap"
+        id="intro"
+        aria-labelledby="intro-title"
       >
-        <div class="wrap personal-grid">
+        <div>
+          <p class="eyebrow">HI. I'M AWS.</p>
+          <h2 id="intro-title">There’s a person<br />behind all this.</h2>
+          <p>
+            I like the whole messy process: figuring out the problem, sketching
+            an idea, building it, and finding out what breaks when real people
+            use it.
+          </p>
+          <span class="handwritten">Let me show you what I mean. ↘</span
+          ><a class="text-link" href="#work">See what I’ve built ↘</a>
+        </div>
+        <figure>
+          <div class="intro-media" data-intro-media>
+            <div class="intro-fallback" data-intro-fallback><span class="surface-label">ENGINEER / MAKER / AWS</span><strong>Ideas are cheap.<br /><em>I like building.</em></strong><span class="handwritten">From the first sketch<br />to the thing that works.</span></div>
+          </div>
+          <figcaption class="intro-caption">
+            <span data-intro-label>THE PERSON BEHIND THE PRODUCTS</span
+            ><span>AWS ABDULFATTAH</span>
+          </figcaption>
+        </figure>
+      </section>
+      <div class="ticker" aria-hidden="true">
+        <div>
+          IDEA → SKETCH → BUILD → BREAK → FIX → SHIP → REPEAT
+          <span>✳</span> IDEA → SKETCH → BUILD → BREAK → FIX → SHIP → REPEAT
+          <span>✳</span>
+        </div>
+      </div>
+
+      <section
+        class="selected-work wrap section-space"
+        id="work"
+        aria-labelledby="work-title"
+      >
+        <div class="section-heading">
           <div>
-            <p class="kicker rv">A LITTLE MORE PERSONAL</p>
-            <h2 class="rv d1">I am curious by default.</h2>
+            <p class="eyebrow">01 / THE WORK</p>
+            <h2 id="work-title">
+              Made of curiosity.<br /><span class="serif-word"
+                >Built for reality.</span
+              >
+            </h2>
           </div>
-          <div class="personal-copy rv d2">
-            <p>
-              I ask a lot of questions. Not to make things complicated, but
-              because I want to understand what is actually happening before I
-              decide what to do.
-            </p>
-            <p>
-              I like getting close to the problem and the people living with it.
-              I sketch ideas, build small versions and change my mind when the
-              evidence says I should.
-            </p>
-            <p>
-              I care about useful work, honest teams and people who can disagree
-              without making it personal. I learn fastest when there is trust,
-              responsibility and something real to improve.
-            </p>
+          <p class="section-note">
+            A few things I’ve built, rebuilt,<br />and learned the hard way.<br /><span
+              class="handwritten"
+              >The good stuff is in the details.</span
+            >
+          </p>
+        </div>
+        <div class="work-toolbar">
+          <span class="mono" id="project-count" aria-live="polite"
+            >SHOWING 07 PROJECTS</span
+          >
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button type="button" data-filter="all" aria-pressed="true">
+              Everything</button
+            ><button type="button" data-filter="product" aria-pressed="false">
+              Products</button
+            ><button type="button" data-filter="systems" aria-pressed="false">
+              Systems</button
+            ><button
+              type="button"
+              data-filter="experiments"
+              aria-pressed="false"
+            >
+              Experiments
+            </button>
           </div>
-          <aside class="personal-note rv d3">
-            <span>THE SIMPLE VERSION</span>
+        </div>
+        <div class="project-grid">
+          <article
+            class="project project-cardy"
+            id="d-rescue"
+            data-category="product"
+          >
+            <div class="project-screens">
+              <div class="screen-pair screens-mixed" data-gallery="cardyiq"><figure><a class="preview-frame" href="assets/shots/cardyiq/01-11-home-01-top.webp" data-shot data-title="A home built around the next visit" data-caption="Points, discovery, and check-in share one starting point." aria-label="Enlarge A home built around the next visit"><img src="assets/shots/cardyiq/01-11-home-01-top.webp" alt="A home built around the next visit" width="920" height="2000" loading="lazy" decoding="async" /></a><figcaption>A home built around the next visit</figcaption></figure><figure><a class="preview-frame" href="assets/shots/cardyiq/dashboard/01-overview.webp" data-shot data-title="An Arabic operations dashboard" data-caption="The real dashboard layout with fictional visit, membership, venue, and points totals." aria-label="Enlarge An Arabic operations dashboard"><img src="assets/shots/cardyiq/dashboard/01-overview.webp" alt="An Arabic operations dashboard" width="1280" height="800" loading="lazy" decoding="async" /></a><figcaption>An Arabic operations dashboard</figcaption></figure></div>
+              <div class="screens-footer"><span>19 SCREENS · APP / LANDING / DASHBOARD + BACKEND</span><a href="work/cardyiq.html#screens">Explore the build ↗</a></div></div><div class="project-info"><div class="project-topline"><span class="mono">01 / SPORTSTECH</span><span class="project-status">In the wild</span></div><h3><a href="work/cardyiq.html">Cardyiq <span>↗</span></a></h3><p>A live product, a backend rebuild, a new business model, and a team of ten. Engineering goes beyond the code.</p><div class="project-outcome">150+ venues · 6 cities · 99.9% uptime</div></div></article>
+          <article
+            class="project project-qi"
+            id="d-fintech"
+            data-category="product systems"
+          >
+            <div class="project-screens">
+              <div class="screen-pair" data-gallery="qi-card">
+                <figure>
+                  <a
+                    class="preview-frame"
+                    href="assets/shots/qi-card/01-01-home-plus-button.webp"
+                    data-shot
+                    data-title="Start from the account"
+                    data-caption="The Tasdid home gathers account context and financial actions."
+                    aria-label="Enlarge Start from the account"
+                    ><img
+                      src="assets/shots/qi-card/01-01-home-plus-button.webp"
+                      alt="Start from the account"
+                      width="924"
+                      height="2000"
+                      loading="lazy"
+                      decoding="async"
+                  /></a>
+                  <figcaption>01 / Start from the account</figcaption>
+                </figure>
+                <figure>
+                  <a
+                    class="preview-frame"
+                    href="assets/shots/qi-card/06-06-summary.webp"
+                    data-shot
+                    data-title="Review before committing"
+                    data-caption="The summary collects the recipient, amount, fees, and resulting total."
+                    aria-label="Enlarge Review before committing"
+                    ><img
+                      src="assets/shots/qi-card/06-06-summary.webp"
+                      alt="Review before committing"
+                      width="924"
+                      height="2000"
+                      loading="lazy"
+                      decoding="async"
+                  /></a>
+                  <figcaption>06 / Review before committing</figcaption>
+                </figure>
+              </div>
+              <div class="screens-footer">
+                <span>12 SCREENS · TASDID · DEMO DATA</span
+                ><a href="work/qi-card.html#qi-products">Explore the build ↗</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-topline">
+                <span class="mono">02 / FINTECH</span
+                ><span class="project-status"><i></i> In production</span>
+              </div>
+              <h3>
+                <a href="work/qi-card.html">Qi Card / SuperQi <span>↗</span></a>
+              </h3>
+              <p>
+                Tasdid and Jabi, plus oil stations, AML, Qi Hawala, service
+                providers, KRG billing, Basmayah loans, and native mini-app
+                work.
+              </p>
+              <div class="project-outcome">
+                Products · dashboards · Alipay mini-apps · native DSL
+              </div>
+            </div>
+          </article>
+          <article
+            class="project project-asheerty"
+            id="d-atelier"
+            data-category="product"
+          >
+            <div class="project-screens">
+              <div class="screen-pair screens-mixed" data-gallery="asheerty"><figure><a class="preview-frame" href="assets/shots/asheerty/01-app-diagram.webp" data-shot data-title="The family as a system" data-caption="The diagram turns relationships into a navigable family tree." aria-label="Enlarge The family as a system"><img src="assets/shots/asheerty/01-app-diagram.webp" alt="The family as a system" width="920" height="2000" loading="lazy" decoding="async" /></a><figcaption>The family as a system</figcaption></figure><figure><a class="preview-frame" href="assets/shots/asheerty/dashboard/02-orders.webp" data-shot data-title="Track orders through production" data-caption="The orders table exposes customer context, print size, member counts, and status using fictional records." aria-label="Enlarge Track orders through production"><img src="assets/shots/asheerty/dashboard/02-orders.webp" alt="Track orders through production" width="1280" height="800" loading="lazy" decoding="async" /></a><figcaption>Track orders through production</figcaption></figure></div>
+              <div class="screens-footer"><span>15 SCREENS · APP / DASHBOARD</span><a href="work/asheerty.html#screens">Explore the build ↗</a></div></div><div class="project-info"><div class="project-topline"><span class="mono">03 / FAMILYTECH</span><span class="project-status">Live on iOS + Android</span></div><h3><a href="work/asheerty.html">Asheerty <span>↗</span></a></h3><p>Old family material becomes a living tree, then a piece of art for the wall. I’m building the whole journey.</p><div class="project-outcome">Mobile app → AI recognition → print fulfilment</div></div></article>
+          <article
+            class="project project-notify"
+            id="d-infra"
+            data-category="systems"
+          >
+            <div class="project-screens screens-landscape">
+              <div class="screen-pair" data-gallery="notifyx">
+                <figure>
+                  <a
+                    class="preview-frame"
+                    href="assets/shots/notifyx/01-dashboard.webp"
+                    data-shot
+                    data-title="Dashboard"
+                    data-caption="Delivery health, channel performance, and recent activity in one operational view."
+                    aria-label="Enlarge Dashboard"
+                    ><img
+                      src="assets/shots/notifyx/01-dashboard.webp"
+                      alt="Dashboard"
+                      width="1280"
+                      height="720"
+                      loading="lazy"
+                      decoding="async"
+                  /></a>
+                  <figcaption>01 / Dashboard</figcaption>
+                </figure>
+                <figure>
+                  <a
+                    class="preview-frame"
+                    href="assets/shots/notifyx/02-send.webp"
+                    data-shot
+                    data-title="Compose a notification"
+                    data-caption="The real composer connects app, message, recipient, and preview."
+                    aria-label="Enlarge Compose a notification"
+                    ><img
+                      src="assets/shots/notifyx/02-send.webp"
+                      alt="Compose a notification"
+                      width="1280"
+                      height="720"
+                      loading="lazy"
+                      decoding="async"
+                  /></a>
+                  <figcaption>02 / Compose a notification</figcaption>
+                </figure>
+              </div>
+              <div class="screens-footer">
+                <span>12 SCREENS · PORTAL · DEMO DATA</span
+                ><a href="work/notifyx.html#screens">Explore the build ↗</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-topline">
+                <span class="mono">04 / INFRASTRUCTURE</span
+                ><span class="project-status"><i></i> Open source</span>
+              </div>
+              <h3>
+                <a href="work/notifyx.html">NotifyX <span>↗</span></a>
+              </h3>
+              <p>
+                I kept rebuilding notifications. So I made one system for
+                providers, retries, scheduling, and delivery states.
+              </p>
+              <div class="project-outcome">
+                5 companies · ~150 messages/sec/worker
+              </div>
+            </div>
+          </article>
+          <article
+            class="project project-sadeek"
+            id="d-ailab"
+            data-category="product experiments"
+          >
+            <div class="project-screens telegram-preview"><span class="surface-label">THE INTERFACE IS A CONVERSATION</span><div class="telegram-mark"><img src="assets/districts/sadeek-mascot.webp" alt="Sadeek product mark" width="80" height="80" /></div><h4>Photo in.<br />Possibilities out.</h4><p>Telegram → image tools → content → callbacks</p><a class="text-link" href="work/sadeek.html#screens">Inside the bot ↗</a><details><summary>Secondary store captures (2) ↓</summary><div class="project-screens screens-landscape">
+              <div class="screen-pair" data-gallery="sadeek">
+                <figure>
+                  <a
+                    class="preview-frame"
+                    href="assets/shots/sadeek/01-storefront.webp"
+                    data-shot
+                    data-title="The public storefront"
+                    data-caption="The Arabic storefront turns listings into a browsable marketplace."
+                    aria-label="Enlarge The public storefront"
+                    ><img
+                      src="assets/shots/sadeek/01-storefront.webp"
+                      alt="The public storefront"
+                      width="1280"
+                      height="720"
+                      loading="lazy"
+                      decoding="async"
+                  /></a>
+                  <figcaption>01 / The public storefront</figcaption>
+                </figure>
+                <figure>
+                  <a
+                    class="preview-frame"
+                    href="assets/shots/sadeek/02-product.webp"
+                    data-shot
+                    data-title="From listing to detail"
+                    data-caption="A product page gathers photos, description, price, and seller context."
+                    aria-label="Enlarge From listing to detail"
+                    ><img
+                      src="assets/shots/sadeek/02-product.webp"
+                      alt="From listing to detail"
+                      width="1280"
+                      height="720"
+                      loading="lazy"
+                      decoding="async"
+                  /></a>
+                  <figcaption>02 / From listing to detail</figcaption>
+                </figure>
+              </div>
+              <div class="screens-footer">
+                <span>STORE ARCHIVE · DEMO DATA</span
+                ><a href="work/sadeek.html#screens">Open Telegram case ↗</a>
+              </div>
+            </div>
+            </details></div><div class="project-info">
+              <div class="project-topline">
+                <span class="mono">05 / COMMERCE + AI</span
+                ><span class="project-status status-quiet">Dormant</span>
+              </div>
+              <h3>
+                <a href="work/sadeek.html">Sadeek <span>↗</span></a>
+              </h3>
+              <p>
+                Send a photo through Telegram. Get a cleaned image, a
+                description, a suggested price, and tools inside the conversation.
+              </p>
+              <div class="project-outcome">10K+ users · 150K+ AI requests</div>
+            </div>
+          </article>
+          <article
+            class="project project-hawsr"
+            id="d-hawsr"
+            data-category="systems experiments"
+          >
+            <div class="project-screens screens-landscape">
+              <div class="screen-pair screens-mixed" data-gallery="hawsr"><figure><a class="preview-frame" href="assets/shots/hawsr/landing/01-home.webp" data-shot data-title="HAWSR landing page" data-caption="The landing project’s original hero, captured from its local static export." aria-label="Enlarge HAWSR landing page"><img src="assets/shots/hawsr/landing/01-home.webp" alt="HAWSR landing page" width="1280" height="800" loading="lazy" decoding="async" /></a><figcaption>HAWSR landing page</figcaption></figure><figure><a class="preview-frame" href="assets/shots/hawsr/01-views.webp" data-shot data-title="Many views of the same model" data-caption="The archived viewer shows a model from multiple useful perspectives." aria-label="Enlarge Many views of the same model"><img src="assets/shots/hawsr/01-views.webp" alt="Many views of the same model" width="1600" height="893" loading="lazy" decoding="async" /></a><figcaption>Many views of the same model</figcaption></figure></div>
+              <div class="screens-footer"><span>15 SCREENS · LANDING / VIEWER</span><a href="work/hawsr.html#screens">Explore the build ↗</a></div></div><div class="project-info"><div class="project-topline"><span class="mono">06 / SPATIAL PRODUCTS</span><span class="project-status status-quiet">Closed · archive</span></div><h3><a href="work/hawsr.html">HAWSR <span>↗</span></a></h3><p>A master’s thesis became my first company. Building models in a browser, real customers, and a lot of firsts.</p><div class="project-outcome">~$60K revenue · team of 6 · incubator first prize</div></div></article>
+          <article
+            class="project project-maaahr"
+            id="d-maaahr"
+            data-category="experiments"
+          >
+            <div class="project-screens screens-landscape">
+              <div class="screen-pair" data-gallery="maaahr">
+                <figure>
+                  <a
+                    class="preview-frame"
+                    href="assets/shots/maaahr/07-interview.webp"
+                    data-shot
+                    data-title="The first question"
+                    data-caption="The actual demo interview screen pairs the question with an answer composer."
+                    aria-label="Enlarge The first question"
+                    ><img
+                      src="assets/shots/maaahr/07-interview.webp"
+                      alt="The first question"
+                      width="1280"
+                      height="720"
+                      loading="lazy"
+                      decoding="async"
+                  /></a>
+                  <figcaption>07 / The first question</figcaption>
+                </figure>
+                <figure>
+                  <a
+                    class="preview-frame"
+                    href="assets/shots/maaahr/10-results.webp"
+                    data-shot
+                    data-title="A structured sample result"
+                    data-caption="The demo report shows duration, a sample score, summary, and strengths; these are simulated results."
+                    aria-label="Enlarge A structured sample result"
+                    ><img
+                      src="assets/shots/maaahr/10-results.webp"
+                      alt="A structured sample result"
+                      width="1280"
+                      height="720"
+                      loading="lazy"
+                      decoding="async"
+                  /></a>
+                  <figcaption>10 / A structured sample result</figcaption>
+                </figure>
+              </div>
+              <div class="screens-footer">
+                <span>10 SCREENS · INTERVIEW DEMO</span
+                ><a href="work/maaahr.html#screens">Explore the build ↗</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-topline">
+                <span class="mono">07 / REALTIME AI</span
+                ><span class="project-status status-quiet">Prototype</span>
+              </div>
+              <h3>
+                <a href="work/maaahr.html">Maaahr <span>↗</span></a>
+              </h3>
+              <p>
+                A voice interviewer that listens, follows up, and produces a
+                structured evaluation. An exercise in making AI feel less
+                robotic.
+              </p>
+              <div class="project-outcome">
+                Realtime voice · transcription · structured evaluations
+              </div>
+            </div>
+          </article>
+          <aside class="project project-note" data-category="all">
+            <span class="handwritten">One more thing…</span>
+            <h3>The stack changes.<br />The instinct doesn’t.</h3>
             <p>
-              Give me a hard problem, honest people and enough room to learn.
-              That is usually where I do my best work.
+              Find the real problem. Build a small version. Put it in somebody’s
+              hands. Listen. Do it again.
             </p>
+            <a class="text-link" href="#lab"
+              >Try something I made <span>↘</span></a
+            ><span class="note-star" aria-hidden="true">✳</span>
           </aside>
         </div>
       </section>
 
-      <!-- ============ FINALE ============ -->
+      <section class="lab section-space" id="lab" aria-labelledby="lab-title">
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / THE LAB</p>
+              <h2 id="lab-title">Don’t just take<br />my word for it.</h2>
+            </div>
+            <p class="section-note">
+              Here’s a little piece of the machinery.<br />Send a burst. Break a
+              provider.<br /><span class="handwritten"
+                >Go on. Push the button. ↙</span
+              >
+            </p>
+          </div>
+          <div class="queue-demo">
+            <div class="demo-header">
+              <span class="mono"
+                ><i class="status-dot"></i> NOTIFYX / INTERACTIVE QUEUE
+                SIMULATION</span
+              ><a
+                href="https://github.com/awsdang/notifyx"
+                target="_blank"
+                rel="noopener"
+                >See the real code ↗</a
+              >
+            </div>
+            <div class="queue-stages">
+              <div class="queue-stage">
+                <span class="stage-number mono">01 / ACCEPT</span><b>API</b
+                ><span class="stage-desc">One message. Any provider.</span
+                ><span class="stage-activity" id="api-activity"></span>
+              </div>
+              <span class="stage-connector" aria-hidden="true">→</span>
+              <div class="queue-stage">
+                <span class="stage-number mono">02 / BUFFER</span><b>Queue</b
+                ><span class="stage-desc"
+                  ><span id="queued-count">0</span> waiting their turn</span
+                >
+                <div
+                  class="queue-dots"
+                  id="queue-dots"
+                  aria-hidden="true"
+                ></div>
+              </div>
+              <span class="stage-connector" aria-hidden="true">→</span>
+              <div class="queue-stage">
+                <span class="stage-number mono">03 / PROCESS</span><b>Worker</b
+                ><span class="stage-desc">Retry when things go wrong.</span
+                ><span class="worker-indicator" id="worker-indicator"></span>
+              </div>
+              <span class="stage-connector" aria-hidden="true">→</span>
+              <div class="queue-stage provider-stage">
+                <span class="stage-number mono">04 / DELIVER</span
+                ><b id="provider-label">Provider</b
+                ><span class="stage-desc" id="provider-desc"
+                  >All systems behaving.</span
+                ><span class="provider-dot" id="provider-dot"></span>
+              </div>
+            </div>
+            <div class="demo-controls">
+              <button class="solid-button" id="send-burst" type="button">
+                Send 24 messages <span>↗</span></button
+              ><button
+                class="fault-button"
+                id="toggle-failure"
+                type="button"
+                aria-pressed="false"
+              >
+                Make the provider flaky</button
+              ><button class="reset-button" id="reset-demo" type="button">
+                Reset ↺
+              </button>
+              <div
+                class="demo-counters"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                <span><b id="delivered-count">0</b> delivered</span
+                ><span><b id="retry-count">0</b> retries</span>
+              </div>
+            </div>
+            <p class="demo-footnote mono">
+              A LOCAL SIMULATION, NOT A LIVE BENCHMARK. FLAKY MODE FAILS EVERY
+              THIRD FIRST ATTEMPT; RETRIES RECOVER.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section
-        class="sec finale"
-        data-district="finale"
-        data-name="CONTACT"
+        class="about wrap section-space"
+        id="about"
+        aria-labelledby="about-title"
       >
-        <div class="wrap finale-in">
-          <p class="kicker rv" style="justify-content: center">LET'S TALK</p>
-          <h2 class="rv d1" style="margin-top: 18px">
-            I want to work on problems worth <em>understanding.</em>
+        <div class="about-photo" id="d-origins">
+          <button
+            class="image-open"
+            data-image="assets/images/architecture.jpg"
+            data-caption="Architectural reference — Concrete Brutalist Geometry, photographed by Chris Johnson. Inspiration imagery, not a building I designed."
+            data-source="https://unsplash.com/photos/a-concrete-brutalist-building-with-repeating-patterns-37zoajcSupg"
+            aria-label="Enlarge architecture reference"
+          >
+            <img
+              src="assets/images/architecture.jpg"
+              alt="Angular concrete balconies, an architectural reference"
+              width="1000"
+              height="700"
+              loading="lazy"
+            /></button
+          ><span class="tape" aria-hidden="true"></span>
+          <figure class="material-scrap">
+            <button
+              class="image-open"
+              data-image="assets/images/circuit.jpg"
+              data-caption="An engineering reference: the structure beneath the surface. Photograph via Unsplash. Inspiration imagery, not my hardware design."
+              data-source="https://unsplash.com/photos/close-up-view-of-a-complex-electronic-circuit-board-eEDqcntu5vw"
+              aria-label="Enlarge electronics inspiration"
+            >
+              <img
+                src="assets/images/circuit.jpg"
+                alt="Macro photograph of the traces and components on a circuit board"
+                width="900"
+                height="600"
+                loading="lazy"
+              />
+            </button>
+            <figcaption class="mono">LOOK UNDER THE SURFACE.</figcaption>
+          </figure>
+          <span class="photo-caption mono"
+            >AN ARCHITECT’S EYE NEVER REALLY SWITCHES OFF.</span
+          ><span class="handwritten photo-annotation"
+            >structure is structure.<br />concrete or code.</span
+          >
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">03 / THE HUMAN BEHIND THE COMMITS</p>
+          <h2 id="about-title">
+            I used to<br />build <span class="serif-word">buildings.</span>
           </h2>
-          <div class="finale-contacts rv d2">
-            <a class="mail-big" href="mailto:awsdang@gmail.com"
-              >awsdang@gmail.com</a
-            >
-            <a class="phone-big" href="https://wa.me/9647702531435"
-              >+964 770 253 1435 <span>WhatsApp</span></a
-            >
-          </div>
-          <div class="actions center rv d3">
-            <a
-              class="btn primary"
-              href="cv.html"
-              >Open my CV</a
-            >
-            <a class="btn" href="https://github.com/awsdang">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/awsdang"
-              >LinkedIn</a
-            >
-          </div>
-          <p class="contact-note rv d4">
-            OPEN TO RELOCATION AT MY OWN EXPENSE · OPEN TO REMOTE WORK ·
-            @AWSDANG
+          <p class="about-lead">
+            Now I build the things running behind a million people’s screens.
           </p>
+          <p>
+            For nine years, I worked in architecture and construction. With
+            UNOPS in Anbar, I managed a reconstruction program covering around
+            1,500 homes. I started writing Python to automate the repetitive
+            parts of Revit. Then the scripts got more interesting than the
+            drawings.
+          </p>
+          <p>
+            A thesis became HAWSR. HAWSR became a company. And somewhere between
+            my first customer and my first broken deployment, software became
+            the work.
+          </p>
+          <p>
+            Today I’m a Senior Software Engineer at Qi Card and a Founding
+            Engineer &amp; Technical Lead at Cardyiq. I still sketch first. I
+            still ask too many questions. And I still like getting my hands
+            dirty.
+          </p>
+          <div class="about-links">
+            <a class="text-link" href="cv.html">Read my CV <span>↗</span></a
+            ><a
+              class="text-link"
+              href="https://github.com/awsdang"
+              target="_blank"
+              rel="noopener"
+              >Look at the code <span>↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="notes-strip wrap">
+        <span class="eyebrow">A FEW OPERATING PRINCIPLES</span>
+        <div>
+          <p><span class="mono">01</span> Understand it before you fix it.</p>
+          <p><span class="mono">02</span> Real users beat perfect demos.</p>
+          <p><span class="mono">03</span> Leave the team stronger.</p>
+        </div>
+      </section>
+
+      <section
+        class="contact section-space"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="wrap">
+          <p class="eyebrow">04 / GOT SOMETHING INTERESTING?</p>
+          <div class="contact-heading">
+            <h2 id="contact-title">
+              Let’s make<br /><span>something real.</span>
+            </h2>
+            <span class="contact-star" aria-hidden="true">✳</span>
+          </div>
+          <div class="contact-bottom">
+            <div>
+              <p>
+                A hard problem. A wild idea. A good team.<br />That’s usually
+                where it starts.
+              </p>
+              <span class="mono">OPEN TO REMOTE WORK &amp; RELOCATION</span>
+            </div>
+            <div class="contact-email">
+              <a href="mailto:awsdang@gmail.com"
+                >awsdang@gmail.com <span>↗</span></a
+              ><button id="copy-email" type="button">Copy email</button
+              ><span id="copy-status" class="sr-only" role="status"></span>
+            </div>
+          </div>
         </div>
       </section>
     </main>
-
-    <footer>
-      <div class="wrap foot-in">
-        <span class="serif"
-          >I started in architecture. I still think in plans, systems and how
-          people move through things.</span
-        >
-        <span>
-          © 2026 · built by me, changed often
-        </span>
+    <footer class="site-footer wrap">
+      <a class="wordmark" href="#main">aws<span>✳</span></a
+      ><span class="mono">BUILT WITH INTENT. ALWAYS A WORK IN PROGRESS.</span>
+      <div>
+        <a href="https://github.com/awsdang" target="_blank" rel="noopener"
+          >GitHub ↗</a
+        ><a
+          href="https://www.linkedin.com/in/awsdang"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn ↗</a
+        ><a href="ai-skills/">AI skills ↗</a
+        ><button class="credits-toggle" type="button" id="open-credits">
+          Image credits
+        </button>
       </div>
     </footer>
+    <dialog class="lightbox" id="image-dialog" aria-labelledby="image-caption">
+      <button class="dialog-close" type="button" aria-label="Close image">
+        ×</button
+      ><img id="lightbox-image" src="assets/images/architecture.jpg" alt="" />
+      <div class="lightbox-caption">
+        <p id="image-caption"></p>
+        <a
+          id="image-source"
+          href="https://unsplash.com"
+          target="_blank"
+          rel="noopener"
+          >Original source ↗</a
+        >
+      </div>
+    </dialog>
+    <dialog
+      class="credits-dialog"
+      id="credits-dialog"
+      aria-labelledby="credits-title"
+    >
+      <button
+        class="dialog-close"
+        type="button"
+        aria-label="Close image credits"
+      >
+        ×
+      </button>
+      <p class="eyebrow">THE VISUAL INGREDIENTS</p>
+      <h2 id="credits-title">A little credit.</h2>
+      <p>
+        Project imagery comes from the products themselves. The architecture
+        photograph is a visual reference, not a project I designed.
+      </p>
+      <ul>
+        <li>
+          <a
+            href="https://unsplash.com/photos/a-concrete-brutalist-building-with-repeating-patterns-37zoajcSupg"
+            target="_blank"
+            rel="noopener"
+            >Architecture photograph — Chris Johnson / Unsplash ↗</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://unsplash.com/photos/close-up-view-of-a-complex-electronic-circuit-board-eEDqcntu5vw"
+            target="_blank"
+            rel="noopener"
+            >Circuit board photograph — Unsplash ↗</a
+          >
+        </li>
+        <li>
+          <a href="https://cardyiq.com" target="_blank" rel="noopener"
+            >Cardyiq mascots &amp; identity — Cardyiq ↗</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://apps.apple.com/app/id6753315130"
+            target="_blank"
+            rel="noopener"
+            >Cardyiq public app listing ↗</a
+          >
+        </li>
+        <li>
+          <a href="https://asheerty.sadeek.app" target="_blank" rel="noopener"
+            >Family tree, app &amp; framed artwork — Asheerty ↗</a
+          >
+        </li>
 
-    <script>
-      /* Optional remote-push credentials. Without them, the button still requests
-         permission and delivers a real system notification from the service worker. */
-      window.NOTIFYX_CONFIG = {
-        baseUrl: "https://notification.sadeek.app",
-        appId: "",
-        apiKey: "",
-        vapidPublicKey: "",
-        serviceWorkerPath: "/notifyx-sw.js",
-      };
-    </script>
-    <script src="notifyx-web-sdk.js?v=1"></script>
-    <script src="js/main.js?v=9" defer></script>
+        <li>
+          Demo listing photos — C D-X and Kiran CK / Unsplash:
+          <a href="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+            >yellow headphones ↗</a
+          >,
+          <a href="https://images.unsplash.com/photo-1579065560489-989b0cc394ce"
+            >black headphones ↗</a
+          >. Used only as fictional Sadeek inventory.
+        </li>
+        <li>
+          94 original project screens from my app archives and working
+          interfaces. Dashboard, Tasdid, NotifyX, Sadeek, and Maaahr captures use demo
+          data. HAWSR views are archived.
+        </li>
+      </ul>
+    </dialog>
   </body>
 </html>

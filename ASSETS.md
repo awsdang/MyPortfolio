@@ -1,168 +1,84 @@
-# ASSETS.md · logo & screenshot production guide
+# Portfolio imagery
 
-The case-study screenshot slots work with zero images and fall back to labeled
-placeholders. A small set of optimized brand files is retained for future
-case-study use but is not required by the homepage.
+All images used by the new portfolio are stored locally. Credit links are also
+available in the homepage's Image credits dialog.
 
-## Retained brand assets
+| File in `assets/images/` | Origin                                                                                                                    | Use                                                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `architecture.jpg`       | [Chris Johnson / Unsplash](https://unsplash.com/photos/a-concrete-brutalist-building-with-repeating-patterns-37zoajcSupg) | Architectural reference in the hero and about collage |
+| `circuit.jpg`            | [Unsplash](https://unsplash.com/photos/close-up-view-of-a-complex-electronic-circuit-board-eEDqcntu5vw)                   | Engineering reference in the about collage            |
+| `cardy-celebrate.webp`   | [Cardyiq](https://cardyiq.com)                                                                                            | Hero mascot                                           |
+| `cardy-scan.webp`        | [Cardyiq](https://cardyiq.com)                                                                                            | Project artwork and case study                        |
+| `cardy-app.jpg`          | [Public App Store listing](https://apps.apple.com/app/id6753315130)                                                       | Real app screenshot                                   |
+| `asheerty-app.webp`      | [Asheerty](https://asheerty.sadeek.app/assets/app-diagram.webp)                                                           | Real app screenshot                                   |
+| `asheerty-tree.webp`     | [Asheerty](https://asheerty.sadeek.app/assets/poster-tree.webp)                                                           | Product artwork in the case study                     |
+| `asheerty-wall.webp`     | [Asheerty](https://asheerty.sadeek.app/assets/wall-poster.webp)                                                           | Framed product artwork                                |
 
-| File | Used for |
-|---|---|
-| `assets/districts/qi-mark.svg` | Qi Card mark |
-| `assets/districts/cardy-mascot.webp` | Original Cardy mascot |
-| `assets/districts/cardy-logo.webp` | Cardyiq wordmark |
-| `assets/districts/asheerty-icon.webp` | Asheerty app mark |
-| `assets/districts/sadeek-mascot.webp` | Sadeek mascot |
+The existing files under `assets/districts/` supply the Qi mark, Cardyiq logo,
+Telegram mark and Sadeek mascot. The previous illustrative project compositions have been replaced by authentic screen galleries.
 
-These files are intentionally small. Keep the original source artwork outside
-the site, and regenerate these web versions if a brand asset changes.
+## Adding personal imagery
 
-## How the system works
+Replace reference photos with your own architecture, notebook, workstation or
+construction photographs. Keep the source captions accurate when replacing them.
+For project images, prefer a real exported screen or a photograph of the product.
+Use synthetic demo data or already-public marketing images. Avoid customer names,
+phone numbers, account details, balances, internal URLs and provider contracts.
+Use WebP or an optimized JPEG, include descriptive alt text, and set intrinsic
+width and height where possible. Lazy-load imagery below the first screen.
 
-Every case page has `<figure class="shot" data-shot="NAME">` slots.
-On load, `js/main.js` tries `assets/shots/NAME.webp`:
+For a homepage image that should enlarge, use an `.image-open` button with
+`data-image`, `data-caption` and `data-source`; the dialog is wired automatically.
+Project previews and case studies use `[data-gallery]` containers with
+`a[data-shot]` links. Links work without JavaScript; `js/project-gallery.js`
+enhances them with an accessible viewer. `css/project-media.css` styles both.
 
-- **File exists** → the image replaces the placeholder automatically.
-- **File missing** → the labeled placeholder stays. Nothing breaks.
+## Original project screen collections
 
-So: produce a file, name it exactly, drop it in `assets/shots/`, reload. Done.
-No HTML edits, ever.
+All 94 screens are optimized WebP files under `assets/shots/`.
 
----
+| Project     | Screens | Origin and capture context                                                                                                                      |
+| ----------- | ------: | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cardyiq     |      19 | 12 original iOS captures, 2 actual Astro landing views, and 5 actual React dashboard views with fictional fixtures           |
+| Qi / Tasdid |      12 | Tasdid mini-app's existing demo recordings; fictional names, phones, accounts, and amounts. These are Tasdid screens, not Jabi or e-Psule.      |
+| Asheerty    |      15 | 11 original app / marketing / onboarding views with a sample family; 4 actual React admin views with fictional fixtures                                        |
+| NotifyX     |      12 | Actual portal run locally against fictional API fixtures; no live recipients or working provider secrets                                        |
+| Sadeek      |      11 | Actual storefront run in a disposable local copy with fictional listings/seller details and third-party ads/analytics disabled                  |
+| HAWSR       |      15 | 12 archived viewer/model images and 3 actual landing-source export views; archived case remains closed                                                                   |
+| Maaahr      |      10 | Actual interview-prep demo from the owner's repository, run locally; tutorial placeholders, simulated responses, and sample report are explicit |
 
-## 1 · Screenshots · the full slot list (25)
+The homepage displays two selected views per project. Each case gallery includes
+all its distinct views with captions. No reconstructed tutorial video frame was
+counted as an Asheerty app capture. Duplicated resize variants were not counted.
 
-### Format rules (all screenshots)
+Sadeek's fictional inventory uses headphones photographed by C D-X and Kiran CK
+via Unsplash: `photo-1505740420928-5e560c06d30e`,
+`photo-1579065560489-989b0cc394ce`, and `photo-1583305727488-61f82c7eae4b`.
+These photos illustrate demo listings; they are not evidence of actual sellers.
+The source product layouts were retained. Capture fixtures only selected UI
+states, supplied fictional data, and froze entry animations where needed.
+No sibling source project was edited.
 
-1. **WebP only**, quality ~82. Convert with [squoosh.app](https://squoosh.app)
-   or `cwebp -q 82 in.png -o out.webp`.
-2. **Tall slots** (phone) → portrait, ideally 1170×2532 (or your device's native).
-   **Wide slots** → landscape, ideally 2400×1500 (or 16:10-ish).
-3. Phone shots: use a **clean status bar** (full battery, no notifications ·    iOS Simulator does this automatically; on Android use demo mode:
-   `adb shell settings put global sysui_demo_allowed 1`).
-4. Dark-mode app themes photograph best against this site.
+The HAWSR `team/aws.png` portrait belongs to Aws Al-Saigh, not Aws Abdulfattah.
+It is not used in the portfolio. A real talking video has not been supplied.
+`assets/media/intro.json` has `src: null` and `poster: null`; typography fills the
+intro until the actual recording is available.
 
-### Sanitization checklist · run for EVERY shot
+The new landing and dashboard views were captured in October 2026. Cardy and
+Asheerty dashboards were run in disposable copies with fictional API fixtures
+and notification integrations disabled. Original layouts and forms were retained.
+HAWSR’s landing is a capture of the supplied source export, not evidence that
+the archived business reopened. Marketing metrics visible in source screenshots
+are not used to revise the portfolio’s vetted outcome numbers.
 
-- [ ] No real customer names, phones, account numbers, balances, or amounts ·       recreate screens with **synthetic seed data** first.
-- [ ] Tasdid+/Jabi+/e-Psule: public-safe framing only · product UI is fine,
-      **no payment-rail internals, no provider contract details** (house rule
-      carried over from the CV pack).
-- [ ] Sadeek product photos: demo/synthetic products only, unless a merchant
-      gave explicit permission.
-- [ ] Asheerty trees: synthetic family names only.
-- [ ] Crop out internal URLs, staging banners, debug overlays.
+Sadeek’s 11 store captures are now a collapsed secondary archive. Its main
+case presents the Telegram workflow, an actual Arabic acknowledgement excerpt,
+and implementation notes. No simulated Telegram conversation is represented as
+a real screenshot. Original Telegram media and Maaahr’s landing source are pending.
 
-### Qi Card · `work/qi-card.html`
+## NotifyX remote push
 
-| File | Shape | What to capture |
-|---|---|---|
-| `tasdid-bills.webp` | tall | Tasdid+ bill list across providers, amounts due |
-| `tasdid-invoice.webp` | tall | Invoice detail → payment method → confirmation state |
-| `jabi-transactions.webp` | tall | Jabi+ transaction list with filters open |
-| `epsule-langs.webp` | tall | e-Psule showing Kurdish or Arabic UI (RTL visible) |
-
-### Cardyiq · `work/cardyiq.html`
-
-| File | Shape | What to capture |
-|---|---|---|
-| `cardyiq-home.webp` | tall | Mobile home screen |
-| `cardyiq-venue.webp` | tall | Venue detail + subscription/points |
-| `cardyiq-dashboard.webp` | wide | Arabic operations dashboard |
-| `cardyiq-analytics.webp` | wide | Growth/analytics view (synthetic numbers OK) |
-
-### NotifyX · `work/notifyx.html`
-
-| File | Shape | What to capture |
-|---|---|---|
-| `notifyx-dashboard.webp` | wide | React ops dashboard · campaigns/delivery states |
-| `notifyx-benchmark.webp` | wide | Throughput chart or benchmark run output |
-
-### Sadeek · `work/sadeek.html`
-
-| File | Shape | What to capture |
-|---|---|---|
-| `sadeek-telegram.webp` | tall | The Telegram flow · photo in, bot responding |
-| `sadeek-before-after.webp` | wide | Raw merchant photo next to the AI-processed asset |
-| `sadeek-storefront.webp` | wide | The Next.js storefront listing page |
-| `sadeek-workflow.webp` | wide | The n8n orchestration graph (zoomed to be readable) |
-
-### Maaahr · `work/maaahr.html`
-
-| File | Shape | What to capture |
-|---|---|---|
-| `maaahr-roles.webp` | wide | Role selection screen |
-| `maaahr-live.webp` | wide | Live voice session with subtitles visible |
-| `maaahr-report.webp` | wide | Structured evaluation report |
-
-### Asheerty · `work/asheerty.html`
-
-| File | Shape | What to capture |
-|---|---|---|
-| `asheerty-editor.webp` | tall | Building the tree on mobile |
-| `asheerty-tree.webp` | tall | Generated tree preview (synthetic names) |
-| `asheerty-dashboard.webp` | wide | Review & fulfilment dashboard |
-| `asheerty-print.webp` | wide | **Photograph** of a framed physical print · the money shot. Natural light, slight angle, wall context |
-
-### HAWSR · `work/hawsr.html`
-
-| File | Shape | What to capture |
-|---|---|---|
-| `hawsr-viewer.webp` | wide | Browser 3D model viewer (any archived capture) |
-| `hawsr-pipeline.webp` | wide | Dynamo graph / Revit→web pipeline screenshot |
-| `hawsr-splat.webp` | wide | Gaussian-splatting R&D scene |
-| `hawsr-stage.webp` | wide | Photo from The Station presentation (1,000+ crowd) |
-
-**Priority order if you do only five:** `asheerty-print`, `cardyiq-dashboard`,
-`tasdid-bills`, `maaahr-live`, `sadeek-before-after`.
-
----
-
-## 2 · Logos
-
-The site currently uses **hand-drawn geometric glyphs** (inline SVG on every
-case page) · it ships fine without any official logo files. To upgrade:
-
-### Collect (official marks · never redraw these)
-
-| File → `assets/logos/` | Source | Note |
-|---|---|---|
-| `qicard.svg` (or .png @2x) | Qi Card brand/press kit, or ask design team | Get written OK for portfolio use |
-| `superqi.svg` | Same | Only if permitted · otherwise the text wordmark stays |
-| `cardyiq.svg` | You own this · export from the brand file | |
-| `sadeek.svg` | Your product icon | |
-| `asheerty.svg` | Your app icon / brand file | |
-| `maaahr.svg` | Your app mark | |
-
-Export rules: SVG preferred; if PNG, 512px+ on transparent background.
-Monochrome/white variants look best on this palette.
-
-### Produce (custom marks · 30-minute Figma jobs)
-
-1. **Gateway Mark (personal logo)** · already live in the site header as
-   inline SVG (nested A-gateway over a baseline). To make it a standalone
-   file: copy the `<svg>` from `index.html`'s `.brand`, set stroke to
-   `#F3F0E8` on `#07090D`, export `assets/logos/gateway-mark.svg`.
-   Use it for social avatars at 480×480.
-2. **NotifyX glyph** · three packets converging into one arrow (already
-   drawn on `work/notifyx.html`; copy that SVG if you need a file).
-3. **HAWSR glyph** · wireframe H (already on `work/hawsr.html`).
-
-### Favicon / social
-
-- Favicon already ships as inline SVG (cyan gateway on void). No file needed.
-- **OG image** (link previews): screenshot the homepage hero at 1200×630
-  once the composition looks the way you want, save as `assets/og.png`, then add to
-  `index.html` and `recruiter.html` `<head>`:
-  `<meta property="og:image" content="https://awsdang.com/assets/og.png">`
-
----
-
-## 3 · NotifyX remote-push activation
-
-The notification button works immediately: it requests permission, registers
-`notifyx-sw.js` and displays a real system notification. To route that test
-through the hosted NotifyX queue as a remote Web Push, create/select the
-`awsdang.com` app in the NotifyX portal, then fill `appId`, `apiKey` and
-`vapidPublicKey` in `window.NOTIFYX_CONFIG` in both `index.html` and
-`work/notifyx.html`.
+The homepage queue demonstration is entirely local. The dedicated NotifyX case
+study retains the existing optional web-push integration. To enable hosted push,
+configure `window.NOTIFYX_CONFIG` in `work/notifyx.html` with the appropriate
+public client settings. Never put server secrets in the static site.

@@ -1,0 +1,838 @@
+{
+  "cardyiq": [
+    {
+      "src": "assets/shots/cardyiq/01-11-home-01-top.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "A home built around the next visit",
+      "caption": "Points, discovery, and check-in share one starting point.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/02-19-explore-01-top.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Find somewhere to train",
+      "caption": "Venue discovery connects the membership model to a real place.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/03-20-explore-filters.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Narrow the choice",
+      "caption": "Activity, audience, price, and rating belong in the same filtering flow.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/04-23-map-02-pin-selected.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Put the venue in context",
+      "caption": "The selected pin exposes the venue and its entry cost before a visit.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/05-24-gym-details-01-top.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Make the decision easier",
+      "caption": "Photos, location, ratings, hours, and entry points come together on the venue page.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/06-25-gym-reviews.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Let members speak",
+      "caption": "The review interface makes ratings readable alongside member feedback.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/07-17-buy-points-01.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Show the price before payment",
+      "caption": "The points selector keeps the amount, total, and payment action visible.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/08-15-webview-subscriptions.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Support a second membership model",
+      "caption": "The venue subscription flow complements points-based visits.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/09-60-scan-01-confirmed-grant-streak.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "A clear answer at the door",
+      "caption": "The QR flow shows a confirmed entry instead of making a member guess.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/10-28-history-01-top.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Close the loop after the visit",
+      "caption": "Activity history and progress give members a reason to return.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/11-35-language.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Three languages, one product",
+      "caption": "Arabic, English, and Kurdish are part of the real app experience.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/12-18b-payment-error-dialog.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Explain a failed payment",
+      "caption": "An explicit error and a next action keep a failed attempt understandable.",
+      "source": "Cardyiq iOS app capture archive, August 2026",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/cardyiq/landing/01-member-home.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Landing for members",
+      "caption": "The member landing introduces the membership model with the original Cardy mascot.",
+      "source": "Actual cardyiq landing source rendered locally, October 2026; original static export",
+      "surface": "landing"
+    },
+    {
+      "src": "assets/shots/cardyiq/landing/02-venue-partners.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Landing for venue partners",
+      "caption": "A separate landing explains the venue partnership and its commercial offer.",
+      "source": "Actual cardyiq landing source rendered locally, October 2026; original static export",
+      "surface": "landing"
+    },
+    {
+      "src": "assets/shots/cardyiq/dashboard/01-overview.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "An Arabic operations dashboard",
+      "caption": "The real dashboard layout with fictional visit, membership, venue, and points totals.",
+      "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    },
+    {
+      "src": "assets/shots/cardyiq/dashboard/02-venues.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Manage the venue network",
+      "caption": "Venue search, filters, and actions, shown with two fictional venues.",
+      "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    },
+    {
+      "src": "assets/shots/cardyiq/dashboard/03-venue-editor.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Configure a venue",
+      "caption": "The venue form brings identity, location, and operating details into one workflow.",
+      "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    },
+    {
+      "src": "assets/shots/cardyiq/dashboard/04-pricing.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Points pricing and purchase settings",
+      "caption": "The pricing interface exposes tiers, purchase limits, and quick-add options; all values are demo data.",
+      "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    },
+    {
+      "src": "assets/shots/cardyiq/dashboard/05-challenges.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Challenges as an operational surface",
+      "caption": "The original challenge management view, captured with an empty demo collection.",
+      "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    }
+  ],
+  "qi-card": [
+    {
+      "src": "assets/shots/qi-card/01-01-home-plus-button.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Start from the account",
+      "caption": "The Tasdid home gathers account context and financial actions.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/02-02-account-sheet.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Choose the source account",
+      "caption": "The action sheet makes the account choice explicit.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/03-03-form-empty.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "An understandable payment form",
+      "caption": "Recipient, amount, and reference fields stay in a single flow.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/04-04-account-picker.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Switch accounts without leaving",
+      "caption": "A picker exposes available accounts in context.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/05-05-form-filled.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Keep the complete payment visible",
+      "caption": "A filled form shows the values before the confirmation step.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/06-06-summary.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Review before committing",
+      "caption": "The summary collects the recipient, amount, fees, and resulting total.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/07-07-result.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Show the final state",
+      "caption": "The result screen names the successful state and keeps the receipt available.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/08-02-form-empty.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Request money as a separate flow",
+      "caption": "The request experience uses a different visual context from paying a bill.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/09-05-summary.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Review a request",
+      "caption": "A dedicated summary lets the sender check a request before sending it.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/10-06-result.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Confirm the request",
+      "caption": "The result closes the request flow with an explicit state.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/11-03-form-empty.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "A merchant invoice begins here",
+      "caption": "Merchant billing has its own form and service context.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    },
+    {
+      "src": "assets/shots/qi-card/12-08-preview.webp",
+      "width": 924,
+      "height": 2000,
+      "title": "Preview the merchant bill",
+      "caption": "The preview lets a merchant review the invoice layout and total.",
+      "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+    }
+  ],
+  "asheerty": [
+    {
+      "src": "assets/shots/asheerty/01-app-diagram.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "The family as a system",
+      "caption": "The diagram turns relationships into a navigable family tree.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/02-app-branch.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Focus on one branch",
+      "caption": "Branch exploration helps a large family tree stay usable.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/03-app-cards.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "A second way to browse",
+      "caption": "A card list complements the visual tree when someone wants to find a person quickly.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/04-app-search.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Find a family member",
+      "caption": "Search provides a direct route into an individual record.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/05-app-add-son.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Make adding a person understandable",
+      "caption": "The editor places name, relationship, and life details in one sheet.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/06-shot-person-story.webp",
+      "width": 1206,
+      "height": 907,
+      "title": "Keep the person behind the node",
+      "caption": "The person detail includes the story alongside dates and relationships.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/07-app-share.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Share the living tree",
+      "caption": "The app gives sharing a dedicated flow with visible permissions.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/08-01-tree.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "An introduction grounded in family",
+      "caption": "The first onboarding screen introduces the purpose of the product.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/09-02-build.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Explain how a tree begins",
+      "caption": "The next onboarding step shows the transition from a name to connected people.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/10-03-share.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Introduce collaboration",
+      "caption": "Sharing is introduced before the user enters the main tree experience.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/11-04-preserve.webp",
+      "width": 920,
+      "height": 2000,
+      "title": "Connect the app to the final artwork",
+      "caption": "The final onboarding step links the living family tree to a printed piece.",
+      "source": "Asheerty project screenshots and public marketing captures; sample family",
+      "surface": "app"
+    },
+    {
+      "src": "assets/shots/asheerty/dashboard/01-overview.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "See the fulfilment workload",
+      "caption": "Order and tree totals in the actual admin interface, populated with fictional counts.",
+      "source": "Actual asheerty dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    },
+    {
+      "src": "assets/shots/asheerty/dashboard/02-orders.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Track orders through production",
+      "caption": "The orders table exposes customer context, print size, member counts, and status using fictional records.",
+      "source": "Actual asheerty dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    },
+    {
+      "src": "assets/shots/asheerty/dashboard/03-print-config.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Define the physical product",
+      "caption": "Print configurations connect sheet dimensions, member limits, pricing, and available options. Demo configuration shown.",
+      "source": "Actual asheerty dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    },
+    {
+      "src": "assets/shots/asheerty/dashboard/04-print-editor.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Edit a print configuration",
+      "caption": "The actual print setup editor, with a fictional size and option, shows the controls behind the mobile offer.",
+      "source": "Actual asheerty dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+      "surface": "dashboard"
+    }
+  ],
+  "hawsr": [
+    {
+      "src": "assets/shots/hawsr/01-views.webp",
+      "width": 1600,
+      "height": 893,
+      "title": "Many views of the same model",
+      "caption": "The archived viewer shows a model from multiple useful perspectives.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/02-dimensions.webp",
+      "width": 1600,
+      "height": 893,
+      "title": "Inspect dimensions in the browser",
+      "caption": "Measurement tools connect the visual model to practical questions.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/03-annotations.webp",
+      "width": 1600,
+      "height": 893,
+      "title": "Put feedback on the model",
+      "caption": "Annotations anchor a discussion to a place in the scene.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/04-devices.webp",
+      "width": 1600,
+      "height": 893,
+      "title": "A model beyond the workstation",
+      "caption": "The archived interface demonstrates the viewer on different screen sizes.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/05-doll.webp",
+      "width": 1600,
+      "height": 1000,
+      "title": "Understand the building at a glance",
+      "caption": "The dollhouse view exposes the relationship between rooms.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/06-plan.webp",
+      "width": 1600,
+      "height": 1000,
+      "title": "Read the floor plan",
+      "caption": "The plan view gives the model a familiar architectural frame.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/07-living.webp",
+      "width": 1600,
+      "height": 1000,
+      "title": "Walk into the living space",
+      "caption": "An archived model view shows the room from eye level.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/08-kitchen.webp",
+      "width": 1600,
+      "height": 1000,
+      "title": "Inspect the kitchen",
+      "caption": "A different room tests how the same viewer communicates interior layout.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/09-bedroom.webp",
+      "width": 1600,
+      "height": 1000,
+      "title": "Explore another part of the model",
+      "caption": "The bedroom view preserves the spatial experience across rooms.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/10-hall.webp",
+      "width": 1600,
+      "height": 1000,
+      "title": "See the spaces between rooms",
+      "caption": "The hall view shows circulation and connections.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/11-bath.webp",
+      "width": 1600,
+      "height": 1000,
+      "title": "Read a smaller room",
+      "caption": "The same browser model includes detailed interior views.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/12-doll2.webp",
+      "width": 1600,
+      "height": 1000,
+      "title": "Open a second dollhouse perspective",
+      "caption": "A second model angle reveals a different arrangement of the spaces.",
+      "source": "HAWSR archived feature screenshots and original model-viewer images",
+      "surface": "viewer"
+    },
+    {
+      "src": "assets/shots/hawsr/landing/01-home.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "HAWSR landing page",
+      "caption": "The landing project’s original hero, captured from its local static export.",
+      "source": "Actual hawsr landing source rendered locally, October 2026; original static export",
+      "surface": "landing"
+    },
+    {
+      "src": "assets/shots/hawsr/landing/02-about.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Explain the people and the product",
+      "caption": "The original about page tells the platform’s origin and team story.",
+      "source": "Actual hawsr landing source rendered locally, October 2026; original static export",
+      "surface": "landing"
+    },
+    {
+      "src": "assets/shots/hawsr/landing/03-features.webp",
+      "width": 1280,
+      "height": 800,
+      "title": "Introduce the spatial experience",
+      "caption": "The feature section presents the tour and device experience before the viewer.",
+      "source": "Actual hawsr landing source rendered locally, October 2026; original static export",
+      "surface": "landing"
+    }
+  ],
+  "notifyx": [
+    {
+      "src": "assets/shots/notifyx/01-dashboard.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Dashboard",
+      "caption": "Delivery health, channel performance, and recent activity in one operational view.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/02-send.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Compose a notification",
+      "caption": "The real composer connects app, message, recipient, and preview.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/03-history.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Delivery history",
+      "caption": "Operators can inspect delivery states and filter individual attempts.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/04-campaigns.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Campaigns",
+      "caption": "Campaigns have a separate place from transactional sends.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/05-templates.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Template editor",
+      "caption": "Localized templates keep message content reusable.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/06-apps.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Application management",
+      "caption": "App-level configuration separates products sharing one platform.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/07-credentials.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Provider credentials",
+      "caption": "The provider interface exposes configuration status without exposing secret values.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/08-automation.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Automation workflows",
+      "caption": "Event-driven flows live beside campaigns and transactional notifications.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/09-developer-hub.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Developer hub",
+      "caption": "Integration documentation belongs inside the operational product.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/10-simulator.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "SDK simulator",
+      "caption": "Developers can inspect SDK behavior before connecting a real client.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/11-campaign-editor.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Campaign editor",
+      "caption": "Scheduling, content, and targeting form one campaign workflow.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    },
+    {
+      "src": "assets/shots/notifyx/12-provider-picker.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Choose a provider",
+      "caption": "The provider picker makes supported integrations visible.",
+      "source": "Actual NotifyX portal, captured locally with fictional demo data"
+    }
+  ],
+  "sadeek": [
+    {
+      "src": "assets/shots/sadeek/01-storefront.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "The public storefront",
+      "caption": "The Arabic storefront turns listings into a browsable marketplace.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/02-product.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "From listing to detail",
+      "caption": "A product page gathers photos, description, price, and seller context.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/03-image-browser.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Browse the product photos",
+      "caption": "The real image gallery lets a buyer inspect another angle.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/04-seller-store.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "A seller’s own storefront",
+      "caption": "The same browsing system can focus on one seller.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/05-search.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Search in context",
+      "caption": "Search narrows the marketplace while preserving the listing layout.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/06-empty-search.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "No matching products",
+      "caption": "An explicit empty state explains a search with no results.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/07-about.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Explain the service",
+      "caption": "The actual about page introduces the bot and its workflow.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/08-help.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Answer practical questions",
+      "caption": "The FAQ covers sending photos, subscriptions, and the storefront.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/09-owner-pricing.webp",
+      "width": 1280,
+      "height": 1300,
+      "title": "The seller’s pricing view",
+      "caption": "A fictional owner state exposes the product’s existing pricing section.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/10-mobile-store.webp",
+      "width": 390,
+      "height": 844,
+      "title": "The store in your pocket",
+      "caption": "The responsive storefront keeps browsing usable on mobile.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    },
+    {
+      "src": "assets/shots/sadeek/11-mobile-product.webp",
+      "width": 390,
+      "height": 1787,
+      "title": "The complete mobile product page",
+      "caption": "Photos, details, and actions carry through to a smaller screen.",
+      "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+      "surface": "store-archive"
+    }
+  ],
+  "maaahr": [
+    {
+      "src": "assets/shots/maaahr/01-welcome.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Meet the interview",
+      "caption": "The original Arabic welcome introduces the interview-prep demo.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/02-question-guide.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Know where questions appear",
+      "caption": "The guided tour explains the interviewer’s side of the conversation.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/03-answer-guide.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Explain the answer field",
+      "caption": "The next instruction points directly at the text input.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/04-choice-guide.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Introduce multiple-choice answers",
+      "caption": "The tutorial uses placeholder controls to explain a multiple-choice question.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/05-slider-guide.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Introduce slider answers",
+      "caption": "A separate tutorial state explains the slider question format.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/06-interview-brief.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Before the interview begins",
+      "caption": "The final brief explains timing and answer quality.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/07-interview.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "The first question",
+      "caption": "The actual demo interview screen pairs the question with an answer composer.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/08-conversation.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "A complete exchange",
+      "caption": "A fictional answer receives one of the demo’s simulated follow-up responses.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/09-end-confirmation.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "Confirm an early exit",
+      "caption": "The original confirmation protects a user from ending the session accidentally.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    },
+    {
+      "src": "assets/shots/maaahr/10-results.webp",
+      "width": 1280,
+      "height": 720,
+      "title": "A structured sample result",
+      "caption": "The demo report shows duration, a sample score, summary, and strengths; these are simulated results.",
+      "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+      "surface": "interview"
+    }
+  ]
+}

@@ -1,0 +1,2082 @@
+{
+ "cardyiq": {
+  "id": "cardyiq",
+  "name": "Cardy",
+  "category": "Sportstech",
+  "status": "In the wild",
+  "tagline": "A live product, a backend rebuild, a new business model, and a team of ten. Engineering goes beyond the code.",
+  "summary": "I rebuilt Cardyiq while it was live. It grew from a broken launch to 150+ venues in 6 cities with 99.9% uptime.",
+  "role": "Founding Engineer & Technical Lead · manages a team of 10",
+  "period": "September 2025 to present",
+  "stack": [
+   "Flutter (mobile app)",
+   "Astro (landing)",
+   "React (admin dashboard, Arabic-first)",
+   "Bun",
+   "Express 5",
+   "TypeScript",
+   "Prisma",
+   "PostgreSQL + PostGIS",
+   "Redis (cache + ops: queues, locks, rate limits, idempotency)",
+   "S3 + imgproxy",
+   "Docker",
+   "GitHub Actions",
+   "Dokploy",
+   "Laravel / MySQL (the earlier, inherited system)"
+  ],
+  "stats": [
+   {
+    "value": "150+",
+    "label": "venues on the platform"
+   },
+   {
+    "value": "6",
+    "label": "cities across Iraq"
+   },
+   {
+    "value": "1,500",
+    "label": "active subscribers"
+   },
+   {
+    "value": "10K+",
+    "label": "installs"
+   },
+   {
+    "value": "70M IQD",
+    "label": "GMV in 7 months"
+   },
+   {
+    "value": "30",
+    "label": "releases in 6 months"
+   }
+  ],
+  "links": [
+   {
+    "label": "Cardyiq",
+    "href": "https://cardyiq.com"
+   },
+   {
+    "label": "Cardyiq public app listing (App Store)",
+    "href": "https://apps.apple.com/app/id6753315130"
+   }
+  ],
+  "sections": [
+   {
+    "heading": "Context",
+    "lede": "The product was live. It was not ready.",
+    "body": "Cardyiq is a sports and fitness network in Iraq. I was asked to give some \"technical advice\" a few days after launch. The app was live, people were already using it and almost every part underneath needed work.\n\nI cannot publish the operational details, but I can show what was wrong, what I changed and what happened after."
+   },
+   {
+    "heading": "What I inherited",
+    "bullets": [
+     "It failed on Iraqi networks. A DNS/CDN problem made the app unreachable for many users. The old advice was to install a VPN.",
+     "The Laravel/MySQL backend was fragile. Small changes were risky and slow.",
+     "There was no CI/CD and no caching. Deploying was painful, so it rarely happened.",
+     "Payments were cash only. Someone had to collect the money from every venue.",
+     "The dashboard was in English. The people using it every day spoke Arabic.",
+     "The business model was the biggest problem. Entry passes limited the sports, venues and pricing the product could support."
+    ]
+   },
+   {
+    "heading": "My ownership",
+    "bullets": [
+     "I stabilised the Laravel/MySQL backend while users were still inside the app.",
+     "I rebuilt the dashboard in React and made it Arabic-first.",
+     "I kept the Flutter app shipping during the rebuild.",
+     "I built delivery with Docker, GitHub Actions and Dokploy. We shipped 30 releases in 6 months.",
+     "I moved the product to hosting that Iraqi networks could reach reliably.",
+     "I integrated two payment providers behind one idempotent, webhook-reconciled layer.",
+     "I added backups, a read replica and a recovery path before the incident happened.",
+     "I replaced entry passes with points and subscriptions.",
+     "I built and now manage the 10-person team that runs it with me."
+    ]
+   },
+   {
+    "heading": "System map",
+    "diagram": "USER  ──▶ MOBILE APP (Flutter) ──────────────┐\nOWNER ──▶ DASHBOARD (React · Arabic-first) ──┤\n                                             ▼\n                                       API (Bun · Express · TypeScript)\n                                             │\n                                             ▼\n                                       PostgreSQL primary ──▶ read replica + backups (the recovery path)\n\nPAYMENTS  provider A ─┐\n          provider B ─┴─▶ webhook reconciliation\n                                    │\n                                    ▼\n                     initiated → pending → confirmed\n                                    │\n                                    ├──▶ failed  (explicit state, never guessed)\n                                    └──▶ retry   (idempotent, no double charge)\n\nDELIVERY  git push ─▶ GitHub Actions ─▶ Docker build ─▶ Dokploy ─▶ zero-downtime deploy"
+   },
+   {
+    "heading": "Key decisions",
+    "items": [
+     {
+      "title": "Fix the business model before polishing the code.",
+      "text": "Entry passes put a ceiling on the product. Points and subscriptions opened it to more sports and more kinds of venues. Without that change, the technical rebuild would not matter."
+     },
+     {
+      "title": "Keep the product live.",
+      "text": "There was no downtime window. I moved the hosting, changed the database and rebuilt features in small steps under live traffic."
+     },
+     {
+      "title": "Kill cash with one abstraction.",
+      "text": "Both providers sit behind one idempotent, webhook-reconciled layer. The app does not need to know which provider is handling the payment."
+     },
+     {
+      "title": "Recovery paths before features.",
+      "text": "The backups and read replica existed before the incident. That was the reason we recovered without losing a record."
+     },
+     {
+      "title": "Hire the team that makes you unnecessary.",
+      "text": "I built a team of 10 and gave people enough context and ownership to move without waiting for me."
+     }
+    ]
+   },
+   {
+    "heading": "Outcome",
+    "body": "The 99.9% uptime does not mean nothing went wrong. We had a production data incident and recovered with zero records lost. The next section explains it."
+   },
+   {
+    "heading": "The incident room",
+    "body": "A data-loss incident was detected in production. Here is the public version of what happened.\n\nThe incident was bad. The good part was that the recovery path already existed and we did not lose anyone's data.",
+    "items": [
+     {
+      "title": "We found the issue",
+      "text": "Monitoring showed something was wrong in the primary database. The app stayed online while we checked the damage."
+     },
+     {
+      "title": "We checked the replica",
+      "text": "The read replica was intact and consistent."
+     },
+     {
+      "title": "We checked the backups",
+      "text": "We compared the backup timeline with the replica and confirmed exactly what was affected."
+     },
+     {
+      "title": "We chose the recovery path",
+      "text": "The replica became the source of truth. The backups were used to verify it."
+     },
+     {
+      "title": "We verified everything",
+      "text": "We checked the data against both sources before returning to normal operation."
+     },
+     {
+      "title": "Zero records lost",
+      "text": "The recovery setup worked exactly when we needed it."
+     }
+    ],
+    "quote": "The incident was bad. The good part was that the recovery path already existed and we did not lose anyone's data."
+   },
+   {
+    "heading": "What I learned",
+    "body": "The code was only part of the problem. Operations and the business model needed work too."
+   },
+   {
+    "heading": "What I'd change today",
+    "body": "I would build the payment layer and observability in week one, not month two. I would also push the business-model conversation earlier. The code was not the hardest part. Getting everyone to agree that entry passes were the ceiling took longer."
+   }
+  ],
+  "shots": [
+   {
+    "src": "/shots/cardyiq/01-11-home-01-top.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "A home built around the next visit",
+    "caption": "Points, discovery, and check-in share one starting point.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/02-19-explore-01-top.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Find somewhere to train",
+    "caption": "Venue discovery connects the membership model to a real place.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/03-20-explore-filters.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Narrow the choice",
+    "caption": "Activity, audience, price, and rating belong in the same filtering flow.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/04-23-map-02-pin-selected.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Put the venue in context",
+    "caption": "The selected pin exposes the venue and its entry cost before a visit.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/05-24-gym-details-01-top.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Make the decision easier",
+    "caption": "Photos, location, ratings, hours, and entry points come together on the venue page.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/06-25-gym-reviews.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Let members speak",
+    "caption": "The review interface makes ratings readable alongside member feedback.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/07-17-buy-points-01.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Show the price before payment",
+    "caption": "The points selector keeps the amount, total, and payment action visible.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/08-15-webview-subscriptions.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Support a second membership model",
+    "caption": "The venue subscription flow complements points-based visits.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/09-60-scan-01-confirmed-grant-streak.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "A clear answer at the door",
+    "caption": "The QR flow shows a confirmed entry instead of making a member guess.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/10-28-history-01-top.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Close the loop after the visit",
+    "caption": "Activity history and progress give members a reason to return.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/11-35-language.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Three languages, one product",
+    "caption": "Arabic, English, and Kurdish are part of the real app experience.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/12-18b-payment-error-dialog.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Explain a failed payment",
+    "caption": "An explicit error and a next action keep a failed attempt understandable.",
+    "source": "Cardyiq iOS app capture archive, August 2026",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/cardyiq/landing/01-member-home.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Landing for members",
+    "caption": "The member landing introduces the membership model with the original Cardy mascot.",
+    "source": "Actual cardyiq landing source rendered locally, October 2026; original static export",
+    "surface": "landing"
+   },
+   {
+    "src": "/shots/cardyiq/landing/02-venue-partners.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Landing for venue partners",
+    "caption": "A separate landing explains the venue partnership and its commercial offer.",
+    "source": "Actual cardyiq landing source rendered locally, October 2026; original static export",
+    "surface": "landing"
+   },
+   {
+    "src": "/shots/cardyiq/dashboard/01-overview.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "An Arabic operations dashboard",
+    "caption": "The real dashboard layout with fictional visit, membership, venue, and points totals.",
+    "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   },
+   {
+    "src": "/shots/cardyiq/dashboard/02-venues.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Manage the venue network",
+    "caption": "Venue search, filters, and actions, shown with two fictional venues.",
+    "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   },
+   {
+    "src": "/shots/cardyiq/dashboard/03-venue-editor.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Configure a venue",
+    "caption": "The venue form brings identity, location, and operating details into one workflow.",
+    "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   },
+   {
+    "src": "/shots/cardyiq/dashboard/04-pricing.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Points pricing and purchase settings",
+    "caption": "The pricing interface exposes tiers, purchase limits, and quick-add options; all values are demo data.",
+    "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   },
+   {
+    "src": "/shots/cardyiq/dashboard/05-challenges.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Challenges as an operational surface",
+    "caption": "The original challenge management view, captured with an empty demo collection.",
+    "source": "Actual cardyiq dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   }
+  ],
+  "logo": "/brand/cardy-logo.webp",
+  "disclaimers": [
+   "Member and venue-partner pages from the original Astro site. Marketing figures are as displayed by that source at capture time.",
+   "The real Arabic React dashboard, rendered locally with fictional API records. No production accounts or live actions.",
+   "Cardy and Asheerty dashboards were run in disposable copies with fictional API fixtures and notification integrations disabled. Original layouts and forms were retained.",
+   "Marketing metrics visible in source screenshots are not used to revise the portfolio’s vetted outcome numbers.",
+   "The Laravel recovery account remains historical; the current backend is Bun, Express 5, TypeScript, Prisma and PostgreSQL/PostGIS."
+  ]
+ },
+ "qi-card": {
+  "id": "qi-card",
+  "name": "Qi",
+  "category": "Fintech",
+  "status": "In production",
+  "tagline": "Tasdid and Jabi, plus oil stations, AML, Qi Hawala, service providers, KRG billing, Basmayah loans, and native mini-app work.",
+  "summary": "Engineering across Qi: Tasdid, Jabi, oil stations, AML dashboards, service-provider mini-apps, Qi Hawala, KRG / e-Psule, Bismayah, and native DSL.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present · promoted March 2026",
+  "stack": [
+   "Svelte / SvelteKit",
+   "Svelte 5 (Basmayah)",
+   "Angular (oil stations, AML dashboard)",
+   "React (KRG dashboard work)",
+   "AXML · ACSS · JavaScript (native DSL mini program)",
+   "SuperQi / Alipay mini-app runtime",
+   "QiNeo / Alipay Plus (native DSL target)"
+  ],
+  "stats": [
+   {
+    "value": "1M+",
+    "label": "users of the billing & merchant products"
+   },
+   {
+    "value": "DSL",
+    "label": "native Jabi+ port alongside H5 mini-app work"
+   },
+   {
+    "value": "Alipay",
+    "label": "mini-app platform and APIs"
+   },
+   {
+    "value": "3",
+    "label": "languages, RTL included"
+   }
+  ],
+  "links": [],
+  "sections": [
+   {
+    "heading": "Context",
+    "lede": "My work at Qi reaches across products people use and the tools that keep operations running.",
+    "body": "I work across Tasdid, Jabi, oil stations, AML dashboards, service-provider mini-apps, Qi Hawala, KRG / e-Psule, Bismayah, and native DSL. Some of that work lives inside SuperQi’s Alipay mini-app ecosystem. Some lives in operational web applications.\n\nTasdid and Jabi are the two projects I highlight here. The full collection below includes the other products and systems I’ve worked on at Qi."
+   },
+   {
+    "heading": "Billing constraints",
+    "bullets": [
+     "The product had to feel obvious to normal people, often over 50 and using it for the first time.",
+     "It still had to work on low-end Android phones and unreliable networks.",
+     "Multiple bill providers with wildly different response times and failure behaviours.",
+     "The UI can have a visual bug. It can never guess what happened to someone's money.",
+     "Hard bundle-size budgets inside the super-app runtime.",
+     "Every flow passes internal security review; payments run on wallet and tokenization-supported card rails.",
+     "Kurdish, Arabic and English had to work from the start, including right-to-left layouts."
+    ]
+   },
+   {
+    "heading": "Billing & merchant work",
+    "bullets": [
+     "I designed and built the Svelte/SvelteKit frontend architecture inside the Alipay mini-app runtime.",
+     "I built bill inquiry, invoices, payment selection and provider-specific error states.",
+     "I added caching and progressive loading so the useful parts show up first.",
+     "I integrated wallet and tokenization-supported card payments through security review.",
+     "I shipped filtering, sorting, pagination and Excel export for Jabi+.",
+     "I delivered e-Psule in Kurdish, Arabic and English."
+    ]
+   },
+   {
+    "heading": "Billing flow",
+    "body": "One representative flow from the billing mini-app work.",
+    "diagram": "USER ──▶ TASDID+ (Svelte mini-app) ──▶ SuperQi / Alipay runtime ──▶ Billing APIs\n              │                                             │\n              │  cache · progressive loading                ├──▶ provider A  (fast)\n              │  skeleton → partial → complete              ├──▶ provider B  (slow)\n              ▼                                             └──▶ provider N  (flaky)\n        invoice normalized\n              │\n              ▼\n   payment method (wallet · tokenized card)\n              │\n              ▼\n   TRANSACTION STATE MACHINE\n   initiated → pending → authorized → confirmed\n                 │\n                 ├──▶ failed   (provider-specific message)\n                 └──▶ retry    (no double-charge: idempotent)"
+   },
+   {
+    "heading": "Key decisions",
+    "items": [
+     {
+      "title": "Separate UI state from transaction state.",
+      "text": "The app can crash, reload or lose the network and still recover. It never invents a payment result. The state machine owns that truth."
+     },
+     {
+      "title": "Svelte for the phones people actually own.",
+      "text": "Svelte gave us a small bundle and fast cold start. That mattered more than framework preference."
+     },
+     {
+      "title": "Progressive loading over spinners.",
+      "text": "Providers answer at different speeds. The screen fills in as responses arrive instead of waiting for the slowest one."
+     },
+     {
+      "title": "Provider errors stay distinct.",
+      "text": "A timeout, invalid account and provider outage are different problems. The user gets a useful message for each one."
+     },
+     {
+      "title": "Merchant tools don't assume a laptop.",
+      "text": "For many merchants, the phone is the whole back office. Jabi+ keeps large datasets usable on a small screen and still exports to Excel when the accountant needs it."
+     }
+    ]
+   },
+   {
+    "heading": "Outcome",
+    "body": "Independently retained by five startups to integrate the same payment rails."
+   },
+   {
+    "heading": "Failure modes, handled",
+    "items": [
+     {
+      "title": "Provider timeout",
+      "text": "Distinct state with its own copy and retry path; the rest of the screen keeps working."
+     },
+     {
+      "title": "Payment pending",
+      "text": "The UI says pending. It never guesses success. The final answer comes from the source of truth."
+     },
+     {
+      "title": "User cancels mid-flow",
+      "text": "Transaction state machine unwinds cleanly; no orphaned intents."
+     },
+     {
+      "title": "Slow network",
+      "text": "Cache serves the last known state instantly; the network upgrades it when it can."
+     }
+    ]
+   },
+   {
+    "heading": "What I learned",
+    "body": "Payments are better when they are boring. Clear states, small bundles and careful reviews make that possible."
+   },
+   {
+    "heading": "What I'd change today",
+    "body": "I would define a shared latency budget for every provider before product design starts. Then each new mini-app would inherit the same progressive-loading behaviour instead of deciding it again."
+   }
+  ],
+  "shots": [],
+  "logo": "/brand/qi-mark.svg",
+  "disclaimers": [
+   "Actual Tasdid mini-app screens from its existing demo mode. Names, accounts, phone numbers, and amounts are fictional. These screenshots show Tasdid specifically; the other Qi products are listed individually above.",
+   "The twelve existing Qi gallery images document Tasdid specifically; they do not represent screenshots of the other products. Descriptions stay at product level until personal ownership details and additional screen captures are supplied.",
+   "Payment product descriptions stay public-safe; do not add payment-rail internals."
+  ]
+ },
+ "asheerty": {
+  "id": "asheerty",
+  "name": "Asheerty",
+  "category": "Familytech",
+  "status": "Live on iOS + Android",
+  "tagline": "Old family material becomes a living tree, then a piece of art for the wall. I’m building the whole journey.",
+  "summary": "Build a family tree in the app, then print, frame and deliver it. Built solo and live on iOS and Android.",
+  "role": "Solo founder & engineer",
+  "period": "2025 to present · launched 2026",
+  "stack": [
+   "React Native (app)",
+   "React (admin dashboard)",
+   "Bun",
+   "Express",
+   "AI-assisted recognition + artwork generation",
+   "Claude Code and Codex used as build tools"
+  ],
+  "stats": [
+   {
+    "value": "2",
+    "label": "app stores · live on iOS + Android"
+   },
+   {
+    "value": "1",
+    "label": "full pipeline: app → framed artwork → delivery, operating"
+   },
+   {
+    "value": "solo",
+    "label": "built alongside two jobs"
+   },
+   {
+    "value": "2026",
+    "label": "launched recently"
+   }
+  ],
+  "links": [
+   {
+    "label": "Asheerty",
+    "href": "https://asheerty.sadeek.app"
+   }
+  ],
+  "sections": [
+   {
+    "heading": "Context",
+    "lede": "Many families still keep their tree on paper in one person's drawer.",
+    "body": "Asheerty lets them build the tree in a mobile app. The tree becomes a painting that is printed, framed and delivered.\n\nIt is not a PDF export. It is a real object the family can hang on the wall."
+   },
+   {
+    "heading": "The constraints",
+    "bullets": [
+     "Family trees are irregular. Generations, marriages and large branches still need to produce a balanced print.",
+     "The artwork is physical: errors cost real money in print and shipping, so human review must gate production.",
+     "I built the iOS app, Android app, dashboard, backend and fulfilment flow while working two other jobs.",
+     "Cultural gravity: names, order and lineage must be treated with respect. Families will hang this on a wall."
+    ]
+   },
+   {
+    "heading": "My ownership",
+    "bullets": [
+     "I designed and built everything solo, using Claude Code and Codex where they helped.",
+     "I built the React Native editor for members, branches, relationships, generations and preview.",
+     "I built the React dashboard for review, layout correction, approval and print readiness.",
+     "I implemented the Bun and Express backend.",
+     "I built the AI-assisted recognition flow that helps find faces, read names and suggest relationships from family material.",
+     "I built the generation flow that turns the reviewed family tree into organic, family-specific artwork ready for print.",
+     "I built the order flow from submission to a framed print at the door."
+    ]
+   },
+   {
+    "heading": "System map",
+    "diagram": "FAMILY MATERIAL (photos · names · documents)\n      │\n      ▼\nAI RECOGNITION (faces · names · possible relationships)\n      │\n      ▼\nHUMAN REVIEW (check · correct · approve)\n      │\n      ▼\nFAMILY DATABASE ──▶ INTERACTIVE TREE (mobile app)\n      │\n      ▼\nAI ARTWORK PIPELINE (layout · organic composition · generation · refinement)\n      │\n      ▼\nFINAL REVIEW ──▶ PRINT PREPARATION ──▶ PHYSICAL ARTWORK ──▶ DELIVERY"
+   },
+   {
+    "heading": "Key decisions",
+    "items": [
+     {
+      "title": "The artwork is the product. The app is how you make it.",
+      "text": "Every technical choice serves the final framed print. The app exists so a family can get the tree onto their wall, not the other way around."
+     },
+     {
+      "title": "Human review before ink.",
+      "text": "A dashboard step catches layout problems while they're still pixels. Once ink touches paper, a mistake costs money, shipping time, and a family's trust."
+     },
+     {
+      "title": "AI helps at both ends. People still approve the truth.",
+      "text": "AI helps read the original material and create the final artwork. Family relationships and the piece sent to print still pass through human review."
+     },
+     {
+      "title": "Ship early, say so.",
+      "text": "It launched recently and has under 100 users. I am saying that plainly. It is still live on both app stores with physical fulfilment, and I built it solo."
+     }
+    ]
+   },
+   {
+    "heading": "Failure modes, handled",
+    "items": [
+     {
+      "title": "Unbalanced tree layout",
+      "text": "The review dashboard flags and corrects it before print."
+     },
+     {
+      "title": "Order stuck between states",
+      "text": "Explicit order-state machine with operational visibility."
+     },
+     {
+      "title": "Reprint requests",
+      "text": "The approved final artwork is stored so the exact piece can be printed again."
+     },
+     {
+      "title": "Data entry mistakes",
+      "text": "Preview + review loop before anything physical happens."
+     }
+    ]
+   },
+   {
+    "heading": "What I learned",
+    "body": "A bug on screen is annoying. A bug that gets printed, framed and shipped costs real money."
+   },
+   {
+    "heading": "What I'd change today",
+    "body": "I would test printers, colour, paper and sizes earlier. I would also build a shareable preview so the whole family can check the tree before someone orders it."
+   }
+  ],
+  "shots": [
+   {
+    "src": "/shots/asheerty/01-app-diagram.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "The family as a system",
+    "caption": "The diagram turns relationships into a navigable family tree.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/02-app-branch.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Focus on one branch",
+    "caption": "Branch exploration helps a large family tree stay usable.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/03-app-cards.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "A second way to browse",
+    "caption": "A card list complements the visual tree when someone wants to find a person quickly.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/04-app-search.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Find a family member",
+    "caption": "Search provides a direct route into an individual record.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/05-app-add-son.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Make adding a person understandable",
+    "caption": "The editor places name, relationship, and life details in one sheet.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/06-shot-person-story.webp",
+    "width": 1206,
+    "height": 907,
+    "title": "Keep the person behind the node",
+    "caption": "The person detail includes the story alongside dates and relationships.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/07-app-share.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Share the living tree",
+    "caption": "The app gives sharing a dedicated flow with visible permissions.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/08-01-tree.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "An introduction grounded in family",
+    "caption": "The first onboarding screen introduces the purpose of the product.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/09-02-build.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Explain how a tree begins",
+    "caption": "The next onboarding step shows the transition from a name to connected people.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/10-03-share.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Introduce collaboration",
+    "caption": "Sharing is introduced before the user enters the main tree experience.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/11-04-preserve.webp",
+    "width": 920,
+    "height": 2000,
+    "title": "Connect the app to the final artwork",
+    "caption": "The final onboarding step links the living family tree to a printed piece.",
+    "source": "Asheerty project screenshots and public marketing captures; sample family",
+    "surface": "app"
+   },
+   {
+    "src": "/shots/asheerty/dashboard/01-overview.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "See the fulfilment workload",
+    "caption": "Order and tree totals in the actual admin interface, populated with fictional counts.",
+    "source": "Actual asheerty dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   },
+   {
+    "src": "/shots/asheerty/dashboard/02-orders.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Track orders through production",
+    "caption": "The orders table exposes customer context, print size, member counts, and status using fictional records.",
+    "source": "Actual asheerty dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   },
+   {
+    "src": "/shots/asheerty/dashboard/03-print-config.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Define the physical product",
+    "caption": "Print configurations connect sheet dimensions, member limits, pricing, and available options. Demo configuration shown.",
+    "source": "Actual asheerty dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   },
+   {
+    "src": "/shots/asheerty/dashboard/04-print-editor.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Edit a print configuration",
+    "caption": "The actual print setup editor, with a fictional size and option, shows the controls behind the mobile offer.",
+    "source": "Actual asheerty dashboard source rendered locally, October 2026; fictional API fixtures, no live records",
+    "surface": "dashboard"
+   }
+  ],
+  "logo": "/brand/asheerty-icon.webp",
+  "disclaimers": [
+   "It launched recently and has under 100 users. I am saying that plainly. It is still live on both app stores with physical fulfilment, and I built it solo.",
+   "Original mobile UI, public project marketing captures, and onboarding exports with a sample family.",
+   "The original Arabic React admin dashboard: statistics, order tracking, print sizes, prices, and configuration editing. Fictional records throughout.",
+   "No reconstructed tutorial video frame was counted as an Asheerty app capture."
+  ]
+ },
+ "notifyx": {
+  "id": "notifyx",
+  "name": "NotifyX",
+  "category": "Infrastructure",
+  "status": "Open source",
+  "tagline": "I kept rebuilding notifications. So I made one system for providers, retries, scheduling, and delivery states.",
+  "summary": "One notification API for four push providers. Open source, used by five companies and benchmarked at about 150 messages per second per worker.",
+  "role": "Author & maintainer · open source",
+  "period": "2025 to present",
+  "stack": [
+   "Node.js",
+   "BullMQ",
+   "Redis",
+   "PostgreSQL",
+   "Prisma",
+   "React (dashboard)",
+   "SDKs: web, Flutter, React Native",
+   "Providers: FCM, APNS, HMS, Web Push"
+  ],
+  "stats": [
+   {
+    "value": "~150",
+    "label": "msg/s per worker, benchmarked"
+   },
+   {
+    "value": "5",
+    "label": "companies in production"
+   },
+   {
+    "value": "50+",
+    "label": "campaigns to 10K+ users at Cardyiq alone"
+   },
+   {
+    "value": "4",
+    "label": "providers behind one API"
+   }
+  ],
+  "links": [
+   {
+    "label": "See the real code",
+    "href": "https://github.com/awsdang/notifyx"
+   }
+  ],
+  "sections": [
+   {
+    "heading": "Context",
+    "lede": "I was tired of solving the same problem inside every product.",
+    "body": "Every app needed push notifications, scheduling, retries and delivery state. I kept rebuilding it. NotifyX is the version I can reuse everywhere.\n\nIt puts FCM, APNS, HMS and Web Push behind one API. The caller sends a message. NotifyX handles providers, queues, retries and delivery state. The code is public at github.com/awsdang/notifyx."
+   },
+   {
+    "heading": "The constraints",
+    "bullets": [
+     "Four providers have different tokens, limits and failure behaviour. The caller should not care.",
+     "Messages must never be silently lost: every message ends in an accountable state.",
+     "Scheduled and immediate delivery through the same pipeline.",
+     "Several products and companies share one deployment, so multi-tenancy existed from the start.",
+     "Operations people need visibility without reading logs.",
+     "A worker crash must not lose queued work. Ever."
+    ]
+   },
+   {
+    "heading": "My ownership",
+    "bullets": [
+     "I built the API, workers and scheduler with Node.js, BullMQ, Redis, PostgreSQL and Prisma.",
+     "I added retries with backoff and a dead-letter queue for permanent failures.",
+     "I built the React dashboard so delivery state is visible without searching logs.",
+     "I wrote SDKs for web, Flutter and React Native.",
+     "I benchmarked and tuned it to about 150 messages per second per worker."
+    ]
+   },
+   {
+    "heading": "System map",
+    "diagram": "API ─────────┐   (immediate)\nSCHEDULER ───┤   (timed campaigns)\n             ▼\n      QUEUE · BullMQ / Redis          (the source of truth)\n             │\n             ▼\n      WORKERS 1..N                    (disposable · ~150 msg/s each)\n             │\n             ├──▶ FCM         (Android)\n             ├──▶ APNS        (iOS)\n             ├──▶ HMS         (Huawei)\n             └──▶ WEB PUSH    (browsers)\n             │\n           failed\n             ├──▶ RETRY (backoff) ──▶ back to the queue\n             └──▶ DEAD-LETTER         (permanent · kept for human inspection)\n             │\n      delivery state ──▶ PostgreSQL ──▶ REACT DASHBOARD"
+   },
+   {
+    "heading": "Key decisions",
+    "items": [
+     {
+      "title": "One API, four providers.",
+      "text": "Token formats, payloads and rate limits belong inside the adapters. The caller only needs to say \"send this.\""
+     },
+     {
+      "title": "The queue is the source of truth.",
+      "text": "Workers are disposable. If one dies in the middle of a batch, BullMQ gives the job to another worker. The crash loses nothing."
+     },
+     {
+      "title": "Failures are data.",
+      "text": "Invalid tokens are removed, timeouts retry with backoff and permanent failures go to a dead-letter lane a person can inspect."
+     },
+     {
+      "title": "Stable device identity.",
+      "text": "The web SDK anchors devices to a client-managed external ID, so push-subscription rotations update one device record instead of creating ghosts."
+     }
+    ]
+   },
+   {
+    "heading": "Outcome",
+    "body": "Cardyiq, Sadeek, Asheerty, Orivo and Baseerah use NotifyX. It is now the default notification layer for the products I ship."
+   },
+   {
+    "heading": "Failure modes, handled",
+    "items": [
+     {
+      "title": "Provider timeout",
+      "text": "Retry with backoff; delivery state preserved through every attempt."
+     },
+     {
+      "title": "Invalid token",
+      "text": "The dead token is removed so we do not keep sending to it."
+     },
+     {
+      "title": "Provider rate limit",
+      "text": "The queue absorbs the burst; workers pace the drain."
+     },
+     {
+      "title": "Worker crash",
+      "text": "BullMQ re-delivers the job to a healthy worker. No message lost."
+     },
+     {
+      "title": "Permanent failure",
+      "text": "Dead-letter lane with full context, waiting for a human."
+     }
+    ]
+   },
+   {
+    "heading": "What I learned",
+    "body": "The success path is easy. I trust infrastructure when I know exactly what it does after something fails."
+   },
+   {
+    "heading": "What I'd change today",
+    "body": "I would add per-tenant rate-limit budgets earlier so one company cannot slow down another. I would also define delivery receipts properly from the start. And I would open-source it on day one instead of extracting the public version later."
+   }
+  ],
+  "shots": [
+   {
+    "src": "/shots/notifyx/01-dashboard.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Dashboard",
+    "caption": "Delivery health, channel performance, and recent activity in one operational view.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/02-send.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Compose a notification",
+    "caption": "The real composer connects app, message, recipient, and preview.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/03-history.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Delivery history",
+    "caption": "Operators can inspect delivery states and filter individual attempts.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/04-campaigns.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Campaigns",
+    "caption": "Campaigns have a separate place from transactional sends.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/05-templates.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Template editor",
+    "caption": "Localized templates keep message content reusable.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/06-apps.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Application management",
+    "caption": "App-level configuration separates products sharing one platform.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/07-credentials.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Provider credentials",
+    "caption": "The provider interface exposes configuration status without exposing secret values.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/08-automation.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Automation workflows",
+    "caption": "Event-driven flows live beside campaigns and transactional notifications.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/09-developer-hub.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Developer hub",
+    "caption": "Integration documentation belongs inside the operational product.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/10-simulator.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "SDK simulator",
+    "caption": "Developers can inspect SDK behavior before connecting a real client.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/11-campaign-editor.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Campaign editor",
+    "caption": "Scheduling, content, and targeting form one campaign workflow.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   },
+   {
+    "src": "/shots/notifyx/12-provider-picker.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Choose a provider",
+    "caption": "The provider picker makes supported integrations visible.",
+    "source": "Actual NotifyX portal, captured locally with fictional demo data"
+   }
+  ],
+  "logo": null,
+  "disclaimers": [
+   "Actual NotifyX portal captured locally with fictional apps, recipients, history, and provider status. These screens show the product interface, not a live delivery benchmark.",
+   "Portal run locally against fictional API fixtures; no live recipients or working provider secrets."
+  ]
+ },
+ "sadeek": {
+  "id": "sadeek",
+  "name": "Sadeek",
+  "category": "Commerce + Ai",
+  "status": "Dormant",
+  "tagline": "Send a photo through Telegram. Get a cleaned image, a description, a suggested price, and tools inside the conversation.",
+  "summary": "A Telegram AI product built around photos, image tools, content generation, and stateful conversations. 10K+ users and 150K+ AI requests.",
+  "role": "Solo founder & engineer",
+  "period": "2024 to 2025",
+  "stack": [
+   "Telegram bot",
+   "n8n (original pipeline)",
+   "GPT + Gemini",
+   "PostgreSQL",
+   "Next.js (storefront)",
+   "Newer backend: grammY, Bun/Express, PostgreSQL, Redis, BullMQ",
+   "Background removal, relighting, AI try-on"
+  ],
+  "stats": [
+   {
+    "value": "10K+",
+    "label": "users"
+   },
+   {
+    "value": "150K+",
+    "label": "AI requests served"
+   },
+   {
+    "value": "40K",
+    "label": "monthly web visitors"
+   },
+   {
+    "value": "1",
+    "label": "person · usage-based revenue, solo build"
+   }
+  ],
+  "links": [
+   {
+    "label": "sadeek.app",
+    "href": "https://sadeek.app"
+   }
+  ],
+  "sections": [
+   {
+    "heading": "Context",
+    "lede": "Merchants had one rough phone photo, no laptop and products they wanted to sell.",
+    "body": "They already used Telegram, so I built Sadeek there. A merchant sent a photo. Sadeek cleaned it, wrote the description, suggested a price, checked the listing and published it to sadeek.app.\n\nIt reached 10K+ users, handled 150K+ AI requests, drew 40K monthly visitors and made usage-based revenue. I built and operated the whole thing alone."
+   },
+   {
+    "heading": "The constraints",
+    "bullets": [
+     "The whole product had to fit inside a Telegram conversation.",
+     "Cost per AI request had to stay under what usage-based pricing could recover, or every new user was a loss.",
+     "The input was usually one bad phone photo, but the output still had to look sellable.",
+     "A stateful conversation bot at 10K-user scale: every merchant is mid-flow somewhere, and the bot must remember where.",
+     "Generated listings needed moderation before real buyers could see them.",
+     "Model APIs fail, change behaviour and change price. The pipeline had to handle all three."
+    ]
+   },
+   {
+    "heading": "My ownership",
+    "bullets": [
+     "I built the product, architecture, code and operations alone.",
+     "I built the Telegram flow from the first photo to the published listing.",
+     "I built the n8n pipeline with stages, retries and fallbacks.",
+     "I used GPT and Gemini for descriptions, pricing and moderation.",
+     "I shipped background removal, relighting and AI try-on.",
+     "I ran PostgreSQL, the Next.js storefront and usage-based billing."
+    ]
+   },
+   {
+    "heading": "System map",
+    "diagram": "MERCHANT ──▶ TELEGRAM BOT  (one photo · a few words · nothing to install)\n                  │\n                  ▼\n         n8n ORCHESTRATION  stateful conversation · cost-aware routing\n                  │\n         ┌────────┴─────────────────┐   (in parallel)\n         ▼                          ▼\n   IMAGE PIPELINE             LLM CONTENT\n   bg removal · relight       description · pricing\n   AI try-on                  (GPT + Gemini)\n         │                          │\n         │   model API down ──▶ fallback lane: alternate provider · retry\n         └────────┬─────────────────┘\n                  ▼\n         MODERATION GATE  nothing publishes unreviewed\n                  ▼\n         PostgreSQL / API\n                  ▼\n         NEXT.JS STOREFRONT ──▶ listing live  (auto-published)"
+   },
+   {
+    "heading": "Key decisions",
+    "items": [
+     {
+      "title": "Telegram as the entire onboarding.",
+      "text": "Merchants already trusted Telegram. There was no download, signup form or laptop. They could start where they already were."
+     },
+     {
+      "title": "AI cost is an architecture concern.",
+      "text": "Batching, model routing and caching decided whether the product could make money. Clever prompts were not enough."
+     },
+     {
+      "title": "A pipeline, not a prompt.",
+      "text": "Quality came from staged processing with checks between stages, not from one giant model call. Each stage could be measured, retried, and improved independently."
+     },
+     {
+      "title": "Hide the models.",
+      "text": "Merchants saw \"photo in, listing out.\" Provider names, API failures, and fallback switches stayed backstage, handled operationally. Nobody selling shoes cares which model relit the photo."
+     },
+     {
+      "title": "Moderate before publish.",
+      "text": "Every listing passed moderation before buyers saw it. That stage never had a shortcut."
+     }
+    ]
+   },
+   {
+    "heading": "Outcome",
+    "body": "The hard parts were cost per request, image quality from bad inputs and keeping the bot in the right state for thousands of users. The model was not the hard part."
+   },
+   {
+    "heading": "The product question",
+    "body": "The interesting question was whether Sadeek should stay a tool for individual merchants or become infrastructure that other commerce platforms could use.\n\nThose are two different products. One needs a simple daily workflow. The other needs APIs, integrations and strong operational guarantees.\n\nIf I took it further, I would choose merchant infrastructure and build around that decision from day one.",
+    "quote": "If I took it further, I would choose merchant infrastructure and build around that decision from day one."
+   },
+   {
+    "heading": "Telegram is the product",
+    "lede": "Send a photo. Stay in the conversation.",
+    "body": "The bot, conversation state, image tools, content generation, and usage controls are the core of Sadeek. The store is a secondary publishing surface.",
+    "items": [
+     {
+      "title": "A phone photo",
+      "text": "The merchant starts inside Telegram. Onboarding and saved preferences provide context for the request."
+     },
+     {
+      "title": "Image + content",
+      "text": "The original pipeline combines image cleanup, descriptions, pricing, and moderation with retries and provider fallbacks."
+     },
+     {
+      "title": "A stateful conversation",
+      "text": "Callbacks, request history, usage balance, referrals, and subscription flows keep the product inside the chat."
+     }
+    ],
+    "quote": "تم استلام الصورة. جاري التحليل، سنرسل النتيجة فور الانتهاء.  — Photo acknowledgement from message.handler.ts. This is the actual reply text in the source, rather than a reconstructed Telegram screenshot."
+   },
+   {
+    "heading": "Engineering notes",
+    "items": [
+     {
+      "title": "The conversation has a backend.",
+      "text": "The newer backend uses grammY, Bun/Express, PostgreSQL, Redis, and BullMQ. Its source separates onboarding, photos, callbacks, payments, referrals, search, and admin commands."
+     },
+     {
+      "title": "Original pipeline → newer queue branch",
+      "text": "The production story above describes the original n8n workflow. The newer photo handler enqueues work and acknowledges receipt; its final asynchronous Telegram delivery is still marked unfinished in that branch."
+     }
+    ]
+   },
+   {
+    "heading": "What I learned",
+    "body": "In a real AI product, cost, quality and failure handling matter more than the demo."
+   },
+   {
+    "heading": "What I'd change today",
+    "body": "I would choose one product from day one: merchant infrastructure. I would charge earlier because free users taught me about growth, not willingness to pay. I would also set a cost budget for every request before building the pipeline."
+   }
+  ],
+  "shots": [
+   {
+    "src": "/shots/sadeek/01-storefront.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "The public storefront",
+    "caption": "The Arabic storefront turns listings into a browsable marketplace.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/02-product.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "From listing to detail",
+    "caption": "A product page gathers photos, description, price, and seller context.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/03-image-browser.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Browse the product photos",
+    "caption": "The real image gallery lets a buyer inspect another angle.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/04-seller-store.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "A seller’s own storefront",
+    "caption": "The same browsing system can focus on one seller.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/05-search.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Search in context",
+    "caption": "Search narrows the marketplace while preserving the listing layout.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/06-empty-search.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "No matching products",
+    "caption": "An explicit empty state explains a search with no results.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/07-about.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Explain the service",
+    "caption": "The actual about page introduces the bot and its workflow.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/08-help.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Answer practical questions",
+    "caption": "The FAQ covers sending photos, subscriptions, and the storefront.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/09-owner-pricing.webp",
+    "width": 1280,
+    "height": 1300,
+    "title": "The seller’s pricing view",
+    "caption": "A fictional owner state exposes the product’s existing pricing section.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/10-mobile-store.webp",
+    "width": 390,
+    "height": 844,
+    "title": "The store in your pocket",
+    "caption": "The responsive storefront keeps browsing usable on mobile.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   },
+   {
+    "src": "/shots/sadeek/11-mobile-product.webp",
+    "width": 390,
+    "height": 1787,
+    "title": "The complete mobile product page",
+    "caption": "Photos, details, and actions carry through to a smaller screen.",
+    "source": "Actual Sadeek storefront, captured locally with fictional listings and seller data; third-party ad scripts disabled",
+    "surface": "store-archive"
+   }
+  ],
+  "logo": "/brand/sadeek-mascot.webp",
+  "disclaimers": [
+   "Dormant",
+   "The production story above describes the original n8n workflow. The newer photo handler enqueues work and acknowledges receipt; its final asynchronous Telegram delivery is still marked unfinished in that branch.",
+   "Photo acknowledgement from message.handler.ts. This is the actual reply text in the source, rather than a reconstructed Telegram screenshot.",
+   "Actual Sadeek storefront captured locally with fictional listings and seller data. Third-party ad scripts were disabled for capture. Product photos are credited in the image notes.",
+   "Sadeek’s fictional inventory uses headphones photographed by C D-X and Kiran CK via Unsplash: photo-1505740420928-5e560c06d30e, photo-1579065560489-989b0cc394ce, and photo-1583305727488-61f82c7eae4b. These photos illustrate demo listings; they are not evidence of actual sellers.",
+   "No simulated Telegram conversation is represented as a real screenshot. Original Telegram media is pending."
+  ]
+ },
+ "hawsr": {
+  "id": "hawsr",
+  "name": "HAWSR",
+  "category": "Spatial Products",
+  "status": "Closed · archive",
+  "tagline": "A master’s thesis became my first company. Building models in a browser, real customers, and a lot of firsts.",
+  "summary": "My master's thesis became a construction-tech company. It built 3D web tools, made about $60K and was later shut down.",
+  "role": "Founder · team lead · self-taught engineer",
+  "period": "2021 to 2023 · shut down",
+  "stack": [
+   "Three.js",
+   "React / React Three Fiber",
+   "Revit",
+   "Dynamo + Python",
+   "Insta360 SDK",
+   "Gaussian Splatting (R&D)"
+  ],
+  "stats": [
+   {
+    "value": "~$60K",
+    "label": "revenue"
+   },
+   {
+    "value": "1st Prize",
+    "label": "The Station Foundation incubator"
+   },
+   {
+    "value": "1,000+",
+    "label": "people · on-stage presentation"
+   },
+   {
+    "value": "Revit → web",
+    "label": "pipeline, automated"
+   }
+  ],
+  "links": [],
+  "sections": [
+   {
+    "heading": "Context",
+    "lede": "Most theses become PDFs. I tried to turn mine into a business.",
+    "body": "I worked as an architect for nine years, including reconstruction work with UNOPS in Anbar. After teaching myself to code, my thesis automated the delivery of Revit building models to the web. I turned that idea into HAWSR.\n\nThe company did not last, but it gave me my first serious product, customers, revenue and a team of six to lead. It was the point where software became my career."
+   },
+   {
+    "heading": "The constraints",
+    "bullets": [
+     "BIM models are huge. They needed heavy optimisation before they could load on a normal laptop.",
+     "The Revit to web step had to be automated. Manual export did not scale.",
+     "Iraqi construction clients had never bought software like this. Every sale started with explaining that the category existed.",
+     "Funding was limited, so revenue had to carry the company.",
+     "I was learning engineering, sales and product at the same time while paying clients watched."
+    ]
+   },
+   {
+    "heading": "My ownership",
+    "bullets": [
+     "I built the Three.js and React platform for exploring building models in a browser.",
+     "I automated the Revit to web pipeline with Dynamo and Python.",
+     "I researched converting 360° captures into Gaussian Splatting scenes.",
+     "I won first prize at The Station Foundation incubator.",
+     "I presented the product to an audience of more than 1,000 people.",
+     "I sold and delivered about $60K of work.",
+     "I built and led a team of six while learning product, sales and engineering."
+    ]
+   },
+   {
+    "heading": "System map",
+    "diagram": "REVIT MODEL\n     │\n     ▼\nDYNAMO + PYTHON automation  (no manual export · the pipeline runs itself)\n     │\n     ▼\noptimized geometry  (BIM-scale models, browser-scale payloads)\n     │\n     ▼\nTHREE.JS / R3F WEB VIEWER\n     │\n     ▼\nclient browser  (no install · no plugin · a link)\n\nR&D LANE (experimental)\n360° CAPTURE ──▶ processing (Insta360 SDK) ──▶ GAUSSIAN SPLATTING scene"
+   },
+   {
+    "heading": "Key decisions",
+    "items": [
+     {
+      "title": "Product over paper.",
+      "text": "I wanted customers to test the idea, not just a committee. Building the product gave me much better answers."
+     },
+     {
+      "title": "Automate the pipeline first.",
+      "text": "The viewer was the demo. The useful part was the Revit to web automation that saved people from doing exports by hand."
+     },
+     {
+      "title": "Charge real money early.",
+      "text": "About $60K of revenue proved that some clients would pay. It did not prove the market was big enough."
+     },
+     {
+      "title": "Decommission deliberately.",
+      "text": "The market was small, funding was gone and the splat quality was not ready. I chose to shut the company down instead of keeping it half alive."
+     }
+    ]
+   },
+   {
+    "heading": "Outcome",
+    "body": "HAWSR taught me Three.js, React Three Fiber, automation and product thinking. I still use those skills today, including on this website."
+   },
+   {
+    "heading": "How the run ended",
+    "body": "The market was too small. There were construction firms willing to pay, but not enough to grow the company. Funding was gone. Gaussian splatting from 360° capture was also not good enough yet to sell as a product.\n\nTogether, those problems were the answer. I handed off the clients, archived the pipeline and shut HAWSR down.\n\nHAWSR did not become the company I wanted. It did turn automation into my software career.",
+    "quote": "HAWSR did not become the company I wanted. It did turn automation into my software career."
+   },
+   {
+    "heading": "What I learned",
+    "body": "Technical feasibility, product, and market size are three different questions. I learned to ask all three before writing code."
+   },
+   {
+    "heading": "What I'd change today",
+    "body": "I would validate the market size before building the full platform. I would sell the automation as a service first and let revenue prove the pipeline. I would also keep splatting as research until the quality was ready."
+   }
+  ],
+  "shots": [
+   {
+    "src": "/shots/hawsr/01-views.webp",
+    "width": 1600,
+    "height": 893,
+    "title": "Many views of the same model",
+    "caption": "The archived viewer shows a model from multiple useful perspectives.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/02-dimensions.webp",
+    "width": 1600,
+    "height": 893,
+    "title": "Inspect dimensions in the browser",
+    "caption": "Measurement tools connect the visual model to practical questions.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/03-annotations.webp",
+    "width": 1600,
+    "height": 893,
+    "title": "Put feedback on the model",
+    "caption": "Annotations anchor a discussion to a place in the scene.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/04-devices.webp",
+    "width": 1600,
+    "height": 893,
+    "title": "A model beyond the workstation",
+    "caption": "The archived interface demonstrates the viewer on different screen sizes.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/05-doll.webp",
+    "width": 1600,
+    "height": 1000,
+    "title": "Understand the building at a glance",
+    "caption": "The dollhouse view exposes the relationship between rooms.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/06-plan.webp",
+    "width": 1600,
+    "height": 1000,
+    "title": "Read the floor plan",
+    "caption": "The plan view gives the model a familiar architectural frame.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/07-living.webp",
+    "width": 1600,
+    "height": 1000,
+    "title": "Walk into the living space",
+    "caption": "An archived model view shows the room from eye level.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/08-kitchen.webp",
+    "width": 1600,
+    "height": 1000,
+    "title": "Inspect the kitchen",
+    "caption": "A different room tests how the same viewer communicates interior layout.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/09-bedroom.webp",
+    "width": 1600,
+    "height": 1000,
+    "title": "Explore another part of the model",
+    "caption": "The bedroom view preserves the spatial experience across rooms.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/10-hall.webp",
+    "width": 1600,
+    "height": 1000,
+    "title": "See the spaces between rooms",
+    "caption": "The hall view shows circulation and connections.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/11-bath.webp",
+    "width": 1600,
+    "height": 1000,
+    "title": "Read a smaller room",
+    "caption": "The same browser model includes detailed interior views.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/12-doll2.webp",
+    "width": 1600,
+    "height": 1000,
+    "title": "Open a second dollhouse perspective",
+    "caption": "A second model angle reveals a different arrangement of the spaces.",
+    "source": "HAWSR archived feature screenshots and original model-viewer images",
+    "surface": "viewer"
+   },
+   {
+    "src": "/shots/hawsr/landing/01-home.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "HAWSR landing page",
+    "caption": "The landing project’s original hero, captured from its local static export.",
+    "source": "Actual hawsr landing source rendered locally, October 2026; original static export",
+    "surface": "landing"
+   },
+   {
+    "src": "/shots/hawsr/landing/02-about.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Explain the people and the product",
+    "caption": "The original about page tells the platform’s origin and team story.",
+    "source": "Actual hawsr landing source rendered locally, October 2026; original static export",
+    "surface": "landing"
+   },
+   {
+    "src": "/shots/hawsr/landing/03-features.webp",
+    "width": 1280,
+    "height": 800,
+    "title": "Introduce the spatial experience",
+    "caption": "The feature section presents the tour and device experience before the viewer.",
+    "source": "Actual hawsr landing source rendered locally, October 2026; original static export",
+    "surface": "landing"
+   }
+  ],
+  "logo": null,
+  "disclaimers": [
+   "Team of 6 · about $60K revenue · later closed",
+   "Actual pages from the HAWSR landing source, captured from its static export. This collection documents the landing code; the archived case remains marked closed.",
+   "HAWSR’s landing is a capture of the supplied source export, not evidence that the archived business reopened."
+  ]
+ },
+ "maaahr": {
+  "id": "maaahr",
+  "name": "Maaahr",
+  "category": "Realtime Ai",
+  "status": "Prototype",
+  "tagline": "A voice interviewer that listens, follows up, and produces a structured evaluation. An exercise in making AI feel less robotic.",
+  "summary": "An HRTech hackathon prototype for voice interview practice with realtime audio, subtitles and structured feedback.",
+  "role": "Solo builder",
+  "period": "2025 · hackathon prototype",
+  "stack": [
+   "OpenAI Realtime API",
+   "GPT",
+   "Gemini",
+   "Web app"
+  ],
+  "stats": [
+   {
+    "value": "Prototype",
+    "label": "built during a hackathon"
+   },
+   {
+    "value": "text → voice",
+    "label": "interaction model rebuilt"
+   },
+   {
+    "value": "Realtime",
+    "label": "live subtitles + natural turn-taking"
+   },
+   {
+    "value": "6",
+    "label": "evaluation dimensions in every report"
+   }
+  ],
+  "links": [],
+  "sections": [
+   {
+    "heading": "Context",
+    "lede": "Reading interview advice is not the same as saying the answer out loud.",
+    "body": "Maaahr started as a text-based AI Engineering capstone. During a hackathon, I rebuilt it on the OpenAI Realtime API. The prototype speaks, listens, shows subtitles and gives a structured report after the interview."
+   },
+   {
+    "heading": "The constraints",
+    "bullets": [
+     "Voice latency has to feel natural. Long silence makes the whole thing awkward.",
+     "Barge-in must work: when the user interrupts the interviewer, the interviewer stops.",
+     "Voice, transcript and scoring have to stay in sync.",
+     "Evaluation must be structured and useful, not vibes.",
+     "A product interview and an engineering interview need different questions."
+    ]
+   },
+   {
+    "heading": "My ownership",
+    "bullets": [
+     "I built the whole product end to end.",
+     "I built role-specific question planning so the interview matches the job.",
+     "I implemented realtime voice sessions on the OpenAI Realtime API.",
+     "I built live transcription and subtitles synced to audio.",
+     "I built the evaluation pipeline and reports with GPT and Gemini."
+    ]
+   },
+   {
+    "heading": "System map",
+    "diagram": "ROLE PROFILE ──▶ QUESTION PLANNER\n                       │\n                       ▼\n        REALTIME VOICE SESSION (OpenAI Realtime API)\n        listening ⇄ thinking ⇄ speaking ⇄ interrupted\n                       │\n                       ├──▶ live subtitles   (latency-critical path)\n                       └──▶ transcript\n                              │\n                              ▼\n              EVALUATION PIPELINE\n              relevance · clarity · completeness\n              technical depth · communication\n              missed opportunities\n                              │\n                              ▼\n              STRUCTURED FEEDBACK REPORT"
+   },
+   {
+    "heading": "Key decisions",
+    "items": [
+     {
+      "title": "Voice state is a state machine.",
+      "text": "Listening, thinking, speaking and interrupted are explicit states. Interruption is normal because people interrupt."
+     },
+     {
+      "title": "Subtitles are trust.",
+      "text": "The live transcript shows the user that the system heard them. It also makes unavoidable latency feel less empty."
+     },
+     {
+      "title": "Evaluate against a rubric, not a feeling.",
+      "text": "The report covers relevance, clarity, completeness, technical depth, communication and missed opportunities. That is more useful than saying \"good job.\""
+     },
+     {
+      "title": "Product evolution over rewrite.",
+      "text": "The text version's question planner and evaluators moved into the voice version without a rewrite. Only the interaction layer changed."
+     }
+    ]
+   },
+   {
+    "heading": "Outcome",
+    "body": "The hard parts were latency, interruption and keeping the voice, transcript and score together."
+   },
+   {
+    "heading": "Failure modes, handled",
+    "items": [
+     {
+      "title": "Realtime session drops",
+      "text": "Graceful reconnect; the transcript is preserved and the interview resumes where it stopped."
+     },
+     {
+      "title": "User silence",
+      "text": "The interviewer gives a short prompt instead of hanging forever."
+     },
+     {
+      "title": "Transcript drift",
+      "text": "Periodic re-sync between audio and text keeps subtitles honest about what was actually said."
+     },
+     {
+      "title": "Model latency spike",
+      "text": "Filler acknowledgements keep the conversational rhythm while the real response is on its way."
+     }
+    ]
+   },
+   {
+    "heading": "What I learned",
+    "body": "Voice latency cannot be hidden. The product has to make it feel natural."
+   },
+   {
+    "heading": "What I'd change today",
+    "body": "I would add record and review so users can hear their answer next to the feedback. I would also add different interviewer styles and calibrate the scoring against real hiring decisions."
+   }
+  ],
+  "shots": [
+   {
+    "src": "/shots/maaahr/01-welcome.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Meet the interview",
+    "caption": "The original Arabic welcome introduces the interview-prep demo.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/02-question-guide.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Know where questions appear",
+    "caption": "The guided tour explains the interviewer’s side of the conversation.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/03-answer-guide.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Explain the answer field",
+    "caption": "The next instruction points directly at the text input.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/04-choice-guide.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Introduce multiple-choice answers",
+    "caption": "The tutorial uses placeholder controls to explain a multiple-choice question.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/05-slider-guide.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Introduce slider answers",
+    "caption": "A separate tutorial state explains the slider question format.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/06-interview-brief.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Before the interview begins",
+    "caption": "The final brief explains timing and answer quality.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/07-interview.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "The first question",
+    "caption": "The actual demo interview screen pairs the question with an answer composer.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/08-conversation.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "A complete exchange",
+    "caption": "A fictional answer receives one of the demo’s simulated follow-up responses.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/09-end-confirmation.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "Confirm an early exit",
+    "caption": "The original confirmation protects a user from ending the session accidentally.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   },
+   {
+    "src": "/shots/maaahr/10-results.webp",
+    "width": 1280,
+    "height": 720,
+    "title": "A structured sample result",
+    "caption": "The demo report shows duration, a sample score, summary, and strengths; these are simulated results.",
+    "source": "Actual Maaahr interview-prep demo interface; simulated conversation and sample result",
+    "surface": "interview"
+   }
+  ],
+  "logo": null,
+  "disclaimers": [
+   "Hackathon prototype · not live",
+   "Actual Maaahr interview-prep demo interface, captured locally. Tutorial placeholders and the sample result belong to the original demo. These screens document the interface; the demo uses simulated responses."
+  ]
+ },
+ "tasdid": {
+  "id": "tasdid",
+  "name": "Tasdid",
+  "category": "Qi Card · Featured / Tasdid",
+  "status": "In production",
+  "tagline": "Make the bill understandable.",
+  "summary": "Container work, the Tasdid+ mini-app, billing, invoicing, inquiry, and payment states. The screenshots below walk through the actual Tasdid interface.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "Svelte",
+   "SuperQi / Alipay mini-app runtime"
+  ],
+  "stats": [
+   {
+    "value": "1M+",
+    "label": "users of the billing & merchant products"
+   }
+  ],
+  "links": [],
+  "sections": [],
+  "shots": [
+   {
+    "src": "/shots/qi-card/01-01-home-plus-button.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Start from the account",
+    "caption": "The Tasdid home gathers account context and financial actions.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/02-02-account-sheet.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Choose the source account",
+    "caption": "The action sheet makes the account choice explicit.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/03-03-form-empty.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "An understandable payment form",
+    "caption": "Recipient, amount, and reference fields stay in a single flow.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/04-04-account-picker.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Switch accounts without leaving",
+    "caption": "A picker exposes available accounts in context.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/05-05-form-filled.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Keep the complete payment visible",
+    "caption": "A filled form shows the values before the confirmation step.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/06-06-summary.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Review before committing",
+    "caption": "The summary collects the recipient, amount, fees, and resulting total.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/07-07-result.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Show the final state",
+    "caption": "The result screen names the successful state and keeps the receipt available.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/08-02-form-empty.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Request money as a separate flow",
+    "caption": "The request experience uses a different visual context from paying a bill.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/09-05-summary.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Review a request",
+    "caption": "A dedicated summary lets the sender check a request before sending it.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/10-06-result.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Confirm the request",
+    "caption": "The result closes the request flow with an explicit state.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/11-03-form-empty.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "A merchant invoice begins here",
+    "caption": "Merchant billing has its own form and service context.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   },
+   {
+    "src": "/shots/qi-card/12-08-preview.webp",
+    "width": 924,
+    "height": 2000,
+    "title": "Preview the merchant bill",
+    "caption": "The preview lets a merchant review the invoice layout and total.",
+    "source": "Tasdid actual mini-app UI, captured in its existing demo mode; all financial data is fictional"
+   }
+  ],
+  "logo": null,
+  "disclaimers": [
+   "Actual Tasdid mini-app screens from its existing demo mode. Names, accounts, phone numbers, and amounts are fictional."
+  ],
+  "placeholder": false
+ },
+ "jabi": {
+  "id": "jabi",
+  "name": "Jabi / Jabi+",
+  "category": "Qi Card · Featured / Jabi",
+  "status": "In production",
+  "tagline": "The phone is the back office.",
+  "summary": "Jabi and Jabi+ span payment flows and merchant finance: statements, salaries, supplier payments, and export. The native DSL port takes the H5 experience into a different runtime.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "Svelte",
+   "AXML · ACSS · JavaScript (native DSL)"
+  ],
+  "stats": [],
+  "links": [],
+  "sections": [],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [],
+  "placeholder": true
+ },
+ "jabi-dsl": {
+  "id": "jabi-dsl",
+  "name": "Jabi+ DSL",
+  "category": "Qi Card · Native mini program",
+  "status": "In production",
+  "tagline": "The native port of Jabi+.",
+  "summary": "The native DSL port of the Jabi+ H5 experience for QiNeo / Alipay Plus.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "AXML",
+   "ACSS",
+   "JavaScript"
+  ],
+  "stats": [],
+  "links": [],
+  "sections": [],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [],
+  "placeholder": true
+ },
+ "oil-stations": {
+  "id": "oil-stations",
+  "name": "Oil stations",
+  "category": "Qi Card · Operational web application",
+  "status": "In production",
+  "tagline": null,
+  "summary": "Station management, transactions, and weekly reports.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "Angular"
+  ],
+  "stats": [],
+  "links": [],
+  "sections": [],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [],
+  "placeholder": true
+ },
+ "aml": {
+  "id": "aml",
+  "name": "AML dashboard",
+  "category": "Qi Card · Internal dashboard",
+  "status": "In production",
+  "tagline": null,
+  "summary": "Anti-money-laundering dashboard work.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "Angular"
+  ],
+  "stats": [],
+  "links": [],
+  "sections": [],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [],
+  "placeholder": true
+ },
+ "service-provider": {
+  "id": "service-provider",
+  "name": "Service-provider mini-app",
+  "category": "Qi Card · SuperQi mini-app",
+  "status": "In production",
+  "tagline": null,
+  "summary": "Provider selection, bill inquiry, receipts, and payment screens.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "Svelte"
+  ],
+  "stats": [],
+  "links": [],
+  "sections": [],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [],
+  "placeholder": true
+ },
+ "hawala": {
+  "id": "hawala",
+  "name": "Qi Hawala",
+  "category": "Qi Card · Remittance mini-app",
+  "status": "In production",
+  "tagline": null,
+  "summary": "The remittance experience, transaction history, details, and receipts.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "Svelte"
+  ],
+  "stats": [],
+  "links": [],
+  "sections": [],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [],
+  "placeholder": true
+ },
+ "krg": {
+  "id": "krg",
+  "name": "KRG / e-Psule",
+  "category": "Qi Card · Regional billing",
+  "status": "In production",
+  "tagline": null,
+  "summary": "Kurdish, Arabic, and English billing, alongside KRG dashboard work.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "Svelte",
+   "React"
+  ],
+  "stats": [],
+  "links": [],
+  "sections": [],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [],
+  "placeholder": true
+ },
+ "basmayah": {
+  "id": "basmayah",
+  "name": "Basmayah",
+  "category": "Qi Card · Housing-loan mini-app",
+  "status": "In production",
+  "tagline": null,
+  "summary": "Housing-loan requests, document submission, review, and guarantee consent.",
+  "role": "Software Engineer, Billing Team",
+  "period": "2024 to present",
+  "stack": [
+   "Svelte 5"
+  ],
+  "stats": [],
+  "links": [],
+  "sections": [],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [],
+  "placeholder": true
+ },
+ "before-code": {
+  "id": "before-code",
+  "name": "Before code",
+  "category": "Where it started",
+  "status": "Archive",
+  "tagline": "Nine years of buildings before the software.",
+  "summary": "For nine years, I worked in architecture and construction. With UNOPS in Anbar, I managed a reconstruction program covering around 1,500 homes. I started writing Python to automate the repetitive parts of Revit. Then the scripts got more interesting than the drawings. A thesis became HAWSR. HAWSR became a company. And somewhere between my first customer and my first broken deployment, software became the work.",
+  "role": "Architect → founder → engineer",
+  "period": "2012 to today",
+  "stack": [
+   "Revit",
+   "Dynamo",
+   "Python",
+   "Three.js"
+  ],
+  "stats": [
+   {
+    "value": "9 years",
+    "label": "in architecture and construction"
+   },
+   {
+    "value": "~1,500",
+    "label": "homes in a UNOPS reconstruction programme, Anbar"
+   }
+  ],
+  "links": [],
+  "sections": [
+   {
+    "heading": "The path",
+    "items": [
+     {
+      "title": "Nine years — Architecture & construction (incl. UNOPS, Anbar)",
+      "text": "For nine years, I worked in architecture and construction. With UNOPS in Anbar, I managed a reconstruction program covering around 1,500 homes. I started writing Python to automate the repetitive parts of Revit. Then the scripts got more interesting than the drawings."
+     },
+     {
+      "title": "2021 to 2023 · shut down — HAWSR",
+      "text": "My master's thesis became a real company. Three.js web platform + Revit/Dynamo pipeline; team of 6, ~$60K revenue, 1st prize at The Station Foundation incubator, presented to 1,000+ people. Shut down deliberately."
+     },
+     {
+      "title": "2024 to 2025 — Sadeek",
+      "text": "Telegram bot with AI image and content tools. 10K+ users · 150K+ AI requests (homepage status: Dormant)."
+     },
+     {
+      "title": "2024 to present · promoted March 2026 — Qi Card / SuperQi",
+      "text": "Tasdid and Jabi, plus oil stations, AML, Qi Hawala, service providers, KRG billing, Basmayah loans, and native mini-app work. 1M+ users of the billing & merchant products."
+     },
+     {
+      "title": "2025 to present — NotifyX",
+      "text": "One notification API for four push providers. ~150 msg/s per worker; 5 companies in production."
+     },
+     {
+      "title": "2025 · hackathon prototype — Maaahr",
+      "text": "Text-based AI Engineering capstone rebuilt on the OpenAI Realtime API during a hackathon."
+     },
+     {
+      "title": "September 2025 to present — Cardyiq",
+      "text": "Rebuilt a failing live product without stopping the business: 150+ venues · 6 cities · 99.9% uptime."
+     },
+     {
+      "title": "2025 to present · launched 2026 — Asheerty",
+      "text": "Family-tree app that becomes a framed print; live on iOS + Android; early (under 100 users)."
+     }
+    ]
+   }
+  ],
+  "shots": [],
+  "logo": null,
+  "disclaimers": [
+   "Architecture photograph on the desktop: Chris Johnson / Unsplash, used as a visual reference — not a project I designed."
+  ],
+  "placeholder": true
+ }
+}
