@@ -1,5 +1,6 @@
 # Third-party assets
 
+- **Bricolage Grotesque, Caveat and Geist Mono** in `src/app/fonts/` — variable fonts from the Google Fonts repository, SIL Open Font License 1.1. Full notices are included in `public/licenses/fonts/`. Sources: https://github.com/google/fonts/tree/main/ofl/bricolagegrotesque, https://github.com/google/fonts/tree/main/ofl/caveat, https://github.com/google/fonts/tree/main/ofl/geistmono.
 - **ChatGPT and Claude marks** in `src/components/ui/MacIcon.tsx` — paths from LobeHub Icons, MIT License. https://github.com/lobehub/lobe-icons
 - **Instagram, X and GitHub marks** — paths from Simple Icons, CC0 1.0. https://simpleicons.org
   Brand marks are trademarks of their owners and are used only to link to those services.

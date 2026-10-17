@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { WorkPage } from "@/components/os/WorkPage";
 import { allNodes, getNode, projectFor, workHref, workSlug } from "@/data/fs";
 
 type Props = { params: Promise<{ slug: string[] }> };
+
+export const dynamicParams = false;
 
 /** Sub-projects nest under their parent: /work/qi-card, /work/qi-card/tasdid, /work/before-code/unops. */
 export function generateStaticParams() {
@@ -36,8 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug } = await params;
   const r = resolve(slug);
-  if (!r) notFound();
-  // old flat links (/work/tasdid) and wrong parents go to the nested URL
-  if (!r.canonical) permanentRedirect(workHref(r.id));
+  if (!r || !r.canonical) notFound();
+  // Legacy flat URLs get static redirect files in scripts/prepare-pages.mjs.
   return <WorkPage node={r.node} content={r.content} />;
 }

@@ -127,8 +127,8 @@ const DEFAULT_SIZE: Record<WinKind, { w: number; h: number; title: string }> = {
   cv: { w: 780, h: 980, title: "Aws_Abdulfattah_CV.pdf" },
 };
 
-/** Shared links that open a window: old /#about links, and /#cv */
-const HASH_WINDOWS: Record<string, WinKind> = { "#about": "about", "#cv": "cv" };
+/** Shared links, including redirects from the earlier static portfolio. */
+const HASH_WINDOWS: Record<string, WinKind> = { "#about": "about", "#cv": "cv", "#contact": "contact", "#ai-skills": "finder" };
 
 export interface OpenOpts {
   nodeId?: string;
@@ -312,7 +312,7 @@ export function OSProvider({ children }: { children: ReactNode }) {
     const onHash = () => {
       const kind = HASH_WINDOWS[window.location.hash];
       if (!kind) return;
-      openRef.current(kind);
+      openRef.current(kind, kind === "finder" ? { nodeId: "ai-skills" } : undefined);
       history.replaceState(null, "", window.location.pathname + window.location.search);
     };
     onHash();

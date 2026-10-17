@@ -4,7 +4,7 @@ import { allNodes } from "@/data/fs";
 
 /**
  * Stand-in for the LLM. Keyword matching over the site's own facts.
- * Replace the body of app/api/ask/route.ts with a real model call later.
+ * Runs locally in the browser so the guide also works on GitHub Pages.
  */
 export function fakeAnswer(question: string, page?: string): string {
   const q = question.toLowerCase();

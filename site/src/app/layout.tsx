@@ -1,15 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Caveat, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { OSProvider } from "@/components/os/OSProvider";
 import { Shell } from "@/components/os/Shell";
 import { Wallpaper } from "@/components/os/Wallpaper";
 
-const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
-const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat", weight: ["600", "700"], display: "swap" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
+const bricolage = localFont({ src: "./fonts/bricolage-grotesque.ttf", variable: "--font-bricolage", weight: "200 800", display: "swap" });
+const caveat = localFont({ src: "./fonts/caveat.ttf", variable: "--font-caveat", weight: "400 700", display: "swap" });
+const geistMono = localFont({ src: "./fonts/geist-mono.ttf", variable: "--font-geist-mono", weight: "100 900", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://awsdang.com"),
   title: "Aws Abdulfattah, Software Engineer",
   description:
     "I'm Aws, a Software Engineer at Qi and Founding Engineer and Technical Lead at Cardy. Read how I build products, lead a technical team and put my background in architecture to work.",

@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "postbuild": "node scripts/prepare-pages.mjs",
+    "check:export": "node scripts/check-export.mjs",
+    "start": "python3 -m http.server 3000 --bind 127.0.0.1 --directory out",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

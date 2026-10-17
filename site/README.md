@@ -5,12 +5,14 @@ desktop, a magnifying dock, Finder windows for projects, a terminal that talks t
 an (as yet fake) assistant, and a scroll story underneath.
 
 ```bash
-npm install
+npm ci
 npm run dev      # http://localhost:3000
-npm run build    # production build (22 static pages + /api/ask)
+npm run build    # complete static export in out/, including legacy redirects
+npm run check:export # verify exported routes, assets and downloads
+npm start        # serve out/ at http://localhost:3000 using Python 3
 ```
 
-Next.js 16 · React 19 · Tailwind v4 · motion · lucide. No other runtime deps.
+Node.js 22. Next.js 16, React 19, Tailwind v4, motion, lucide and pdf.js. Production hosting needs only a static file server.
 
 ## Where things live
 
@@ -20,16 +22,19 @@ Next.js 16 · React 19 · Tailwind v4 · motion · lucide. No other runtime deps
 | A project's page (text, stats, screens, links) | `src/data/projects.generated.json` (seeded from the old site; edit freely) |
 | Name, hero copy, "Now", principles, chapters, marquee | `src/data/profile.ts` |
 | Screenshots | drop files in `public/shots/<project>/` and add them to that project's `shots` array |
-| The assistant | `src/app/api/ask/route.ts` (today: `src/lib/fake-ai.ts`) |
+| The portfolio guide | `src/lib/ask.ts` and `src/lib/fake-ai.ts` |
+| GitHub Pages export and old URL redirects | `next.config.ts`, `scripts/prepare-pages.mjs` |
+| Deployment | `../.github/workflows/pages.yml`, publishes only `out/` |
 | Colours, glass recipe, wallpaper | `src/app/globals.css` (tokens at the top) |
 | App icons | `src/components/ui/MacIcon.tsx` (drawn in SVG; the dock bin is `public/brand/bin*.png`, set in `PROFILE.icons`) |
 
-## Making the assistant real
+## Static hosting and the portfolio guide
 
-The UI already speaks the final contract — `POST /api/ask {question, history, page}`
-→ `{answer, demo?}`; reply `503` when the model is down and the UI shows its offline
-message. Replace the `fakeAnswer()` call in `route.ts` with your LLM request and drop
-the `demo` flag.
+`next.config.ts` uses `output: "export"` and trailing slashes so nested project URLs have their own `index.html` files on GitHub Pages. The postbuild step adds the custom domain, `.nojekyll`, old download paths and static redirects from the previous site's URLs. Fonts are bundled locally, so the build does not fetch Google Fonts.
+
+The portfolio guide uses `fakeAnswer()` in the browser and identifies its answers as information published in the portfolio. There is no `/api/ask` route or server requirement. A future LLM integration would need an external backend; credentials must never be placed in the static export.
+
+GitHub Pages uses the **GitHub Actions** publishing source. The workflow builds pull requests for validation and deploys pushes to `main` to **awsdang.com**. The repository-root HTML is legacy source and is not published.
 
 ## Messages and bug reports
 
