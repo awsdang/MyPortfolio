@@ -1,3 +1,5 @@
+import { fakeAnswer } from "./fake-ai";
+
 export type Msg = { role: "user" | "assistant"; content: string };
 
 export class AskOffline extends Error {}
@@ -13,5 +15,3 @@ export async function ask(
 ): Promise<{ answer: string; demo: boolean }> {
   return { answer: fakeAnswer(question.slice(0, 500), page), demo: true };
 }
-import { fakeAnswer } from "./fake-ai";
-

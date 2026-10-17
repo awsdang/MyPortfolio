@@ -49,7 +49,13 @@ for (const path of await files(output)) {
 for (const path of await files(join(site, "src"))) {
   if (!/\.(?:tsx?|json)$/.test(path)) continue;
   const source = await readFile(path, "utf8");
-  for (const match of source.matchAll(/["'`](\/[^"'`\s<>]+\.(?:png|jpe?g|webp|svg|pdf|zip|mjs|woff2?|ttf|mp4|webm))["'`]/g)) await checkUrl(match[1]);
+  for (const match of source.matchAll(/["'`](\/[^"'`\s<>{}]+\.(?:png|jpe?g|webp|svg|pdf|zip|mjs|woff2?|ttf|mp4|webm))["'`]/g)) await checkUrl(match[1]);
+  if (path.endsWith("achievements.ts")) {
+    for (const match of source.matchAll(/\bcert\("([^"]+)",/g)) {
+      await checkUrl(`/certs/${match[1]}.webp`);
+      await checkUrl(`/certs/${match[1]}-thumb.webp`);
+    }
+  }
 }
 
 assert.equal(missing.size, 0, `Missing exported files:\n${[...missing].join("\n")}`);
