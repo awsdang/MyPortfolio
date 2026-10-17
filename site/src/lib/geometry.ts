@@ -14,8 +14,16 @@ export function clampRect(r: Rect, vw: number, vh: number): Rect {
   return { x, y, w, h };
 }
 
-export function zoomRect(vw: number, vh: number): Rect {
-  return { x: 10, y: MENUBAR_H + 8, w: vw - 20, h: vh - MENUBAR_H - DOCK_SAFE - 8 };
+/** Full size: every pixel below the menu bar, edge to edge (the dock hides meanwhile). `top` is where the menu bar ends. */
+export function zoomRect(vw: number, vh: number, top: number = MENUBAR_H): Rect {
+  return { x: 0, y: top, w: vw, h: vh - top };
+}
+
+/** Bottom edge of the menu bar on screen; 0 once the page has scrolled it away. */
+export function menuBarBottom(): number {
+  if (typeof document === "undefined") return MENUBAR_H;
+  const r = document.querySelector("[data-menubar]")?.getBoundingClientRect();
+  return r && r.height > 0 ? Math.max(0, Math.round(r.bottom)) : 0;
 }
 
 export function halfRect(side: "left" | "right", vw: number, vh: number): Rect {

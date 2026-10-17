@@ -8,7 +8,6 @@ import { useOS } from "./OSProvider";
 import { PROFILE } from "@/data/profile";
 import { cn } from "@/lib/cn";
 import { BananaMark } from "@/components/ui/Banana";
-import { CV_URL } from "@/data/fs";
 
 type Item =
   | { label: string; run?: () => void; href?: string; disabled?: boolean; checked?: boolean; shortcut?: string }
@@ -62,7 +61,7 @@ export function MenuBar() {
       await navigator.clipboard.writeText(text);
       os.notify({ title, body: text });
     } catch {
-      os.notify({ title: "Couldn't reach the clipboard", body: text });
+      os.notify({ title: "Couldn't copy to the clipboard", body: text });
     }
   };
   const folder = (id: string) => os.open("finder", { rootId: id, nodeId: id });
@@ -73,13 +72,13 @@ export function MenuBar() {
       label: "System menu",
       title: <BananaMark size={19} className="-my-1" />,
       items: [
-        { label: "About This Portfolio", run: () => os.open("sysinfo") },
+        { label: "About this portfolio", run: () => os.open("sysinfo") },
         { sep: true },
-        { label: "Light Appearance", checked: os.theme === "light", run: () => os.theme !== "light" && os.toggleTheme() },
-        { label: "Dark Appearance", checked: os.theme === "dark", run: () => os.theme !== "dark" && os.toggleTheme() },
+        { label: "Light appearance", checked: os.theme === "light", run: () => os.theme !== "light" && os.toggleTheme() },
+        { label: "Dark appearance", checked: os.theme === "dark", run: () => os.theme !== "dark" && os.toggleTheme() },
         { sep: true },
-        { label: "Tidy Up Desktop", run: () => (os.resetDesktop(), os.notify({ title: "Desktop tidied", body: "Every widget is back where it started." })) },
-        { label: "Show Desktop", disabled: !os.wins.some((w) => !w.minimized), run: os.minimizeAll },
+        { label: "Tidy up desktop", run: () => (os.resetDesktop(), os.notify({ title: "Desktop tidied", body: "Desktop items are back in their original places." })) },
+        { label: "Show desktop", disabled: !os.wins.some((w) => !w.minimized), run: os.minimizeAll },
       ],
     },
     {
@@ -90,11 +89,11 @@ export function MenuBar() {
       items: [
         { label: `About ${PROFILE.short}`, run: () => os.open("about") },
         { sep: true },
-        { label: `Ask Claude about ${PROFILE.short}…`, href: `https://claude.ai/new?q=${q}` },
-        { label: `Ask ChatGPT about ${PROFILE.short}…`, href: `https://chatgpt.com/?q=${q}` },
+        { label: `Ask Claude about ${PROFILE.short}`, href: `https://claude.ai/new?q=${q}` },
+        { label: `Ask ChatGPT about ${PROFILE.short}`, href: `https://chatgpt.com/?q=${q}` },
         { sep: true },
-        { label: "Book an Interview…", run: () => os.open("booking") },
-        { label: `Write to ${PROFILE.short}…`, run: () => os.open("contact") },
+        { label: "Schedule a conversation", run: () => os.open("booking") },
+        { label: `Write to ${PROFILE.short}`, run: () => os.open("contact") },
       ],
     },
     {
@@ -102,17 +101,17 @@ export function MenuBar() {
       label: "File",
       title: "File",
       items: [
-        { label: "New Message", run: () => os.open("contact") },
-        { label: "New Terminal Window", run: () => os.open("terminal") },
-        { label: "Open…", shortcut: "⌘K", run: () => os.setSpotlight(true) },
+        { label: "Write to Aws", run: () => os.open("contact") },
+        { label: "Open terminal", run: () => os.open("terminal") },
+        { label: "Search portfolio", shortcut: "⌘K", run: () => os.setSpotlight(true) },
         { sep: true },
-        { header: "Recent" },
+        { header: "Projects" },
         { label: "Qi", run: () => os.open("finder", { rootId: "products", nodeId: "qi-card" }) },
         { label: "Cardy", run: () => os.open("finder", { rootId: "products", nodeId: "cardyiq" }) },
         { label: "NotifyX", run: () => os.open("finder", { rootId: "products", nodeId: "notifyx" }) },
         { sep: true },
-        { label: "Open CV (PDF)…", href: CV_URL },
-        { label: "Close Window", shortcut: "esc", disabled: !focused, run: () => focused && os.close(focused.id) },
+        { label: "View my CV", run: () => os.open("cv") },
+        { label: "Close window", shortcut: "esc", disabled: !focused, run: () => focused && os.close(focused.id) },
       ],
     },
     {
@@ -120,14 +119,14 @@ export function MenuBar() {
       label: "Edit",
       title: "Edit",
       items: [
-        { label: "Undo Last Bug", run: () => os.notify({ title: "Nothing to undo", body: "That one already shipped as a fix — with a test." }) },
+        { label: "Undo", run: () => os.notify({ title: "Nothing to undo", body: "There's nothing to undo here." }) },
         { label: "Redo", disabled: true },
         { sep: true },
-        { label: "Copy Email Address", run: () => copy(PROFILE.email, "Email copied") },
-        { label: "Copy Portfolio Link", run: () => copy(window.location.origin, "Link copied") },
-        { label: "Paste Your Idea…", run: () => os.open("contact") },
+        { label: "Copy email address", run: () => copy(PROFILE.email, "Email copied") },
+        { label: "Copy portfolio link", run: () => copy(window.location.origin, "Link copied") },
+        { label: "Write to Aws", run: () => os.open("contact") },
         { sep: true },
-        { label: "Find…", shortcut: "⌘K", run: () => os.setSpotlight(true) },
+        { label: "Search portfolio", shortcut: "⌘K", run: () => os.setSpotlight(true) },
       ],
     },
     {
@@ -135,11 +134,11 @@ export function MenuBar() {
       label: "View",
       title: "View",
       items: [
-        { label: fullscreen ? "Exit Full Screen" : "Enter Full Screen", run: () => (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.()) },
-        { label: "Zoom Window", disabled: !focused, run: () => focused && os.toggleZoom(focused.id) },
-        { label: "Show Desktop", disabled: !os.wins.some((w) => !w.minimized), run: os.minimizeAll },
+        { label: fullscreen ? "Exit full screen" : "Enter full screen", run: () => (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.()) },
+        { label: focused?.zoomed ? "Restore window size" : "Expand window", disabled: !focused, run: () => focused && os.toggleZoom(focused.id) },
+        { label: "Show desktop", disabled: !os.wins.some((w) => !w.minimized), run: os.minimizeAll },
         { sep: true },
-        { header: "Now Playing" },
+        { header: "Now playing" },
         {
           label: playing ? `Pause “${PROFILE.music.title}”` : `Play “${PROFILE.music.title}”`,
           run: () => {
@@ -157,16 +156,16 @@ export function MenuBar() {
       title: "Go",
       items: [
         { label: "Desktop", run: () => (path === "/" ? window.scrollTo({ top: 0, behavior: "smooth" }) : router.push("/")) },
-        { label: "Explorer", run: () => os.open("finder", { rootId: "root", nodeId: "root" }) },
+        { label: "Explore my work", run: () => os.open("finder", { rootId: "root", nodeId: "root" }) },
         { sep: true },
         { label: "My work", run: () => folder("products") },
-        { label: "AI Skills", run: () => folder("ai-skills") },
+        { label: "AI skills", run: () => folder("ai-skills") },
         { label: "Contact", run: () => folder("contact") },
         { label: "Bin", run: () => folder("bin") },
         { sep: true },
-        { label: "Achievements", run: () => go("achievements") },
-        { label: "About", run: () => go("about") },
-        { label: "Say Hello", run: () => go("contact") },
+        { label: "Achievements", run: () => os.open("achievements") },
+        { label: "About me", run: () => os.open("about") },
+        { label: "Get in touch", run: () => go("contact") },
       ],
     },
     {
@@ -175,9 +174,9 @@ export function MenuBar() {
       title: "Window",
       items: [
         { label: "Minimize", disabled: !focused, run: () => focused && os.minimize(focused.id) },
-        { label: "Zoom", disabled: !focused, run: () => focused && os.toggleZoom(focused.id) },
-        { label: "Bring All to Front", disabled: !os.wins.some((w) => w.minimized), run: os.restoreAll },
-        { label: "Close All", disabled: os.wins.length === 0, run: os.closeAll },
+        { label: focused?.zoomed ? "Restore window size" : "Expand window", disabled: !focused, run: () => focused && os.toggleZoom(focused.id) },
+        { label: "Restore all windows", disabled: !os.wins.some((w) => w.minimized), run: os.restoreAll },
+        { label: "Close all windows", disabled: os.wins.length === 0, run: os.closeAll },
         { sep: true },
         ...(os.wins.length
           ? os.wins.map<Item>((w) => ({
@@ -185,7 +184,7 @@ export function MenuBar() {
               checked: w.id === os.focusedId,
               run: () => (w.minimized ? os.restore(w.id) : os.focus(w.id)),
             }))
-          : [{ label: "No Windows Open", disabled: true } as Item]),
+          : [{ label: "No windows open", disabled: true } as Item]),
       ],
     },
     {
@@ -193,20 +192,20 @@ export function MenuBar() {
       label: "Help",
       title: "Help",
       items: [
-        { label: "Search Portfolio…", shortcut: "⌘K", run: () => os.setSpotlight(true) },
+        { label: "Search portfolio", shortcut: "⌘K", run: () => os.setSpotlight(true) },
         {
-          label: "Keyboard Shortcuts",
+          label: "Keyboard shortcuts",
           run: () =>
             os.notify({
               title: "Shortcuts",
-              body: "⌘K search · Esc closes a window · double-click a title bar to zoom · ← → in Quick Look",
+              body: "⌘K opens search. Esc closes most windows. Double-click a title bar to expand it. Use ← and → to browse screenshots.",
             }),
         },
-        { label: "Terminal Commands", run: () => (os.open("terminal"), os.notify({ title: "Terminal", body: "Type help to see what it can do." })) },
+        { label: "Terminal commands", run: () => (os.open("terminal"), os.notify({ title: "Terminal", body: "Type help to see the available commands." })) },
         { sep: true },
-        { label: "Ask aws-ai…", run: () => os.open("terminal") },
-        { label: "Report a Bug…", href: `mailto:${PROFILE.email}?subject=${encodeURIComponent("Found a bug on your portfolio")}` },
-        { label: "View on GitHub", href: PROFILE.links.github },
+        { label: "Ask about my work", run: () => os.open("terminal") },
+        { label: "Report a bug", run: () => os.open("bug") },
+        { label: "GitHub profile", href: PROFILE.links.github },
       ],
     },
   ];
@@ -270,6 +269,7 @@ export function MenuBar() {
 
   return (
     <header
+      data-menubar
       className="absolute inset-x-0 top-0 z-10 flex h-[var(--menubar-h)] items-center justify-between px-2.5 text-[12.5px] font-medium text-[var(--ink)] backdrop-blur-md [background:linear-gradient(180deg,rgba(255,255,255,0.32),rgba(255,255,255,0.12))] dark:[background:none]"
       onKeyDown={onKey}
     >
@@ -304,11 +304,11 @@ export function MenuBar() {
         <button
           onClick={() => os.setSpotlight(true)}
           className="press hidden items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] hover:bg-white/30 sm:flex"
-          aria-label="Search (Command K)"
+          aria-label="Search portfolio (Command or Control K)"
         >
           <Search size={13} /> Search <kbd className="rounded-md bg-white/40 px-1.5 font-sans text-[10.5px] dark:bg-white/10">⌘K</kbd>
         </button>
-        <button onClick={os.toggleTheme} className="press grid h-6 w-6 place-items-center rounded-full hover:bg-white/30" aria-label={os.theme === "dark" ? "Switch to light" : "Switch to dark"}>
+        <button onClick={os.toggleTheme} className="press grid h-6 w-6 place-items-center rounded-full hover:bg-white/30" aria-label={os.theme === "dark" ? "Switch to light appearance" : "Switch to dark appearance"}>
           {os.theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
         </button>
         <span className="min-w-[112px] text-right tabular-nums">{date && `${date}  ${time}`}</span>

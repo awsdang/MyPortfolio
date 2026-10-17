@@ -4,25 +4,18 @@ import { ArrowRight } from "lucide-react";
 import { CHAPTERS } from "@/data/profile";
 import { rootOf } from "@/data/fs";
 import { useOS } from "@/components/os/OSProvider";
-import { Reveal } from "@/components/ui/Reveal";
 
 const TAB = 40;
 
 export function ChapterStack() {
   const os = useOS();
   return (
-    <section id="pillar-stack" aria-label="Chapters" className="scroll-mt-24 px-3 md:px-0">
-      <Reveal className="mx-auto max-w-[1100px] px-3 pb-10 pt-10 md:px-6 md:pb-14">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--ink-3)]">02 / The work</p>
-        <h2 className="mt-2 max-w-[18ch] font-display text-[clamp(36px,6vw,72px)] font-extrabold leading-[0.98] tracking-tight">
-          Made of curiosity. Built for reality.
-        </h2>
-      </Reveal>
+    <section id="pillar-stack" aria-label="How I work" className="chapters scroll-mt-24 pt-10 md:pt-14">
       <div className="relative">
         {CHAPTERS.map((c, i) => (
           <div
             key={c.id}
-            className="relative max-md:mt-3 md:sticky"
+            className="relative max-md:mt-3 max-md:!top-auto md:sticky"
             style={{ top: `calc(6rem + ${i * TAB}px)`, zIndex: 10 + i, height: undefined }}
           >
             <div className="md:h-[calc(100dvh-6rem-var(--stack-offset))]" style={{ ["--stack-offset" as string]: `${i * TAB}px` }}>

@@ -43,8 +43,19 @@
   --surface-2: rgba(120, 120, 128, 0.08);
   --sidebar-sel: rgba(120, 120, 128, 0.14);
 
+  /* Scrollbar: graphite pill, light rim */
+  --sb-thumb: rgba(29, 29, 31, 0.34);
+  --sb-thumb-hi: rgba(29, 29, 31, 0.5);
+  --sb-thumb-on: rgba(29, 29, 31, 0.62);
+  --sb-rim: rgba(255, 255, 255, 0.65);
+  --sb-rail: rgba(255, 255, 255, 0.46);
+
   --menubar-h: 30px;
   --dock-safe: 104px;
+  /* phone dock icon (the dock is about this + 24px tall, 12px off the bottom) */
+  --dock-icon: clamp(48px, 15.4vw, 62px);
+  /* the phone dock's height from the bottom of the screen */
+  --dock-h: calc(var(--dock-icon) + 24px + max(12px, env(safe-area-inset-bottom)));
 
   color-scheme: light;
 }
@@ -70,6 +81,12 @@
   --surface: rgba(30, 30, 32, 0.88);
   --surface-2: rgba(255, 255, 255, 0.06);
   --sidebar-sel: rgba(255, 255, 255, 0.1);
+
+  --sb-thumb: rgba(245, 245, 247, 0.32);
+  --sb-thumb-hi: rgba(245, 245, 247, 0.48);
+  --sb-thumb-on: rgba(245, 245, 247, 0.6);
+  --sb-rim: rgba(0, 0, 0, 0.32);
+  --sb-rail: rgba(66, 66, 72, 0.42);
 
   color-scheme: dark;
 }
@@ -102,6 +119,50 @@ body {
 }
 
 .font-display { font-family: var(--font-display); }
+
+/* ──────────────────────────────────────────────────────────────
+   Scrollbars, macOS 26 style: a slim graphite pill with a lit rim,
+   no track or arrows, hidden until the scroller is hovered or
+   scrolling, a little thicker under the pointer. Scrollbars.tsx
+   sets [data-scrolling]. The page itself hides its native bar and
+   gets the glass overlay below (.page-scroll), since Chrome never
+   restyles the root scrollbar after load. Touch stays native.
+   ────────────────────────────────────────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  html { scrollbar-width: none; }
+  html::-webkit-scrollbar { display: none; }
+
+  @supports selector(::-webkit-scrollbar) {
+    ::-webkit-scrollbar { width: 12px; height: 12px; background: transparent; }
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-corner { background: transparent; }
+    ::-webkit-scrollbar-button { display: none; }
+    /* keep the pill clear of rounded window corners */
+    ::-webkit-scrollbar-track:vertical { margin: 12px 0; }
+    ::-webkit-scrollbar-track:horizontal { margin: 0 12px; }
+
+    ::-webkit-scrollbar-thumb {
+      border: 3px solid transparent;
+      border-radius: 999px;
+      background: transparent padding-box;
+    }
+    :where(body :hover, [data-scrolling])::-webkit-scrollbar-thumb {
+      background-color: var(--sb-thumb);
+      box-shadow: inset 0 0 0 0.5px var(--sb-rim);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      border-width: 2px;
+      background-color: var(--sb-thumb-hi);
+      box-shadow: inset 0 0 0 0.5px var(--sb-rim);
+    }
+    ::-webkit-scrollbar-thumb:active { border-width: 2px; background-color: var(--sb-thumb-on); }
+  }
+
+  /* Firefox: no pseudo-elements, so a thin bar in the same colours */
+  @supports not selector(::-webkit-scrollbar) {
+    :where(body *) { scrollbar-width: thin; scrollbar-color: var(--sb-thumb) transparent; }
+  }
+}
 }
 
 @layer components {
@@ -246,6 +307,28 @@ body {
 }
 :root[data-theme="dark"] .label-chip { background: rgba(50, 50, 54, 0.7); }
 
+/* Chapter stack: five panels overlap, so the full glass shadows pile up
+   into dark bands. Keep the rims, shorten the drop shadows. */
+.chapters .glass-thick {
+  box-shadow:
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.85),
+    inset 0 0 30px rgba(255, 255, 255, 0.12),
+    0 1px 2px rgba(18, 26, 48, 0.04),
+    0 4px 14px rgba(18, 26, 48, 0.05);
+}
+.chapters .glass-thin {
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.55), inset 0 0 14px rgba(255, 255, 255, 0.06), 0 1px 2px rgba(18, 26, 48, 0.04);
+}
+.chapters .glass-tint {
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.7), inset 0 -8px 16px rgba(10, 30, 120, 0.18), 0 2px 8px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+:root[data-theme="dark"] .chapters .glass-thick {
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.16), inset 0 0 26px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.2), 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+:root[data-theme="dark"] .chapters .glass-thin {
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 /* Sticky note (the hero) */
 .sticky-note {
   position: relative;
@@ -277,6 +360,105 @@ body {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 24px 44px -12px rgba(0, 0, 0, 0.7), inset 0 -40px 50px -40px rgba(150, 100, 0, 0.35);
 }
 :root[data-theme="dark"] .sticky-note::before { background: rgba(255, 255, 255, 0.28); }
+
+/* ──────────────────────────────────────────────────────────────
+   Phone home screen (<768px), an iPhone: fixed, paged sideways,
+   never scrolled up or down. Four columns by six rows; a widget
+   covers 2x2 (small), 4x2 (medium) or 4x4 (large) cells less the
+   last row's label, so small ones stay square and every widget's
+   name sits where that label would be.
+   ────────────────────────────────────────────────────────────── */
+.phone-home {
+  --gx: 14px;
+  --gy: 10px;
+  --label: 17px;
+  --w: min(calc(100vw - 44px), 392px);
+  --col: calc((var(--w) - 3 * var(--gx)) / 4);
+  --icon: clamp(46px, calc(var(--col) - 14px), 62px);
+  --row: calc((2 * var(--col) + var(--gx) - var(--gy) + var(--label)) / 2);
+  --widget: calc(2 * var(--row) + var(--gy) - var(--label));
+  --widget-l: calc(4 * var(--row) + 3 * var(--gy) - var(--label));
+  width: var(--w);
+}
+/* room for the dots pill and the dock under the pages */
+.phone-screen { padding-bottom: calc(var(--dock-h) + 46px); }
+.phone-dots { bottom: calc(var(--dock-h) + 10px); }
+.phone-noscroll { scrollbar-width: none; }
+.phone-noscroll::-webkit-scrollbar { display: none; }
+
+/* widgets in light mode are near-white like iOS ones, not tinted by the wallpaper */
+:root:not([data-theme="dark"]) .phone-home .glass {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.7));
+}
+
+/* labels are white on the wallpaper, like iOS */
+.phone-label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #fff;
+  text-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.45);
+}
+
+/* text widgets drop their extras when a small phone makes them short
+   (!important: these sit in the components layer, under the line-clamp utility) */
+@container (max-height: 330px) { .stack-note { -webkit-line-clamp: 1 !important; } }
+@container (max-height: 255px) { .stack-note { display: none !important; } }
+@container (max-height: 148px) { .cq-short, .cq-row:nth-child(3) { display: none !important; } }
+
+/* iPhone folder: frosted tile with the first nine apps in it */
+.ios-folder {
+  border-radius: 24%;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.28));
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.85),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.4),
+    0 1px 1.5px rgba(10, 16, 34, 0.16),
+    0 6px 12px rgba(10, 16, 34, 0.12);
+}
+/* the tiny icons inside get a lighter shadow than full-size ones */
+.ios-folder > span > span { filter: drop-shadow(0 0.5px 0.5px rgba(10, 16, 34, 0.3)) !important; }
+.ios-folder-backdrop {
+  background: rgba(40, 44, 52, 0.22);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  backdrop-filter: blur(28px) saturate(150%);
+}
+.ios-folder-panel {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.18));
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  backdrop-filter: blur(30px) saturate(150%);
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.7), inset 0 0 0 0.5px rgba(255, 255, 255, 0.3), 0 24px 60px rgba(10, 14, 24, 0.22);
+}
+:root[data-theme="dark"] .ios-folder {
+  background: linear-gradient(160deg, rgba(130, 130, 138, 0.4), rgba(80, 80, 86, 0.28));
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.2), 0 1px 1.5px rgba(0, 0, 0, 0.35), 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+:root[data-theme="dark"] .ios-folder-backdrop { background: rgba(10, 10, 12, 0.45); }
+:root[data-theme="dark"] .ios-folder-panel {
+  background: linear-gradient(160deg, rgba(110, 110, 118, 0.42), rgba(60, 60, 66, 0.34));
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.16), 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Phones get a deeper, still neutral wallpaper so the white labels and
+   glass widgets read the way they do on an iPhone. Dark mode is already deep. */
+@media (max-width: 767px) {
+  html:not([data-theme="dark"]) { background: #a3a9b3; }
+  :root:not([data-theme="dark"]) .wallpaper {
+    background:
+      radial-gradient(110% 55% at 0% 0%, rgba(222, 226, 233, 0.85) 0%, rgba(222, 226, 233, 0) 62%),
+      radial-gradient(90% 55% at 100% 100%, rgba(118, 112, 108, 0.5) 0%, rgba(118, 112, 108, 0) 60%),
+      linear-gradient(172deg, #aab0ba 0%, #858c98 46%, #5b616c 100%);
+  }
+  :root:not([data-theme="dark"]) .wallpaper .blob { opacity: 0.18; }
+  :root:not([data-theme="dark"]) .wallpaper .plan { color: rgba(255, 255, 255, 0.9); opacity: 0.12; }
+}
 
 /* Press feedback for glass controls */
 .press { transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1.3), background-color 0.2s; }
@@ -321,7 +503,12 @@ html.refract .lens {
   will-change: transform;
 }
 .win.inactive { box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(18, 26, 48, 0.06), 0 14px 34px rgba(18, 26, 48, 0.14); }
-.win.animating { transition: left 0.34s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.34s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.34s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.34s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.win.animating { transition: left 0.34s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.34s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.34s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.34s cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 0.34s cubic-bezier(0.2, 0.8, 0.2, 1); }
+/* Full size fills the screen under the menu bar, so the corners go square.
+   The page behind stops scrolling until the window leaves full size. */
+.win.zoomed { border-radius: 0; }
+html[data-full-size] { overflow: hidden; }
+html[data-full-size] .page-scroll { display: none; }
 
 .lights { display: flex; gap: 8px; align-items: center; }
 .light {
@@ -345,6 +532,43 @@ html.refract .lens {
 .win.inactive .lights:hover .light.g { background: #28c840; }
 
 .resize { position: absolute; z-index: 20; touch-action: none; }
+
+/* Page scrollbar overlay (Scrollbars.tsx): fades in while the page
+   scrolls or the pointer reaches the right edge; hovering it lifts a
+   glass rail behind the pill. */
+.page-scroll {
+  position: fixed;
+  top: 6px;
+  bottom: 6px;
+  right: 2px;
+  z-index: 350;
+  width: 14px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.page-scroll[data-show] { opacity: 1; pointer-events: auto; transition-duration: 0.12s, 0.2s, 0.2s; }
+.page-scroll[data-hover],
+.page-scroll[data-drag] {
+  background-color: var(--sb-rail);
+  box-shadow: inset 0 0 0 0.5px var(--hairline), 0 1px 2px rgba(18, 26, 48, 0.06);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+.page-scroll-thumb {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  width: 6px;
+  border-radius: 999px;
+  background-color: var(--sb-thumb);
+  box-shadow: inset 0 0 0 0.5px var(--sb-rim);
+  transition: width 0.15s ease, right 0.15s ease, background-color 0.15s ease;
+  will-change: transform;
+}
+.page-scroll[data-hover] .page-scroll-thumb { right: 3px; width: 8px; background-color: var(--sb-thumb-hi); }
+.page-scroll[data-drag] .page-scroll-thumb { right: 3px; width: 8px; background-color: var(--sb-thumb-on); }
 
 .toolbar-btn {
   display: inline-grid;
@@ -374,10 +598,6 @@ html.refract .lens {
 }
 
 
-.scroll-thin { scrollbar-width: thin; scrollbar-color: rgba(120, 124, 140, 0.45) transparent; }
-.scroll-thin::-webkit-scrollbar { width: 10px; height: 10px; }
-.scroll-thin::-webkit-scrollbar-thumb { background: rgba(120, 124, 140, 0.4); border-radius: 999px; border: 3px solid transparent; background-clip: content-box; }
-
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
 .reveal.in { opacity: 1; transform: none; }
@@ -391,6 +611,9 @@ html.refract .lens {
 
 
 @keyframes eq { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
+@keyframes fade-in { from { opacity: 0; } }
+.clock-label { animation: fade-in .45s ease-out; }
+@media (prefers-reduced-motion: reduce) { .clock-label { animation: none; } }
 @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
 @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 .shimmer-text {
@@ -402,9 +625,88 @@ html.refract .lens {
   animation: shimmer 1.8s linear infinite;
 }
 
+/* Achievements: certificates drawn as sheets of paper */
+.cert-paper {
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(18, 26, 48, 0.08), 0 18px 36px -14px rgba(18, 26, 48, 0.42);
+}
+:root[data-theme="dark"] .cert-paper {
+  filter: brightness(0.9);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 2px 4px rgba(0, 0, 0, 0.4), 0 20px 40px -14px rgba(0, 0, 0, 0.75);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
 
+}
+
+/* CV window: pdf.js text layer, trimmed from pdfjs-dist/web/pdf_viewer.css (Apache-2.0).
+   Transparent text laid over each drawn page so the CV can be selected and searched. */
+.pdf-page {
+  --scale-round-x: 1px;
+  --scale-round-y: 1px;
+}
+.textLayer {
+  color-scheme: only light;
+  position: absolute;
+  text-align: initial;
+  inset: 0;
+  overflow: clip;
+  opacity: 1;
+  line-height: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  transform-origin: 0 0;
+  caret-color: CanvasText;
+  z-index: 0;
+  --min-font-size: 1;
+  --text-scale-factor: calc(var(--total-scale-factor) * var(--min-font-size));
+  --min-font-size-inv: calc(1 / var(--min-font-size));
+}
+.textLayer :is(span, br) {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+  user-select: text;
+}
+.textLayer > :not(.markedContent),
+.textLayer .markedContent span:not(.markedContent) {
+  z-index: 1;
+  --font-height: 0;
+  font-size: calc(var(--text-scale-factor) * var(--font-height));
+  --scale-x: 1;
+  --rotate: 0deg;
+  transform: rotate(var(--rotate)) scaleX(var(--scale-x)) scale(var(--min-font-size-inv));
+}
+.textLayer .markedContent {
+  display: contents;
+}
+.textLayer span[role="img"] {
+  user-select: none;
+  cursor: default;
+}
+.textLayer ::selection {
+  background: color-mix(in srgb, var(--accent), transparent 70%);
+  color: transparent;
+}
+.textLayer br::selection {
+  background: transparent;
+}
+.textLayer .endOfContent {
+  display: block;
+  position: absolute;
+  inset: 100% 0 0;
+  z-index: 0;
+  cursor: default;
+  user-select: none;
+}
+.textLayer.selecting .endOfContent {
+  top: 0;
 }

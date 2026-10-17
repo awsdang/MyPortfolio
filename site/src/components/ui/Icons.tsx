@@ -15,7 +15,6 @@ import {
   FileText,
   Fingerprint,
   Folder,
-  Fuel,
   Globe,
   Hammer,
   Home,
@@ -55,7 +54,6 @@ export const GLYPHS: Record<string, LucideIcon> = {
   box: Box,
   send: Send,
   card: CreditCard,
-  fuel: Fuel,
   shield: ShieldCheck,
   bank: Landmark,
   wallet: Wallet,
@@ -208,6 +206,19 @@ export function FileIcon({ type = "pdf", size = 56 }: { type?: "pdf" | "link" | 
         <rect x="16" y="42" width="28" height="4" rx="2" fill="rgba(20,22,28,.1)" />
       </svg>
     </div>
+  );
+}
+
+/** A node's app icon, filling its box (the phone home screen and its folders). */
+export function FillNodeIcon({ node }: { node: FsNode }) {
+  if (node.icon) return <MacIcon name={node.icon} />;
+  if (node.appIcon) return <MacIcon name="blank" image={node.appIcon} />;
+  if (node.logo) return <MacIcon name="blank" logo={node.logo} />;
+  const Glyph = GLYPHS[node.glyph ?? "box"] ?? Box;
+  return (
+    <MacIcon name="tile">
+      <Glyph size="46%" strokeWidth={2} className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" />
+    </MacIcon>
   );
 }
 

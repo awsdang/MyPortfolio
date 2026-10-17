@@ -1,0 +1,4 @@
+interface:
+  display_name: "Copywriting in Aws’s Voice"
+  short_description: "AIDA, PAS and copywriting prompts in Aws’s voice"
+  default_prompt: "Use $aws-copywriting to write portfolio copy in my voice and choose a suitable framework."

@@ -10,12 +10,12 @@ const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat", weight: [
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Aws Abdulfattah — Engineer. Builder.",
+  title: "Aws Abdulfattah, Software Engineer",
   description:
-    "Software Engineer at Qi. I build things that work, manage engineers, and turn messy problems into products people actually use.",
+    "I'm Aws, a Software Engineer at Qi and Founding Engineer and Technical Lead at Cardy. Read how I build products, lead a technical team and put my background in architecture to work.",
   openGraph: {
-    title: "Aws Abdulfattah — Engineer. Builder.",
-    description: "Software Engineer at Qi. I build things that work.",
+    title: "Aws Abdulfattah, Software Engineer",
+    description: "I'm Aws. I build things that work, manage engineers and turn messy problems into products people actually use.",
     type: "website",
   },
 };

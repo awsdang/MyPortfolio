@@ -53,8 +53,7 @@ export function FinderWindow() {
 
   const open = (n: FsNode) => {
     if (n.kind === "file" && n.file) {
-      if (n.file.href.startsWith("mailto:")) window.location.href = n.file.href;
-      else window.open(n.file.href, "_blank", "noopener,noreferrer");
+      os.openHref(n.file.href);
       return;
     }
     go(n.id);
@@ -88,12 +87,12 @@ export function FinderWindow() {
 
   /* ── sidebar ── */
   const Sidebar = (
-    <aside className="glass glass-thin m-2 mr-0 hidden w-[208px] shrink-0 flex-col rounded-[22px] md:flex" aria-label="Sidebar">
+    <aside className="glass glass-thin m-2 mr-0 hidden w-[208px] shrink-0 flex-col rounded-[22px] md:flex" aria-label="Portfolio folders">
       <DragRegion className="flex h-12 items-center px-4">
         <TrafficLights />
       </DragRegion>
-      <nav className="flex flex-col gap-0.5 overflow-y-auto px-2 pb-3 scroll-thin">
-        <p className="px-3 pb-1 pt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--ink-3)]">Favorites</p>
+      <nav className="flex flex-col gap-0.5 overflow-y-auto px-2 pb-3">
+        <p className="px-3 pb-1 pt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--ink-3)]">Explore</p>
         {[ROOT, ...DESKTOP.filter((d) => d.kind === "folder"), BIN].map((n) => {
           const Glyph = GLYPHS[n.glyph ?? "folder"] ?? GLYPHS.folder;
           const active = n.id === "root" ? current === "root" : activeRoot === n.id && node.id !== "root";
@@ -141,7 +140,7 @@ export function FinderWindow() {
         {query ? `Search “${query}”` : node.id === "root" ? "Desktop" : node.name}
       </h2>
       {!showPage && node.kind !== "app" && !query && (
-        <div className="glass glass-thin hidden rounded-full p-0.5 sm:flex" data-nodrag role="group" aria-label="View">
+        <div className="glass glass-thin hidden rounded-full p-0.5 sm:flex" data-nodrag role="group" aria-label="Folder view">
           <button className={cn("toolbar-btn press", view === "icons" && "bg-[var(--sidebar-sel)] text-[var(--accent)]")} onClick={() => setView("icons")} aria-label="Icon view" aria-pressed={view === "icons"}>
             <LayoutGrid size={16} />
           </button>
@@ -155,8 +154,8 @@ export function FinderWindow() {
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search"
-          aria-label="Search projects"
+          placeholder="Search portfolio"
+          aria-label="Search the portfolio"
           className="w-full min-w-0 bg-transparent text-[13px] outline-none placeholder:text-[var(--ink-3)]"
         />
         {query && (
@@ -183,7 +182,7 @@ export function FinderWindow() {
 
   const Listing = (list: FsNode[]) =>
     list.length === 0 ? (
-      <div className="grid h-full place-items-center p-10 text-center text-[14px] text-[var(--ink-3)]">Nothing here yet.</div>
+      <div className="grid h-full place-items-center p-10 text-center text-[14px] text-[var(--ink-3)]">{query ? "No matches. Try a project name or another keyword." : "This folder is empty."}</div>
     ) : view === "icons" || query ? (
       query ? (
         <ul className="flex flex-col p-3" onKeyDown={arrow}>
@@ -239,13 +238,13 @@ export function FinderWindow() {
       {Sidebar}
       <div className="flex min-w-0 flex-1 flex-col">
         {Toolbar}
-        <div ref={scroller} className="scroll-thin mx-2 mb-2 min-h-0 flex-1 overflow-y-auto rounded-[22px] bg-[var(--surface)] md:mx-2.5">
+        <div ref={scroller} className="mx-2 mb-2 min-h-0 flex-1 overflow-y-auto rounded-[22px] bg-[var(--surface)] md:mx-2.5">
           {query ? (
             Listing(results)
           ) : node.kind === "app" ? (
             node.app === "queue-lab" ? <QueueLab /> : node.app === "skill" ? <SkillPage id={node.ref} /> : null
           ) : showPage && content ? (
-            <ProjectPage node={node} content={content} onOpenChild={open} />
+            <ProjectPage node={node} content={content} onOpenChild={open} onOpenFullPage={() => os.close(win.id)} />
           ) : (
             <>
               {node.intro && (
@@ -259,7 +258,7 @@ export function FinderWindow() {
           )}
         </div>
         {/* path bar */}
-        <nav aria-label="Path" className="hidden h-8 shrink-0 items-center gap-1 overflow-x-auto px-5 text-[11.5px] text-[var(--ink-3)] md:flex scroll-thin">
+        <nav aria-label="Folder path" className="hidden h-8 shrink-0 items-center gap-1 overflow-x-auto px-5 text-[11.5px] text-[var(--ink-3)] md:flex">
           {crumbs.map((c, i) => (
             <span key={c.id} className="flex items-center gap-1 whitespace-nowrap">
               {i > 0 && <ChevronRight size={11} />}

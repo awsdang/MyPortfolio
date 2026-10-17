@@ -31,6 +31,13 @@ The UI already speaks the final contract — `POST /api/ask {question, history, 
 message. Replace the `fakeAnswer()` call in `route.ts` with your LLM request and drop
 the `demo` flag.
 
+## Messages and bug reports
+
+Write to Aws and Report a bug post straight from the browser to two Google Forms
+("awsdang.com: Write to Aws" and "awsdang.com: Bug reports"); read them in each form's
+Responses tab. Form and field ids live in `src/lib/forms.ts`. A bug report's Device answer
+carries what the window lists under "Sent with it", plus the user agent.
+
 ## Behaviours worth knowing
 
 - Windows: drag by toolbar, 8 resize handles, green = fit to screen (also double-click

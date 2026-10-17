@@ -17,7 +17,7 @@ export function SkillPage({ id }: { id?: string }) {
         <div className="min-w-0">
           <div className="mb-1.5 flex flex-wrap items-center gap-2 text-[11.5px] font-semibold uppercase tracking-[0.14em] text-[var(--ink-3)]">
             <span>{k.category}</span>
-            {k.mine && <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 normal-case tracking-normal text-emerald-700 dark:text-emerald-300">Made by me</span>}
+            <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 normal-case tracking-normal text-emerald-700 dark:text-emerald-300">{k.mine ? "Written by me" : "By other authors"}</span>
           </div>
           <h1 className="font-display text-[32px] font-bold leading-[1.05] tracking-tight md:text-[40px]">{k.name}</h1>
         </div>
@@ -37,23 +37,22 @@ export function SkillPage({ id }: { id?: string }) {
         <a href={k.file} download className="glass-tint press inline-flex items-center gap-2 rounded-full px-5 py-3 text-[14px] font-semibold">
           <Download size={16} /> Download ZIP
         </a>
-        <span className="text-[12.5px] text-[var(--ink-3)]">{k.size} · plain ZIP, no sign-up</span>
+        <span className="text-[12.5px] text-[var(--ink-3)]">No account needed</span>
       </div>
 
       {k.extra && (
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-[20px] bg-[var(--surface-2)] p-4">
           <p className="max-w-[46ch] text-[14px] leading-relaxed text-[var(--ink-2)]">{k.extra}</p>
           <button onClick={() => os.open("contact")} className="glass glass-thin press inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-semibold">
-            <Mail size={14} /> Ask me about it
+            <Mail size={14} /> Ask about the full edition
           </button>
         </div>
       )}
 
       <section className="mt-8 rounded-[20px] border border-[var(--hairline)] p-5">
-        <h2 className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--ink-3)]">How to use it</h2>
+        <h2 className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--ink-3)]">Try it in your project</h2>
         <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--ink-2)]">
-          Unzip it into your agent's skills folder, call it by name and give it a real problem. A skill doesn't replace judgment — it gives the agent a better starting point,
-          and gives you something concrete to review.
+          Download and extract the ZIP into the skills folder your AI tool uses, then mention the skill by name in your task. Read the instructions first so you know what context you're giving it, and review what it produces for your project.
         </p>
       </section>
     </article>

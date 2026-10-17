@@ -1,6 +1,6 @@
 import { Hero } from "@/components/desktop/Hero";
 import { Dock } from "@/components/os/Dock";
-import { AboutSection } from "@/components/sections/AboutSection";
+import { AboutShort } from "@/components/sections/AboutShort";
 import { Achievements } from "@/components/sections/Achievements";
 import { ChapterStack } from "@/components/sections/ChapterStack";
 import { Footer } from "@/components/sections/Footer";
@@ -10,10 +10,13 @@ export default function Home() {
     <main>
       <Hero />
       <Dock mode="hero" />
-      <Achievements />
-      <ChapterStack />
-      <AboutSection />
-      <Footer />
+      {/* phones never scroll: the home screen pages carry these as widgets */}
+      <div className="max-md:hidden">
+        <Achievements />
+        <ChapterStack />
+        <AboutShort />
+        <Footer />
+      </div>
     </main>
   );
 }

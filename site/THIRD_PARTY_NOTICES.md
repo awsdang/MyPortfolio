@@ -4,6 +4,7 @@
 - **Instagram, X and GitHub marks** — paths from Simple Icons, CC0 1.0. https://simpleicons.org
   Brand marks are trademarks of their owners and are used only to link to those services.
 - **Bin icons** `public/brand/bin.png`, `public/brand/bin-full.png` — cut from a screenshot of the macOS Trash icon that Aws supplied. The artwork is Apple's.
+- **PDF text layer styles** in `src/app/globals.css` (`.textLayer`), trimmed from pdf.js `web/pdf_viewer.css`, Apache License 2.0. https://github.com/mozilla/pdf.js
 
 MIT License (applies to the MIT-licensed items above):
 

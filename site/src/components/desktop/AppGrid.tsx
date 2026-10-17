@@ -5,7 +5,6 @@ import { createPortal } from "react-dom";
 import { useOS } from "@/components/os/OSProvider";
 import { MacIcon, type MacIconName } from "@/components/ui/MacIcon";
 import { PROFILE } from "@/data/profile";
-import { CV_URL } from "@/data/fs";
 import { cn } from "@/lib/cn";
 
 type Tile = { id: string; label: string; icon: MacIconName; href?: string; act?: () => void };
@@ -24,7 +23,7 @@ export function AppGrid({ className, vertical }: { className?: string; vertical?
   const hide = () => setTip(null);
   const tiles: Tile[] = [
     { id: "term", label: "Terminal", act: () => os.open("terminal"), icon: "terminal" },
-    { id: "cv", label: "CV", href: CV_URL, icon: "docs" },
+    { id: "cv", label: "View my CV", act: () => os.open("cv"), icon: "docs" },
     { id: "skills", label: "AI skills", act: () => os.open("finder", { rootId: "ai-skills", nodeId: "ai-skills" }), icon: "code" },
     { id: "claude", label: "Ask Claude about me", href: `https://claude.ai/new?q=${q}`, icon: "claude" },
     { id: "gpt", label: "Ask ChatGPT about me", href: `https://chatgpt.com/?q=${q}`, icon: "openai" },

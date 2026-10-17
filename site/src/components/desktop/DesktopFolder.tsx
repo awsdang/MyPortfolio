@@ -12,13 +12,13 @@ export function DesktopFolder({ node, className, size = 68 }: { node: FsNode; cl
   const isOpen = isFolder && os.wins.some((w) => w.id === `finder:${node.id}`);
   const activate = () => {
     if (isFolder) return os.open("finder", { rootId: node.id, nodeId: node.id });
-    if (node.file) window.open(node.file.href, "_blank", "noopener,noreferrer");
+    if (node.file) os.openHref(node.file.href);
   };
   return (
     <button
       onClick={activate}
       className={cn("group flex w-[104px] flex-col items-center gap-1.5 rounded-2xl p-1 outline-offset-2", className)}
-      aria-label={isFolder ? `Open ${node.name}` : node.summary ? `${node.name} — ${node.summary}` : node.name}
+      aria-label={isFolder ? `Open ${node.name}` : node.summary ? `${node.name}, ${node.summary}` : node.name}
       title={!isFolder ? node.summary : undefined}
       draggable={false}
     >

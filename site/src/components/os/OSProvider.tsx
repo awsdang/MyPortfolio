@@ -13,10 +13,11 @@ import {
   type ReactNode,
   type RefObject,
 } from "react";
-import { clampRect, zoomRect, type Rect } from "@/lib/geometry";
+import { clampRect, menuBarBottom, zoomRect, type Rect } from "@/lib/geometry";
 import type { Shot } from "@/data/types";
+import { CV_URL } from "@/data/fs";
 
-export type WinKind = "finder" | "terminal" | "about" | "contact" | "booking" | "sysinfo";
+export type WinKind = "finder" | "terminal" | "about" | "achievements" | "contact" | "bug" | "booking" | "sysinfo" | "photos" | "cv";
 
 export interface WinState extends Rect {
   id: string;
@@ -26,7 +27,7 @@ export interface WinState extends Rect {
   zoomed: boolean;
   minimized: boolean;
   restore?: Rect;
-  /** Finder: node to show. Bumping navTick re-navigates an open window. */
+  /** Finder: node to show. Achievements: item or section to jump to. Bumping navTick re-navigates an open window. */
   nodeId?: string;
   navTick: number;
   animating: boolean;
@@ -107,7 +108,7 @@ function reducer(s: State, a: Action): State {
       return {
         ...s,
         wins: s.wins.map((w) =>
-          w.zoomed ? { ...w, ...zoomRect(a.vw, a.vh) } : { ...w, ...clampRect(w, a.vw, a.vh) },
+          w.zoomed ? { ...w, ...zoomRect(a.vw, a.vh, w.y) } : { ...w, ...clampRect(w, a.vw, a.vh) },
         ),
       };
   }
@@ -115,12 +116,19 @@ function reducer(s: State, a: Action): State {
 
 const DEFAULT_SIZE: Record<WinKind, { w: number; h: number; title: string }> = {
   finder: { w: 920, h: 600, title: "Finder" },
-  terminal: { w: 700, h: 470, title: "aws-ai — zsh" },
-  about: { w: 780, h: 540, title: "about-me.txt" },
-  contact: { w: 620, h: 580, title: "New Message" },
-  booking: { w: 680, h: 720, title: "Book an interview — Aws Abdulfattah" },
-  sysinfo: { w: 420, h: 560, title: "About This Portfolio" },
+  terminal: { w: 700, h: 470, title: "aws-ai, zsh" },
+  about: { w: 1000, h: 680, title: "About me" },
+  achievements: { w: 1080, h: 720, title: "Achievements" },
+  contact: { w: 620, h: 580, title: "Write to Aws" },
+  bug: { w: 580, h: 560, title: "Report a bug" },
+  booking: { w: 680, h: 720, title: "Schedule a conversation" },
+  sysinfo: { w: 420, h: 560, title: "About this portfolio" },
+  photos: { w: 640, h: 480, title: "Photos" },
+  cv: { w: 780, h: 980, title: "Aws_Abdulfattah_CV.pdf" },
 };
+
+/** Shared links that open a window: old /#about links, and /#cv */
+const HASH_WINDOWS: Record<string, WinKind> = { "#about": "about", "#cv": "cv" };
 
 export interface OpenOpts {
   nodeId?: string;
@@ -139,9 +147,13 @@ interface OSContext {
   wins: WinState[];
   focusedId: string | null;
   mobile: boolean;
+  /** a full-size window is on screen: the dock hides and the page stops scrolling */
+  fullSize: boolean;
   vw: number;
   vh: number;
   open: (kind: WinKind, opts?: OpenOpts) => string;
+  /** Opens a file link: the CV in its own window, mailto in the mail app, anything else in a new tab. */
+  openHref: (href: string) => void;
   close: (id: string) => void;
   focus: (id: string) => void;
   minimize: (id: string) => void;
@@ -247,7 +259,7 @@ export function OSProvider({ children }: { children: ReactNode }) {
       if (existing) {
         if (existing.minimized) dispatch({ type: "restore", id });
         else dispatch({ type: "focus", id });
-        if (kind === "finder" && opts.nodeId) dispatch({ type: "nav", id, nodeId: opts.nodeId });
+        if ((kind === "finder" || kind === "achievements") && opts.nodeId) dispatch({ type: "nav", id, nodeId: opts.nodeId });
         return id;
       }
       const d = DEFAULT_SIZE[kind];
@@ -284,6 +296,30 @@ export function OSProvider({ children }: { children: ReactNode }) {
     [vw, vh],
   );
 
+  const openHref = useCallback(
+    (href: string) => {
+      if (href === CV_URL) open("cv");
+      else if (href.startsWith("mailto:")) window.location.href = href;
+      else window.open(href, "_blank", "noopener,noreferrer");
+    },
+    [open],
+  );
+
+  // About is a window, not a page section: old /#about links open it, and /#cv opens the CV
+  const openRef = useRef(open);
+  openRef.current = open;
+  useEffect(() => {
+    const onHash = () => {
+      const kind = HASH_WINDOWS[window.location.hash];
+      if (!kind) return;
+      openRef.current(kind);
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    };
+    onHash();
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
   const close = useCallback((id: string) => {
     dispatch({ type: "close", id });
     const el = lastFocus.current;
@@ -306,7 +342,7 @@ export function OSProvider({ children }: { children: ReactNode }) {
         dispatch({
           type: "rect",
           id,
-          rect: zoomRect(vw, vh),
+          rect: zoomRect(vw, vh, menuBarBottom()),
           zoomed: true,
           restore: { x: w.x, y: w.y, w: w.w, h: w.h },
           animate: true,
@@ -324,6 +360,11 @@ export function OSProvider({ children }: { children: ReactNode }) {
     [],
   );
   const closeQuickLook = useCallback(() => setQuickLook(null), []);
+
+  const fullSize = !mobile && state.wins.some((w) => w.zoomed && !w.minimized);
+  useEffect(() => {
+    document.documentElement.toggleAttribute("data-full-size", fullSize);
+  }, [fullSize]);
 
   const focusedId = useMemo(() => {
     const vis = state.wins.filter((w) => !w.minimized);
@@ -353,9 +394,11 @@ export function OSProvider({ children }: { children: ReactNode }) {
       wins: state.wins,
       focusedId,
       mobile,
+      fullSize,
       vw,
       vh,
       open,
+      openHref,
       close,
       focus,
       minimize,
@@ -381,7 +424,7 @@ export function OSProvider({ children }: { children: ReactNode }) {
       toast,
       notify,
     }),
-    [state.wins, focusedId, mobile, vw, vh, open, close, focus, minimize, restore, toggleZoom, setRect, animEnd, setTitle, quickLook, openQuickLook, stepQuickLook, closeQuickLook, theme, toggleTheme, spotlight, minimizeAll, restoreAll, closeAll, desktopKey, resetDesktop, toast, notify],
+    [state.wins, focusedId, mobile, fullSize, vw, vh, open, openHref, close, focus, minimize, restore, toggleZoom, setRect, animEnd, setTitle, quickLook, openQuickLook, stepQuickLook, closeQuickLook, theme, toggleTheme, spotlight, minimizeAll, restoreAll, closeAll, desktopKey, resetDesktop, toast, notify],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

@@ -1,11 +1,11 @@
 "use client";
 
 import { Board, Draggable } from "./Board";
-import { AppGrid } from "./AppGrid";
 import { DesktopFolder } from "./DesktopFolder";
 import { StickyNote } from "./StickyNote";
 import { CalendarWidget, ClockWidget, MusicWidget, PhotoWidget, PrinciplesWidget } from "./Widgets";
 import { MenuBar } from "@/components/os/MenuBar";
+import { PhoneHome } from "@/components/phone/PhoneHome";
 import { useOS } from "@/components/os/OSProvider";
 import { DESKTOP } from "@/data/fs";
 
@@ -43,7 +43,7 @@ export function Hero() {
       <div className="hidden md:block">
         <MenuBar />
         <Board key={os.desktopKey}>
-          <Draggable id="photo" style={{ left: 24, top: 82 }} label="Photo of Aws">
+          <Draggable id="photo" style={{ left: 24, top: 82 }} label="My photo">
             <PhotoWidget />
           </Draggable>
           <Draggable id="clock" style={{ left: 190, top: 82 }} label="Clock">
@@ -58,12 +58,12 @@ export function Hero() {
             <CalendarWidget />
           </Draggable>
           {L.lg && (
-            <Draggable id="music" style={{ left: 24, top: 414 }} label="Now playing">
+            <Draggable id="music" style={{ left: 24, top: 414 }} label="Music preview">
               <MusicWidget className="!w-[316px]" />
             </Draggable>
           )}
 
-          <Draggable id="note" style={{ left: L.note.left, top: L.note.top, width: L.note.w }} label="Note">
+          <Draggable id="note" style={{ left: L.note.left, top: L.note.top, width: L.note.w }} label="Meet Aws">
             <StickyNote className="-rotate-[1.6deg]" />
           </Draggable>
 
@@ -75,20 +75,9 @@ export function Hero() {
         </Board>
       </div>
 
-      {/* ───── mobile stack (<768px) ───── */}
-      <div className="px-4 pb-6 pt-[max(28px,env(safe-area-inset-top))] md:hidden">
-        <StickyNote compact className="-rotate-1" />
-        <MusicWidget stacked className="mt-6 !w-full" />
-        <div className="mt-3 grid grid-cols-2 gap-3">
-          <CalendarWidget className="!h-[150px] !w-full" />
-          <PhotoWidget className="!h-[150px] !w-full" />
-        </div>
-        <div className="mt-6 grid grid-cols-3 gap-y-3">
-          {DESKTOP.map((f) => (
-            <DesktopFolder key={f.id} node={f} size={58} className="!w-full" />
-          ))}
-        </div>
-        <AppGrid className="mt-4" />
+      {/* ───── phone (<768px): an iPhone home screen ───── */}
+      <div className="md:hidden">
+        <PhoneHome />
       </div>
     </section>
   );

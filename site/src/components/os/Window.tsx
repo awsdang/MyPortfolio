@@ -14,14 +14,18 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { useOS, type WinState } from "./OSProvider";
-import { clampRect, halfRect, zoomRect, MENUBAR_H, MIN_H, MIN_W, type Rect } from "@/lib/geometry";
+import { clampRect, halfRect, menuBarBottom, zoomRect, MENUBAR_H, MIN_H, MIN_W, type Rect } from "@/lib/geometry";
 import { cn } from "@/lib/cn";
 import { FinderWindow } from "./FinderWindow";
 import { TerminalWindow } from "./TerminalWindow";
 import { AboutWindow } from "./AboutWindow";
+import { AchievementsWindow } from "./AchievementsWindow";
 import { ContactWindow } from "./ContactWindow";
+import { BugWindow } from "./BugWindow";
 import { BookingWindow } from "./BookingWindow";
 import { SysInfoWindow } from "./SysInfoWindow";
+import { PhotosWindow } from "./PhotosWindow";
+import { CVWindow } from "./CVWindow";
 
 type WinCtx = {
   win: WinState;
@@ -54,7 +58,7 @@ export function TrafficLights({ className }: { className?: string }) {
       </button>
       <button
         className="light g"
-        aria-label={win.zoomed ? "Exit full size" : "Fit window to screen"}
+        aria-label={win.zoomed ? "Restore window size" : "Expand window"}
         onClick={() => os.toggleZoom(win.id)}
       >
         <svg viewBox="0 0 8 8" fill="currentColor">
@@ -147,10 +151,11 @@ function WindowView({
     if (win.kind !== "terminal") ref.current?.focus({ preventScroll: true });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Aim the minimize animation at the dock tray.
+  // Aim the minimize animation at this window's thumbnail in the dock tray (the tray itself before it has rendered).
   useLayoutEffect(() => {
     if (!win.minimized || os.mobile) return;
-    const t = os.trayRef.current?.getBoundingClientRect();
+    const tray = os.trayRef.current;
+    const t = (tray?.querySelector<HTMLElement>(`[data-win="${CSS.escape(win.id)}"]`) ?? tray)?.getBoundingClientRect();
     if (!t) return;
     setTarget({
       x: t.left + t.width / 2 - (win.x + win.w / 2),
@@ -199,7 +204,7 @@ function WindowView({
         const next = ev.clientY <= MENUBAR_H + 2 ? "t" : ev.clientX <= 4 ? "l" : ev.clientX >= os.vw - 5 ? "r" : null;
         if (next !== snap) {
           snap = next;
-          onSnap(next === "t" ? zoomRect(os.vw, os.vh) : next === "l" ? halfRect("left", os.vw, os.vh) : next === "r" ? halfRect("right", os.vw, os.vh) : null);
+          onSnap(next === "t" ? zoomRect(os.vw, os.vh, menuBarBottom()) : next === "l" ? halfRect("left", os.vw, os.vh) : next === "r" ? halfRect("right", os.vw, os.vh) : null);
         }
       };
       const up = () => {
@@ -275,7 +280,8 @@ function WindowView({
   };
 
   const mobileStyle = os.mobile
-    ? { left: 8, right: 8, top: 46, bottom: 98, width: "auto", height: "auto" }
+    ? // a sheet that stops just above the phone dock (--dock-h)
+      { left: 8, right: 8, top: "max(12px, env(safe-area-inset-top))", bottom: "calc(var(--dock-h) + 8px)", width: "auto", height: "auto" }
     : { left: win.x, top: win.y, width: win.w, height: win.h };
 
   const hiddenOnMobile = os.mobile && !focused;
@@ -290,6 +296,7 @@ function WindowView({
       className={cn(
         "win glass glass-thick fixed flex flex-col outline-none",
         !focused && "inactive",
+        win.zoomed && !os.mobile && "zoomed",
         win.animating && "animating",
       )}
       style={{
@@ -327,9 +334,13 @@ function WindowView({
         {win.kind === "finder" && <FinderWindow />}
         {win.kind === "terminal" && <TerminalWindow />}
         {win.kind === "about" && <AboutWindow />}
+        {win.kind === "achievements" && <AchievementsWindow />}
         {win.kind === "contact" && <ContactWindow />}
+        {win.kind === "bug" && <BugWindow />}
         {win.kind === "booking" && <BookingWindow />}
         {win.kind === "sysinfo" && <SysInfoWindow />}
+        {win.kind === "photos" && <PhotosWindow />}
+        {win.kind === "cv" && <CVWindow />}
         {!os.mobile &&
           DIRS.map((r) => (
             <div key={r.d} className={cn("resize", r.cls)} onPointerDown={startResize(r.d)} aria-hidden />

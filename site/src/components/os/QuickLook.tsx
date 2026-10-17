@@ -5,6 +5,11 @@ import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useOS } from "./OSProvider";
 
+/** Quick Look chrome sits on a dark dim in both themes, so it uses its own
+ *  solid graphite pill with white text instead of the theme's thin glass. */
+const HUD =
+  "bg-[rgba(30,30,32,0.82)] text-white ring-1 ring-inset ring-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.45)] backdrop-blur-xl";
+
 export function QuickLook() {
   const os = useOS();
   const q = os.quickLook;
@@ -41,8 +46,8 @@ export function QuickLook() {
           tabIndex={-1}
           role="dialog"
           aria-modal="true"
-          aria-label={`Quick Look: ${shot.title}`}
-          className="fixed inset-0 z-[400] grid place-items-center bg-black/45 p-4 outline-none backdrop-blur-xl md:p-10"
+          aria-label={`Image preview, ${shot.title}`}
+          className="fixed inset-0 z-[400] grid place-items-center bg-black/75 p-4 outline-none backdrop-blur-xl md:p-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -63,25 +68,25 @@ export function QuickLook() {
               draggable={false}
               className="max-h-[74vh] max-w-[92vw] rounded-[22px] object-contain shadow-[0_40px_120px_rgba(0,0,0,0.5)]"
             />
-            <figcaption className="glass glass-thin max-w-[min(640px,92vw)] rounded-[22px] px-5 py-3 text-center">
-              <p className="text-[14px] font-semibold text-[var(--ink)]">{shot.title}</p>
-              <p className="mt-0.5 text-[12.5px] leading-snug text-[var(--ink-2)]">{shot.caption}</p>
-              {shot.source && <p className="mt-1 text-[11px] text-[var(--ink-3)]">{shot.source}</p>}
+            <figcaption className={`${HUD} max-w-[min(640px,92vw)] rounded-[20px] px-5 py-3 text-center`}>
+              <p className="text-[15px] font-semibold text-white">{shot.title}</p>
+              {shot.caption && <p className="mt-1 text-[13.5px] leading-snug text-white/85">{shot.caption}</p>}
+              {shot.source && <p className="mt-1.5 text-[12px] text-white/60">{shot.source}</p>}
             </figcaption>
           </motion.figure>
 
-          <button className="glass glass-thin press absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full" onClick={(e) => { e.stopPropagation(); os.closeQuickLook(); }} aria-label="Close">
-            <X size={18} />
+          <button className={`${HUD} press absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full transition-colors hover:bg-[rgba(58,58,62,0.9)]`} onClick={(e) => { e.stopPropagation(); os.closeQuickLook(); }} aria-label="Close image preview">
+            <X size={20} strokeWidth={2.25} />
           </button>
           {q.items.length > 1 && (
             <>
-              <button className="glass glass-thin press absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full" onClick={(e) => { e.stopPropagation(); os.stepQuickLook(-1); }} aria-label="Previous">
-                <ChevronLeft size={20} />
+              <button className={`${HUD} press absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full transition-colors hover:bg-[rgba(58,58,62,0.9)]`} onClick={(e) => { e.stopPropagation(); os.stepQuickLook(-1); }} aria-label="Previous image">
+                <ChevronLeft size={24} strokeWidth={2.25} />
               </button>
-              <button className="glass glass-thin press absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full" onClick={(e) => { e.stopPropagation(); os.stepQuickLook(1); }} aria-label="Next">
-                <ChevronRight size={20} />
+              <button className={`${HUD} press absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full transition-colors hover:bg-[rgba(58,58,62,0.9)]`} onClick={(e) => { e.stopPropagation(); os.stepQuickLook(1); }} aria-label="Next image">
+                <ChevronRight size={24} strokeWidth={2.25} />
               </button>
-              <div className="glass glass-thin absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[12px] font-medium tabular-nums">
+              <div className={`${HUD} absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full px-3.5 py-1 text-[13px] font-semibold tabular-nums`}>
                 {q.index + 1} / {q.items.length}
               </div>
             </>

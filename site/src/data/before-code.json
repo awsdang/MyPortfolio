@@ -1,0 +1,1874 @@
+{
+  "before-code": {
+    "id": "before-code",
+    "name": "Architecture",
+    "category": "Where it started",
+    "tagline": "Nine years in architecture and construction.",
+    "summary": "I began working professionally as an architect in my second year of college. Over the next nine years, I designed projects, coordinated with engineers and contractors, and led teams through work that had to stay within budget and schedule. At Mutaa Al-Hashimi, I designed more than 65 projects. At UNOPS in Anbar, I worked on a housing reconstruction program covering around 1,500 homes.\n\nAlong the way, I started writing Python and Dynamo scripts to automate repetitive work. That interest eventually led me to a career in software. The buildings below are part of that story, as is the way I work with a team today.",
+    "role": "Architect and team lead",
+    "period": "2014 to 2023",
+    "stack": [
+      "Revit",
+      "Dynamo",
+      "AutoCAD",
+      "3ds Max",
+      "V-Ray",
+      "Lumion",
+      "Navisworks",
+      "BIM 360"
+    ],
+    "stats": [
+      {
+        "value": "9 years",
+        "label": "of experience in architecture and construction"
+      },
+      {
+        "value": "~1,500",
+        "label": "homes in a reconstruction program with UNOPS"
+      },
+      {
+        "value": "65+",
+        "label": "projects managed and delivered with Mutaa Al-Hashimi"
+      }
+    ],
+    "links": [],
+    "sections": [
+      {
+        "heading": "Working on buildings",
+        "body": "My early work included studying and interning, a parking structure modelled in Revit, and learning from the documents and tenders for the new Central Bank of Iraq headquarters. At Al-Riyad Group, I worked on a modular showroom system that was used across nine showrooms.\n\nAt Mutaa Al-Hashimi, I managed and delivered more than 65 projects and led three architects through more than twenty projects. Later, at UNOPS, I led four architects and six engineers on the Anbar reconstruction program. Alongside the drawings and models, I was working with contractors, budgets and delivery schedules. Those responsibilities taught me to keep the plan clear and deal with problems before they held up the people doing the work."
+      },
+      {
+        "heading": "Finding my way into software",
+        "body": "The repetitive parts of architecture were what first pulled me towards coding. At Mutaa, scripts for schedules and legends saved a working day on each project. I also wrote a script that opened files and sent them to print, with a Telegram notification if the printer failed. I also taught three colleagues to write their own scripts, so automation became something the team could use rather than something only I could do.\n\nFor my master's thesis, I worked on bringing Revit building models to the web. That became HAWSR, where architecture and programming came together.\n\nWhen I joined UNOPS, I kept practising architecture. I still saw myself as an architect while learning to code at nights and weekends. I also built automations for repetitive work there. They continued the pattern I had started at Mutaa, but the work was more involved and required more coding.\n\nThat overlap made my move into software gradual. After my UNOPS contract ended, I joined a startup in an engineering role. Software had become the work I wanted to keep doing."
+      },
+      {
+        "heading": "The habits I still use",
+        "body": "Architecture gave me practical ways to organise work that I still use when building software. A brief and a sketch help me understand the problem before I start. Coordination means agreeing how the different parts fit together, then checking that everyone is building towards the same thing.",
+        "items": [
+          {
+            "title": "Keep decisions with the work",
+            "text": "At UNOPS, I moved site engineers from phone calls to BIM 360. It cut calls by about 75% and gave everyone a shared place to track issues and decisions. That experience showed me how written, shared channels can keep a team aligned without another meeting."
+          },
+          {
+            "title": "Review before it becomes expensive",
+            "text": "I once found a problem 24 hours before a project started and reworked it in time. The potential cost was around $80,000. That experience is a good reason to make time for review, whether I'm looking at a building model or a software change."
+          }
+        ]
+      }
+    ],
+    "shots": [
+      {
+        "src": "/shots/before-code/mutaa/08-villa-236-exterior.webp",
+        "width": 900,
+        "height": 941,
+        "title": "Villa 236 exterior",
+        "caption": "Limestone facade and light metal columns in a project visualization.",
+        "source": "Mutaa Al-Hashimi Architects",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/mutaa/14-residential-235-at-night.webp",
+        "width": 900,
+        "height": 424,
+        "title": "Residential 235 at night",
+        "caption": "A night visualization of the residential compound.",
+        "source": "Mutaa Al-Hashimi Architects",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/mutaa/01-project-220-exterior.webp",
+        "width": 900,
+        "height": 1157,
+        "title": "Project 220 exterior",
+        "caption": "An exterior visualization of the bank headquarters.",
+        "source": "Mutaa Al-Hashimi Architects",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/mutaa/21-villa-232-by-day.webp",
+        "width": 900,
+        "height": 508,
+        "title": "Villa 232 in daylight",
+        "caption": "A daylight visualization showing the villa and its surroundings.",
+        "source": "Mutaa Al-Hashimi Architects",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/mutaa/30-residential-218-exterior.webp",
+        "width": 900,
+        "height": 1042,
+        "title": "Residential 218 exterior",
+        "caption": "The facade and its Shanshool in a project visualization.",
+        "source": "Mutaa Al-Hashimi Architects",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/mutaa/72-reception-chandelier-installed.webp",
+        "width": 900,
+        "height": 791,
+        "title": "Installed reception chandelier",
+        "caption": "The installed chandelier is 1.5 m wide and 5.75 m tall.",
+        "source": "Mutaa Al-Hashimi Architects",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/alriyad/04-main-branch-after-opening.webp",
+        "width": 900,
+        "height": 1404,
+        "title": "Al-Riyad main branch after opening",
+        "caption": "Seating and pendant lighting in the completed showroom.",
+        "source": "Al-Riyad Group",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/freelance/08-the-corner-box-elevation.webp",
+        "width": 900,
+        "height": 601,
+        "title": "The Corner Box elevation",
+        "caption": "Paint, stone and CNC metal plates in the facade design.",
+        "source": "Freelance project",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/freelance/13-house-redevelopment-living-area.webp",
+        "width": 900,
+        "height": 930,
+        "title": "House redevelopment living area",
+        "caption": "Light finishes and an open layout in the redeveloped house.",
+        "source": "Freelance project",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/school/01-hotel-the-tower.webp",
+        "width": 900,
+        "height": 1200,
+        "title": "Hotel tower",
+        "caption": "A university project visualization of the tower and podium.",
+        "source": "University of Technology, Baghdad",
+        "surface": "Selected work"
+      },
+      {
+        "src": "/shots/before-code/school/18-bima-module-3-final-result.webp",
+        "width": 900,
+        "height": 681,
+        "title": "BIMA+ Module 3 final model",
+        "caption": "The final model and conclusions from the BIMA+ module.",
+        "source": "BIMA+ programme, Module 3",
+        "surface": "Selected work"
+      }
+    ],
+    "logo": null,
+    "disclaimers": [],
+    "placeholder": false,
+    "shotsNoun": "images",
+    "shotsHeight": 250
+  },
+  "unops": {
+    "id": "unops",
+    "name": "UNOPS, Anbar",
+    "category": "Before code, reconstruction",
+    "tagline": "Coordinating a team on a housing reconstruction program in Anbar.",
+    "summary": "I worked on the UNOPS reconstruction program for around 1,500 homes in Anbar, helping families displaced by the conflict. I led four architects and six engineers, and coordinated contractors, budgets, schedules and BIM work. It was my final year in construction, while I was already spending nights and weekends writing code.",
+    "role": "Architecture Consultant, Anbar Reconstruction",
+    "period": "August 2022 to August 2023",
+    "stats": [],
+    "links": [],
+    "sections": [
+      {
+        "heading": "Rebuilding homes in Anbar",
+        "lede": "The work was part of a reconstruction program for families displaced by the conflict.",
+        "body": "From August 2022 to August 2023, I worked as a BIM consultant on the UNOPS housing reconstruction program in Anbar, Iraq. The program covered around 1,500 homes. My responsibilities connected the drawings and models to the contractors, budget and delivery schedule, under the conditions we found on site."
+      },
+      {
+        "heading": "Keeping the team working from the same plan",
+        "body": "I led four architects and six engineers, alongside the contractors, suppliers and others involved in the program. Each group needed a different kind of support. With the architects, I reviewed drawings and kept a consistent standard. With the engineers, I used a shared model, schedule and list of open issues to coordinate the work. ",
+        "lede": "A model was only useful if it matched the work on site."
+      },
+      {
+        "heading": "What that taught me about leading",
+        "body": "Keeping the budget and schedule visible helped the team understand what we were working toward. Defining what finished meant for each trade before work started was just as important. I learned to listen to the people doing the building, because they could see problems in a plan that were easy to miss on a screen. Leading the work meant making things clear and following through."
+      },
+      {
+        "heading": "Moving into software",
+        "body": "I kept writing code at night and on weekends throughout the contract, and joined my first software engineering role at a startup before it ended. I was moving into a different field, but I brought the experience of working with a team, coordinating a plan and taking responsibility for the result. That experience still shapes how I work with engineers today."
+      }
+    ],
+    "shots": [],
+    "logo": null,
+    "disclaimers": [],
+    "placeholder": false
+  },
+  "mutaa": {
+    "id": "mutaa",
+    "name": "Mutaa Al-Hashimi",
+    "category": "Architecture and engineering consultancy",
+    "tagline": "A registered Iraqi architecture and engineering consultancy.",
+    "summary": "I joined Mutaa Al-Hashimi as an architect in October 2019 and became Senior Architect before leaving in October 2022. I managed schedules and deliverables for more than 65 projects, designed more than 45, and later led a project team of three architects, six engineers and four foremen through more than twenty projects. Alongside the design work, I started writing scripts to make the repeated work easier. That became an important part of how I worked and taught other architects.",
+    "role": "Architect, then Senior Architect",
+    "period": "October 2019 to October 2022",
+    "stack": [
+      "Revit",
+      "Dynamo",
+      "BIM 360",
+      "ISO 19650",
+      "Lumion",
+      "V-Ray",
+      "3ds Max",
+      "Navisworks"
+    ],
+    "stats": [],
+    "links": [],
+    "sections": [
+      {
+        "heading": "Designing projects and helping the team deliver them",
+        "body": "My work went beyond producing a design. I managed schedules and deliverables, followed up with architects and engineers, and coordinated the information needed to take projects into construction. As Senior Architect, I led a project team of three architects, six engineers and four foremen through more than twenty projects. The work below includes my designs and contributions to projects at the firm, with my part described where it involved a team."
+      },
+      {
+        "heading": "Making the repeated work easier",
+        "body": "I set the firm's first BIM standards, template and guide for design and construction, based on ISO 19650. I also wrote Dynamo scripts to automate schedules and legends. They saved more than a working day per project, and I taught three new colleagues how to use them, improve them and write their own.\n\nThe same thinking applied to communication. Moving coordination with site engineers to BIM 360 reduced phone calls by about 75%. I also brought Lumion renders and animations into the final client package. These were practical changes to how the team prepared and shared its work."
+      },
+      {
+        "heading": "Building 188, where design and automation came together",
+        "body": "Building 188 was one of my first projects at the firm. I designed the office building and produced its detailed drawings, while developing my Revit and Dynamo skills to prepare the drawings faster. As BIM coordinator, I also worked with the other disciplines to reduce clashes in the model.",
+        "shotsLabel": "Design, coordination and detailed drawings",
+        "shots": [
+          {
+            "src": "/shots/before-code/mutaa/49-building-188-elevation.webp",
+            "width": 900,
+            "height": 1122,
+            "title": "Building 188, elevation",
+            "caption": "The proposed elevation of Building 188.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/50-building-188-3d-section.webp",
+            "width": 900,
+            "height": 1386,
+            "title": "Building 188, 3D section",
+            "caption": "An office section from the Building 188 model.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/51-building-188-3d-section-floors.webp",
+            "width": 900,
+            "height": 964,
+            "title": "Building 188, 3D section, floors",
+            "caption": "Another section through the office floors.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/52-building-188-typical-floor.webp",
+            "width": 1800,
+            "height": 1499,
+            "title": "Building 188, typical floor",
+            "caption": "The typical office floor drawing.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/53-building-188-details.webp",
+            "width": 1800,
+            "height": 1430,
+            "title": "Building 188, details",
+            "caption": "Construction details from the Building 188 drawing set.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/54-building-188-3d-model.webp",
+            "width": 900,
+            "height": 1121,
+            "title": "Building 188, 3D model",
+            "caption": "The Building 188 wireframe model.",
+            "source": "Mutaa Al-Hashimi Architects"
+          }
+        ]
+      },
+      {
+        "heading": "Using scripts in the design itself",
+        "body": "Automation also became part of the objects I designed. For Project 243, a three-storey restaurant with about 1,600 sqm of usable area, I designed the facade and some interior objects and produced the visualizations. I used Dynamo to generate the arrangement of ceiling tiles shown in the presentation.",
+        "shotsLabel": "Restaurant design and generated ceiling tiles",
+        "shots": [
+          {
+            "src": "/shots/before-code/mutaa/44-project-243-at-night.webp",
+            "width": 900,
+            "height": 704,
+            "title": "Project 243, at night",
+            "caption": "The restaurant facade in the night visualization.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/45-project-243-by-day.webp",
+            "width": 900,
+            "height": 686,
+            "title": "Project 243, by day",
+            "caption": "The proposed restaurant exterior in daylight.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/46-project-243-3d-section.webp",
+            "width": 900,
+            "height": 815,
+            "title": "Project 243, 3D section",
+            "caption": "The three restaurant storeys shown in section.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/47-project-243-interior.webp",
+            "width": 900,
+            "height": 675,
+            "title": "Project 243, interior",
+            "caption": "An interior visualization for Project 243.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/48-project-243-first-floor-rcp.webp",
+            "width": 900,
+            "height": 1558,
+            "title": "Project 243, reflected ceiling plan",
+            "caption": "The ceiling plan shows the tile arrangement generated with Dynamo.",
+            "source": "Mutaa Al-Hashimi Architects"
+          }
+        ]
+      },
+      {
+        "heading": "Three chandeliers, from scripted forms to construction details",
+        "body": "For these chandeliers, I started with concept forms made through scripting, then designed the structure and details of each one. The reception chandelier is a round golden branch, 1.5 m wide and 5.75 m tall. The staircase chandelier is 1.2 m wide and 11 m tall, with stepped cylinders that follow a quadruple-height stair. The guest house chandelier follows curved organic lines, 5.5 m long and 2.4 m tall. The models, drawings and installed pieces show the different stages of that work.",
+        "shotsLabel": "Concept models, structures and installed pieces",
+        "shots": [
+          {
+            "src": "/shots/before-code/mutaa/72-reception-chandelier-installed.webp",
+            "width": 900,
+            "height": 791,
+            "title": "Reception chandelier, installed",
+            "caption": "The installed reception chandelier, 1.5 m wide and 5.75 m tall.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/73-reception-chandelier-lit.webp",
+            "width": 900,
+            "height": 690,
+            "title": "Reception chandelier, lit",
+            "caption": "The reception chandelier illuminated after installation.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/74-reception-chandelier-3d-visualization.webp",
+            "width": 900,
+            "height": 1600,
+            "title": "Reception chandelier, 3D visualization",
+            "caption": "The reception chandelier concept shown in a visualization.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/75-reception-chandelier-structural-frame.webp",
+            "width": 900,
+            "height": 1097,
+            "title": "Reception chandelier, structural frame",
+            "caption": "The structural frame I designed for the reception chandelier.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/76-staircase-chandelier-3d-visualization.webp",
+            "width": 900,
+            "height": 900,
+            "title": "Staircase chandelier, 3D visualization",
+            "caption": "The staircase chandelier concept, 1.2 m wide and 11 m tall.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/77-staircase-chandelier-structural-frame.webp",
+            "width": 900,
+            "height": 1262,
+            "title": "Staircase chandelier, structural frame",
+            "caption": "The frame behind the staircase chandelier cylinders.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/78-guest-house-chandelier-installed.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Guest house chandelier, installed",
+            "caption": "The installed guest house chandelier, 5.5 m long and 2.4 m tall.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/79-guest-house-chandelier-drawings.webp",
+            "width": 900,
+            "height": 1197,
+            "title": "Guest house chandelier, drawings",
+            "caption": "Top and side drawings for the guest house chandelier.",
+            "source": "Mutaa Al-Hashimi Architects"
+          }
+        ]
+      },
+      {
+        "heading": "Coordinating a bank headquarters",
+        "body": "Project 220 brought several disciplines together in an eight-storey bank headquarters, with offices, meeting rooms, services and a viewing deck used as a restaurant. I designed the mass and worked on the complete detail drawings. As lead architect and BIM coordinator, I coordinated the bank's IT requirements with the other disciplines and worked to reduce clashes in the model.",
+        "shotsLabel": "Headquarters design and coordinated drawings",
+        "shots": [
+          {
+            "src": "/shots/before-code/mutaa/01-project-220-exterior.webp",
+            "width": 900,
+            "height": 1157,
+            "title": "Project 220, exterior",
+            "caption": "The proposed exterior of the bank headquarters.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/02-project-220-second-view.webp",
+            "width": 900,
+            "height": 1436,
+            "title": "Project 220, second view",
+            "caption": "The headquarters viewed from street level.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/03-project-220-3d-section.webp",
+            "width": 900,
+            "height": 1092,
+            "title": "Project 220, 3D section",
+            "caption": "The section model brings structure and services into the same view.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/04-project-220-upper-floors.webp",
+            "width": 900,
+            "height": 876,
+            "title": "Project 220, upper floors",
+            "caption": "The office floors and restaurant viewing deck in section.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/05-project-220-ground-floor.webp",
+            "width": 900,
+            "height": 867,
+            "title": "Project 220, ground floor",
+            "caption": "The ground-floor layout in the 3D model.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/06-project-220-building-section.webp",
+            "width": 1747,
+            "height": 1800,
+            "title": "Project 220, building section",
+            "caption": "A building section from the construction drawings.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/07-project-220-details.webp",
+            "width": 1800,
+            "height": 1510,
+            "title": "Project 220, details",
+            "caption": "Details prepared for the headquarters drawing set.",
+            "source": "Mutaa Al-Hashimi Architects"
+          }
+        ]
+      },
+      {
+        "heading": "Following residential projects onto site",
+        "body": "For Residentials 209, Residential 218 and House 192 in Baghdad, I worked on the design, construction coordination and supervision. The site photos sit alongside the drawings and visualizations because my responsibility continued beyond the model.\n\nResidentials 209 is a three-storey home on 600 sqm. Its classical facade required detailed modelling of the stone and metalwork in Revit so the pieces would fit together. Residential 218 combines a ground-floor home with two apartments above on a 300 sqm plot. Its Shanshool, also known as a Mashrabiya, brings an Iraqi architectural feature into a modern facade. House 192 is a two-storey home on 300 sqm with five bedrooms and four bathrooms, with an entrance designed to be clear from the street.",
+        "shotsLabel": "Models, construction and completed spaces",
+        "shots": [
+          {
+            "src": "/shots/before-code/mutaa/25-residentials-209-elevation.webp",
+            "width": 900,
+            "height": 698,
+            "title": "Residentials 209, elevation",
+            "caption": "The stone and metalwork of Residentials 209 in elevation.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/26-residentials-209-from-above.webp",
+            "width": 900,
+            "height": 452,
+            "title": "Residentials 209, from above",
+            "caption": "Residentials 209 photographed from above during construction.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/27-residentials-209-on-site.webp",
+            "width": 900,
+            "height": 452,
+            "title": "Residentials 209, on site",
+            "caption": "The classical facade during site work.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/28-residentials-209-3d-section.webp",
+            "width": 900,
+            "height": 694,
+            "title": "Residentials 209, 3D section",
+            "caption": "The three floors of Residentials 209 in section.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/29-residentials-209-3d-plan.webp",
+            "width": 900,
+            "height": 710,
+            "title": "Residentials 209, 3D plan",
+            "caption": "A residential floor modelled in Revit.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/30-residential-218-exterior.webp",
+            "width": 900,
+            "height": 1042,
+            "title": "Residential 218, exterior",
+            "caption": "The proposed facade of Residential 218, including its Shanshool.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/31-residential-218-the-site.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Residential 218, the site",
+            "caption": "Residential 218 and its neighbouring plots viewed from above.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/32-residential-218-built-facade.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Residential 218, built facade",
+            "caption": "A closer view of the completed white facade.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/33-residential-218-finished.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Residential 218, finished",
+            "caption": "The completed Residential 218 facade seen from the street.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/34-residential-218-inside.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Residential 218, inside",
+            "caption": "The finished interior of Residential 218.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/35-residential-218-3d-plan.webp",
+            "width": 900,
+            "height": 1182,
+            "title": "Residential 218, 3D plan",
+            "caption": "The ground-floor home shown in the 3D plan.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/36-residential-218-elevation.webp",
+            "width": 900,
+            "height": 685,
+            "title": "Residential 218, elevation",
+            "caption": "The elevation drawing for Residential 218.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/37-house-192-on-site.webp",
+            "width": 900,
+            "height": 904,
+            "title": "House 192, on site",
+            "caption": "The House 192 facade during construction.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/38-house-192-scaffolding.webp",
+            "width": 900,
+            "height": 894,
+            "title": "House 192, scaffolding",
+            "caption": "Scaffolding around the House 192 facade.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/39-house-192-the-stair.webp",
+            "width": 900,
+            "height": 896,
+            "title": "House 192, the stair",
+            "caption": "The staircase before its finishes were installed.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/40-house-192-living-room.webp",
+            "width": 900,
+            "height": 452,
+            "title": "House 192, living room",
+            "caption": "The proposed House 192 living room.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/41-house-192-double-height.webp",
+            "width": 900,
+            "height": 452,
+            "title": "House 192, double height",
+            "caption": "The stair and double-height space in the interior visualization.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/42-house-192-dining.webp",
+            "width": 900,
+            "height": 452,
+            "title": "House 192, dining",
+            "caption": "The proposed dining space in House 192.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/43-house-192-3d-plan.webp",
+            "width": 900,
+            "height": 758,
+            "title": "House 192, 3D plan",
+            "caption": "The House 192 layout shown as a cutaway model.",
+            "source": "Mutaa Al-Hashimi Architects"
+          }
+        ]
+      },
+      {
+        "heading": "Different briefs, different residential layouts",
+        "body": "The residential work covered very different plots and requirements. Villa 236 had a narrow 400 sqm plot with a 1:4 proportion, yet needed five en-suite bedrooms, eight bathrooms, a waterfall, fountain and panoramic lift. An open plan with an interior courtyard and a bridge to the main bedroom gave the layout room to work.\n\nResidential 235 in Hilla has two matching units joined by a hall for up to seventy people, with a pool and rooftop barbecue area. Villa 232 in Baghdad uses a white diamond-shaped entrance against a mostly grey facade. Villa 201 in Ramadi pairs a simple modern facade with red brick, while Villa 234 in Hilla combines limestone, dark oak and rose gold finishes with a courtyard and double-height reception.",
+        "shotsLabel": "Residential layouts, facades and models",
+        "shots": [
+          {
+            "src": "/shots/before-code/mutaa/08-villa-236-exterior.webp",
+            "width": 900,
+            "height": 941,
+            "title": "Villa 236, exterior",
+            "caption": "Villa 236 uses limestone and light metal columns on its narrow frontage.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/09-villa-236-ground-floor-interior.webp",
+            "width": 900,
+            "height": 458,
+            "title": "Villa 236, ground floor interior",
+            "caption": "The open ground-floor layout of Villa 236.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/10-villa-236-first-floor-interior.webp",
+            "width": 900,
+            "height": 458,
+            "title": "Villa 236, first floor interior",
+            "caption": "The first-floor interior of Villa 236.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/11-villa-236-3d-ground-floor-plan.webp",
+            "width": 900,
+            "height": 905,
+            "title": "Villa 236, 3D ground floor plan",
+            "caption": "The Villa 236 layout on a plot with a 1:4 proportion.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/12-villa-236-zoomed-plan.webp",
+            "width": 900,
+            "height": 908,
+            "title": "Villa 236, zoomed plan",
+            "caption": "A closer view of the ground-floor arrangement.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/13-villa-236-3d-section.webp",
+            "width": 900,
+            "height": 784,
+            "title": "Villa 236, 3D section",
+            "caption": "A section through the villa and its interior spaces.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/14-residential-235-at-night.webp",
+            "width": 900,
+            "height": 424,
+            "title": "Residential 235, at night",
+            "caption": "The two units and connecting hall shown at night.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/15-residential-235-in-the-day.webp",
+            "width": 900,
+            "height": 430,
+            "title": "Residential 235, in the day",
+            "caption": "The garden and fountain in the daytime view.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/16-residential-235-sunrise-on-the-porch.webp",
+            "width": 900,
+            "height": 476,
+            "title": "Residential 235, sunrise on the porch",
+            "caption": "The porch shown in the sunrise visualization.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/17-residential-235-pool-area.webp",
+            "width": 900,
+            "height": 479,
+            "title": "Residential 235, pool area",
+            "caption": "The pool area beside the residential units.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/18-residential-235-main-entrance.webp",
+            "width": 900,
+            "height": 425,
+            "title": "Residential 235, main entrance",
+            "caption": "The main entrance in the night visualization.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/19-residential-235-main-elevation.webp",
+            "width": 1800,
+            "height": 537,
+            "title": "Residential 235, main elevation",
+            "caption": "Both units and their connecting hall in elevation.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/20-residential-235-3d-section.webp",
+            "width": 900,
+            "height": 731,
+            "title": "Residential 235, 3D section",
+            "caption": "One unit and its pool shown in section.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/21-villa-232-by-day.webp",
+            "width": 900,
+            "height": 508,
+            "title": "Villa 232, by day",
+            "caption": "The daytime visualization of Villa 232.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/22-villa-232-from-the-garage.webp",
+            "width": 900,
+            "height": 774,
+            "title": "Villa 232, from the garage",
+            "caption": "The white diamond-shaped mass marks the villa entrance.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/23-villa-232-at-night.webp",
+            "width": 900,
+            "height": 595,
+            "title": "Villa 232, at night",
+            "caption": "The villa facade in the night visualization.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/24-villa-232-3d-model.webp",
+            "width": 900,
+            "height": 1052,
+            "title": "Villa 232, 3D model",
+            "caption": "The massing model for the three-storey villa.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/57-villa-201-elevation.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Villa 201, elevation",
+            "caption": "Red brick accents on the proposed Villa 201 facade.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/58-villa-201-3d-ground-plan.webp",
+            "width": 900,
+            "height": 877,
+            "title": "Villa 201, 3D ground plan",
+            "caption": "The Villa 201 ground floor shown in the model.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/59-villa-234-elevation.webp",
+            "width": 900,
+            "height": 600,
+            "title": "Villa 234, elevation",
+            "caption": "The proposed Villa 234 facade and its material palette.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/60-villa-234-3d-ground-plan.webp",
+            "width": 900,
+            "height": 996,
+            "title": "Villa 234, 3D ground plan",
+            "caption": "The Villa 234 ground floor with its double-height reception.",
+            "source": "Mutaa Al-Hashimi Architects"
+          }
+        ]
+      },
+      {
+        "heading": "Changing a facade with a small intervention",
+        "body": "Project 200 was a house renovation. I was responsible for designing a distinctive new facade while changing as little of the existing building as possible. The existing photo and proposed visualization show the intervention together.",
+        "pairs": [
+          {
+            "title": "The facade, before and after",
+            "before": {
+              "src": "/shots/before-code/mutaa/55-project-200-before.webp",
+              "width": 900,
+              "height": 517,
+              "title": "Project 200, before",
+              "caption": "The existing facade before the renovation design.",
+              "source": "Mutaa Al-Hashimi Architects"
+            },
+            "after": {
+              "src": "/shots/before-code/mutaa/56-project-200-after.webp",
+              "width": 900,
+              "height": 600,
+              "title": "Project 200, after",
+              "caption": "The proposed facade with limited changes to the existing building.",
+              "source": "Mutaa Al-Hashimi Architects"
+            }
+          }
+        ]
+      },
+      {
+        "heading": "Other work at the firm",
+        "body": "The selection also includes office, commercial and medical buildings. Building 216 places seven storeys and a basement garage on a narrow 350 sqm plot. Commercial 222 brings a bank, hypermarket and smaller shops into one building. The remaining images show a real estate headquarters, office and commercial facades, and two wards at Al-Andalus Hospital.",
+        "shotsLabel": "Commercial, office and medical projects",
+        "shots": [
+          {
+            "src": "/shots/before-code/mutaa/61-building-213-elevation.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Building 213, elevation",
+            "caption": "The white facade of the real estate headquarters.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/62-building-216-elevation.webp",
+            "width": 900,
+            "height": 1533,
+            "title": "Building 216, elevation",
+            "caption": "The medical building fits seven storeys onto a narrow plot.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/63-building-216-3d-model.webp",
+            "width": 900,
+            "height": 1058,
+            "title": "Building 216, 3D model",
+            "caption": "The Building 216 model shows the two triangular facade elements.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/64-commercial-222-elevation.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Commercial 222, elevation",
+            "caption": "Commercial 222 combines a bank, hypermarket and shops.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/65-commercial-222-second-view.webp",
+            "width": 900,
+            "height": 553,
+            "title": "Commercial 222, second view",
+            "caption": "A second view of the Commercial 222 corner.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/66-building-227-elevation.webp",
+            "width": 900,
+            "height": 458,
+            "title": "Building 227, elevation",
+            "caption": "The glass office facade of Building 227.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/67-building-227-3d-model.webp",
+            "width": 900,
+            "height": 1124,
+            "title": "Building 227, 3D model",
+            "caption": "The Building 227 model, with its glass facade shown in blue.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/68-building-230-elevation.webp",
+            "width": 900,
+            "height": 872,
+            "title": "Building 230, elevation",
+            "caption": "The circular entrance to Building 230.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/69-building-230-from-above.webp",
+            "width": 900,
+            "height": 514,
+            "title": "Building 230, from above",
+            "caption": "The proposed Building 230 design seen from above.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/70-al-andalus-hospital-vip-ward.webp",
+            "width": 900,
+            "height": 490,
+            "title": "Al-Andalus Hospital, VIP ward",
+            "caption": "The proposed VIP ward at Al-Andalus Hospital.",
+            "source": "Mutaa Al-Hashimi Architects"
+          },
+          {
+            "src": "/shots/before-code/mutaa/71-al-andalus-hospital-ward.webp",
+            "width": 900,
+            "height": 686,
+            "title": "Al-Andalus Hospital, ward",
+            "caption": "The proposed standard ward at Al-Andalus Hospital.",
+            "source": "Mutaa Al-Hashimi Architects"
+          }
+        ]
+      },
+      {
+        "heading": "What I carried into software",
+        "body": "This was where I started writing scripts and helping colleagues use and develop them. Architecture gave me experience coordinating people, schedules and detailed work, while automation gave me another way to solve the repeated problems in front of the team. Both became part of the work I moved into later."
+      }
+    ],
+    "shots": [],
+    "logo": null,
+    "disclaimers": [],
+    "placeholder": false,
+    "shotsNoun": "images",
+    "shotsHeight": 250
+  },
+  "alriyad": {
+    "id": "alriyad",
+    "name": "Al-Riyad Group",
+    "category": "Architecture, lighting and electrical",
+    "tagline": "Showrooms and a trade-fair booth for Iraq's number one company in power, lighting and electrical control systems.",
+    "summary": "I worked as an architect at Al-Riyad Group from July 2017 to October 2019, designing and supervising four showrooms. The company wanted to update its spaces, so I developed a modular display system that was practical to manufacture, replace and transport. It became the design process used across nine showrooms. I also designed and supervised the company's booth for the Iraq Energy Exhibition in 2018.",
+    "role": "Architect",
+    "period": "July 2017 to October 2019",
+    "stats": [
+      {
+        "value": "4",
+        "label": "showrooms I designed and supervised"
+      },
+      {
+        "value": "9",
+        "label": "showrooms using my design process"
+      },
+      {
+        "value": "100 sqm",
+        "label": "IEE 2018 booth I designed and supervised"
+      }
+    ],
+    "links": [],
+    "sections": [
+      {
+        "heading": "A display system the company could reuse",
+        "lede": "The old showrooms had lighting fixtures bolted into fixed display boards, leaving visible fixings that were difficult to hide.",
+        "body": "I replaced that approach with two modular pieces. A background frame provided the structure, while a separate front panel was easy to manufacture and inexpensive to replace. This gave the products a cleaner display and made the system practical to reuse across branches. It became the company's showroom design process and was used in nine locations. The Baghdad main branch shows the full version of the system.",
+        "shotsLabel": "The modular system and Baghdad main branch",
+        "shots": [
+          {
+            "src": "/shots/before-code/alriyad/01-main-branch-3d-rendering.webp",
+            "width": 900,
+            "height": 629,
+            "title": "The main branch design",
+            "caption": "A rendering of the modular wall displays in the Baghdad main branch.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/02-main-branch-the-modules.webp",
+            "width": 1413,
+            "height": 1800,
+            "title": "The two display modules",
+            "caption": "The background frame and replaceable front panel that make up the display system.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/03-main-branch-ground-floor.webp",
+            "width": 1800,
+            "height": 641,
+            "title": "Main branch ground floor",
+            "caption": "The ground floor layout, organised by product zone.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/04-main-branch-after-opening.webp",
+            "width": 900,
+            "height": 1404,
+            "title": "Seating and pendant lights",
+            "caption": "The seating area and pendant lights after the main branch opened.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/05-main-branch-after-opening.webp",
+            "width": 900,
+            "height": 1331,
+            "title": "The completed display walls",
+            "caption": "The modular display walls after opening.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/06-main-branch-after-opening.webp",
+            "width": 897,
+            "height": 1800,
+            "title": "The completed showroom",
+            "caption": "The main branch showroom floor after opening.",
+            "source": "Al-Riyad Group"
+          }
+        ]
+      },
+      {
+        "heading": "The first implementation in Baghdad City Centre",
+        "body": "The City Centre branch occupied two floors in a building that needed substantial rehabilitation. The civil works were complicated and extended the delivery timeline. To stay within the client's budget, the built area also had to be reduced by roughly 100 sqm. I worked through those constraints while introducing the new display system. The drawings show the layout and construction details, followed by photographs taken a year after opening.",
+        "shotsLabel": "From the drawings to a year after opening",
+        "shots": [
+          {
+            "src": "/shots/before-code/alriyad/07-city-centre-reception.webp",
+            "width": 900,
+            "height": 598,
+            "title": "City Centre reception design",
+            "caption": "A rendering of the ground floor reception.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/08-city-centre-ground-floor.webp",
+            "width": 900,
+            "height": 1271,
+            "title": "City Centre ground floor",
+            "caption": "The ground floor plan for the first implementation of the showroom system.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/09-city-centre-reception-counter.webp",
+            "width": 900,
+            "height": 976,
+            "title": "Reception counter details",
+            "caption": "The dimensioned drawing for the reception counter.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/10-city-centre-display-board.webp",
+            "width": 900,
+            "height": 1105,
+            "title": "Display panel details",
+            "caption": "The dimensioned drawing for the display board module.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/11-city-centre-the-display-corridor.webp",
+            "width": 900,
+            "height": 1058,
+            "title": "Entrance and display corridor",
+            "caption": "A rendering of the entrance and the display corridor.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/12-city-centre-after-one-year.webp",
+            "width": 900,
+            "height": 1305,
+            "title": "The display walls a year later",
+            "caption": "The wall displays photographed a year after opening.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/13-city-centre-after-one-year.webp",
+            "width": 900,
+            "height": 1495,
+            "title": "The showroom a year later",
+            "caption": "The City Centre showroom photographed a year after opening.",
+            "source": "Al-Riyad Group"
+          }
+        ],
+        "lede": "The first showroom put the design process alongside the realities of an existing building and a limited budget."
+      },
+      {
+        "heading": "Using the same system to restore the Mosul showroom",
+        "body": "I went to restore the showroom using the process and modular system I had developed for the company. The same approach could carry into another location, while the floor and ceiling plans addressed the space itself.",
+        "shotsLabel": "The Mosul showroom drawings",
+        "shots": [
+          {
+            "src": "/shots/before-code/alriyad/14-mosul-3d-section.webp",
+            "width": 900,
+            "height": 1153,
+            "title": "A section through the Mosul showroom",
+            "caption": "A 3D section showing the showroom layout.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/15-mosul-floor-plan.webp",
+            "width": 900,
+            "height": 1187,
+            "title": "Mosul floor plan",
+            "caption": "The floor plan for the showroom restoration.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/16-mosul-ceiling-plan.webp",
+            "width": 900,
+            "height": 1187,
+            "title": "Mosul ceiling plan",
+            "caption": "The ceiling plan for the showroom restoration.",
+            "source": "Al-Riyad Group"
+          }
+        ],
+        "lede": "The Mosul branch had closed in 2014 and was damaged during the events that followed."
+      },
+      {
+        "heading": "Fitting the exhibition into 100 sqm",
+        "body": "I designed and supervised Al-Riyad's booth for IEE 2018. The plans and elevations show how the products fitted into the space, and the finished photograph was taken a day before the opening. We completed the booth on time.",
+        "shotsLabel": "The booth drawings and finished space",
+        "shots": [
+          {
+            "src": "/shots/before-code/alriyad/17-iee-2018-booth-a-day-before-opening.webp",
+            "width": 900,
+            "height": 712,
+            "title": "The booth before opening",
+            "caption": "The completed 100 sqm booth, photographed a day before the exhibition opened.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/18-iee-2018-booth-drawings.webp",
+            "width": 900,
+            "height": 489,
+            "title": "Booth plan and elevation",
+            "caption": "The plan and elevation for the IEE 2018 booth.",
+            "source": "Al-Riyad Group"
+          },
+          {
+            "src": "/shots/before-code/alriyad/19-iee-2018-booth-drawings.webp",
+            "width": 900,
+            "height": 623,
+            "title": "Display wall elevations",
+            "caption": "Elevations showing the booth display walls.",
+            "source": "Al-Riyad Group"
+          }
+        ],
+        "lede": "The Iraq Energy Exhibition brought a different constraint, nearly 135 products to display in a 100 sqm booth."
+      }
+    ],
+    "shots": [],
+    "logo": null,
+    "disclaimers": [],
+    "placeholder": false,
+    "shotsNoun": "images",
+    "shotsHeight": 250
+  },
+  "freelance": {
+    "id": "freelance",
+    "name": "Freelance",
+    "category": "Independent architecture",
+    "tagline": "Designing around the space, budget and plans a client already had.",
+    "summary": "Between 2019 and 2021, I worked independently on eight projects for private clients, from houses and small interiors to the presentation of a mall. The work started with what each client needed. Sometimes that meant fitting a family home onto a small plot, sometimes it meant planning for another use later, and sometimes it meant making an existing house work within a budget. These projects show how I turned those constraints into layouts, drawings and visualizations.",
+    "role": "Independent architect",
+    "period": "2019 to 2021",
+    "stats": [],
+    "links": [],
+    "sections": [
+      {
+        "heading": "A business first, a home later",
+        "body": "The client needed specific spaces and dimensions for a business, but wanted the same building to become a house later. I planned both layouts together so the conversion would need as little construction as possible.\n\nThe transition happens in phases. Planning that second use from the beginning meant the business layout could meet its own requirements while leaving a practical route to a home. The plans below show both uses and how the building changes between them.",
+        "shotsLabel": "The building and its two layouts",
+        "shots": [
+          {
+            "src": "/shots/before-code/freelance/01-business-house-elevation.webp",
+            "width": 900,
+            "height": 1130,
+            "title": "Business House elevation at dusk",
+            "caption": "The proposed elevation for a building planned as a business first and a home later.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/02-business-house-elevation-by-day.webp",
+            "width": 900,
+            "height": 1328,
+            "title": "Business House elevation by day",
+            "caption": "A daytime view of the same proposed elevation.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/03-business-house-business-layout.webp",
+            "width": 900,
+            "height": 921,
+            "title": "Business House business layout",
+            "caption": "The layout for the business, planned around its required spaces and dimensions.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/04-business-house-house-layout.webp",
+            "width": 900,
+            "height": 890,
+            "title": "Business House residential layout",
+            "caption": "The residential layout planned alongside the business layout.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/05-business-house-the-transition.webp",
+            "width": 500,
+            "height": 500,
+            "title": "Business House conversion plan",
+            "caption": "The planned transition from business use to residential use.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/06-business-house-business-plan.webp",
+            "width": 740,
+            "height": 1800,
+            "title": "Business House business floor plan",
+            "caption": "The floor plan for the first use of the building.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/07-business-house-house-plan.webp",
+            "width": 719,
+            "height": 1800,
+            "title": "Business House residential floor plan",
+            "caption": "The floor plan for its later use as a home.",
+            "source": "Freelance project"
+          }
+        ],
+        "lede": "The Business House needed to work for two different uses over time."
+      },
+      {
+        "heading": "Making a home on 45 sqm",
+        "body": "The Tiny House was for a young family of two with a 45 sqm plot. I designed the plan to make full use of that space while leaving room to add another room later if they needed it.\n\nLike the Business House, the layout had to account for the client's needs now and the changes they might make in the future. Here, that meant keeping the possibility of an extra room within a very small plot.",
+        "shotsLabel": "The Tiny House plans",
+        "shots": [
+          {
+            "src": "/shots/before-code/freelance/27-the-tiny-house-ground-floor.webp",
+            "width": 961,
+            "height": 1800,
+            "title": "Tiny House ground floor plan",
+            "caption": "The ground floor layout for the 45 sqm plot.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/28-the-tiny-house-first-floor.webp",
+            "width": 958,
+            "height": 1800,
+            "title": "Tiny House first floor plan",
+            "caption": "The first floor layout, with the possibility of adding another room later.",
+            "source": "Freelance project"
+          }
+        ]
+      },
+      {
+        "heading": "Leaving room for a growing family",
+        "body": "The Practical House had a similar brief for a family of four. They wanted to make full use of their plot, including a garage and a spacious guest room.\n\nI planned the guest room so it could later be divided into a smaller guest room and another bedroom. The extra bedroom was a possibility built into the layout, rather than something the family would have to find space for later.",
+        "shotsLabel": "The Practical House plan and sections",
+        "shots": [
+          {
+            "src": "/shots/before-code/freelance/29-the-practical-house-ground-floor.webp",
+            "width": 1400,
+            "height": 1027,
+            "title": "Practical House ground floor plan",
+            "caption": "The layout for a family of four, including a garage and a guest room.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/30-the-practical-house-ground-floor-section.webp",
+            "width": 900,
+            "height": 791,
+            "title": "Practical House ground floor section",
+            "caption": "A 3D section showing the ground floor spaces.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/31-the-practical-house-first-floor-section.webp",
+            "width": 900,
+            "height": 893,
+            "title": "Practical House first floor section",
+            "caption": "A 3D section showing the first floor spaces.",
+            "source": "Freelance project"
+          }
+        ]
+      },
+      {
+        "heading": "A compact family house",
+        "body": "For the Corner Box, the client wanted a practical family home that used all of the plot without feeling cramped. I worked with a 10 by 10 m layout and developed the facade from a simple box form, using paint, stone and CNC-cut metal plates.\n\nThe ground floor section and first floor plan show how the spaces fit together. The elevation shows the material choices that gave the compact building its character.",
+        "shotsLabel": "The Corner Box elevation and plans",
+        "shots": [
+          {
+            "src": "/shots/before-code/freelance/08-the-corner-box-elevation.webp",
+            "width": 900,
+            "height": 601,
+            "title": "Corner Box elevation",
+            "caption": "Paint, stone and CNC-cut metal plates on the box form.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/09-the-corner-box-ground-floor.webp",
+            "width": 900,
+            "height": 732,
+            "title": "Corner Box ground floor section",
+            "caption": "A 3D section showing the ground floor spaces.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/10-the-corner-box-first-floor.webp",
+            "width": 900,
+            "height": 569,
+            "title": "Corner Box first floor plan",
+            "caption": "The first floor layout within the compact family house.",
+            "source": "Freelance project"
+          }
+        ]
+      },
+      {
+        "heading": "Working with an existing house",
+        "body": "Not every client was starting with an empty plot. For this project, the client had just bought a house and wanted to redesign its facade and interiors. The narrow plot and the budget shaped the work, so I used simple elements and materials for the elevation.\n\nInside, I used light finishes and an open plan to help the main space feel larger. I also fitted as much storage as possible into the kitchen. The facade comparison and interior renders show the proposed changes.",
+        "pairs": [
+          {
+            "title": "The existing facade and proposed elevation",
+            "before": {
+              "src": "/shots/before-code/freelance/11-house-redevelopment-before.webp",
+              "width": 900,
+              "height": 1328,
+              "title": "House redevelopment, existing facade",
+              "caption": "The facade of the house the client had bought.",
+              "source": "Freelance project"
+            },
+            "after": {
+              "src": "/shots/before-code/freelance/12-house-redevelopment-after.webp",
+              "width": 900,
+              "height": 1130,
+              "title": "House redevelopment, proposed facade",
+              "caption": "A render of the proposed elevation, using simple elements and materials.",
+              "source": "Freelance project"
+            }
+          }
+        ],
+        "shotsLabel": "The proposed interiors",
+        "shots": [
+          {
+            "src": "/shots/before-code/freelance/13-house-redevelopment-living-area.webp",
+            "width": 900,
+            "height": 930,
+            "title": "House redevelopment living area",
+            "caption": "Light finishes and an open plan in the proposed living area.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/14-house-redevelopment-kitchen.webp",
+            "width": 900,
+            "height": 435,
+            "title": "House redevelopment kitchen",
+            "caption": "The kitchen design, with as much storage as I could fit.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/15-house-redevelopment-living-room.webp",
+            "width": 900,
+            "height": 567,
+            "title": "House redevelopment living room",
+            "caption": "A render of the proposed main living space.",
+            "source": "Freelance project"
+          }
+        ]
+      },
+      {
+        "heading": "Designing smaller interiors",
+        "body": "Another client had just bought a house and wanted modern, simple bathrooms. The rooms were small, so I worked within their existing size to develop the designs.\n\nThe renders show the proposed interiors, while the drawing sheets show the layouts behind them. It was the same kind of work at a smaller scale, starting with the space available and the client's brief.",
+        "shotsLabel": "Bathroom designs and drawings",
+        "shots": [
+          {
+            "src": "/shots/before-code/freelance/19-bathroom-1.webp",
+            "width": 900,
+            "height": 1280,
+            "title": "First bathroom design",
+            "caption": "A render of the first bathroom design.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/20-bathroom-2.webp",
+            "width": 900,
+            "height": 981,
+            "title": "Second bathroom design",
+            "caption": "A render of the second bathroom design.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/21-bathroom-2-drawings.webp",
+            "width": 900,
+            "height": 1253,
+            "title": "Second bathroom drawings",
+            "caption": "The drawing sheet for the second bathroom.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/22-bathroom-3.webp",
+            "width": 900,
+            "height": 1099,
+            "title": "Third bathroom design",
+            "caption": "A render of the third bathroom design.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/23-bathroom-3-drawings.webp",
+            "width": 900,
+            "height": 1253,
+            "title": "Third bathroom drawings",
+            "caption": "The drawing sheet for the third bathroom.",
+            "source": "Freelance project"
+          }
+        ]
+      },
+      {
+        "heading": "Following a different interior brief",
+        "body": "The medical center client wanted a very light interior with a luxurious appearance. I designed it around white finishes and beige wallpaper, with gold lighting fixtures to bring in the look they asked for.\n\nThe waiting area, reception and doctor's room show how that direction carries through the different spaces.",
+        "shotsLabel": "The medical center interiors",
+        "shots": [
+          {
+            "src": "/shots/before-code/freelance/24-medical-center-waiting-area.webp",
+            "width": 900,
+            "height": 683,
+            "title": "Medical center waiting area",
+            "caption": "White finishes and beige wallpaper in the waiting area design.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/25-medical-center-reception.webp",
+            "width": 900,
+            "height": 778,
+            "title": "Medical center reception",
+            "caption": "The proposed reception, following the same light interior direction.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/26-medical-center-doctor-s-room.webp",
+            "width": 900,
+            "height": 757,
+            "title": "Medical center doctor's room",
+            "caption": "The proposed doctor's room, carrying the interior brief into a consultation space.",
+            "source": "Freelance project"
+          }
+        ]
+      },
+      {
+        "heading": "Presenting a mall in Al-Najaf",
+        "body": "For the mall, my contribution was its presentation. I produced exterior and interior renders, worked on their post-processing, and made a four-minute 3D animation covering both parts of the building. I edited the animation in Adobe Premiere Pro.\n\nThis was a different part of the work from designing a house or an interior. The images and animation brought the spaces together in a presentation, from the site and exterior to the lobby and offices.",
+        "shotsLabel": "Exterior and interior renders",
+        "shots": [
+          {
+            "src": "/shots/before-code/freelance/16-al-najaf-mall-the-site.webp",
+            "width": 900,
+            "height": 1000,
+            "title": "Al-Najaf mall exterior and site",
+            "caption": "The mall exterior and surrounding site in the presentation.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/17-al-najaf-mall-main-lobby.webp",
+            "width": 900,
+            "height": 597,
+            "title": "Al-Najaf mall main lobby",
+            "caption": "A render of the main lobby.",
+            "source": "Freelance project"
+          },
+          {
+            "src": "/shots/before-code/freelance/18-al-najaf-mall-an-office.webp",
+            "width": 900,
+            "height": 567,
+            "title": "Al-Najaf mall office interior",
+            "caption": "An office interior from the mall presentation.",
+            "source": "Freelance project"
+          }
+        ]
+      }
+    ],
+    "shots": [],
+    "logo": null,
+    "disclaimers": [],
+    "placeholder": false,
+    "shotsNoun": "images",
+    "shotsHeight": 250
+  },
+  "school": {
+    "id": "school",
+    "name": "School and BIM",
+    "category": "Architecture, studies and BIM",
+    "tagline": "How my architecture studies led me to visual scripting.",
+    "summary": "I studied Architectural Engineering at the University of Technology in Baghdad. My early projects taught me to work through a building's requirements, from the way people move through it to how it fits into the city. I continued learning after graduation, through housing design and BIM. By 2021, I was rebuilding complex geometry in Dynamo and writing my own Grasshopper scripts. These projects show that progression, from designing buildings to experimenting with the tools that create them.",
+    "role": "Student and self-directed learner",
+    "period": "2015 to 2021",
+    "stack": [
+      "Revit",
+      "Dynamo",
+      "Grasshopper"
+    ],
+    "stats": [],
+    "links": [],
+    "sections": [
+      {
+        "heading": "5 Stars Hotel in Baghdad, 2015",
+        "body": "This was the first complex project I designed during my undergraduate degree. A hotel brought many functions into one building, so I had to work through its requirements and sections together. I learned to plan vertical circulation, emergency exits and service routes as part of the design. The drawings below show how those decisions came together, from the ground floor to the tower.",
+        "shotsLabel": "Renders, plans and sections",
+        "shots": [
+          {
+            "src": "/shots/before-code/school/01-hotel-the-tower.webp",
+            "width": 900,
+            "height": 1200,
+            "title": "Hotel tower",
+            "caption": "The tower and podium in the final render.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/02-hotel-street-view.webp",
+            "width": 900,
+            "height": 616,
+            "title": "Hotel from the street",
+            "caption": "A street view of the hotel proposal.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/03-hotel-aerial-view.webp",
+            "width": 900,
+            "height": 619,
+            "title": "Hotel from above",
+            "caption": "The tower and podium viewed from above.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/04-hotel-ground-floor.webp",
+            "width": 1500,
+            "height": 886,
+            "title": "Hotel ground floor",
+            "caption": "The ground floor plan for the hotel.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/05-hotel-tower-floor.webp",
+            "width": 1800,
+            "height": 1275,
+            "title": "Hotel tower floor",
+            "caption": "A floor plan within the tower.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/06-hotel-elevation.webp",
+            "width": 1800,
+            "height": 884,
+            "title": "Hotel elevation",
+            "caption": "The elevation of the hotel proposal.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/07-hotel-section.webp",
+            "width": 1800,
+            "height": 1183,
+            "title": "Hotel section",
+            "caption": "Section C-C through the hotel.",
+            "source": "University of Technology, Baghdad"
+          }
+        ]
+      },
+      {
+        "heading": "Urban redevelopment in Baghdad, 2016",
+        "body": "The following year, I worked at the scale of a neighbourhood. This redevelopment study in Baghdad took me from the master plan down to individual streets. The plans and street scenes show both scales, including the shaded pedestrian route.",
+        "shotsLabel": "Master plan and street scenes",
+        "shots": [
+          {
+            "src": "/shots/before-code/school/08-urban-redevelopment-master-plan.webp",
+            "width": 1500,
+            "height": 1500,
+            "title": "Redevelopment master plan",
+            "caption": "The master plan for the Baghdad redevelopment study.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/09-urban-redevelopment-the-street.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Redevelopment street scene",
+            "caption": "A street scene within the proposed redevelopment.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/10-urban-redevelopment-the-shaded-walk.webp",
+            "width": 900,
+            "height": 506,
+            "title": "Shaded pedestrian route",
+            "caption": "The pedestrian route with shade along the street.",
+            "source": "University of Technology, Baghdad"
+          }
+        ]
+      },
+      {
+        "heading": "Baghdad's Financial Centre, 2017",
+        "body": "For my graduation project, I proposed redeveloping Baghdad's financial centre on a site beside the Tigris. My concept connected finance and technology through smart office buildings that technology companies could use. It brought the building and urban design work from the earlier projects together in one district, with a master plan, river elevation and sections through the site.",
+        "shotsLabel": "Rendering, master plan and sections",
+        "shots": [
+          {
+            "src": "/shots/before-code/school/11-financial-centre-rendering.webp",
+            "width": 900,
+            "height": 1241,
+            "title": "Financial centre proposal",
+            "caption": "A render of the proposed financial district.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/12-financial-centre-urban-master-plan.webp",
+            "width": 1500,
+            "height": 1500,
+            "title": "Financial centre master plan",
+            "caption": "The proposed district beside the Tigris.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/13-financial-centre-river-elevation.webp",
+            "width": 1800,
+            "height": 400,
+            "title": "Financial centre river elevation",
+            "caption": "The district viewed from the river.",
+            "source": "University of Technology, Baghdad"
+          },
+          {
+            "src": "/shots/before-code/school/14-financial-centre-section.webp",
+            "width": 1800,
+            "height": 590,
+            "title": "Financial centre section",
+            "caption": "A section through the proposed site.",
+            "source": "University of Technology, Baghdad"
+          }
+        ]
+      },
+      {
+        "heading": "Global Housing Design, 2020",
+        "body": "After graduation, I continued studying architecture through Global Housing Design, GHD1x on edX from Delft University of Technology. The course looked at housing problems that recur around the world, while recognising that each place needs its own response. My final assignment explored incrementality, a mix of housing types and clustering. The three sheets below take the proposal from its site to the detailed design.",
+        "shotsLabel": "The three sheets",
+        "shots": [
+          {
+            "src": "/shots/before-code/school/15-ghd1x-housing-site-sheet.webp",
+            "width": 900,
+            "height": 1273,
+            "title": "Housing site sheet",
+            "caption": "The site proposal for my Global Housing Design assignment.",
+            "source": "edX GHD1x, Delft University of Technology"
+          },
+          {
+            "src": "/shots/before-code/school/16-ghd1x-incrementality-sheet.webp",
+            "width": 900,
+            "height": 1271,
+            "title": "Incrementality sheet",
+            "caption": "The assignment sheet exploring incrementality.",
+            "source": "edX GHD1x, Delft University of Technology"
+          },
+          {
+            "src": "/shots/before-code/school/17-ghd1x-detail-design-sheet.webp",
+            "width": 900,
+            "height": 1273,
+            "title": "Detailed housing design",
+            "caption": "The detailed design sheet for the housing proposal.",
+            "source": "edX GHD1x, Delft University of Technology"
+          }
+        ]
+      },
+      {
+        "heading": "BIMA+ Module 3, 2021",
+        "body": "In the BIMA+ programme, I started exploring how geometry could be created and changed through visual scripting. For the Module 3 final project, I rebuilt a complex reference, then edited it and tried different ways of producing the same shape. I wanted to deepen my understanding of geometry creation and optimisation while widening my software skills. The work moved from analysing the reference to generative design results, with the full Dynamo graph showing how I built it.",
+        "shotsLabel": "From reference to graph",
+        "shots": [
+          {
+            "src": "/shots/before-code/school/18-bima-module-3-final-result.webp",
+            "width": 900,
+            "height": 681,
+            "title": "BIMA+ Module 3 final model",
+            "caption": "The final geometry and conclusions from the Module 3 project.",
+            "source": "BIMA+ programme, Module 3"
+          },
+          {
+            "src": "/shots/before-code/school/19-bima-module-3-reference-analysis.webp",
+            "width": 900,
+            "height": 751,
+            "title": "Reference analysis",
+            "caption": "The reference divided into zones for analysis.",
+            "source": "BIMA+ programme, Module 3"
+          },
+          {
+            "src": "/shots/before-code/school/20-bima-module-3-reference-plan.webp",
+            "width": 900,
+            "height": 677,
+            "title": "Reference plan",
+            "caption": "The reference geometry viewed in plan.",
+            "source": "BIMA+ programme, Module 3"
+          },
+          {
+            "src": "/shots/before-code/school/21-bima-module-3-generative-results.webp",
+            "width": 900,
+            "height": 487,
+            "title": "Generative design results",
+            "caption": "The variations produced through generative design.",
+            "source": "BIMA+ programme, Module 3"
+          },
+          {
+            "src": "/shots/before-code/school/22-bima-module-3-mass-results.webp",
+            "width": 900,
+            "height": 493,
+            "title": "Generative mass results",
+            "caption": "Generative design results for the building mass.",
+            "source": "BIMA+ programme, Module 3"
+          },
+          {
+            "src": "/shots/before-code/school/23-bima-module-3-the-full-graph.webp",
+            "width": 1800,
+            "height": 361,
+            "title": "Complete Dynamo graph",
+            "caption": "The complete Dynamo graph used to create the geometry.",
+            "source": "BIMA+ programme, Module 3"
+          }
+        ]
+      },
+      {
+        "heading": "Grasshopper nodes, 2021",
+        "body": "After Module 3, I wanted to go further with visual scripting. I knew about Grasshopper but hadn't used it, so I started writing geometric scripts of my own. I was happy with the results. These four examples close the page with the part of my studies that was moving closest to software, creating geometry by defining how it should be built.",
+        "shotsLabel": "Four of the scripts",
+        "shots": [
+          {
+            "src": "/shots/before-code/school/24-grasshopper-node-1.webp",
+            "width": 1800,
+            "height": 1080,
+            "title": "Patterned surface",
+            "caption": "A patterned surface generated through one of my scripts.",
+            "source": "Self-study"
+          },
+          {
+            "src": "/shots/before-code/school/25-grasshopper-node-2.webp",
+            "width": 1800,
+            "height": 480,
+            "title": "Grasshopper node graph",
+            "caption": "A node graph from my Grasshopper experiments.",
+            "source": "Self-study"
+          },
+          {
+            "src": "/shots/before-code/school/26-grasshopper-node-3.webp",
+            "width": 900,
+            "height": 540,
+            "title": "Folded surface",
+            "caption": "A folded surface generated through visual scripting.",
+            "source": "Self-study"
+          },
+          {
+            "src": "/shots/before-code/school/27-grasshopper-node-4.webp",
+            "width": 900,
+            "height": 541,
+            "title": "Stacked curves",
+            "caption": "A stack of curves from another geometric script.",
+            "source": "Self-study"
+          }
+        ]
+      }
+    ],
+    "shots": [],
+    "logo": null,
+    "disclaimers": [],
+    "placeholder": false,
+    "shotsNoun": "images",
+    "shotsHeight": 250
+  },
+  "volunteering": {
+    "id": "volunteering",
+    "name": "Volunteering",
+    "category": "Before code, volunteering",
+    "tagline": "Sharing BIM with engineers, planning homes for families, and learning to lead and speak.",
+    "summary": "My volunteer work gave me different ways to use what I knew and learn from other people. I taught BIM to engineers at Iraq's Ministry of Construction and Housing, planned homes for four families through a UAE ministry program, and took part in Startup Weekend and Toastmasters. Some of the work was about architecture, and some was about explaining an idea and bringing people together around it.",
+    "role": "Volunteer",
+    "period": "2014 to 2021",
+    "stats": [
+      {
+        "value": "1 month",
+        "label": "of BIM workshops in 2014"
+      },
+      {
+        "value": "4",
+        "label": "families I planned homes for"
+      },
+      {
+        "value": "7",
+        "label": "people in the Startup Weekend team I led"
+      }
+    ],
+    "links": [],
+    "sections": [
+      {
+        "heading": "Teaching BIM through a house model",
+        "body": "In August and September 2014, I ran a month of BIM workshops for Iraq's Ministry of Construction and Housing. The participants included engineers who had never used BIM, so I built a sample house they could work through. Its plans, elevations and model gave us something concrete to use when explaining the fundamentals. The workshops introduced BIM to about 1% of the ministry's engineers.",
+        "shotsLabel": "The house I built for the workshops",
+        "shots": [
+          {
+            "src": "/shots/before-code/volunteering/01-sample-house-perspective.webp",
+            "width": 900,
+            "height": 573,
+            "title": "The sample house",
+            "caption": "The house model I used to introduce BIM to the workshop participants.",
+            "source": "Volunteer work"
+          },
+          {
+            "src": "/shots/before-code/volunteering/02-sample-house-floor-plan.webp",
+            "width": 1135,
+            "height": 1800,
+            "title": "Sample house floor plan",
+            "caption": "The floor plan participants could follow alongside the house model.",
+            "source": "Volunteer work"
+          },
+          {
+            "src": "/shots/before-code/volunteering/03-sample-house-elevation.webp",
+            "width": 900,
+            "height": 299,
+            "title": "Sample house elevation",
+            "caption": "The elevation and levels of the same sample house.",
+            "source": "Volunteer work"
+          }
+        ]
+      },
+      {
+        "heading": "Planning around a family's needs",
+        "body": "In 2020, I joined an online volunteer program run by the UAE's Ministry of Infrastructure Development. I worked with four families to understand what they needed from a home and what they could afford, then planned their houses around those constraints. The program also brought me four clients in the UAE. One villa consultation had a particularly clear brief. Improve the plan without changing the villa's concept, facade or function, and stay within the client's budget. The original and revised plans below show that work.",
+        "pairs": [
+          {
+            "title": "Ground floor plan before and after my revisions",
+            "before": {
+              "src": "/shots/before-code/volunteering/04-uae-villa-original-ground-floor.webp",
+              "width": 1407,
+              "height": 1800,
+              "title": "Ground floor original plan",
+              "caption": "The ground floor plan before my revisions.",
+              "source": "Volunteer work"
+            },
+            "after": {
+              "src": "/shots/before-code/volunteering/05-uae-villa-edited-ground-floor.webp",
+              "width": 900,
+              "height": 1047,
+              "title": "Ground floor revised plan",
+              "caption": "My revised ground floor plan, working within the existing villa brief.",
+              "source": "Volunteer work"
+            }
+          },
+          {
+            "title": "First floor plan before and after my revisions",
+            "before": {
+              "src": "/shots/before-code/volunteering/06-uae-villa-original-first-floor.webp",
+              "width": 1449,
+              "height": 1800,
+              "title": "First floor original plan",
+              "caption": "The first floor plan before my revisions.",
+              "source": "Volunteer work"
+            },
+            "after": {
+              "src": "/shots/before-code/volunteering/07-uae-villa-edited-first-floor.webp",
+              "width": 1579,
+              "height": 1800,
+              "title": "First floor revised plan",
+              "caption": "My revised first floor plan, working within the existing villa brief.",
+              "source": "Volunteer work"
+            }
+          }
+        ]
+      },
+      {
+        "heading": "Bringing a team around an idea",
+        "body": "At Startup Weekend Baghdad in 2017, I led a team of seven people with different strengths. We had three days to develop a business model and a working prototype for a digital furniture business using augmented reality. It was a short project, but we had to bring the business idea and the prototype together as one piece of work."
+      },
+      {
+        "heading": "Practising how I explain my work",
+        "body": "I joined Baghdad Toastmasters Club in February 2018 and continued until October 2021. I completed 11 projects across four levels, spoke to audiences of more than 100 people, and evaluated more than 20 other members. Alongside the design and team work, this gave me regular practice in speaking, listening and giving feedback."
+      }
+    ],
+    "shots": [],
+    "logo": null,
+    "disclaimers": [],
+    "placeholder": false,
+    "shotsNoun": "images",
+    "shotsHeight": 250
+  }
+}

@@ -25,7 +25,7 @@ const SQUIRCLE = (() => {
   return pts.join("") + "Z";
 })();
 
-type Tone = "white" | "graphite" | "blue" | "paper" | "slate" | "cream" | "black" | "linkedin" | "amber" | "clay" | "indigo" | "fog" | "instagram";
+type Tone = "white" | "graphite" | "blue" | "paper" | "slate" | "cream" | "black" | "linkedin" | "amber" | "clay" | "indigo" | "fog" | "green" | "instagram";
 /** linear backgrounds; "instagram" is a radial gradient defined in MacIconDefs */
 const TONES: Record<Exclude<Tone, "instagram">, [string, string]> = {
   white: ["#ffffff", "#dfe3ea"],
@@ -40,6 +40,7 @@ const TONES: Record<Exclude<Tone, "instagram">, [string, string]> = {
   clay: ["#e38a64", "#c45f3d"],
   indigo: ["#7577f0", "#3c3db2"],
   fog: ["#c7ced9", "#8a95a8"],
+  green: ["#6ee07c", "#20b33c"],
 };
 
 export type MacIconName =
@@ -49,6 +50,7 @@ export type MacIconName =
   | "notes"
   | "ask"
   | "mail"
+  | "phone"
   | "terminal"
   | "github"
   | "linkedin"
@@ -59,6 +61,7 @@ export type MacIconName =
   | "cap"
   | "cert"
   | "calendar"
+  | "photos"
   | "claude"
   | "openai"
   | "instagram"
@@ -179,6 +182,14 @@ const ART: Record<MacIconName, { tone: Tone; art: ReactNode }> = {
       </g>
     ),
   },
+  phone: {
+    tone: "green",
+    art: (
+      <g transform="translate(24 24) scale(2.17)" fill="#fff" filter="url(#mi-glyph)">
+        <path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z" />
+      </g>
+    ),
+  },
   terminal: {
     tone: "graphite",
     art: (
@@ -244,6 +255,17 @@ const ART: Record<MacIconName, { tone: Tone; art: ReactNode }> = {
     ),
   },
   calendar: { tone: "white", art: null },
+  photos: {
+    tone: "white",
+    art: (
+      <g filter="url(#mi-glyph)">
+        <rect x="20" y="26" width="60" height="48" rx="8" fill="#9cc8f7" />
+        <circle cx="65" cy="39" r="6" fill="#ffc93c" />
+        <path d="M20 62 37 45l12 12 9-9 22 18a8 8 0 0 1-8 8H28a8 8 0 0 1-8-8Z" fill="#3fb46a" />
+        <path d="M49 57l9-9 22 18a8 8 0 0 1-8 8H38Z" fill="#2e8f53" opacity=".55" />
+      </g>
+    ),
+  },
   bin: { tone: "fog", art: <BinArt full={false} /> },
   binFull: { tone: "fog", art: <BinArt full /> },
   about: {

@@ -20,5 +20,5 @@ export async function ask(
   if (res.status === 503) throw new AskOffline();
   if (!res.ok) throw new Error(`ask failed: ${res.status}`);
   const data = (await res.json()) as { answer?: string; demo?: boolean };
-  return { answer: data.answer?.trim() || "Sorry, I lost that thought. Try asking again?", demo: !!data.demo };
+  return { answer: data.answer?.trim() || "I couldn't load an answer. Please try again, or open Write to Aws to ask him directly.", demo: !!data.demo };
 }
