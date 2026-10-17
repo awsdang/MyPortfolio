@@ -47,8 +47,10 @@ export function FinderWindow() {
     }
   }, [win.navTick, win.nodeId, hist, idx, go]);
 
+  // the top folder is the Desktop on a Mac and Files on the phone (its dock icon)
+  const rootName = os.mobile ? "Files" : "Desktop";
   useEffect(() => {
-    os.setTitle(win.id, node.id === "root" ? "Desktop" : node.name);
+    os.setTitle(win.id, node.id === "root" ? rootName : node.name);
   }, [node.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const open = (n: FsNode) => {
@@ -137,7 +139,7 @@ export function FinderWindow() {
         </div>
       )}
       <h2 className="ml-1 min-w-0 flex-1 truncate font-display text-[17px] font-bold tracking-tight">
-        {query ? `Search “${query}”` : node.id === "root" ? "Desktop" : node.name}
+        {query ? `Search “${query}”` : node.id === "root" ? rootName : node.name}
       </h2>
       {!showPage && node.kind !== "app" && !query && (
         <div className="glass glass-thin hidden rounded-full p-0.5 sm:flex" data-nodrag role="group" aria-label="Folder view">

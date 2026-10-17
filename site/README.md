@@ -34,7 +34,7 @@ Node.js 22. Next.js 16, React 19, Tailwind v4, motion, lucide and pdf.js. Produc
 
 The portfolio guide uses `fakeAnswer()` in the browser and identifies its answers as information published in the portfolio. There is no `/api/ask` route or server requirement. A future LLM integration would need an external backend; credentials must never be placed in the static export.
 
-GitHub Pages uses the **GitHub Actions** publishing source. The workflow builds pull requests for validation and deploys pushes to `main` to **awsdang.com**. The repository-root HTML is legacy source and is not published.
+Set **Settings → Pages → Build and deployment → Source** to **GitHub Actions** to disable the old branch publisher. The workflow builds pull requests for validation and deploys pushes to `main` to **awsdang.com**. The workflow excludes the legacy repository-root HTML from its artifact.
 
 ## Messages and bug reports
 

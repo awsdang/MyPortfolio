@@ -36,7 +36,7 @@ const TOOLS: Item[] = [{ id: "terminal", label: "Terminal", win: "terminal", ico
 
 const BIN_ITEM: Item = { id: "bin", label: "Bin", folder: ["bin", "bin"], icon: "binFull" };
 
-const KIND_ICON: Record<WinKind, MacIconName> = { finder: "finder", terminal: "terminal", about: "notes", achievements: "trophy", contact: "mail", bug: "tile", booking: "calendar", sysinfo: "tile", photos: "photos", cv: "docs" };
+const KIND_ICON: Record<WinKind, MacIconName> = { finder: "finder", terminal: "terminal", about: "notes", achievements: "trophy", contact: "mail", bug: "tile", booking: "calendar", sysinfo: "tile", photos: "photos", cv: "docs", settings: "settings" };
 
 /** The app icon for a window kind. */
 function KindIcon({ kind, date }: { kind: WinKind; date: Date | null }) {
@@ -163,6 +163,14 @@ const SKETCH: Record<WinKind, ReactNode> = {
       <rect x="36" y="62" width="14" height="2.5" rx="1.25" fill="var(--accent)" opacity=".7" />
       <rect x="36" y="68" width="28" height="2" rx="1" opacity=".45" />
       <rect x="36" y="73" width="22" height="2" rx="1" opacity=".45" />
+    </>
+  ),
+  settings: (
+    <>
+      <rect x="10" y="34" width="34" height="4" rx="2" opacity=".9" />
+      {[0, 1, 2, 3].map((i) => (
+        <rect key={i} x="10" y={44 + i * 9} width="80" height="6" rx="2" fill="var(--surface-2)" />
+      ))}
     </>
   ),
   sysinfo: (

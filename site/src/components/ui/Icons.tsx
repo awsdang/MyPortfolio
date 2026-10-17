@@ -133,7 +133,7 @@ export function FolderIcon({
   );
 }
 
-/** Shared gradients for FolderIcon (rendered once in the Shell). */
+/** Shared gradients for FolderIcon and FileIcon (rendered once in the Shell). */
 export function FolderDefs() {
   return (
     <svg width="0" height="0" className="pointer-events-none absolute" aria-hidden focusable="false">
@@ -141,6 +141,10 @@ export function FolderDefs() {
         <linearGradient id="fi-back" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#80c6f6" />
           <stop offset="1" stopColor="#68b6ef" />
+        </linearGradient>
+        <linearGradient id="fi-file" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff" />
+          <stop offset="1" stopColor="#e9edf6" />
         </linearGradient>
         <linearGradient id="fi-front" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#a8dcfd" />
@@ -190,13 +194,8 @@ export function FileIcon({ type = "pdf", size = 56 }: { type?: "pdf" | "link" | 
   return (
     <div className="relative shrink-0" style={{ width: size * 0.8, height: size }} aria-hidden>
       <svg viewBox="0 0 80 100" width="100%" height="100%" style={{ overflow: "visible", filter: "drop-shadow(0 4px 8px rgba(18,26,48,.18))" }}>
-        <defs>
-          <linearGradient id={`fi-${type}`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#fff" />
-            <stop offset="1" stopColor="#e9edf6" />
-          </linearGradient>
-        </defs>
-        <path d="M8 10a8 8 0 0 1 8-8h34l22 22v66a8 8 0 0 1-8 8H16a8 8 0 0 1-8-8V10Z" fill={`url(#fi-${type})`} stroke="rgba(20,22,28,.12)" />
+        {/* the sheet's gradient lives in FolderDefs: a copy defined here could sit in a hidden subtree (the desktop on phones) and paint nothing */}
+        <path d="M8 10a8 8 0 0 1 8-8h34l22 22v66a8 8 0 0 1-8 8H16a8 8 0 0 1-8-8V10Z" fill="url(#fi-file)" stroke="rgba(20,22,28,.12)" />
         <path d="M50 2l22 22H58a8 8 0 0 1-8-8V2Z" fill="#d7dcea" />
         <rect x="14" y="62" width="40" height="18" rx="5" fill={color} />
         <text x="34" y="75" textAnchor="middle" fontSize="11" fontWeight="700" fill="#fff" fontFamily="system-ui">

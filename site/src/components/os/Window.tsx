@@ -26,6 +26,7 @@ import { BookingWindow } from "./BookingWindow";
 import { SysInfoWindow } from "./SysInfoWindow";
 import { PhotosWindow } from "./PhotosWindow";
 import { CVWindow } from "./CVWindow";
+import { SettingsWindow } from "./SettingsWindow";
 
 type WinCtx = {
   win: WinState;
@@ -341,6 +342,7 @@ function WindowView({
         {win.kind === "sysinfo" && <SysInfoWindow />}
         {win.kind === "photos" && <PhotosWindow />}
         {win.kind === "cv" && <CVWindow />}
+        {win.kind === "settings" && <SettingsWindow />}
         {!os.mobile &&
           DIRS.map((r) => (
             <div key={r.d} className={cn("resize", r.cls)} onPointerDown={startResize(r.d)} aria-hidden />

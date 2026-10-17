@@ -17,7 +17,7 @@ import { clampRect, menuBarBottom, zoomRect, type Rect } from "@/lib/geometry";
 import type { Shot } from "@/data/types";
 import { CV_URL } from "@/data/fs";
 
-export type WinKind = "finder" | "terminal" | "about" | "achievements" | "contact" | "bug" | "booking" | "sysinfo" | "photos" | "cv";
+export type WinKind = "finder" | "terminal" | "about" | "achievements" | "contact" | "bug" | "booking" | "sysinfo" | "photos" | "cv" | "settings";
 
 export interface WinState extends Rect {
   id: string;
@@ -125,6 +125,7 @@ const DEFAULT_SIZE: Record<WinKind, { w: number; h: number; title: string }> = {
   sysinfo: { w: 420, h: 560, title: "About this portfolio" },
   photos: { w: 640, h: 480, title: "Photos" },
   cv: { w: 780, h: 980, title: "Aws_Abdulfattah_CV.pdf" },
+  settings: { w: 460, h: 620, title: "Settings" },
 };
 
 /** Shared links, including redirects from the earlier static portfolio. */

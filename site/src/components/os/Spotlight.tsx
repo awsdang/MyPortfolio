@@ -69,7 +69,7 @@ export function Spotlight() {
     <AnimatePresence>
       {os.spotlight && (
         <motion.div
-          className="fixed inset-0 z-[500] flex items-start justify-center bg-black/25 px-4 pt-[14vh] backdrop-blur-sm"
+          className="fixed inset-0 z-[500] flex items-start justify-center bg-black/25 px-4 pt-[14vh] backdrop-blur-sm max-md:bg-black/30 max-md:px-3 max-md:pt-[max(10px,env(safe-area-inset-top))] max-md:backdrop-blur-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -102,9 +102,13 @@ export function Spotlight() {
                 className="w-full bg-transparent text-[18px] outline-none placeholder:text-[var(--ink-3)]"
                 aria-label="Search projects, documents and actions"
               />
-              <kbd className="rounded-md bg-[var(--surface-2)] px-1.5 py-0.5 text-[11px] text-[var(--ink-3)]">esc</kbd>
+              <kbd className="rounded-md bg-[var(--surface-2)] px-1.5 py-0.5 text-[11px] text-[var(--ink-3)] max-md:hidden">esc</kbd>
+              {/* phones: iOS's Cancel instead of a key nobody has */}
+              <button onClick={() => os.setSpotlight(false)} className="shrink-0 text-[16px] text-[var(--accent)] md:hidden">
+                Cancel
+              </button>
             </div>
-            <ul ref={listRef} className="max-h-[52vh] overflow-y-auto p-2" role="listbox">
+            <ul ref={listRef} className="max-h-[52vh] overflow-y-auto p-2 max-md:max-h-[calc(100dvh-140px)]" role="listbox">
               {results.length === 0 && <li className="px-4 py-8 text-center text-[14px] text-[var(--ink-3)]">No matches. Try a project name, such as Cardy.</li>}
               {results.map((r, i) => (
                 <li key={(r.type === "node" ? r.node.id : r.id) + i} role="option" aria-selected={i === sel}>

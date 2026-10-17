@@ -25,6 +25,22 @@ const SQUIRCLE = (() => {
   return pts.join("") + "Z";
 })();
 
+/** A twelve-tooth gear on the 100x100 grid (Settings). */
+const GEAR = (() => {
+  const teeth = 12, ro = 33, ri = 27.5, cx = 50, cy = 50;
+  const pts: string[] = [];
+  for (let i = 0; i < teeth; i++) {
+    const a = (i / teeth) * Math.PI * 2;
+    const step = (Math.PI * 2) / teeth;
+    // root, flank up, tip, flank down
+    for (const [r, t] of [[ri, -0.5], [ro, -0.28], [ro, 0.28], [ri, 0.5]] as const) {
+      const ang = a + t * step;
+      pts.push(`${(cx + r * Math.cos(ang)).toFixed(2)} ${(cy + r * Math.sin(ang)).toFixed(2)}`);
+    }
+  }
+  return `M${pts.join("L")}Z`;
+})();
+
 type Tone = "white" | "graphite" | "blue" | "paper" | "slate" | "cream" | "black" | "linkedin" | "amber" | "clay" | "indigo" | "fog" | "green" | "instagram";
 /** linear backgrounds; "instagram" is a radial gradient defined in MacIconDefs */
 const TONES: Record<Exclude<Tone, "instagram">, [string, string]> = {
@@ -69,6 +85,7 @@ export type MacIconName =
   | "about"
   | "bin"
   | "binFull"
+  | "settings"
   | "blank";
 
 const BIN_BODY = "M15.5 22H84.5L78.6 85.8C78.1 91.5 74 95 68.2 95H31.8C26 95 21.9 91.5 21.4 85.8Z";
@@ -263,6 +280,17 @@ const ART: Record<MacIconName, { tone: Tone; art: ReactNode }> = {
         <circle cx="65" cy="39" r="6" fill="#ffc93c" />
         <path d="M20 62 37 45l12 12 9-9 22 18a8 8 0 0 1-8 8H28a8 8 0 0 1-8-8Z" fill="#3fb46a" />
         <path d="M49 57l9-9 22 18a8 8 0 0 1-8 8H38Z" fill="#2e8f53" opacity=".55" />
+      </g>
+    ),
+  },
+  settings: {
+    tone: "fog",
+    art: (
+      <g filter="url(#mi-glyph)">
+        <path d={GEAR} fill="#4b515d" />
+        <circle cx="50" cy="50" r="20" fill="#c9ced7" />
+        <circle cx="50" cy="50" r="13" fill="#4b515d" />
+        <circle cx="50" cy="50" r="6.5" fill="#c9ced7" />
       </g>
     ),
   },

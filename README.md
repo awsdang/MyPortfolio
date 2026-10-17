@@ -25,7 +25,9 @@ Open http://localhost:3000. The production build is a complete static website in
 
 ## GitHub Pages
 
-The repository's Pages publishing source is **GitHub Actions**. [`.github/workflows/pages.yml`](.github/workflows/pages.yml) installs dependencies, builds and checks the new portfolio, then uploads **only `site/out/`** and deploys it to GitHub Pages. Pushes to `main` deploy; pull requests build and validate without deploying. The workflow can also be run manually from Actions.
+The publishing workflow is [`.github/workflows/pages.yml`](.github/workflows/pages.yml). It installs dependencies, builds and checks the new portfolio, then uploads **only `site/out/`** and deploys it to GitHub Pages. Pushes to `main` deploy; pull requests build and validate without deploying. The workflow can also be run manually from Actions.
+
+One-time repository setup: in [Settings → Pages](https://github.com/awsdang/MyPortfolio/settings/pages), set **Build and deployment → Source → GitHub Actions**. This disables the earlier branch-based publisher. Changing that setting requires a repository administrator; the workflow itself only receives the permissions needed to publish Pages.
 
 The custom domain remains **awsdang.com**. The build copies the root `CNAME` into the output and adds `.nojekyll` so the `_next` assets are served. Existing project `.html` links, flat sub-project links, `cv.html`, `recruiter.html`, AI skills and old downloads continue to resolve.
 

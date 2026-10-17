@@ -411,6 +411,66 @@ body {
 @container (max-height: 255px) { .stack-note { display: none !important; } }
 @container (max-height: 148px) { .cq-short, .cq-row:nth-child(3) { display: none !important; } }
 
+/* Touch: the pager takes sideways swipes; up/down ones come to the page (they open Search).
+   No text selection or link callouts on a long press, which is edit mode. */
+.phone-pager { touch-action: pan-x; }
+.phone-screen, .phone-screen * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.phone-screen img { -webkit-user-drag: none; }
+/* in edit mode a press drags, so nothing under the finger may scroll */
+.phone-editing [data-cell], .phone-editing [data-cell] * { touch-action: none; }
+
+/* Edit mode: iOS jiggle (widgets move less), a minus badge, and a lifted copy under the finger */
+@keyframes jiggle { 0%, 100% { transform: rotate(-1.6deg); } 50% { transform: rotate(1.6deg); } }
+@keyframes jiggle-w { 0%, 100% { transform: rotate(-0.55deg); } 50% { transform: rotate(0.55deg); } }
+.jiggle { animation: jiggle 0.26s ease-in-out infinite; }
+.jiggle-w { animation: jiggle-w 0.3s ease-in-out infinite; }
+[data-cell]:nth-child(2n) > .jiggle, .phone-editing .relative:nth-child(2n) > .jiggle { animation-delay: -0.13s; animation-duration: 0.29s; }
+[data-cell]:nth-child(3n) > .jiggle { animation-delay: -0.07s; animation-duration: 0.24s; }
+[data-cell]:nth-child(2n) > .jiggle-w { animation-delay: -0.15s; }
+@media (prefers-reduced-motion: reduce) { .jiggle, .jiggle-w { animation: none; } }
+.phone-minus {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(118, 118, 128, 0.62);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 0.5px 0 rgba(255, 255, 255, 0.35);
+  animation: minus-in 0.18s ease-out;
+}
+.phone-minus::before { content: ""; position: absolute; left: 6px; right: 6px; top: 10px; height: 2px; border-radius: 1px; background: #fff; }
+@keyframes minus-in { from { transform: scale(0); } to { transform: scale(1); } }
+.phone-lift > * { filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.28)); }
+
+/* iOS alert (the minus badge's "Remove?") */
+.ios-alert {
+  background: rgba(242, 242, 247, 0.88);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  color: #1d1d1f;
+}
+:root[data-theme="dark"] .ios-alert { background: rgba(44, 44, 46, 0.88); color: #f5f5f7; }
+.ios-alert-btn { display: block; width: 100%; padding: 11px 12px; font-size: 17px; border-top: 0.5px solid rgba(60, 60, 67, 0.29); }
+.ios-alert-btn:active { background: rgba(120, 120, 128, 0.16); }
+:root[data-theme="dark"] .ios-alert-btn { border-color: rgba(84, 84, 88, 0.6); }
+
+/* the meme that "deleting" gets: big caption, white with a black outline */
+.meme { background: radial-gradient(80% 70% at 50% 45%, #5a5f6a, #23252b); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); }
+.meme-text {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Impact, "Anton", "Arial Black", var(--font-display), sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #fff;
+  -webkit-text-stroke: 1.6px #000;
+  paint-order: stroke fill;
+  text-shadow: 0 2px 0 #000;
+}
+
 /* iPhone folder: frosted tile with the first nine apps in it */
 .ios-folder {
   border-radius: 24%;
@@ -449,6 +509,7 @@ body {
 /* Phones get a deeper, still neutral wallpaper so the white labels and
    glass widgets read the way they do on an iPhone. Dark mode is already deep. */
 @media (max-width: 767px) {
+  html:has(.phone-screen), html:has(.phone-screen) body { overscroll-behavior: none; }
   html:not([data-theme="dark"]) { background: #a3a9b3; }
   :root:not([data-theme="dark"]) .wallpaper {
     background:
