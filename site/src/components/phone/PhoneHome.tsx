@@ -10,6 +10,7 @@ import { CalendarWidget, ClockWidget, MusicWidget, PhotoWidget } from "@/compone
 import { FillNodeIcon } from "@/components/ui/Icons";
 import { MacIcon } from "@/components/ui/MacIcon";
 import { DESKTOP } from "@/data/fs";
+import { PROFILE } from "@/data/profile";
 import type { FsNode } from "@/data/types";
 import { cn } from "@/lib/cn";
 import { moveItem, pack, phoneHome, SIZE, usePhoneHome, type Placed } from "@/lib/phone-home";
@@ -49,7 +50,8 @@ function AppCell({ label, aria, onClick, href, children }: { label: string; aria
       <span className="phone-label">{label}</span>
     </>
   );
-  const cls = "group flex min-w-0 flex-col items-center gap-[3px] outline-offset-2";
+  // w-full: a <button> shrinks to its content and would sit at the cell's left edge, off the column links are centred in
+  const cls = "group flex w-full min-w-0 flex-col items-center gap-[3px] outline-offset-2";
   return href ? (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={aria ?? label} className={cls} draggable={false}>
       {body}
@@ -70,6 +72,21 @@ function FileCell({ n, label }: { n: FsNode; label?: string }) {
     <AppCell label={label ?? n.name} aria={n.summary ?? n.name} href={external ? href : undefined} onClick={external ? undefined : () => os.openHref(href)}>
       {n.icon ? <FillNodeIcon node={n} /> : <MacIcon name="docs" />}
     </AppCell>
+  );
+}
+
+/**
+ * The Bin is the one icon that isn't a tile: Apple's trash art, which leaves
+ * empty space around the bin (bin-full.png is 246px square, the bin and its
+ * paper span x 34-212 and y 27-231). Cropped to that, so its top and bottom
+ * line up with the icons beside it.
+ */
+function BinIcon() {
+  return (
+    <span className="relative block h-full w-full">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={PROFILE.icons.binFull} alt="" draggable={false} className="absolute left-[-10.3%] top-[-13.2%] h-[120.6%] w-[120.6%] max-w-none" />
+    </span>
   );
 }
 
@@ -110,7 +127,7 @@ function useItems(): Record<string, Item> {
       label: "Bin",
       render: () => (
         <AppCell label="Bin" aria="Bin, the architecture work I did before software" onClick={() => os.open("finder", { rootId: "bin", nodeId: "bin" })}>
-          <MacIcon name="binFull" />
+          <BinIcon />
         </AppCell>
       ),
     },

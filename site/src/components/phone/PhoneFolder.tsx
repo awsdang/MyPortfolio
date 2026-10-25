@@ -42,7 +42,7 @@ export function PhoneFolder({ node }: { node: FsNode }) {
 
   return (
     <>
-      <button ref={tile} onClick={open} className="group flex flex-col items-center gap-[3px] outline-offset-2" aria-label={`${node.name} folder, ${kids.length} items`} aria-haspopup="dialog">
+      <button ref={tile} onClick={open} className="group flex w-full min-w-0 flex-col items-center gap-[3px] outline-offset-2" aria-label={`${node.name} folder, ${kids.length} items`} aria-haspopup="dialog">
         <span className="ios-folder grid aspect-square w-[var(--icon)] grid-cols-3 content-start gap-[6%] p-[13%] transition-transform duration-200 group-active:scale-90" aria-hidden>
           {kids.slice(0, 9).map((k) => (
             <span key={k.id} className="flex aspect-square">
