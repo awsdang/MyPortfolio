@@ -21,6 +21,7 @@ async function projectRoutes(dir) {
 const projects = await projectRoutes(join(output, "work"));
 const redirects = new Map([
   ["cv.html", "/#cv"],
+  ["cv/index.html", "/#cv"],
   ["recruiter.html", "/#about"],
   ["ai-skills/index.html", "/#ai-skills"],
 ]);
