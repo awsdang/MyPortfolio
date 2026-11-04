@@ -22,6 +22,9 @@ assert(homepage.includes("Aws Abdulfattah"), "The homepage must contain the port
 for (const path of ["404.html", ".nojekyll", "CNAME", "robots.txt", "sitemap.xml", "og/home.jpg", "og/cv.jpg", "cv/index.html", "cv/Aws_Abdulfattah_CV.pdf"]) await access(join(output, path));
 const cvPage = await readFile(join(output, "cv", "index.html"), "utf8");
 assert(!cvPage.includes("Page moved") && cvPage.includes('property="og:image"'), "/cv/ must be the real CV page with its own title and share card, not a redirect.");
+// GitHub Pages serves cv.html for /cv, so that stub is what a shared awsdang.com/cv link shows
+const cvStub = await readFile(join(output, "cv.html"), "utf8");
+assert(cvStub.includes("<title>Aws Abdulfattah CV") && cvStub.includes("/og/cv.jpg"), "cv.html must carry the CV page's title and share card.");
 assert.equal((await readFile(join(output, "CNAME"), "utf8")).trim(), (await readFile(join(site, "..", "CNAME"), "utf8")).trim());
 
 const missing = new Set();
@@ -44,6 +47,7 @@ for (const path of await files(output)) {
   if (!path.endsWith(".html")) continue;
   pages++;
   const html = await readFile(path, "utf8");
+  assert(!html.includes("<title>Page moved"), `${path} still has a "Page moved" title, which link previews would show.`);
   for (const match of html.matchAll(/(?:href|src|poster)="([^"<>]+)"/g)) await checkUrl(match[1]);
 }
 

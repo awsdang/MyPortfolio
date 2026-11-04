@@ -34,12 +34,24 @@ for (const dir of projects) {
   if (route !== `work/${id}`) redirects.set(`work/${id}/index.html`, target);
 }
 
+// GitHub Pages answers /cv with cv.html and /work/x with work/x.html before it tries the
+// folder, so a stub is what link previews and crawlers read for a URL without the slash:
+// each one carries its target page's title and share tags, not a "Page moved" title.
+async function shareTags(target) {
+  const page = join(output, new URL(target, "https://example.com").pathname, "index.html");
+  const html = await readFile(page, "utf8").catch(() => "");
+  const title = html.match(/<title>[^<]*<\/title>/)?.[0] ?? "<title>Aws Abdulfattah</title>";
+  const tags = html.match(/<meta (?:name="(?:description|twitter:[^"]+)"|property="og:[^"]+") content="[^"]*"\/>/g) ?? [];
+  return [title, ...tags].join("\n");
+}
+
 for (const [path, target] of redirects) {
   const file = join(output, path);
   await mkdir(dirname(file), { recursive: true });
   // These URLs are generated only from known routes, not visitor input.
   await writeFile(file, `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>Page moved, Aws Abdulfattah</title>
+<html lang="en"><head><meta charset="utf-8">
+${await shareTags(target)}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://${domain}${target}">
 <meta http-equiv="refresh" content="0;url=${target}">
