@@ -1,0 +1,67 @@
+<!doctype html>
+<!-- Share card template for public/og/*.png; scripts/og/render.mjs fills it and takes a 1200x630 shot. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Bricolage"; src: url("../../src/app/fonts/bricolage-grotesque.ttf"); font-weight: 200 800; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: "Bricolage", -apple-system, system-ui, sans-serif;
+    color: #1d1d1f;
+    background: radial-gradient(1100px 700px at 85% 0%, #ffffff 0%, #f3f3f5 45%, #e9e9ed 100%);
+  }
+  .copy { position: absolute; left: 72px; top: 64px; bottom: 60px; width: 560px; display: flex; flex-direction: column; }
+  .logo { width: 64px; height: 64px; border-radius: 16px; background: #1d1d1f; display: grid; place-items: center; }
+  .logo svg { width: 40px; height: 40px; fill: #fff; }
+  .kicker { margin-top: auto; font-size: 22px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: #2f6fd8; }
+  h1 { margin-top: 14px; font-size: 72px; line-height: 0.98; font-weight: 750; letter-spacing: -0.035em; }
+  .role { margin-top: 22px; font-size: 30px; line-height: 1.22; font-weight: 500; letter-spacing: -0.01em; color: rgba(29,29,31,.78); text-wrap: balance; }
+  .tags { margin-top: 18px; font-size: 22px; font-weight: 450; color: rgba(29,29,31,.5); }
+  .url { margin-top: auto; padding-top: 36px; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .url span { color: rgba(29,29,31,.42); font-weight: 450; }
+
+  /* CV: the first page as a sheet of paper, running off the bottom edge */
+  .paper { position: absolute; left: 720px; top: 66px; width: 430px; transform: rotate(3.5deg); transform-origin: top left;
+    border-radius: 6px; background: #fff; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 12px 28px rgba(0,0,0,.12), 0 40px 80px rgba(0,0,0,.10); }
+  .paper img { display: block; width: 100%; }
+
+  /* Home: the desktop in a window frame, running off the right and bottom edges */
+  .screen { position: absolute; left: 676px; top: 92px; width: 720px; border-radius: 18px; overflow: hidden;
+    background: #fff; border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 18px 40px rgba(0,0,0,.14), 0 50px 100px rgba(0,0,0,.10); }
+  .screen img { display: block; width: 100%; }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <div class="logo"><svg viewBox="0 0 512 512"><path id="banana" fill-rule="evenodd"/></svg></div>
+    <div class="kicker" id="kicker"></div>
+    <h1>Aws Abdulfattah</h1>
+    <div class="role" id="role"></div>
+    <div class="tags" id="tags"></div>
+    <div class="url" id="url"></div>
+  </div>
+  <div id="art"></div>
+<script>
+  window.render = ({ kicker, role, tags, url, banana, art, img }) => {
+    document.getElementById("banana").setAttribute("d", banana);
+    document.getElementById("kicker").textContent = kicker;
+    document.getElementById("role").textContent = role;
+    document.getElementById("tags").textContent = tags;
+    const [host, path] = url.split(/(?=\/)/);
+    const u = document.getElementById("url");
+    u.textContent = host;
+    if (path) u.append(Object.assign(document.createElement("span"), { textContent: path }));
+    const box = Object.assign(document.createElement("div"), { className: art });
+    const pic = Object.assign(document.createElement("img"), { src: img, alt: "" });
+    box.append(pic);
+    document.getElementById("art").append(box);
+    return Promise.all([document.fonts.ready, pic.decode()]);
+  };
+</script>
+</body>
+</html>

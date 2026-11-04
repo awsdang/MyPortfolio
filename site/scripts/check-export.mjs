@@ -19,7 +19,9 @@ async function files(dir) {
 const homepage = await readFile(join(output, "index.html"), "utf8");
 assert(homepage.includes("/_next/static/"), "The Pages artifact must contain the new Next.js portfolio.");
 assert(homepage.includes("Aws Abdulfattah"), "The homepage must contain the portfolio content.");
-for (const path of ["404.html", ".nojekyll", "CNAME", "cv/index.html", "cv/Aws_Abdulfattah_CV.pdf"]) await access(join(output, path));
+for (const path of ["404.html", ".nojekyll", "CNAME", "robots.txt", "sitemap.xml", "og/home.jpg", "og/cv.jpg", "cv/index.html", "cv/Aws_Abdulfattah_CV.pdf"]) await access(join(output, path));
+const cvPage = await readFile(join(output, "cv", "index.html"), "utf8");
+assert(!cvPage.includes("Page moved") && cvPage.includes('property="og:image"'), "/cv/ must be the real CV page with its own title and share card, not a redirect.");
 assert.equal((await readFile(join(output, "CNAME"), "utf8")).trim(), (await readFile(join(site, "..", "CNAME"), "utf8")).trim());
 
 const missing = new Set();

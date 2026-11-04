@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WorkPage } from "@/components/os/WorkPage";
 import { allNodes, getNode, projectFor, workHref, workSlug } from "@/data/fs";
+import { shareMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string[] }> };
 
@@ -28,11 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const r = resolve(slug);
   if (!r) return {};
-  return {
+  return shareMeta({
     title: `${r.content.name}, Aws Abdulfattah`,
     description: r.content.tagline ?? r.content.summary,
-    alternates: { canonical: workHref(r.id) },
-  };
+    path: `${workHref(r.id)}/`,
+  });
 }
 
 export default async function Page({ params }: Props) {

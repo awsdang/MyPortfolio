@@ -20,8 +20,8 @@ async function projectRoutes(dir) {
 
 const projects = await projectRoutes(join(output, "work"));
 const redirects = new Map([
-  ["cv.html", "/#cv"],
-  ["cv/index.html", "/#cv"],
+  // /cv/ itself is a real page (app/cv/page.tsx) so links to it get its own title and card
+  ["cv.html", "/cv/"],
   ["recruiter.html", "/#about"],
   ["ai-skills/index.html", "/#ai-skills"],
 ]);
