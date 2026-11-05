@@ -1,0 +1,176 @@
+<!doctype html>
+<!--
+  Source of the CV PDF (site/public/cv/Aws_Abdulfattah_CV.pdf). Render with render.mjs in this folder.
+  Kept ATS-friendly on purpose: one column, real text, standard section names, no tables, boxes,
+  icons or text boxes, dates on the same line as each role, full visible URLs, ligatures off.
+  Facts come from the code and the earlier CVs; see docs/cv-rewrite-notes.md. No em dashes.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aws Abdulfattah CV, Senior Full-Stack Software Engineer</title>
+<meta name="author" content="Aws Abdulfattah">
+<style>
+  @page { size: A4; margin: 12mm 13.5mm 11mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 9.1pt; line-height: 1.34; color: #1d1d1f;
+    font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0;
+  }
+  a { color: inherit; text-decoration: none; }
+  header h1 { font-size: 22pt; font-weight: 700; letter-spacing: -0.015em; line-height: 1.05; }
+  header .title { margin-top: 2pt; font-size: 11pt; font-weight: 600; color: #2f6fd8; }
+  header .contact { margin-top: 3pt; color: #3a3a3c; }
+  header .contact + .contact { margin-top: 1pt; }
+  header .contact span + span::before { content: " · "; color: #8e8e93; }
+  h2 {
+    margin: 9pt 0 4pt; padding-bottom: 1.5pt; border-bottom: 0.8pt solid #c7c7cc;
+    font-size: 9.8pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #1d1d1f;
+    break-after: avoid;
+  }
+  .entry { margin-top: 5.5pt; }
+  .entry.short { margin-top: 3pt; }
+  h2 + .entry, h2 + .skills { margin-top: 0; }
+  /* a role's heading and description stay with its first bullet; long roles may split between bullets */
+  .head, .meta { break-after: avoid; }
+  li { break-inside: avoid; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
+  .head h3 { font-size: 9.6pt; font-weight: 700; }
+  .head h3 .org { font-weight: 600; color: #3a3a3c; }
+  .head .when { flex: none; font-weight: 600; color: #3a3a3c; white-space: nowrap; }
+  .meta { color: #48484a; }
+  /* the bullet is real text (not a list marker graphic) so parsers see where each point starts */
+  ul { margin-top: 1.5pt; list-style: none; }
+  li { margin-top: 1.3pt; padding-left: 9pt; text-indent: -9pt; }
+  li::before { content: "•"; display: inline-block; width: 9pt; text-indent: 0; color: #6e6e73; }
+  .skills p { margin-top: 1.3pt; }
+  .skills b { font-weight: 700; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Aws Abdulfattah</h1>
+  <p class="title">Senior Full-Stack Software Engineer &amp; Technical Lead</p>
+  <p class="contact"><span>Baghdad, Iraq (open to relocation and remote roles)</span><span>+964 770 253 1435</span><span><a href="mailto:awsdang@gmail.com">awsdang@gmail.com</a></span></p>
+  <p class="contact"><span><a href="https://awsdang.com">awsdang.com</a></span><span><a href="https://www.linkedin.com/in/awsdang">linkedin.com/in/awsdang</a></span><span><a href="https://github.com/awsdang">github.com/awsdang</a></span></p>
+</header>
+
+<h2>Summary</h2>
+<p>Full-stack engineer and technical lead who works on the front end as much as the back end: web apps in React, Next.js, Svelte and Angular, mobile apps in Flutter and React Native, and the Node.js, Bun and PostgreSQL services behind them. At Qi Card, Iraq's largest card issuer, builds payment and merchant mini-apps for the SuperQi super-app and was promoted to Senior within 16 months. As founding engineer of Cardy, hired the team and rebuilt the platform end to end, from the Flutter app and React dashboard to a live backend migration. Previously founded HAWSR, a 3D property-tour startup whose clients included DAMAC, and built Sadeek, an AI listing assistant with 10,000+ users.</p>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><b>Frontend:</b> React, Next.js, Svelte, SvelteKit, Angular, TypeScript, JavaScript, HTML, CSS, Tailwind CSS, Astro, Vite, TanStack Router and Table, Zustand, React Hook Form, Zod, shadcn/ui, Three.js, React Three Fiber, D3.js, i18n and right-to-left layouts</p>
+  <p><b>Mobile:</b> Flutter, Dart, React Native, Expo, iOS and Android apps, Alipay mini-programs (SuperQi)</p>
+  <p><b>Backend and data:</b> Node.js, Bun, Express, Python, Django, REST APIs, PostgreSQL, MySQL, Prisma, Redis, BullMQ, Supabase</p>
+  <p><b>Payments and reliability:</b> payment gateway integration, idempotency, live data migrations, API parity testing, load testing (k6), Vitest</p>
+  <p><b>DevOps:</b> Docker, CI/CD, GitHub Actions, Dokploy, Traefik, Nginx, Cloudflare, monitoring and backups</p>
+  <p><b>Applied AI:</b> OpenAI and Gemini APIs, realtime voice, Vercel AI SDK, model routing and provider fallbacks</p>
+</div>
+
+<h2>Experience</h2>
+<div class="entry">
+  <div class="head"><h3>Senior Software Engineer, <span class="org">Qi Card</span></h3><span class="when">Nov 2024 – Present</span></div>
+  <p class="meta">Baghdad, Iraq. Iraq's largest card issuer with 10M+ cardholders; payment, billing and merchant mini-apps inside the SuperQi super-app, plus staff dashboards. Promoted from Software Engineer in March 2026.</p>
+  <ul>
+    <li>Built Tasdid+ bill payments from scratch in Svelte and TypeScript, integrated with bill-payment providers: QR receipts, money requests, subscriptions and merchant invoicing.</li>
+    <li>Added payment-confirmation checks and duplicate-charge safeguards to Tasdid+, and opened it to partner apps through server-verified permissions, integration docs and deep links to specific bills.</li>
+    <li>Developed Jabi+ merchant tools in Svelte for transaction monitoring, statement exports and payroll (salary components, bulk confirmation, per-employee results), then ported the app to the native mini-program framework: 19 pages and 26 endpoints.</li>
+    <li>Created the e-Psule bill-payment mini-app in Kurdish, Arabic and English with right-to-left layouts, and its React staff dashboard (TanStack Router and Table, Zustand, React Hook Form, Zod, shadcn/ui) with two-factor sign-in and role-based access.</li>
+    <li>Extended the Angular anti-money-laundering dashboard with scenario settings, a D3 transfer-network graph for account investigations, and session and Arabic layout fixes.</li>
+    <li>Delivered the applicant and guarantor screens of a housing-loan mini-app in 3 days from the design team's specifications.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="head"><h3>Founding Engineer &amp; Technical Lead, <span class="org">Cardy</span></h3><span class="when">Sep 2025 – Present</span></div>
+  <p class="meta">Baghdad, Iraq. Sports booking and membership platform with 200 venues, 4,000 subscribers and 30,000 app downloads.</p>
+  <ul>
+    <li>Hired and manage a team of 5+ developers, QA engineers and UI/UX designers; own hiring, offers and the technical budget, set the architecture and review code.</li>
+    <li>Ran a staged rebuild: shipped prepaid visits and monthly memberships in the existing app first, then directed the Flutter rewrite of the member app.</li>
+    <li>Migrated the live backend from PHP/Laravel and MySQL to Bun, TypeScript and PostgreSQL (355 endpoints, 120 tables), with API-parity checks on responses and side effects, a rehearsed cutover, reconciled balances and a documented rollback plan.</li>
+    <li>Unified the payment gateways behind one flow with confirmation and duplicate-request checks before points are credited; load-tested one instance at about 175 requests per second with p95 latency near 290 ms and zero 5xx errors.</li>
+    <li>Rebuilt the Arabic operations dashboard in React for settlements, exports and venue management, and the website in Astro in Arabic, English and Kurdish.</li>
+    <li>Set up CI/CD, isolated environments, monitoring and backups on Dokploy; recovered a data-loss incident with zero records lost and fixed a DNS/CDN issue affecting Iraqi networks.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="head"><h3>Founder, Engineer &amp; Team Lead, <span class="org">HAWSR</span></h3><span class="when">2021 – 2024</span></div>
+  <ul>
+    <li>Turned an architecture research project into a cross-device 3D property-tour platform: a React Three Fiber and Three.js viewer, a Django backend and a Python/Dynamo model pipeline with floor plans and measurements.</li>
+    <li>Managed a team of six and delivered about $60,000 in client projects, including work for DAMAC, the Dubai real-estate developer.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="head"><h3>Software Engineer, <span class="org">Sifrtas</span></h3><span class="when">Jun 2022 – Jan 2024</span></div>
+  <ul>
+    <li>Owned the backend and front end of a meal-ordering platform, including its operations dashboard and a Telegram bot with webhooks and background workers that automated order tracking.</li>
+    <li>Audited the cloud infrastructure and cut hosting costs by 75% with no loss of performance, then automated CI/CD so releases shipped in hours instead of days.</li>
+  </ul>
+</div>
+
+<h2>Projects</h2>
+<div class="entry">
+  <div class="head"><h3>NotifyX, <span class="org">open-source push-notification service</span></h3><span class="when">2024</span></div>
+  <p class="meta"><a href="https://github.com/awsdang/notifyx">github.com/awsdang/notifyx</a></p>
+  <ul>
+    <li>Designed one API for FCM, APNs, HMS and Web Push with scheduling, retries, invalid-token cleanup and delivery history in a React dashboard.</li>
+    <li>Shipped SDKs for web, Flutter and React Native; the service runs in 5 products, and one worker benchmarked at about 150 messages per second.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="head"><h3>Asheerty, <span class="org">founder and engineer</span></h3><span class="when">2026</span></div>
+  <p class="meta"><a href="https://asheerty.com">asheerty.com</a></p>
+  <ul>
+    <li>Built an Arabic family-tree app for iOS, Android and web in React Native and Expo, with a React tree editor, a custom print editor and a Bun, Express and Prisma backend; supports offline edits and collaboration that the tree's owner reviews.</li>
+    <li>Developing AI-assisted extraction of family relationships from paper trees, with user review, cycle checks and uncertain-link flags, plus artwork approval and print fulfillment.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="head"><h3>Maaahr, <span class="org">solo builder</span></h3><span class="when">2024 – 2025</span></div>
+  <ul>
+    <li>Engineered four connected Arabic and English Next.js apps for interview practice and hiring, with live voice interviews (OpenAI Realtime, Gemini Live), transcripts, AI feedback and HR dashboards, on Tailwind CSS, shadcn/ui, Zustand and Supabase.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="head"><h3>Sadeek, <span class="org">founder and sole engineer</span></h3><span class="when">2023 – 2025</span></div>
+  <ul>
+    <li>Launched an AI listing assistant for online sellers, a Telegram bot with a Next.js storefront and a React Native app; reached 10,000+ users and 150,000+ AI requests that turned product photos into edited images, descriptions, price suggestions and moderated listings.</li>
+    <li>Replaced the first n8n workflow with backend stages that retry on failure (Bun, PostgreSQL, Redis, BullMQ), adding model routing, caching and provider fallbacks to control errors and API costs.</li>
+  </ul>
+</div>
+
+<h2>Education</h2>
+<div class="entry short">
+  <div class="head"><h3>B.Sc. Architectural Engineering, <span class="org">University of Technology, Baghdad, Iraq</span></h3><span class="when">2017</span></div>
+</div>
+<div class="entry short">
+  <div class="head"><h3>Graduate studies, Information Management in Construction, <span class="org">University of Ljubljana, Slovenia</span></h3><span class="when">2020 – 2021</span></div>
+  <p class="meta">Erasmus scholarship; studied online during COVID. Degree not completed because visa restrictions prevented in-person attendance.</p>
+</div>
+<div class="entry short">
+  <div class="head"><h3>AI Engineering, <span class="org">Turing College</span></h3><span class="when">2026</span></div>
+</div>
+<div class="entry short">
+  <div class="head"><h3>Machine Learning for Inverse Graphics and AI (course), <span class="org">MIT</span></h3><span class="when">2024</span></div>
+</div>
+
+<h2>Awards</h2>
+<div class="entry short">
+  <div class="head"><h3>Expert contributor, <span class="org">World Bank Group Business Ready</span></h3><span class="when">2024</span></div>
+</div>
+<div class="entry short">
+  <div class="head"><h3>Orange Corners incubation program (8 months), sixth cohort, <span class="org">Orange Corners Baghdad</span></h3><span class="when">2023</span></div>
+</div>
+<div class="entry short">
+  <div class="head"><h3>First prize, <span class="org">The Station Foundation incubator, with HAWSR</span></h3><span class="when">2022</span></div>
+</div>
+<div class="entry short">
+  <div class="head"><h3>Most Innovative Startup Founder in Baghdad, <span class="org">CS50x Baghdad</span></h3><span class="when">2022</span></div>
+</div>
+
+<h2>Languages</h2>
+<p>Arabic (native), English (fluent), Dutch (A2)</p>
+</body>
+</html>

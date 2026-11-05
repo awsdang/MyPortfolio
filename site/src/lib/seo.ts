@@ -43,14 +43,14 @@ export const PERSON = {
   image: `${SITE_URL}${PROFILE.photo.src}`,
   email: `mailto:${PROFILE.email}`,
   jobTitle: "Senior Software Engineer",
-  description: "Senior Software Engineer and Technical Lead focused on payments, full-stack TypeScript and applied AI.",
+  description: "Senior full-stack software engineer and technical lead: web and mobile apps in React, Next.js, Svelte, Angular, Flutter and React Native, and the Node.js, Bun and PostgreSQL services behind them.",
   worksFor: [
     { "@type": "Organization", name: "Qi Card" },
     { "@type": "Organization", name: "Cardy" },
   ],
   address: { "@type": "PostalAddress", addressLocality: "Baghdad", addressCountry: "IQ" },
   alumniOf: { "@type": "CollegeOrUniversity", name: "University of Technology, Iraq" },
-  knowsAbout: ["Payments", "TypeScript", "React", "Next.js", "Svelte", "Bun", "PostgreSQL", "Redis", "Flutter", "Applied AI"],
+  knowsAbout: ["React", "Next.js", "Svelte", "Angular", "TypeScript", "Flutter", "React Native", "Node.js", "Bun", "PostgreSQL", "Payments", "Applied AI"],
   knowsLanguage: ["ar", "en", "nl"],
   sameAs: [PROFILE.links.github, PROFILE.links.linkedin, PROFILE.links.x],
 };

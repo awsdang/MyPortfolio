@@ -42,8 +42,8 @@ try {
     },
     cv: {
       kicker: "Curriculum vitae",
-      role: "Senior Software Engineer and Technical Lead",
-      tags: "Payments · full-stack TypeScript · applied AI",
+      role: "Senior Full-Stack Software Engineer and Technical Lead",
+      tags: "React · Next.js · Svelte · Angular · Flutter · Node.js",
       url: "awsdang.com/cv",
       art: "paper",
       img: pathToFileURL(join(tmp, "cv.png")).href,

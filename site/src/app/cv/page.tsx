@@ -2,9 +2,9 @@ import { HomeScreen } from "@/components/desktop/HomeScreen";
 import { OpenOnLoad } from "@/components/os/OpenOnLoad";
 import { CV_PDF, PERSON, SITE_URL, jsonLd, shareMeta } from "@/lib/seo";
 
-const TITLE = "Aws Abdulfattah CV, Senior Software Engineer";
+const TITLE = "Aws Abdulfattah CV, Senior Full-Stack Software Engineer";
 const DESCRIPTION =
-  "Aws Abdulfattah's CV: Senior Software Engineer at Qi Card and Founding Engineer and Technical Lead at Cardy, focused on payments, full-stack TypeScript and applied AI.";
+  "Aws Abdulfattah's CV: Senior Software Engineer at Qi Card and Founding Engineer and Technical Lead at Cardy, building web and mobile apps in React, Next.js, Svelte, Angular and Flutter and the Node.js services behind them.";
 
 export const metadata = shareMeta({ title: TITLE, description: DESCRIPTION, path: "/cv/", image: "cv", type: "profile" });
 
